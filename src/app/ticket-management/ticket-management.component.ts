@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from '../event.service';
 
 @Component({
   selector: 'app-ticket-management',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketManagementComponent implements OnInit {
 
-  constructor() { }
+  events: any[];
+
+  constructor(eventService: EventService) {
+    eventService.getAll().subscribe(events=>{
+      this.events = events;
+      console.log(this.events);
+    });
+   }
 
   ngOnInit() {
   }

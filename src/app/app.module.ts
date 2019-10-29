@@ -17,6 +17,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from 'src/environments/environment.prod';
 import { TicketManagementComponent } from './ticket-management/ticket-management.component';
 import { TicketCardComponent } from './ticket-card/ticket-card.component';
+import { EventService } from './event.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { TicketCardComponent } from './ticket-card/ticket-card.component';
       { path: "ticket-management", component: TicketManagementComponent }
     ])
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
