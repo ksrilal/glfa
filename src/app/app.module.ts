@@ -15,6 +15,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from 'src/environments/environment.prod';
+import { TicketManagementComponent } from './ticket-management/ticket-management.component';
+import { TicketCardComponent } from './ticket-card/ticket-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { environment } from 'src/environments/environment.prod';
     StaffManagementComponent,
     RedeemTicketComponent,
     UserCardComponent,
-    FilterSalesComponent
+    FilterSalesComponent,
+    TicketManagementComponent,
+    TicketCardComponent
   ],
   imports: [
     BrowserModule,
@@ -33,13 +37,13 @@ import { environment } from 'src/environments/environment.prod';
     AngularFireAuthModule,
     AngularFirestoreModule,
     RouterModule.forRoot([
-      {path: 'staff', component: StaffManagementComponent},
-      {path: 'redeem', component: RedeemTicketComponent},
-      {path: 'filter-sales', component: FilterSalesComponent}
+      { path: "staff", component: StaffManagementComponent },
+      { path: "redeem", component: RedeemTicketComponent },
+      { path: "filter-sales", component: FilterSalesComponent },
+      { path: "ticket-management", component: TicketManagementComponent }
     ])
-
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
