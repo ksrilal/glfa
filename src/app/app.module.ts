@@ -9,6 +9,7 @@ import { StaffManagementComponent } from './staff-management/staff-management.co
 import {RouterModule} from '@angular/router';
 import { RedeemTicketComponent } from './redeem-ticket/redeem-ticket.component';
 import { UserCardComponent } from './user-card/user-card.component';
+import { FilterSalesComponent } from './filter-sales/filter-sales.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,16 @@ import { UserCardComponent } from './user-card/user-card.component';
     HeaderComponent,
     StaffManagementComponent,
     RedeemTicketComponent,
-    UserCardComponent
+    UserCardComponent,
+    FilterSalesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path:'staff', component: StaffManagementComponent},
-      {path:'redeem', component: RedeemTicketComponent}
+      {path:'redeem', component: RedeemTicketComponent},
+      {path:'filter-sales', component: FilterSalesComponent}
     ])
 
   ],
