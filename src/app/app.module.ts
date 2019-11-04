@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment.prod';
 import { TicketManagementComponent } from './ticket-management/ticket-management.component';
 import { TicketCardComponent } from './ticket-card/ticket-card.component';
 import { EventService } from './event.service';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EventService } from './event.service';
       { path: "redeem", component: RedeemTicketComponent },
       { path: "filter-sales", component: FilterSalesComponent },
       { path: "ticket-management", component: TicketManagementComponent }
-    ])
+    ]),
+    NgbModule
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

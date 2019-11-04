@@ -12,9 +12,7 @@
 </div>
 <div class="header">
   <div class="header-content clearfix">
-    <button class="btn btn-primary" >logput</button>
     <div class="header-right">
-
       <ul class="clearfix">
         <li class="icons dropdown">
           <a href="javascript:void(0)" data-toggle="dropdown">
@@ -167,7 +165,7 @@
           </div>
         </li>
 
-        <li class="icons dropdown">
+        <li ngbDropdown class="icons dropdown">
           <div
             class="user-img c-pointer position-relative"
             data-toggle="dropdown"
@@ -178,10 +176,15 @@
               height="40"
               width="40"
               alt=""
+              ngbDropdownToggle
             />
           </div>
           <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
-            <div class="dropdown-content-body">
+            <div
+              ngbDropdownMenu
+              aria-labelledby="dropdownBasic1"
+              class="dropdown-content-body"
+            >
               <ul>
                 <li>
                   <a href="app-profile.html"
