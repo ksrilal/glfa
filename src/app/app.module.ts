@@ -19,6 +19,7 @@ import { TicketManagementComponent } from './ticket-management/ticket-management
 import { TicketCardComponent } from './ticket-card/ticket-card.component';
 import { EventService } from './event.service';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { VolunteermanagementComponent } from './volunteermanagement/volunteermanagement.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     UserCardComponent,
     FilterSalesComponent,
     TicketManagementComponent,
-    TicketCardComponent
+    TicketCardComponent,
+    VolunteermanagementComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
       { path: "staff", component: StaffManagementComponent },
       { path: "redeem", component: RedeemTicketComponent },
       { path: "filter-sales", component: FilterSalesComponent },
-      { path: "ticket-management", component: TicketManagementComponent }
+      { path: "ticket-management", component: TicketManagementComponent },
+      { path: "volunteer-management", component: VolunteermanagementComponent }
     ]),
     NgbModule
   ],
