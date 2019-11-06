@@ -22,6 +22,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { VolunteermanagementComponent } from './volunteermanagement/volunteermanagement.component';
 import { AddvolunteerComponent } from './addvolunteer/addvolunteer.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { AddvolunteerComponent } from './addvolunteer/addvolunteer.component';
     TicketManagementComponent,
     TicketCardComponent,
     VolunteermanagementComponent,
-    AddvolunteerComponent
+    AddvolunteerComponent,
+    
   ],
   imports: [
     BrowserModule,
