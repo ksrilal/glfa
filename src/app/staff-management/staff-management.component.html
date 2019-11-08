@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-body">
             <div class="form-validation">
-              <form class="form-valide" action="#" method="post">
+              <form [formGroup]="form" class="form-valide">
                 <div class="form-group row">
                   <label class="col-lg-4 col-form-label" for="val-username"
                     >Username <span class="text-danger">*</span>
@@ -20,7 +20,13 @@
                       id="val-username"
                       name="val-username"
                       placeholder="Enter a username.."
+                      formControlName="userName"
                     />
+                    <div *ngIf="userName.touched && userName.invalid">
+                      <div class="alert alert-danger">
+                        Username cannot be empty
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -34,7 +40,20 @@
                       id="val-email"
                       name="val-email"
                       placeholder="Your valid email.."
+                      formControlName="email"
                     />
+                    <div *ngIf="email.touched && email.invalid">
+                      <div *ngIf="email.errors.email">
+                        <div class="alert alert-danger">
+                          Invalid Email address
+                        </div>
+                      </div>
+                      <div *ngIf="email.errors.required">
+                        <div class="alert alert-danger">
+                          Email is required
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -48,7 +67,22 @@
                       id="val-password"
                       name="val-password"
                       placeholder="Choose a safe one.."
+                      formControlName="password"
                     />
+                    <div *ngIf="password.touched && password.invalid">
+                      <div *ngIf="password.errors.minlength">
+                        <div class="alert alert-danger">
+                          Password should be at least
+                          {{ password.errors.minlength.requiredLength }}
+                          characters
+                        </div>
+                      </div>
+                      <div *ngIf="password.errors.required">
+                        <div class="alert alert-danger">
+                          Password is required
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -63,11 +97,26 @@
                       class="form-control"
                       id="val-confirm-password"
                       name="val-confirm-password"
-                      placeholder="..and confirm it!"
+                      placeholder=""
+                      formControlName="confirmPassword"
                     />
+                    <div
+                      *ngIf="confirmPassword.touched && confirmPassword.invalid"
+                    >
+                      <div *ngIf="confirmPassword.errors.passwordNotMatch">
+                        <div class="alert alert-danger">
+                          Passwords does not match
+                        </div>
+                      </div>
+                      <div *ngIf="confirmPassword.errors.required">
+                        <div class="alert alert-danger">
+                          Confirm password is required
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                   <label class="col-lg-4 col-form-label" for="val-suggestions"
                     >Suggestions <span class="text-danger">*</span>
                   </label>
@@ -80,30 +129,29 @@
                       placeholder="What would you like to see?"
                     ></textarea>
                   </div>
-                </div>
+                </div> -->
                 <div class="form-group row">
                   <label class="col-lg-4 col-form-label" for="val-skill"
-                    >Best Skill <span class="text-danger">*</span>
+                    >Designation <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-6">
                     <select
                       class="form-control"
                       id="val-skill"
                       name="val-skill"
+                      formControlName="accessName"
                     >
                       <option value="">Please select</option>
-                      <option value="html">HTML</option>
-                      <option value="css">CSS</option>
-                      <option value="javascript">JavaScript</option>
-                      <option value="angular">Angular</option>
-                      <option value="angular">React</option>
-                      <option value="vuejs">Vue.js</option>
-                      <option value="ruby">Ruby</option>
-                      <option value="php">PHP</option>
-                      <option value="asp">ASP.NET</option>
-                      <option value="python">Python</option>
-                      <option value="mysql">MySQL</option>
+                      <option value="html">Admin</option>
+                      <option value="css">Staff</option>
                     </select>
+                    <div *ngIf="accessName.touched && accessName.invalid">
+                      <div *ngIf="accessName.errors.required">
+                        <div class="alert alert-danger">
+                          Select access type
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -117,11 +165,31 @@
                       class="form-control"
                       id="val-phoneus"
                       name="val-phoneus"
-                      placeholder="212-999-0000"
+                      placeholder="xxxxxxxxxx"
+                      formControlName="mobile"
                     />
+                    <div *ngIf="mobile.touched && mobile.invalid">
+                      <div *ngIf="mobile.errors.minlength">
+                        <div class="alert alert-danger">
+                          Mobile number should be at least
+                          {{ mobile.errors.minlength.requiredLength }} numbers
+                        </div>
+                      </div>
+                      <div *ngIf="mobile.errors.maxlength">
+                        <div class="alert alert-danger">
+                          Mobile number cannot exceed
+                          {{ mobile.errors.maxlength.requiredLength }} numbers
+                        </div>
+                      </div>
+                      <div *ngIf="mobile.errors.required">
+                        <div class="alert alert-danger">
+                          Password is required
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                   <label class="col-lg-4 col-form-label"
                     ><a href="#">Terms &amp; Conditions</a>
                     <span class="text-danger">*</span>
@@ -142,10 +210,14 @@
                       terms</label
                     >
                   </div>
-                </div>
+                </div> -->
                 <div class="form-group row">
                   <div class="col-lg-8 ml-auto">
-                    <button type="submit" class="btn btn-primary">
+                    <button
+                      type="submit"
+                      [disabled]="form.invalid"
+                      class="btn btn-primary"
+                    >
                       Submit
                     </button>
                   </div>

@@ -22,6 +22,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { VolunteermanagementComponent } from './volunteermanagement/volunteermanagement.component';
 import { AddvolunteerComponent } from './addvolunteer/addvolunteer.component';
 import { AuthorManagementComponent } from './author-management/author-management.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -55,7 +56,9 @@ import { AuthorManagementComponent } from './author-management/author-management
       { path: "addvolunteer", component:AddvolunteerComponent  },
       { path: "author-management", component:AuthorManagementComponent  }
     ]),
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [EventService],
   bootstrap: [AppComponent]
