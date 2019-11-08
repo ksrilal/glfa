@@ -23,6 +23,8 @@ import { VolunteermanagementComponent } from './volunteermanagement/volunteerman
 import { AddvolunteerComponent } from './addvolunteer/addvolunteer.component';
 import { AuthorManagementComponent } from './author-management/author-management.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EventComponent } from './event/event.component';
+
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     VolunteermanagementComponent,
     AddvolunteerComponent,
     AuthorManagementComponent,
+    EventComponent,
 
   ],
   imports: [
@@ -54,7 +57,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
       { path: "ticket-management", component: TicketManagementComponent },
       { path: "volunteer-management", component: VolunteermanagementComponent },
       { path: "addvolunteer", component:AddvolunteerComponent  },
-      { path: "author-management", component:AuthorManagementComponent  }
+      { path: "author-management", component:AuthorManagementComponent  },
+      { path: "event", component:EventComponent  }
     ]),
     NgbModule,
     FormsModule,
