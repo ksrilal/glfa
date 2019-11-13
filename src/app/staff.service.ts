@@ -22,4 +22,10 @@ export class StaffService {
 
   }
 
+
+  getAll() {
+    return this.afs.collection('staff').valueChanges();
+  }
+
+
 }

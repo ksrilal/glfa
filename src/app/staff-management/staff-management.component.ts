@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PasswordValidators } from '../validators/password-validator';
-import { AccessName } from '../validators/accessName-validator';
-import { StaffService } from '../staff.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { PasswordValidators } from "../validators/password-validator";
+import { AccessName } from "../validators/accessName-validator";
+import { StaffService } from "../staff.service";
 
 @Component({
   selector: "app-staff-management",
@@ -10,6 +10,8 @@ import { StaffService } from '../staff.service';
   styleUrls: ["./staff-management.component.scss"]
 })
 export class StaffManagementComponent implements OnInit {
+  members: any[];
+
   form = new FormGroup({
     userName: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
@@ -29,10 +31,15 @@ export class StaffManagementComponent implements OnInit {
     accessName: new FormControl("", Validators.required)
   });
 
-  constructor(private staffService: StaffService) {}
+  constructor(private staffService: StaffService) {
+    staffService.getAll().subscribe(member => {
+      this.members = member;
+    });
+  }
 
   onSubmit() {
     this.staffService.create(this.form.value);
+    this.form.reset();
   }
 
   get email() {
@@ -56,10 +63,4 @@ export class StaffManagementComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-
-
-  revert() {
-    this.form.reset();
-  }
 }
