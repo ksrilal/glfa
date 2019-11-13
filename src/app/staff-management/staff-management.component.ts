@@ -2,28 +2,41 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidators } from '../validators/password-validator';
 import { AccessName } from '../validators/accessName-validator';
+import { StaffService } from '../staff.service';
 
 @Component({
-  selector: 'app-staff-management',
-  templateUrl: './staff-management.component.html',
-  styleUrls: ['./staff-management.component.scss']
+  selector: "app-staff-management",
+  templateUrl: "./staff-management.component.html",
+  styleUrls: ["./staff-management.component.scss"]
 })
 export class StaffManagementComponent implements OnInit {
-
   form = new FormGroup({
-    userName:new FormControl('',Validators.required),
-    email: new FormControl('', [Validators.required,Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
-    mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
-    confirmPassword: new FormControl('',[Validators.required, PasswordValidators.checkPasswrod]),
-    accessName:new FormControl('',Validators.required),
+    userName: new FormControl("", Validators.required),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [
+      Validators.required,
+      Validators.minLength(8)
+    ]),
+    mobile: new FormControl("", [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10)
+    ]),
+    confirmPassword: new FormControl("", [
+      Validators.required,
+      PasswordValidators.checkPasswrod
+    ]),
+    accessName: new FormControl("", Validators.required)
   });
 
-  constructor() { }
+  constructor(private staffService: StaffService) {}
 
+  onSubmit() {
+    this.staffService.create(this.form.value);
+  }
 
   get email() {
-    return this.form.get('email');
+    return this.form.get("email");
   }
   get userName() {
     return this.form.get("userName");
@@ -42,16 +55,11 @@ export class StaffManagementComponent implements OnInit {
     return this.form.get("accessName");
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 
-  onSubmit() {
-
-  }
 
   revert() {
-
+    this.form.reset();
   }
-
 }

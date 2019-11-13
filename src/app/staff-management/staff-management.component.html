@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-body">
             <div class="form-validation">
-              <form [formGroup]="form" class="form-valide">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-valide">
                 <div class="form-group row">
                   <label class="col-lg-4 col-form-label" for="val-username"
                     >Username <span class="text-danger">*</span>
