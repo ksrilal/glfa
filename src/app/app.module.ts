@@ -21,9 +21,13 @@ import { EventService } from './event.service';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { VolunteermanagementComponent } from './volunteermanagement/volunteermanagement.component';
 import { AddvolunteerComponent } from './addvolunteer/addvolunteer.component';
+
+import { AddTasksComponent } from './add-tasks/add-tasks.component';
+
 import { AuthorManagementComponent } from './author-management/author-management.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EventComponent } from './event/event.component';
+
 
 
 
@@ -40,8 +44,13 @@ import { EventComponent } from './event/event.component';
     TicketCardComponent,
     VolunteermanagementComponent,
     AddvolunteerComponent,
+
+    AddTasksComponent,
+    
+
     AuthorManagementComponent,
     EventComponent,
+
 
   ],
   imports: [
@@ -57,8 +66,12 @@ import { EventComponent } from './event/event.component';
       { path: "ticket-management", component: TicketManagementComponent },
       { path: "volunteer-management", component: VolunteermanagementComponent },
       { path: "addvolunteer", component:AddvolunteerComponent  },
+
+      { path: "add-tasks", component:AddTasksComponent  }
+
       { path: "author-management", component:AuthorManagementComponent  },
       { path: "event", component:EventComponent  }
+
     ]),
     NgbModule,
     FormsModule,
