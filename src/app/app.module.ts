@@ -30,6 +30,12 @@ import { EventComponent } from './event/event.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VehicleManagementComponent } from './vehicle-management/vehicle-management.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AllVehiclesComponent } from './vehicle-management/all-vehicles/all-vehicles.component';
+import { AssignedVehiclesComponent } from './vehicle-management/assigned-vehicles/assigned-vehicles.component';
+import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-vehicles.component';
 
 
 
@@ -53,7 +59,11 @@ import { AuthGuardService } from './auth-guard.service';
 
     AuthorManagementComponent,
     EventComponent,
-    LoginComponent
+    LoginComponent,
+    VehicleManagementComponent,
+    AllVehiclesComponent,
+    AssignedVehiclesComponent,
+    FreeVehiclesComponent
   ],
   imports: [
     BrowserModule,
@@ -109,11 +119,28 @@ import { AuthGuardService } from './auth-guard.service';
         path: "event",
         component: EventComponent,
         canActivate: [AuthGuardService]
+      },
+      {
+        path: "vehicle-management",
+        component: VehicleManagementComponent
+
+      },
+      { path: "vehicle-management/all-vehicles",
+        component: AllVehiclesComponent
+      },
+
+      { path: "vehicle-management/free-vehicles",
+        component: FreeVehiclesComponent
+      },
+      { path: "vehicle-management/assigned-vehicles",
+        component: AssignedVehiclesComponent
       }
     ]),
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [EventService, AuthService],
   bootstrap: [AppComponent]
