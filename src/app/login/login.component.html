@@ -1,0 +1,72 @@
+<div class="login">
+  <div class="login-form-bg h-100">
+    <div class="container h-100">
+      <div class="row justify-content-center h-100">
+        <div class="col-xl-6">
+          <div class="form-input-content">
+            <div class="card login-form mb-0">
+              <div class="card-body pt-5">
+                <a class="text-center" href="#">
+                  <h4>Galle Literary Festival</h4></a
+                >
+
+                <form [formGroup]="form" (ngSubmit)="login()" class="mt-5 mb-5 login-input">
+                  <div class="form-group">
+                    <input
+                      formControlName="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                    />
+                    <div *ngIf="email.touched && email.invalid">
+                      <div *ngIf="email.errors.email">
+                        <div class="alert alert-danger">
+                          Invalid Email address
+                        </div>
+                      </div>
+                      <div *ngIf="email.errors.required">
+                        <div class="alert alert-danger">
+                          Email is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      formControlName="password"
+                      type="password"
+                      class="form-control"
+                      placeholder="Password"
+                    />
+                    <div *ngIf="password.touched && password.invalid">
+                      <div *ngIf="password.errors.minlength">
+                        <div class="alert alert-danger">
+                          Password should be at least
+                          {{ password.errors.minlength.requiredLength }}
+                          characters
+                        </div>
+                      </div>
+                      <div *ngIf="password.errors.required">
+                        <div class="alert alert-danger">
+                          Password is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn login-form__btn submit w-100">
+                    Sign In
+                  </button>
+                </form>
+                <p class="mt-5 login-form__footer">
+                  Dont have account?
+                  <a href="page-register.html" class="text-primary">Sign Up</a>
+                  now
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
