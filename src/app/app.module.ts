@@ -37,6 +37,7 @@ import { AllVehiclesComponent } from './vehicle-management/all-vehicles/all-vehi
 import { AssignedVehiclesComponent } from './vehicle-management/assigned-vehicles/assigned-vehicles.component';
 import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-vehicles.component';
 import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
+import { ContactDriversComponent } from './contact-drivers/contact-drivers.component';
 
 
 
@@ -65,7 +66,8 @@ import { RequestVolunteersComponent } from './request-volunteers/request-volunte
     AllVehiclesComponent,
     AssignedVehiclesComponent,
     FreeVehiclesComponent,
-    RequestVolunteersComponent
+    RequestVolunteersComponent,
+    ContactDriversComponent
   ],
   imports: [
     BrowserModule,
@@ -140,6 +142,11 @@ import { RequestVolunteersComponent } from './request-volunteers/request-volunte
       {
         path: "request-volunteers",
         component: RequestVolunteersComponent
+
+      },
+      {
+        path: "contact-drivers",
+        component: ContactDriversComponent
 
       }
     ]),
