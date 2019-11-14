@@ -27,6 +27,10 @@ import { AddTasksComponent } from './add-tasks/add-tasks.component';
 import { AuthorManagementComponent } from './author-management/author-management.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EventComponent } from './event/event.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
+
 
 
 
@@ -47,11 +51,9 @@ import { EventComponent } from './event/event.component';
 
     AddTasksComponent,
 
-
     AuthorManagementComponent,
     EventComponent,
-
-
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -60,24 +62,60 @@ import { EventComponent } from './event/event.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     RouterModule.forRoot([
-      { path: "staff", component: StaffManagementComponent },
-      { path: "redeem", component: RedeemTicketComponent },
-      { path: "filter-sales", component: FilterSalesComponent },
-      { path: "ticket-management", component: TicketManagementComponent },
-      { path: "volunteer-management", component: VolunteermanagementComponent },
-      { path: "addvolunteer", component:AddvolunteerComponent  },
+      { path: "", component: LoginComponent },
+      {
+        path: "staff",
+        component: StaffManagementComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "redeem",
+        component: RedeemTicketComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "filter-sales",
+        component: FilterSalesComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "ticket-management",
+        component: TicketManagementComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "volunteer-management",
+        component: VolunteermanagementComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "addvolunteer",
+        component: AddvolunteerComponent,
+        canActivate: [AuthGuardService]
+      },
 
-      { path: "add-tasks", component:AddTasksComponent  },
+      {
+        path: "add-tasks",
+        component: AddTasksComponent,
+        canActivate: [AuthGuardService]
+      },
 
-      { path: "author-management", component:AuthorManagementComponent  },
-      { path: "event", component:EventComponent  }
-
+      {
+        path: "author-management",
+        component: AuthorManagementComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "event",
+        component: EventComponent,
+        canActivate: [AuthGuardService]
+      }
     ]),
     NgbModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [EventService],
+  providers: [EventService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
