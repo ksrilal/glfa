@@ -1,0 +1,200 @@
+<app-header></app-header>
+<app-side-bar></app-side-bar>
+<div class="content-body">
+
+  <div class="row page-titles mx-0">
+      <div class="col p-md-0">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+              <li class="breadcrumb-item active"><a href="javascript:void(0)">Request Volunteers</a></li>
+          </ol>
+      </div>
+  </div>
+
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="form-validation">
+                          <form name="form" [formGroup]="form" class="form-valide" action="#" method="post">
+
+                              <div class="form-group row">
+                                  <label class="col-lg-4 col-form-label" for="eventName"
+                                    >Event name <span class="text-danger">*</span>
+                                  </label>
+                                  <div class="col-lg-6">
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="eventName"
+                                      name="eventName"
+                                      placeholder="Enter the event name.."
+                                      formControlName="eventName"
+                                    />
+                                    <div *ngIf="eventName.touched && eventName.invalid">
+                                      <div class="alert alert-danger">
+                                        Event name cannot be empty
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="authorName"
+                                      >Author name <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="authorName"
+                                        name="authorName"
+                                        placeholder="Enter the author name.."
+                                        formControlName="authorName"
+                                      />
+                                      <div *ngIf="authorName.touched && authorName.invalid">
+                                        <div class="alert alert-danger">
+                                          Author name cannot be empty
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label class="col-lg-4 col-form-label" for="noVol"
+                                        >Num of volunteers <span class="text-danger">*</span>
+                                      </label>
+                                      <div class="col-lg-6">
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          id="noVol"
+                                          name="noVol"
+                                          placeholder="Enter the required number of volunteers.."
+                                          formControlName="noVol"
+                                        />
+                                        <div *ngIf="noVol.touched && noVol.invalid">
+                                          <div class="alert alert-danger">
+                                            Num of volunteers cannot be empty
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="pickLoc"
+                                          >Pickup Location <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                          <input
+                                            type="text"
+                                            class="form-control"
+                                            id="pickLoc"
+                                            name="pickLoc"
+                                            placeholder="Enter the pickup location.."
+                                            formControlName="pickLoc"
+                                          />
+                                          <div *ngIf="pickLoc.touched && pickLoc.invalid">
+                                            <div class="alert alert-danger">
+                                              Pickup location cannot be empty
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="pickTime"
+                                            >Pickup Time <span class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                            <input
+                                              type="text"
+                                              class="form-control"
+                                              id="pickTime"
+                                              name="pickTime"
+                                              placeholder="Enter the pickup time.."
+                                              formControlName="pickTime"
+                                            />
+                                            <div *ngIf="pickTime.touched && pickTime.invalid">
+                                              <div class="alert alert-danger">
+                                                Pickup time cannot be empty
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="dropLoc"
+                                              >Dropup Location <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                              <input
+                                                type="text"
+                                                class="form-control"
+                                                id="dropLoc"
+                                                name="dropLoc"
+                                                placeholder="Enter the dropup location.."
+                                                formControlName="dropLoc"
+                                              />
+                                              <div *ngIf="dropLoc.touched && dropLoc.invalid">
+                                                <div class="alert alert-danger">
+                                                  Dropup location cannot be empty
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group row">
+                                              <label class="col-lg-4 col-form-label" for="description"
+                                                >Description <span class="text-danger">*</span>
+                                              </label>
+                                              <div class="col-lg-6">
+                                                <input
+                                                  type="text"
+                                                  class="form-control"
+                                                  id="description"
+                                                  name="description"
+                                                  placeholder="Enter the description.."
+                                                  formControlName="description"
+                                                />
+                                                <div *ngIf="description.touched && description.invalid">
+                                                  <div class="alert alert-danger">
+                                                    Pickup time cannot be empty
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                              <div class="form-group row">
+                                  <div class="col-lg-8 ml-auto">
+                                      <button type="submit" class="btn btn-primary">Request</button>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-6">
+              <div class="card">
+                  <div class="card-body">
+
+                              <h4 class="card-title">Previously Assigned</h4>
+                              <div class="basic-list-group">
+                                  <ul class="list-group">
+                                      <li class="list-group-item">Cras justo odio</li>
+                                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                                      <li class="list-group-item">Morbi leo risus</li>
+                                      <li class="list-group-item">Porta ac consectetur ac</li>
+                                      <li class="list-group-item">Vestibulum at eros</li>
+                                  </ul>
+                              </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
