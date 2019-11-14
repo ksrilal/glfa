@@ -36,6 +36,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AllVehiclesComponent } from './vehicle-management/all-vehicles/all-vehicles.component';
 import { AssignedVehiclesComponent } from './vehicle-management/assigned-vehicles/assigned-vehicles.component';
 import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-vehicles.component';
+import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
 
 
 
@@ -63,7 +64,8 @@ import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-v
     VehicleManagementComponent,
     AllVehiclesComponent,
     AssignedVehiclesComponent,
-    FreeVehiclesComponent
+    FreeVehiclesComponent,
+    RequestVolunteersComponent
   ],
   imports: [
     BrowserModule,
@@ -134,6 +136,11 @@ import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-v
       },
       { path: "vehicle-management/assigned-vehicles",
         component: AssignedVehiclesComponent
+      },
+      {
+        path: "request-volunteers",
+        component: RequestVolunteersComponent
+
       }
     ]),
     NgbModule,
