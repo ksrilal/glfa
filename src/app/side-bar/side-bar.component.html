@@ -1,3 +1,5 @@
+
+
 <div class="nk-sidebar">
   <div class="nk-nav-scroll">
     <ul class="metismenu" id="menu">
@@ -5,7 +7,7 @@
       <li>
         <a
           class="has-arrow"
-          [routerLink]="['dashboard']"
+          [routerLink]="['/dashboard']"
           routerLinkActive="router-link-active"
           aria-expanded="false"
         >
@@ -13,184 +15,246 @@
           ><span class="nav-text">Dashboard</span>
         </a>
       </li>
-      <li class="nav-label">Management</li>
-      <li>
-        <a
-          class="has-arrow"
-          [routerLink]="['author-management']"
-          routerLinkActive="router-link-active"
-          aria-expanded="false"
-        >
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Author Management</span>
-        </a>
-      </li>
-      <!-- <li class="nav-label">Management</li> -->
-      <li class="mega-menu mega-menu-sm">
-        <a
-          class="has-arrow"
-          [routerLink]="['event']"
-          routerLinkActive="router-link-active"
-          aria-expanded="false"
-        >
-          <!-- <i class="icon-globe-alt menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Event</span>
-        </a>
-      </li>
 
-      <!-- <li class="nav-label">UI Components</li> -->
-      <li>
-        <a
-          class="has-arrow"
-          aria-expanded="false"
-          [routerLink]="['/staffManagement']"
-          routerLinkActive="router-link-active"
-        >
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Vehicle</span>
-        </a>
-      </li>
-      <li class="nav-label">Other</li>
-      <li>
-        <a href="#" aria-expanded="false" class="has-arrow">
-          <!-- <i class="icon-badge menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Track Locations</span>
-        </a>
-      </li>
-      <!-- <li class="nav-label">Reports</li> -->
-      <li>
-        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Chat</span>
-        </a>
-      </li>
-      <li>
-        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Set Privilages</span>
-        </a>
-      </li>
-      <li class="nav-label">Coordinate</li>
-      <li>
-        <a aria-expanded="false" class="has-arrow" [routerLink]="['/volunteer-management']" routerLinkActive="router-link-active" >
-          <!-- <i class="icon-badge menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Volunteer Management</span>
-        </a>
-      </li>
-      <!-- <li class="nav-label">Reports</li> -->
-      <li>
-      <a aria-expanded="false" class="has-arrow" [routerLink]="['/addvolunteer']" routerLinkActive="router-link-active" >
-        <!-- <i class="icon-badge menu-icon"></i> -->
-        <i class="icon-grid menu-icon"></i>
-        <span class="nav-text">Add Volunteers</span>
-      </a>
-    </li>
-    <!-- <li class="nav-label">Reports</li> -->
-    <li>
-      <a aria-expanded="false" class="has-arrow" [routerLink]="['/add-tasks']" routerLinkActive="router-link-active" >
-        <!-- <i class="icon-badge menu-icon"></i> -->
-        <i class="icon-grid menu-icon"></i>
-        <span class="nav-text">Add Tasks</span>
-      </a>
-    </li>
-    <!-- <li class="nav-label">Reports</li> -->
+      <div *ngIf="userRoll == 'manager'">
+        <li class="nav-label">Management</li>
+        <li>
+          <a
+            class="has-arrow"
+            [routerLink]="['/author-management']"
+            routerLinkActive="router-link-active"
+            aria-expanded="false"
+          >
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Author Management</span>
+          </a>
+        </li>
+        <!-- <li class="nav-label">Management</li> -->
+        <li class="mega-menu mega-menu-sm">
+          <a
+            class="has-arrow"
+            [routerLink]="['/event']"
+            routerLinkActive="router-link-active"
+            aria-expanded="false"
+          >
+            <!-- <i class="icon-globe-alt menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Event</span>
+          </a>
+        </li>
 
-	<li>
-        <a href="#" aria-expanded="false" class="has-arrow">
-          <!-- <i class="icon-badge menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Search Volunteer</span>
-        </a>
-      </li>
-	<li>
-        <a href="#" aria-expanded="false" class="has-arrow">
-          <!-- <i class="icon-badge menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Assign Tasks</span>
-        </a>
-      </li>
-      <li>
-        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Notifications</span>
-        </a>
-      </li>
-      <li class="nav-label">Coordinate</li>
-      <li>
-        <a aria-expanded="false" class="has-arrow" [routerLink]="['/vehicle-management']" routerLinkActive="router-link-active" >
-          <!-- <i class="icon-badge menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Vehicle Management</span>
-        </a>
-      </li>
-      <!-- <li class="nav-label">Reports</li> -->
-      <li>
-        <a aria-expanded="false" class="has-arrow" [routerLink]="['/contact-drivers']" routerLinkActive="router-link-active" >
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Contact Drivers</span>
-        </a>
-      </li>
-      <li>
-        <a aria-expanded="false" class="has-arrow" [routerLink]="['/request-volunteers']" routerLinkActive="router-link-active" >
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Request Volunteers</span>
-        </a>
-      </li>
-      <li class="nav-label">Box Office</li>
-      <li>
-        <a aria-expanded="false" class="has-arrow" [routerLink]="['/staff']" routerLinkActive="router-link-active" >
-          <!-- <i class="icon-badge menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Staff Management</span>
-        </a>
-      </li>
-      <!-- <li class="nav-label">Reports</li> -->
-      <li>
-        <a class="has-arrow"[routerLink]="['/redeem']" routerLinkActive="router-link-active"  aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Redeem Tickets</span>
-        </a>
-      </li>
-      <li>
-        <a class="has-arrow" [routerLink]="['/ticket-management']" routerLinkActive="router-link-active"  aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Tickets Management</span>
-        </a>
-      </li>
-      <li>
-        <a class="has-arrow" [routerLink]="['/filter-sales']" routerLinkActive="router-link-active"  aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Filter Sales</span>
-        </a>
-      </li>
-      <li class="nav-label">Reports</li>
-      <li>
-        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Generate Report</span>
-        </a>
-      </li>
-      <li class="nav-label">Emails</li>
-      <li>
-        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-          <!-- <i class="icon-grid menu-icon"></i> -->
-          <i class="icon-grid menu-icon"></i>
-          <span class="nav-text">Send Mails</span>
-        </a>
-      </li>
+        <!-- <li class="nav-label">UI Components</li> -->
+        <li>
+          <a
+            class="has-arrow"
+            aria-expanded="false"
+            [routerLink]="['/staffManagement']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Vehicle</span>
+          </a>
+        </li>
+        <li class="nav-label">Other</li>
+        <li>
+          <a href="#" aria-expanded="false" class="has-arrow">
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Track Locations</span>
+          </a>
+        </li>
+        <!-- <li class="nav-label">Reports</li> -->
+        <li>
+          <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Chat</span>
+          </a>
+        </li>
+        <li>
+          <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Set Privilages</span>
+          </a>
+        </li>
+      </div>
+
+      <div *ngIf="userRoll == 'volunteer'">
+        <li class="nav-label">Coordinate</li>
+        <li>
+          <a
+            aria-expanded="false"
+            class="has-arrow"
+            [routerLink]="['/volunteer-management']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Volunteer Management</span>
+          </a>
+        </li>
+        <!-- <li class="nav-label">Reports</li> -->
+        <li>
+          <a
+            aria-expanded="false"
+            class="has-arrow"
+            [routerLink]="['/addvolunteer']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Add Volunteers</span>
+          </a>
+        </li>
+        <!-- <li class="nav-label">Reports</li> -->
+        <li>
+          <a
+            aria-expanded="false"
+            class="has-arrow"
+            [routerLink]="['/add-tasks']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Add Tasks</span>
+          </a>
+        </li>
+        <!-- <li class="nav-label">Reports</li> -->
+
+        <li>
+          <a href="#" aria-expanded="false" class="has-arrow">
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Search Volunteer</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-expanded="false" class="has-arrow">
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Assign Tasks</span>
+          </a>
+        </li>
+        <li>
+          <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Notifications</span>
+          </a>
+        </li>
+      </div>
+
+      <div *ngIf="userRoll == 'transpotation'">
+        <li class="nav-label">Coordinate</li>
+        <li>
+          <a
+            aria-expanded="false"
+            class="has-arrow"
+            [routerLink]="['/vehicle-management']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Vehicle Management</span>
+          </a>
+        </li>
+        <!-- <li class="nav-label">Reports</li> -->
+        <li>
+          <a
+            aria-expanded="false"
+            class="has-arrow"
+            [routerLink]="['/contact-drivers']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Contact Drivers</span>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-expanded="false"
+            class="has-arrow"
+            [routerLink]="['/request-volunteers']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Request Volunteers</span>
+          </a>
+        </li>
+      </div>
+
+      <div *ngIf="userRoll == 'boxOffice'">
+        <li class="nav-label">Box Office</li>
+        <li>
+          <a
+            aria-expanded="false"
+            class="has-arrow"
+            [routerLink]="['/staff']"
+            routerLinkActive="router-link-active"
+          >
+            <!-- <i class="icon-badge menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Staff Management</span>
+          </a>
+        </li>
+        <!-- <li class="nav-label">Reports</li> -->
+        <li>
+          <a
+            class="has-arrow"
+            [routerLink]="['/redeem']"
+            routerLinkActive="router-link-active"
+            aria-expanded="false"
+          >
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Redeem Tickets</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="has-arrow"
+            [routerLink]="['/ticket-management']"
+            routerLinkActive="router-link-active"
+            aria-expanded="false"
+          >
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Tickets Management</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="has-arrow"
+            [routerLink]="['/filter-sales']"
+            routerLinkActive="router-link-active"
+            aria-expanded="false"
+          >
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Filter Sales</span>
+          </a>
+        </li>
+        <li class="nav-label">Reports</li>
+        <li>
+          <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Generate Report</span>
+          </a>
+        </li>
+        <li class="nav-label">Emails</li>
+        <li>
+          <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+            <!-- <i class="icon-grid menu-icon"></i> -->
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Send Mails</span>
+          </a>
+        </li>
+      </div>
     </ul>
   </div>
 </div>

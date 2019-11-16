@@ -14,7 +14,7 @@ export class AppComponent {
     authService.users$.subscribe(user=>{
       if(!user) return;
 
-      router.navigate(['/staff']);
+      router.navigate(['/dashboard']);
     })
   }
 }

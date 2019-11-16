@@ -38,6 +38,7 @@ import { AssignedVehiclesComponent } from './vehicle-management/assigned-vehicle
 import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-vehicles.component';
 import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
 import { ContactDriversComponent } from './contact-drivers/contact-drivers.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -67,7 +68,8 @@ import { ContactDriversComponent } from './contact-drivers/contact-drivers.compo
     AssignedVehiclesComponent,
     FreeVehiclesComponent,
     RequestVolunteersComponent,
-    ContactDriversComponent
+    ContactDriversComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +79,11 @@ import { ContactDriversComponent } from './contact-drivers/contact-drivers.compo
     AngularFirestoreModule,
     RouterModule.forRoot([
       { path: "", component: LoginComponent },
+      {
+        path: "dashboard",
+        component: DashboardComponent,
+        canActivate: [AuthGuardService]
+      },
       {
         path: "staff",
         component: StaffManagementComponent,
@@ -156,7 +163,7 @@ import { ContactDriversComponent } from './contact-drivers/contact-drivers.compo
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService],
+  providers: [EventService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { PasswordValidators } from "../validators/password-validator";
 import { AccessName } from "../validators/accessName-validator";
-import { StaffService } from "../staff.service";
+import { StaffService } from "../boxoffice.service";
 
 @Component({
   selector: "app-staff-management",
