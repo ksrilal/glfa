@@ -20,9 +20,48 @@ export class RequestVolunteersComponent implements OnInit {
 
   });
 
+  ngSubmit(){
+    console.log("ggg");
+  }
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  get eventName() {
+    return this.form.get("eventName");
+
+}
+
+get authorName() {
+  return this.form.get("authorName");
+
+}
+
+get noVal() {
+  return this.form.get("noVal");
+
+}
+
+get pickLoc() {
+  return this.form.get("pickLoc");
+
+}
+
+get pickTime() {
+  return this.form.get("pickTime");
+
+}
+
+get dropLoc() {
+  return this.form.get("dropLoc");
+
+}
+
+get description() {
+  return this.form.get("description");
+
+}
 
 }
