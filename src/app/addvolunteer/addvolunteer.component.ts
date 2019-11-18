@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {AddVolunteerService} from '../add-volunteer.service';
 
 
 
@@ -9,6 +10,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./addvolunteer.component.scss']
 })
 export class AddvolunteerComponent implements OnInit {
+  members: any[];
+
   form1 = new FormGroup({
     fname:new FormControl('',Validators.required),
     lname:new FormControl('',Validators.required),
@@ -20,7 +23,19 @@ export class AddvolunteerComponent implements OnInit {
     NIC:new FormControl('',Validators.required),
     gender:new FormControl('',Validators.required),
   });
-  constructor() { }
+ 
+  constructor(private addVolunteerService:AddVolunteerService) {
+    addVolunteerService.getAll().subscribe(member => {
+      this.members = member;
+    });
+  }
+
+  onSubmit() {
+    this.addVolunteerService.create(this.form1.value);
+    this.form1.reset();
+  }
+
+   
   get email() {
     return this.form1.get('email');
   }
@@ -53,6 +68,6 @@ export class AddvolunteerComponent implements OnInit {
   
     
   ngOnInit() {
-  }
-
+   }
+  
 }
