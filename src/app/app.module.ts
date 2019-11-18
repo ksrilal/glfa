@@ -67,7 +67,7 @@ import { EventComponent } from './event/event.component';
       { path: "volunteer-management", component: VolunteermanagementComponent },
       { path: "addvolunteer", component:AddvolunteerComponent  },
 
-      { path: "add-tasks", component:AddTasksComponent  }
+      { path: "add-tasks", component:AddTasksComponent  },
 
       { path: "author-management", component:AuthorManagementComponent  },
       { path: "event", component:EventComponent  }
