@@ -1,3 +1,5 @@
+<app-header></app-header>
+<app-side-bar></app-side-bar>
 <div class="content-body">
   <div class="container-fluid">
     <div class="col-lg-12">
@@ -7,9 +9,21 @@
           <div class="basic-form">
             <form class="form-inline">
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control" />
+                <input
+                  required
+                  ngModel
+                  formgr
+                  #code="ngModel"
+                  type="text"
+                  name="code"
+                  class="form-control"
+                />
               </div>
-              <button type="submit" class="btn btn-dark mb-2">
+              <button
+                type="submit"
+                (keyup)="search(code)"
+                class="btn btn-dark mb-2"
+              >
                 Search
               </button>
             </form>
@@ -18,7 +32,7 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-xl-3">
-          <app-user-card></app-user-card>
+          <app-user-card [name]="name" [country]="country" ></app-user-card>
         </div>
         <div class="col">
           <div class="card">
@@ -38,43 +52,29 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th>1</th>
-                      <td>Kolor Tea Shirt For Man</td>
+                    <tr *ngFor="let order of orders; let i = index">
+                      <th>{{ i + 1 }}</th>
+                      <td>{{ order.name }}</td>
                       <td>
-                        <span class="badge badge-primary px-2">2</span>
+                        <span class="badge badge-primary px-2">{{
+                          order.quantity
+                        }}</span>
                       </td>
-                      <td>January 22</td>
-                      <td class="color-primary">$21.56</td>
-                    </tr>
-                    <tr>
-                      <th>2</th>
-                      <td>Kolor Tea Shirt For Women</td>
-                      <td><span class="badge badge-primary px-2">1</span></td>
-                      <td>January 30</td>
-                      <td class="color-success">$55.32</td>
-                    </tr>
-                    <tr>
-                      <th>3</th>
-                      <td>Blue Backpack For Baby</td>
-                      <td>
-                        <span class="badge badge-primary px-2">3</span>
-                      </td>
-                      <td>January 25</td>
-                      <td class="color-danger">$14.85</td>
+                      <td>{{ order.author }}</td>
+                      <td class="color-primary">${{ order.price }}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div class="row">
                 <div class="col-lg-3">
-                    <h3>Total Amount</h3>
-                    <h4>$245</h4>
-                  </div>
+                  <h3>Total Amount</h3>
+                  <h4>${{ total }}</h4>
+                </div>
                 <div class="col-lg-3">
-                    <h3>Total Tickets</h3>
-                    <h4>8</h4>
-                  </div>
+                  <h3>Total Tickets</h3>
+                  <h4>8</h4>
+                </div>
               </div>
             </div>
           </div>

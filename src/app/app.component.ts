@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'GLFNgAdmin';
+  title = 'Galle Literay Festival';
+
+  constructor(private authService: AuthService, router: Router){
+    authService.users$.subscribe(user=>{
+      if(!user) return;
+
+      router.navigate(['/dashboard']);
+    })
+  }
 }
