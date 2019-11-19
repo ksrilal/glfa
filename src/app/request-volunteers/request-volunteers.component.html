@@ -17,7 +17,7 @@
               <div class="card">
                   <div class="card-body">
                       <div class="form-validation">
-                          <form name="form" [formGroup]="form" class="form-valide" action="#" method="post">
+                          <form name="form" [formGroup]="form" (ngSumbit)="ngSubmit()" class="form-valide" action="#" method="post">
 
                               <div class="form-group row">
                                   <label class="col-lg-4 col-form-label" for="eventName"
