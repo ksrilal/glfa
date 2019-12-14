@@ -27,6 +27,7 @@ import { AddTasksComponent } from './add-tasks/add-tasks.component';
 import { AuthorManagementComponent } from './author-management/author-management.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EventComponent } from './event/event.component';
+import { FindVolunteerComponent } from './find-volunteer/find-volunteer.component';
 
 
 
@@ -50,6 +51,7 @@ import { EventComponent } from './event/event.component';
 
     AuthorManagementComponent,
     EventComponent,
+    FindVolunteerComponent,
 
 
   ],
@@ -66,8 +68,8 @@ import { EventComponent } from './event/event.component';
       { path: "ticket-management", component: TicketManagementComponent },
       { path: "volunteer-management", component: VolunteermanagementComponent },
       { path: "addvolunteer", component:AddvolunteerComponent  },
-
       { path: "add-tasks", component:AddTasksComponent  },
+      { path: "find-volunteer", component:FindVolunteerComponent  },
 
       { path: "author-management", component:AuthorManagementComponent  },
       { path: "event", component:EventComponent  }

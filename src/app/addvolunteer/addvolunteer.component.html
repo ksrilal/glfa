@@ -20,7 +20,7 @@
                                         formControlName="fName"
                                         />
 
-                                        <div *ngIf="fName.touched && fName.invalid">
+                                        <div *ngIf="(fName.touched && fName.invalid)||btn1.touched && fName.errors.required">
                                             <div class="alert alert-danger">
                                               Firstname cannot be empty
                                             </div>
@@ -72,7 +72,8 @@
                                             <label class="col-lg-4 col-form-label" for="val-gender">Gender <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                            <div class="custom-control custom-radio">
+                                            <div class="custom-control custom-radio" formControlName="gender">
+                                                
                                                     <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel>
                                                     <label class="custom-control-label" for="male">Male</label>
                                                  </div>
@@ -149,13 +150,13 @@
                                                           <div *ngIf="mobile.touched && mobile.invalid">
                                                             <div *ngIf="mobile.errors.minlength">
                                                               <div class="alert alert-danger">
-                                                                Mobile number should be at least
+                                                                Mobile number should be at least 10 digits
                                                                 {{ mobile.errors.minlength.requiredLength }} numbers
                                                               </div>
                                                             </div>
                                                             <div *ngIf="mobile.errors.maxlength">
                                                               <div class="alert alert-danger">
-                                                                Mobile number cannot exceed
+                                                                Mobile number cannot exceed 10 digits
                                                                 {{ mobile.errors.maxlength.requiredLength }} numbers
                                                               </div>
                                                             </div>
@@ -227,8 +228,8 @@
                                                 </div>
                                               </div>
 
-                                        <div class="form-group row">
-                                            <div class="col-lg-8 ml-auto">
+                                        <div class="form-group row" formControlName="btn1">
+                                            <div class="col-lg-8 ml-auto" >
                                                 <button
                                                     type="submit"
                                                     [disabled]="form.invalid"
@@ -236,6 +237,7 @@
                                                 >
                                                 Submit
                                                 </button>
+                                              
                                             </div>
                                     </div>
                     
