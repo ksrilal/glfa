@@ -16,7 +16,7 @@ export class AddVolunteerService {
     try{
       this.authService.signup(volunteer.email,volunteer.password);
       // this.auth.auth.createUserWithEmailAndPassword(staff.email,staff.password);
-      this.afs.collection('volunteer').doc(volunteer.email).set(volunteer);
+      this.afs.collection('users').doc(volunteer.email).set(volunteer);
       alert("Addedd Successfully");
 
     }catch(error){
