@@ -1,60 +1,54 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
 <div class="content-body">
-
   <div class="row page-titles mx-0">
     <div class="col p-md-0">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Contact Drivers</a></li>
-        </ol>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="javascript:void(0)">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">
+          <a href="javascript:void(0)">Contact Drivers</a>
+        </li>
+      </ol>
     </div>
-</div>
-<div class="header-left">
-  <div class="input-group icons">
-      <div class="input-group-prepend">
-          <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
-      </div>
-      <input type="search" class="form-control" placeholder="Search Drivers" aria-label="Search Drivers">
-      <div class="drop-down   d-md-none">
-<form action="#">
-<input type="text" class="form-control" placeholder="Search">
-</form>
-      </div>
-  </div>
-</div>
-
-<div class="table-responsive">
-  <table class="table table-striped table-bordered zero-configuration">
-      <thead>
-          <tr>
-              <th>Name</th>
-              <th>Vehicle Num</th>
-              <th>Contact Num</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>maheema</td>
-              <td>677 </td>
-              <td>675675</td>
-          </tr>
-          <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-          </tr>
-      </tbody>
-      <tfoot>
-          <tr>
-            <th>Name</th>
-            <th>Vehicle Num</th>
-            <th>Contact Num</th>
-          </tr>
-      </tfoot>
-  </table>
   </div>
 
+  <div class="row" style="padding:20px">
+    <div class="header-left">
+      <div class="input-group icons">
+        <div class="input-group-prepend">
+          <span
+            class="input-group-text bg-transparent border-0 pr-2 pr-sm-3"
+            id="basic-addon1"
+            ><i class="mdi mdi-magnify"></i
+          ></span>
+        </div>
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Search Drivers"
+          aria-label="Search Drivers"
+        />
+        <div class="drop-down   d-md-none">
+          <form action="#">
+            <input type="text" class="form-control" placeholder="Search" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- <div class="col-12"> -->
+      <ng-container *ngFor="let driver of drivers">
+        <div class="col-lg-3 col-sm-6">
+
+            <app-contact-drivers-card [driver]="driver">
+            </app-contact-drivers-card>
+
+        </div>
+      </ng-container>
+    <!-- </div> -->
+  </div>
 </div>
-
-

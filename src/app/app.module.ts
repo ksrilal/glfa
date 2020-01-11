@@ -39,6 +39,9 @@ import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-v
 import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
 import { ContactDriversComponent } from './contact-drivers/contact-drivers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactDriversCardComponent } from './contact-drivers-card/contact-drivers-card.component';
+
+import { ContactDriversService } from './contact-drivers.service';
 
 
 
@@ -69,7 +72,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FreeVehiclesComponent,
     RequestVolunteersComponent,
     ContactDriversComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContactDriversCardComponent
   ],
   imports: [
     BrowserModule,
@@ -163,7 +167,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService],
+  providers: [EventService, AuthService, AuthGuardService, ContactDriversService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

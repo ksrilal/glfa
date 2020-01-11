@@ -2,270 +2,403 @@
 <app-side-bar></app-side-bar>
 
 <div class="content-body">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="form-validation">
-                            <form class="form-valide" action="#" method="post">
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter a username..">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Your valid email..">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="password" class="form-control" id="val-password" name="val-password" placeholder="Choose a safe one..">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="..and confirm it!">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Suggestions <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="What would you like to see?"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-skill">Best Skill <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <select class="form-control" id="val-skill" name="val-skill">
-                                            <option value="">Please select</option>
-                                            <option value="html">HTML</option>
-                                            <option value="css">CSS</option>
-                                            <option value="javascript">JavaScript</option>
-                                            <option value="angular">Angular</option>
-                                            <option value="angular">React</option>
-                                            <option value="vuejs">Vue.js</option>
-                                            <option value="ruby">Ruby</option>
-                                            <option value="php">PHP</option>
-                                            <option value="asp">ASP.NET</option>
-                                            <option value="python">Python</option>
-                                            <option value="mysql">MySQL</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-currency">Currency <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-currency" name="val-currency" placeholder="$21.60">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-website">Website <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-website" name="val-website" placeholder="http://example.com">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-phoneus">Phone (US) <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-digits">Digits <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-digits" name="val-digits" placeholder="5">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-number">Number <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-number" name="val-number" placeholder="5.0">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-range">Range [1, 5] <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-range" name="val-range" placeholder="4">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label"><a href="#">Terms &amp; Conditions</a>  <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-8">
-                                        <label class="css-control css-control-primary css-checkbox" for="val-terms">
-                                            <input type="checkbox" class="css-control-input" id="val-terms" name="val-terms" value="1"> <span class="css-control-indicator"></span> I agree to the terms</label>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-lg-8 ml-auto">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-validation">
-                    <form class="form-valide" action="#" method="post">
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label" for="search-volun">Search
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control" id="search-volun" name="search-volun" placeholder="Enter the name..">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="active-member">
-                                <div class="table-responsive">
-                                    <table class="table table-xs mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Customers</th>
-                                                <th>Product</th>
-                                                <th>Country</th>
-                                                <th>Status</th>
-                                                <th>Payment Method</th>
-                                                <th>Activity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><img src="./images/avatar/1.jpg" class=" rounded-circle mr-3" alt="">Sarah Smith</td>
-                                                <td>iPhone X</td>
-                                                <td>
-                                                    <span>United States</span>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <div class="progress" style="height: 6px">
-                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                                <td>
-                                                    <span>Last Login</span>
-                                                    <span class="m-0 pl-3">10 sec ago</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="./images/avatar/2.jpg" class=" rounded-circle mr-3" alt="">Walter R.</td>
-                                                <td>Pixel 2</td>
-                                                <td><span>Canada</span></td>
-                                                <td>
-                                                    <div>
-                                                        <div class="progress" style="height: 6px">
-                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                                <td>
-                                                    <span>Last Login</span>
-                                                    <span class="m-0 pl-3">50 sec ago</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="./images/avatar/3.jpg" class=" rounded-circle mr-3" alt="">Andrew D.</td>
-                                                <td>OnePlus</td>
-                                                <td><span>Germany</span></td>
-                                                <td>
-                                                    <div>
-                                                        <div class="progress" style="height: 6px">
-                                                            <div class="progress-bar bg-warning" style="width: 50%"></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
-                                                <td>
-                                                    <span>Last Login</span>
-                                                    <span class="m-0 pl-3">10 sec ago</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="./images/avatar/6.jpg" class=" rounded-circle mr-3" alt=""> Megan S.</td>
-                                                <td>Galaxy</td>
-                                                <td><span>Japan</span></td>
-                                                <td>
-                                                    <div>
-                                                        <div class="progress" style="height: 6px">
-                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                                <td>
-                                                    <span>Last Login</span>
-                                                    <span class="m-0 pl-3">10 sec ago</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="./images/avatar/4.jpg" class=" rounded-circle mr-3" alt=""> Doris R.</td>
-                                                <td>Moto Z2</td>
-                                                <td><span>England</span></td>
-                                                <td>
-                                                    <div>
-                                                        <div class="progress" style="height: 6px">
-                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                                <td>
-                                                    <span>Last Login</span>
-                                                    <span class="m-0 pl-3">10 sec ago</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="./images/avatar/5.jpg" class=" rounded-circle mr-3" alt="">Elizabeth W.</td>
-                                                <td>Notebook Asus</td>
-                                                <td><span>China</span></td>
-                                                <td>
-                                                    <div>
-                                                        <div class="progress" style="height: 6px">
-                                                            <div class="progress-bar bg-warning" style="width: 50%"></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
-                                                <td>
-                                                    <span>Last Login</span>
-                                                    <span class="m-0 pl-3">10 sec ago</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="container-fluid">
+      <div class="row justify-content-center">
+          <div class="col-lg-6">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="form-validation">
+                          <form [formGroup]='form1'  (ngSubmit)="onSubmit()"
+                          class="form-valide">
+                                 
 
-            </div>
-        </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-4 col-form-label" for="val-fname">First name <span class="text-danger">*</span>
+                                  </label>
+                                  <div class="col-lg-6">
+                                      <input type="text" 
+                                      class="form-control" 
+                                      id="fName" 
+                                      name="fName" 
+                                      placeholder="First Name here.."
+                                      formControlName="fName"
+                                      />
+
+                                <div *ngIf="(fName.touched && fName.invalid)">
+                                          <div class="alert alert-danger">
+                                            Firstname cannot be empty
+                                          </div>
+                                        </div>
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                      <label class="col-lg-4 col-form-label" for="val-lname">Last name <span class="text-danger">*</span>
+                                      </label>
+                                      <div class="col-lg-6">
+                                          <input type="text" 
+                                          class="form-control" 
+                                          id="lName" 
+                                          name="lName" 
+                                          placeholder="Last Name here.."
+                                          formControlName="lName"
+                                          />
+  
+                                          <div *ngIf="lName.touched && lName.invalid">
+                                              <div class="alert alert-danger">
+                                                Lastname cannot be empty
+                                              </div>
+                                            </div>
+                                      </div>
+                              </div>
+
+                                  <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                              <input type="text" 
+                                              class="form-control" 
+                                              id="userName" 
+                                              name="userName" 
+                                              placeholder="Enter a username.."
+                                              formControlName="userName"
+                                              />
+      
+                                              <div *ngIf="userName.touched && userName.invalid">
+                                                  <div class="alert alert-danger">
+                                                    Username cannot be empty
+                                                  </div>
+                                                </div>
+                                          </div>
+                                      </div>
+
+                                  <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="val-gender">Gender <span class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                          <!-- <div class="custom-control custom-radio" formControlName="gender">
+                                              
+                                                  <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel>
+                                                  <label class="custom-control-label" for="male">Male</label>
+                                               </div>
+                                            
+                                               <div class="custom-control custom-radio">
+                                                  <input id="female" type="radio" class="custom-control-input" value="female" name="gender" ngModel>
+                                                  <label class="custom-control-label" for="female">Female</label>
+                                               </div>
+                                               <div class="custom-control custom-radio">
+                                                      <input id="other" type="radio" class="custom-control-input" value="other" name="gender" ngModel>
+                                                      <label class="custom-control-label" for="other">Other</label>
+                                                   </div>
+                                               <div *ngIf="gender.touched && gender.invalid">
+                                                      <div class="alert alert-danger">
+                                                        Please input your gender
+                                                      </div>
+                                                    </div> -->
+                                                    <div class="custom-control custom-radio">
+                                                    <input type="radio" formControlName="gender" value="male" > Male
+                                                    <input type="radio" formControlName="gender" value="female"> Female
+                                                    <input type="radio" formControlName="gender" value="other"> Other
+                        
+                                                    </div>
+                                                    
+                                          </div> 
+                                      </div>
+
+                                      <div class="form-group row">
+                                              <label class="col-lg-4 col-form-label" for="val-dob">Date of Birth <span class="text-danger">*</span>
+                                              </label>
+                                              <div class="col-lg-6">
+                                                  <input type="date" 
+                                                  class="form-control" 
+                                                  id="dob" 
+                                                  name="dob" 
+                                                  placeholder=''
+                                                  formControlName="dob"
+                                                  />
+          
+                                                  <div *ngIf="dob.touched && dob.invalid">
+                                                      <div class="alert alert-danger">
+                                                        Please input your date of birth
+                                                      </div>
+                                                    </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="form-group row">
+                                                  <label class="col-lg-4 col-form-label" for="NIC">NIC Number <span class="text-danger">*</span>
+                                                  </label>
+                                                  <div class="col-lg-6">
+                                                      <input type="text" 
+                                                      class="form-control" 
+                                                      id="NIC" 
+                                                      name="NIC" 
+                                                      placeholder="National ID card Number"
+                                                      formControlName="NIC"
+                                                      />
+              
+                                                      <div *ngIf="NIC.touched && NIC.invalid">
+                                                          <div class="alert alert-danger">
+                                                            NIC cannot be empty
+                                                          </div>
+                                                        </div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="form-group row">
+                                                      <label class="col-lg-4 col-form-label" for="val-phoneus"
+                                                        >Phone <span class="text-danger">*</span>
+                                                      </label>
+                                                      <div class="col-lg-6">
+                                                        <input
+                                                          type="text"
+                                                          class="form-control"
+                                                          id="mobile"
+                                                          name="mobile"
+                                                          placeholder="xxxxxxxxxx"
+                                                          formControlName="mobile"
+                                                        />
+                                                        <div *ngIf="mobile.dirty">
+                                                          <div *ngIf="mobile.errors.minlength">
+                                                            <div class="alert alert-danger">
+                                                              Mobile number should be at least 10 digits
+                                                              {{ mobile.errors.minlength.requiredLength }} numbers
+                                                            </div>
+                                                          </div>
+                                                          <div *ngIf="mobile.errors.maxlength">
+                                                            <div class="alert alert-danger">
+                                                              Mobile number cannot exceed 10 digits
+                                                              {{ mobile.errors.maxlength.requiredLength }} numbers
+                                                            </div>
+                                                          </div>
+                                                          <div *ngIf="mobile.errors.required">
+                                                            <div class="alert alert-danger">
+                                                              Phone number is required
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+
+
+                                      <div class="form-group row">
+                                              <label class="col-lg-4 col-form-label" for="val-email"
+                                                >Email <span class="text-danger">*</span>
+                                              </label>
+                                              <div class="col-lg-6">
+                                                <input
+                                                  type="text"
+                                                  class="form-control"
+                                                  id="email"
+                                                  name="email"
+                                                  placeholder="Your valid email.."
+                                                  formControlName="email"
+                                                />
+                                                <div *ngIf="email.touched ||email.dirty">
+                                                  <div *ngIf="email.invalid">
+                                                    <div class="alert alert-danger">
+                                                      Invalid Email address
+                                                    </div>
+                                                  </div>
+                                                  <div *ngIf="email.errors.required">
+                                                    <div class="alert alert-danger">
+                                                      Email is required
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                              <label class="col-lg-4 col-form-label" for="passwd"
+                                                >Password <span class="text-danger">*</span>
+                                              </label>
+                                              <div class="col-lg-6">
+                                                <input
+                                                  type="password"
+                                                  class="form-control"
+                                                  id="passwd"
+                                                  name="val-passwd"
+                                                  placeholder="Choose a safe one.."
+                                                  formControlName="passwd"
+                                                />
+                                                <div *ngIf="passwd.touched">
+                                                  <div *ngIf="passwd.dirty &&passwd.errors.password">
+                                                    <div class="alert alert-danger">
+                                                      Password should be at least 8
+                                                      characters
+                                                    </div>
+                                                  </div>
+                                                  <div *ngIf="passwd.errors.required">
+                                                    <div class="alert alert-danger">
+                                                      Password is required
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                      <div class="form-group row" >
+                                          <div class="col-lg-8 ml-auto" >
+                                              <button
+                                                  type="submit"
+                                                  [disabled]="form.invalid"
+                                                  class="btn btn-primary"
+                                              >
+
+                                              Submit
+                                              </button>
+                                            
+                                          </div>
+                                  </div>
+                  
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="form-validation">
+                  <form class="form-valide" action="#" method="post">
+                      <div class="form-group row">
+                          <label class="col-lg-4 col-form-label" for="search-volun">Search
+                          </label>
+                          <div class="col-lg-6">
+                              <input type="text" class="form-control" id="search-volun" name="search-volun" placeholder="Enter the name..">
+                          </div>
+                      </div>
+                  </form>
+              </div>
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="active-member">
+                              <div class="table-responsive">
+                                  <table class="table table-xs mb-0">
+                                      <thead>
+                                          <tr>
+                                              <th>Customers</th>
+                                              <th>Product</th>
+                                              <th>Country</th>
+                                              <th>Status</th>
+                                              <th>Payment Method</th>
+                                              <th>Activity</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td><img src="./images/avatar/1.jpg" class=" rounded-circle mr-3" alt="">Sarah Smith</td>
+                                              <td>iPhone X</td>
+                                              <td>
+                                                  <span>United States</span>
+                                              </td>
+                                              <td>
+                                                  <div>
+                                                      <div class="progress" style="height: 6px">
+                                                          <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                      </div>
+                                                  </div>
+                                              </td>
+                                              <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                              <td>
+                                                  <span>Last Login</span>
+                                                  <span class="m-0 pl-3">10 sec ago</span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="./images/avatar/2.jpg" class=" rounded-circle mr-3" alt="">Walter R.</td>
+                                              <td>Pixel 2</td>
+                                              <td><span>Canada</span></td>
+                                              <td>
+                                                  <div>
+                                                      <div class="progress" style="height: 6px">
+                                                          <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                      </div>
+                                                  </div>
+                                              </td>
+                                              <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                              <td>
+                                                  <span>Last Login</span>
+                                                  <span class="m-0 pl-3">50 sec ago</span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="./images/avatar/3.jpg" class=" rounded-circle mr-3" alt="">Andrew D.</td>
+                                              <td>OnePlus</td>
+                                              <td><span>Germany</span></td>
+                                              <td>
+                                                  <div>
+                                                      <div class="progress" style="height: 6px">
+                                                          <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                                      </div>
+                                                  </div>
+                                              </td>
+                                              <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
+                                              <td>
+                                                  <span>Last Login</span>
+                                                  <span class="m-0 pl-3">10 sec ago</span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="./images/avatar/6.jpg" class=" rounded-circle mr-3" alt=""> Megan S.</td>
+                                              <td>Galaxy</td>
+                                              <td><span>Japan</span></td>
+                                              <td>
+                                                  <div>
+                                                      <div class="progress" style="height: 6px">
+                                                          <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                      </div>
+                                                  </div>
+                                              </td>
+                                              <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                              <td>
+                                                  <span>Last Login</span>
+                                                  <span class="m-0 pl-3">10 sec ago</span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="./images/avatar/4.jpg" class=" rounded-circle mr-3" alt=""> Doris R.</td>
+                                              <td>Moto Z2</td>
+                                              <td><span>England</span></td>
+                                              <td>
+                                                  <div>
+                                                      <div class="progress" style="height: 6px">
+                                                          <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                      </div>
+                                                  </div>
+                                              </td>
+                                              <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                              <td>
+                                                  <span>Last Login</span>
+                                                  <span class="m-0 pl-3">10 sec ago</span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="./images/avatar/5.jpg" class=" rounded-circle mr-3" alt="">Elizabeth W.</td>
+                                              <td>Notebook Asus</td>
+                                              <td><span>China</span></td>
+                                              <td>
+                                                  <div>
+                                                      <div class="progress" style="height: 6px">
+                                                          <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                                      </div>
+                                                  </div>
+                                              </td>
+                                              <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
+                                              <td>
+                                                  <span>Last Login</span>
+                                                  <span class="m-0 pl-3">10 sec ago</span>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
 
 
 
