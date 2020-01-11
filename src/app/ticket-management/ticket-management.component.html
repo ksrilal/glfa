@@ -24,7 +24,7 @@
           <div class="row">
             <ng-container *ngFor="let event of events">
               <div class="col-md-6 col-lg-4">
-                <app-ticket-card [event]=event ></app-ticket-card>
+                <app-ticket-card [event]="event"></app-ticket-card>
               </div>
             </ng-container>
           </div>
@@ -33,33 +33,53 @@
           <div class="card">
             <div class="card-body">
               <!-- <h5 class="text-muted">Tonth</h5> -->
-              <h2 class="mt-4">$6,932.60</h2>
+              <h2 class="mt-4">{{ totalRevenue | number }} LKR</h2>
               <span>Total Revenue</span>
               <div class="mt-4">
-                <h4>2,365</h4>
-                <h6>Sold Tickets <span class="pull-right">50%</span></h6>
+                <h4>{{ soldQuantity }}</h4>
+                <h6>
+                  Sold Tickets
+                  <span class="pull-right"
+                    >{{ (soldQuantity / totalQuantity) * 100 | number }}%</span
+                  >
+                </h6>
                 <div class="progress mb-3" style="height: 7px">
                   <div
                     class="progress-bar gradient-1"
-                    style="width: 50%;"
+                    [style.width.%]="
+                      (soldQuantity / totalQuantity) * 100 | number
+                    "
                     role="progressbar"
                   >
-                    <span class="sr-only">80% Complete</span>
+                    <span class="sr-only"
+                      >{{ (soldQuantity / totalQuantity) * 100 | number }}%
+                      Complete</span
+                    >
                   </div>
                 </div>
               </div>
               <div class="mt-4">
-                <h4>1,250</h4>
+                <h4>{{ remainingQuantity }}</h4>
                 <h6 class="m-t-10 text-muted">
-                  Remaining Tickets <span class="pull-right">50%</span>
+                  Remaining Tickets
+                  <span class="pull-right"
+                    >{{
+                      (remainingQuantity / totalQuantity) * 100 | number
+                    }}%</span
+                  >
                 </h6>
                 <div class="progress mb-3" style="height: 7px">
                   <div
                     class="progress-bar gradient-3"
-                    style="width: 50%;"
+                    [style.width.%]="
+                      (remainingQuantity / totalQuantity) * 100 | number
+                    "
                     role="progressbar"
                   >
-                    <span class="sr-only">50% Complete</span>
+                    <span class="sr-only"
+                      >{{ (remainingQuantity / totalQuantity) * 100 | number }}%
+                      Complete</span
+                    >
                   </div>
                 </div>
               </div>
