@@ -32,7 +32,7 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-xl-3">
-          <app-user-card [name]="name" [country]="country" ></app-user-card>
+          <app-user-card [name]="name" [country]="country"></app-user-card>
         </div>
         <div class="col">
           <div class="card">
@@ -55,26 +55,59 @@
                     <tr *ngFor="let order of orders; let i = index">
                       <th>{{ i + 1 }}</th>
                       <td>{{ order.name }}</td>
+
                       <td>
-                        <span class="badge badge-primary px-2">{{
-                          order.quantity
-                        }}</span>
+                        <div *ngIf="!order.status; else redeemedTicket">
+                          <span class="badge badge-primary px-2">{{
+                            order.quantity
+                          }}</span>
+                        </div>
+                        <ng-template #redeemedTicket>
+                          <span class="badge badge-success px-2">{{
+                            order.quantity
+                          }}</span>
+                        </ng-template>
                       </td>
+
                       <td>{{ order.author }}</td>
                       <td class="color-primary">${{ order.price }}</td>
+                      <td class="color-primary">
+                        <div *ngIf="!order.status; else redeemedTicketStatus">
+                          <button
+                            (click)="redeemTicket(order.id)"
+                            class="btn btn-primary px-2"
+                          >
+                            Redeem Ticket
+                          </button>
+                        </div>
+                        <ng-template #redeemedTicketStatus>
+                          <button class="btn btn-success px-2">
+                            Ticket Redeemed
+                          </button>
+                        </ng-template>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <div class="row">
+              <div *ngIf="orders != null" class="row">
                 <div class="col-lg-3">
                   <h3>Total Amount</h3>
                   <h4>${{ total }}</h4>
                 </div>
                 <div class="col-lg-3">
                   <h3>Total Tickets</h3>
-                  <h4>8</h4>
+                  <h4>{{ itemCount }}</h4>
                 </div>
+                <div class="col-lg-3">
+                  <div class="col-12 text-center">
+                    <button (click)="redeemAll()" class="btn btn-danger px-5">Redeem All</button>
+                  </div>
+                </div>
+                <!-- <div class="col-lg-3">
+                  <div class="col-12 text-center">
+                  </div>
+                </div> -->
               </div>
             </div>
           </div>
