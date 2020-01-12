@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {AddVolunteerService} from '../add-volunteer.service';
 import { PasswordValidators } from '../validators/password-validator';
+import {Volunteer} from '../models/volunteer.model';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { PasswordValidators } from '../validators/password-validator';
   
 })
 export class AddvolunteerComponent implements OnInit {
-  volunteers: any[];
+ 
+
   form1 = new FormGroup({
     fName:new FormControl('',Validators.required),
     lName:new FormControl('',Validators.required),
@@ -24,15 +26,18 @@ export class AddvolunteerComponent implements OnInit {
     gender:new FormControl('',Validators.required),
   });
  
+  volunteers: any[];
+
  constructor(private addVolunteerService:AddVolunteerService) {
-    addVolunteerService.getAll().subscribe(volunteer => {
-      this.volunteers = volunteer;
+   addVolunteerService.getAll().subscribe(volunteers => {
+   this.volunteers = volunteers;
     });
+    console.log("volun array",this.volunteers);
   }
 
   onSubmit() {
-    // this.addVolunteerService.create(this.form1.value);
-    console.log(this.form1.value);
+    this.addVolunteerService.create(this.form1.value);
+    
     this.form1.reset();
   }
 
@@ -68,9 +73,10 @@ export class AddvolunteerComponent implements OnInit {
     return this.form1.get("dob");
   }
   
-    
+  
   ngOnInit() {
-  }
+    
+   }
 
 
 
