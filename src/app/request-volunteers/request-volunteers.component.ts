@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { RequestVolunteersService } from "../request-volunteers.service";
 
 @Component({
   selector: "app-request-volunteers",
@@ -7,6 +8,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
   styleUrls: ["./request-volunteers.component.scss"]
 })
 export class RequestVolunteersComponent implements OnInit {
+  requests: any[];
+  
   form = new FormGroup({
     eventName: new FormControl("", Validators.required),
     authorName: new FormControl("", Validators.required),
@@ -17,13 +20,16 @@ export class RequestVolunteersComponent implements OnInit {
     description: new FormControl("", Validators.required)
   });
 
-  ngSubmit() {
-    console.log("ggg");
+  constructor(private requestVolunteersService: RequestVolunteersService) {
+    requestVolunteersService.getAll().subscribe(request => {
+      this.requests = request;
+    });
   }
 
-  constructor() {}
-
-  ngOnInit() {}
+  onSubmit() {
+    this.requestVolunteersService.create(this.form.value);
+    this.form.reset();
+  }
 
   get eventName() {
     return this.form.get("eventName");
@@ -33,8 +39,8 @@ export class RequestVolunteersComponent implements OnInit {
     return this.form.get("authorName");
   }
 
-  get noVal() {
-    return this.form.get("noVal");
+  get noVol() {
+    return this.form.get("noVol");
   }
 
   get pickLoc() {
@@ -52,4 +58,7 @@ export class RequestVolunteersComponent implements OnInit {
   get description() {
     return this.form.get("description");
   }
+
+  ngOnInit() {}
+
 }

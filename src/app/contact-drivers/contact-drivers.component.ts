@@ -10,9 +10,9 @@ export class ContactDriversComponent implements OnInit {
 
   drivers: any[];
 
-  constructor(contactDriversService: ContactDriversService) {
-    contactDriversService.getAll().subscribe(drivers=>{
-      this.drivers = drivers;
+  constructor(private contactDriversService: ContactDriversService) {
+    contactDriversService.getAll().subscribe(driver=>{
+      this.drivers = driver;
     })
 
   }
