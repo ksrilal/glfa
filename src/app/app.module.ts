@@ -42,6 +42,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContactDriversCardComponent } from './contact-drivers-card/contact-drivers-card.component';
 
 import { ContactDriversService } from './contact-drivers.service';
+import { AuthorService } from './author-management-service/author.service';
 
 
 
@@ -73,14 +74,16 @@ import { ContactDriversService } from './contact-drivers.service';
     RequestVolunteersComponent,
     ContactDriversComponent,
     DashboardComponent,
-    ContactDriversCardComponent
+    ContactDriversCardComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+
     RouterModule.forRoot([
       { path: "", component: LoginComponent },
       {
@@ -167,7 +170,7 @@ import { ContactDriversService } from './contact-drivers.service';
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService, ContactDriversService],
+  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, AuthorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

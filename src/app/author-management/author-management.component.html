@@ -11,79 +11,47 @@
           <div class="card">
             <div class="card-body">
                 <div class="form-validation">
-                    <form [formGroup]='form1'  (ngSubmit)="onSubmit()"
-                    class="form-valide">
+                    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                            
+                        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id"><!--hidden input tag for id-->
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label" for="val-fname">First name <span class="text-danger">*</span>
-                            </label>
+                            <label class="col-lg-4 col-form-label" for="val-fname">First name <span class="text-danger">*</span></label>
+                            
                             <div class="col-lg-6">
-                                <input type="text" 
-                                class="form-control" 
-                                id="fName" 
-                                name="fName" 
-                                placeholder="First Name here.."
-                                formControlName="fName"
-                                />
-
-                          <div *ngIf="(fName.touched && fName.invalid)">
-                                    <div class="alert alert-danger">
-                                      Firstname cannot be empty
-                                    </div>
-                                  </div>
+                              <input type="text" name="fname" #fname="ngModel" [(ngModel)]="service.formData.fname" class="form-control" placeholder="First Name" required>
+                              <div *ngIf="fname.invalid && fname.touched" class="alert alert-danger">This field is required.</div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-lname">Last name <span class="text-danger">*</span>
-                                </label>
+                                <label class="col-lg-4 col-form-label" for="val-lname">Last name <span class="text-danger">*</span></label>
+                                
                                 <div class="col-lg-6">
-                                    <input type="text" 
-                                    class="form-control" 
-                                    id="lName" 
-                                    name="lName" 
-                                    placeholder="Last Name here.."
-                                    formControlName="lName"
-                                    />
+                                  <input type="text" name="lname" #lname="ngModel" [(ngModel)]="service.formData.lname" class="form-control" placeholder="Last Name" required>
+                                  <div *ngIf="lname.invalid && lname.touched" class="alert alert-danger">This field is required.</div>
+                                </div>
+                        </div>
+                        
 
-                                    <div *ngIf="lName.touched && lName.invalid">
-                                        <div class="alert alert-danger">
-                                          Lastname cannot be empty
-                                        </div>
-                                      </div>
+                        <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span></label>
+                                    
+                                <div class="col-lg-6">
+                                  <input type="text" name="uname" #uname="ngModel" [(ngModel)]="service.formData.uname" class="form-control" placeholder="Username" required>
+                                  <div *ngIf="uname.invalid && uname.touched" class="alert alert-danger">This field is required.</div>
                                 </div>
                         </div>
 
-                            <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" 
-                                        class="form-control" 
-                                        id="userName" 
-                                        name="userName" 
-                                        placeholder="Enter a username.."
-                                        formControlName="userName"
-                                        />
-
-                                        <div *ngIf="userName.touched && userName.invalid">
-                                            <div class="alert alert-danger">
-                                              Username cannot be empty
-                                            </div>
-                                          </div>
-                                    </div>
-                                </div>
-
-                            <div class="form-group row">
+                        <!--<div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-gender">Gender <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                    <!-- <div class="custom-control custom-radio" formControlName="gender">
+                                        <div class="custom-control custom-radio" formControlName="gender">
                                         
                                             <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel>
                                             <label class="custom-control-label" for="male">Male</label>
-                                         </div>
+                                        </div>
                                       
                                          <div class="custom-control custom-radio">
                                             <input id="female" type="radio" class="custom-control-input" value="female" name="gender" ngModel>
@@ -97,7 +65,7 @@
                                                 <div class="alert alert-danger">
                                                   Please input your gender
                                                 </div>
-                                              </div> -->
+                                              </div> 
                                               <div class="custom-control custom-radio">
                                               <input type="radio" formControlName="gender" value="male" > Male
                                               <input type="radio" formControlName="gender" value="female"> Female
@@ -106,159 +74,95 @@
                                               </div>
                                               
                                     </div> 
+                                </div>-->
+
+                        <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-dob">Date of Birth <span class="text-danger">*</span></label>
+                                        
+                                <div class="col-lg-6">
+                                  <input type="date" name="dob" #dob="ngModel" [(ngModel)]="service.formData.dob" class="form-control" placeholder="Date of Birth" required>
+                                  <div *ngIf="dob.invalid && dob.touched" class="alert alert-danger">This field is required.</div>
+                                </div>                
+                                        
+                        </div>
+
+                        <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-phone">Phone <span class="text-danger">*</span></label>
+                                  
+                                <div class="col-lg-6">
+                                  <input type="text" name="phone" #phone="ngModel" [(ngModel)]="service.formData.phone" class="form-control" placeholder="Phone" required>
+                                  <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger">This field is required.</div>
                                 </div>
 
-                                <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-dob">Date of Birth <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <input type="date" 
-                                            class="form-control" 
-                                            id="dob" 
-                                            name="dob" 
-                                            placeholder=''
-                                            formControlName="dob"
-                                            />
-    
-                                            <div *ngIf="dob.touched && dob.invalid">
-                                                <div class="alert alert-danger">
-                                                  Please input your date of birth
-                                                </div>
-                                              </div>
-                                        </div>
-                                    </div>
+                        </div>
 
-                                    <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-phoneus"
-                                                  >Phone <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                  <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="mobile"
-                                                    name="mobile"
-                                                    placeholder="xxxxxxxxxx"
-                                                    formControlName="mobile"
-                                                  />
-                                                  <div *ngIf="mobile.dirty">
-                                                    <div *ngIf="mobile.errors.minlength">
-                                                      <div class="alert alert-danger">
-                                                        Mobile number should be at least 10 digits
-                                                        {{ mobile.errors.minlength.requiredLength }} numbers
-                                                      </div>
+                        <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span></label>
+                                          
+                                <div class="col-lg-6">
+                                  <input type="email" name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="email" required>
+
+                                  <div *ngIf="email.touched">
+                                    <div *ngIf="email.dirty">
+                                      <div class="passwd.invalid">
+                                        Enter valide one..
+                                      </div>
+                                    </div>
+                                    <div *ngIf="email.invalid">
+                                      <div class="alert alert-danger">
+                                        Email is required
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>        
+                                
+                        </div>
+
+                        <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-passwd">Password <span class="text-danger">*</span></label>
+                                <div class="col-lg-6">
+                                  <input type="text" name="passwd" #passwd="ngModel" [(ngModel)]="service.formData.passwd" class="form-control" placeholder="choose safe one.." required>
+                                   
+                                                <div *ngIf="passwd.touched">
+                                                  <div *ngIf="passwd.dirty">
+                                                    <div class="validation-error">
+                                                      Password should be at least 8
+                                                      characters.
                                                     </div>
-                                                    <div *ngIf="mobile.errors.maxlength">
-                                                      <div class="alert alert-danger">
-                                                        Mobile number cannot exceed 10 digits
-                                                        {{ mobile.errors.maxlength.requiredLength }} numbers
-                                                      </div>
-                                                    </div>
-                                                    <div *ngIf="mobile.errors.required">
-                                                      <div class="alert alert-danger">
-                                                        Phone number is required
-                                                      </div>
+                                                  </div>
+                                                  <div *ngIf="passwd.invalid">
+                                                    <div class="alert alert-danger">
+                                                      Password is required.
                                                     </div>
                                                   </div>
                                                 </div>
-                                              </div>
+                                </div> 
+                                             
+                                        
+                        </div>                
+                        
 
-
-                                <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-email"
-                                          >Email <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                          <input
-                                            type="text"
-                                            class="form-control"
-                                            id="email"
-                                            name="email"
-                                            placeholder="Your valid email.."
-                                            formControlName="email"
-                                          />
-                                          <div *ngIf="email.touched ||email.dirty">
-                                            <div *ngIf="email.invalid">
-                                              <div class="alert alert-danger">
-                                                Invalid Email address
-                                              </div>
-                                            </div>
-                                            <div *ngIf="email.errors.required">
-                                              <div class="alert alert-danger">
-                                                Email is required
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                      <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="passwd"
-                                          >Password <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                          <input
-                                            type="password"
-                                            class="form-control"
-                                            id="passwd"
-                                            name="val-passwd"
-                                            placeholder="Choose a safe one.."
-                                            formControlName="passwd"
-                                          />
-                                          <div *ngIf="passwd.touched">
-                                            <div *ngIf="passwd.dirty &&passwd.errors.password">
-                                              <div class="alert alert-danger">
-                                                Password should be at least 8
-                                                characters
-                                              </div>
-                                            </div>
-                                            <div *ngIf="passwd.errors.required">
-                                              <div class="alert alert-danger">
-                                                Password is required
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                      <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-lname">Description<span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <textarea type="text" 
-                                            class="form-control" 
-                                            id="des" 
-                                            name="des" 
-                                            placeholder="Short description here.."
-                                            formControlName="des"
-                                            ></textarea>
-        
-                                            <div *ngIf="des.touched && des.invalid">
-                                                <div class="alert alert-danger">
-                                                  Description cannot be empty
-                                                </div>
-                                              </div>
-                                        </div>
-                                </div>
+                        <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-des">Description<span class="text-danger">*</span></label>
+                                        
+                                <div class="col-lg-6">
+                                  <textarea type="text" name="des" #des="ngModel" [(ngModel)]="service.formData.des" class="form-control" placeholder="short Description here.." required ></textarea> 
+                                  <div *ngIf="des.invalid && des.touched" class="alert alert-danger">This field is required.</div>
+                                </div> 
+                        </div>
 
                                 <div class="form-group row" >
                                     <div class="col-lg-8 ml-auto" >
-                                        <button
-                                            type="submit"
-                                            [disabled]="form.invalid"
-                                            class="btn btn-primary"
-                                        >
+                                      <button type="submit" [disabled]="form.invalid" class="btn btn-primary">SUBMIT</button>
+                                      <a class="btn" (click)="resetForm()" title="Reset Form"><i class="fa fa-linode"></i></a>
+                                    </div>  
+                                 </div> 
 
-                                        Submit
-                                        </button>
-                                      
-                                    </div>
-                            </div>
-            
                     </form>
                 </div>
             </div>
-        </div>
+          </div>
         </div>
         <!--Author add form end***********-->
 
@@ -270,10 +174,9 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped verticle-middle">
                             <tbody>
-                                <tr>
-                                    <td>Haruki Murakami</td>
-                                    <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-close color-danger"></i></a></span>
-                                    </td>
+                                <tr *ngFor="let author of list">
+                                  <td (click)="onEdit(author)" title="Click here to show details">{{author.fname}} {{author.lname}}</td>
+                                  <td><a class="btn text-danger" (click)="onDelete(author.id)" title="Delete"><i class="fa fa-trash"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -285,7 +188,8 @@
         
       <!--Author list end***********-->
 
-      <!--Author card begin***********-->
+      <!--Author card begin***********
+
         <div class="col">
           <div class="row">
               <div class="col-4">
@@ -315,7 +219,8 @@
                 </div>
           </div>
         </div>
-        <!--Author card end***********-->
+
+      ****Author card end***********-->
 
     </div>
   </div>
