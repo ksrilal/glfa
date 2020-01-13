@@ -42,6 +42,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContactDriversCardComponent } from './contact-drivers-card/contact-drivers-card.component';
 
 import { ContactDriversService } from './contact-drivers.service';
+import { RequestVolunteersService } from './request-volunteers.service';
+import { VehicleManagementService } from './vehicle-management.service';
 
 
 
@@ -167,7 +169,7 @@ import { ContactDriversService } from './contact-drivers.service';
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService, ContactDriversService],
+  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, RequestVolunteersService, VehicleManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
