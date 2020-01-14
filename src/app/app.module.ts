@@ -47,8 +47,12 @@ import { DoneComponent } from './done/done.component';
 import { ContactDriversCardComponent } from './contact-drivers-card/contact-drivers-card.component';
 
 import { ContactDriversService } from './contact-drivers.service';
+
+import { AuthorService } from './author-management-service/author.service';
+
 import { RequestVolunteersService } from './request-volunteers.service';
 import { VehicleManagementService } from './vehicle-management.service';
+
 
 
 
@@ -82,19 +86,23 @@ import { VehicleManagementService } from './vehicle-management.service';
     ContactDriversComponent,
     DashboardComponent,
 
+
     TodoComponent,
     OngoingComponent,
     DoneComponent
 
     ContactDriversCardComponent
 
+
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+
     RouterModule.forRoot([
       { path: "", component: LoginComponent },
       {
@@ -181,7 +189,11 @@ import { VehicleManagementService } from './vehicle-management.service';
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, RequestVolunteersService, VehicleManagementService],
+
+
+
+  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, RequestVolunteersService, VehicleManagementService,AuthorService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}

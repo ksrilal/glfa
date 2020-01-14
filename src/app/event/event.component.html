@@ -1,34 +1,11 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
 
-<div class="content-body">
+<!--events summury begin***********-->
+<!--<div class="content-body">
 
   <div class="container-fluid mt-3">
       <div class="row">
-          <div class="col-4">
-              <div class="card gradient-1">
-                  <div class="card-body">
-                      <h3 class="card-title text-white">All Events</h3>
-                      <div class="d-inline-block">
-                          <h2 class="text-white">35</h2>
-                          <p class="text-white mb-0">Jan - March 2019</p>
-                      </div>
-                      <span class="float-right display-5 opacity-5"><i class="fa fa-fort-awesome"></i></span>
-                  </div>
-              </div>
-          </div>
-          <div class="col-4">
-              <div class="card gradient-2">
-                  <div class="card-body">
-                      <h3 class="card-title text-white">Ongoing Events</h3>
-                      <div class="d-inline-block">
-                          <h2 class="text-white">10</h2>
-                          <p class="text-white mb-0">Jan - March 2019</p>
-                      </div>
-                      <span class="float-right display-5 opacity-5"><i class="fa fa-snowflake-o"></i></span>
-                  </div>
-              </div>
-          </div>
           <div class="col-4">
               <div class="card gradient-3">
                   <div class="card-body">
@@ -43,64 +20,117 @@
           </div>
       </div>
   </div>
-</div>
+</div>-->
+
 
   <div class="content-body">
       <div class="container-fluid">
         <div class="row">
-
+            <!--new & edit events form begin**********-->
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="form-valide" action="#" method="post">
+                            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                           
+                                <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id"><!--hidden input tag for id-->
+        
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-username">Event Name<span class="text-danger"></span>
-                                    </label>
+                                    <label class="col-lg-4 col-form-label" for="val-name">Event name <span class="text-danger">*</span></label>
+                                    
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter a event name">
+                                      <input type="text" name="name" #name="ngModel" [(ngModel)]="service.formData.name" class="form-control" placeholder="Event Name" required>
+                                      <div *ngIf="name.invalid && name.touched" class="alert alert-danger">This field is required.</div>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Date<span class="text-danger"></span>
-                                    </label>
+                                    <label class="col-lg-4 col-form-label" for="val-date">Date <span class="text-danger">*</span></label>
+                                    
                                     <div class="col-lg-6">
-                                        <input type="date" name="eventday">
+                                      <input type="date" name="date" #date="ngModel" [(ngModel)]="service.formData.date" class="form-control" placeholder="Date" required>
+                                      <div *ngIf="date.invalid && date.touched" class="alert alert-danger">This field is required.</div>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-currency">Start Time<span class="text-danger"></span>
-                                    </label>
+                                    <label class="col-lg-4 col-form-label" for="val-time">Time <span class="text-danger">*</span></label>
+                                    
                                     <div class="col-lg-6">
-                                        <input type="time" name="event-start-time">
+                                      <input type="time" name="time" #time="ngModel" [(ngModel)]="service.formData.time" class="form-control" placeholder="Time" required>
+                                      <div *ngIf="time.invalid && time.touched" class="alert alert-danger">This field is required.</div>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-currency">End Time<span class="text-danger"></span>
-                                    </label>
+                                    <label class="col-lg-4 col-form-label" for="val-author">Author<span class="text-danger">*</span></label>
+                                    
                                     <div class="col-lg-6">
-                                        <input type="time" name="event-end-time">
+                                      <input type="text" name="author" #author="ngModel" [(ngModel)]="service.formData.author" class="form-control" placeholder="Author" required>
+                                      <div *ngIf="author.invalid && author.touched" class="alert alert-danger">This field is required.</div>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Description <span class="text-danger"></span>
-                                    </label>
+                                    <label class="col-lg-4 col-form-label" for="val-venue">Venue<span class="text-danger">*</span></label>
+                                    
                                     <div class="col-lg-6">
-                                        <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="Description"></textarea>
+                                      <input type="text" name="venue" #venue="ngModel" [(ngModel)]="service.formData.venue" class="form-control" placeholder="Venue" required>
+                                      <div *ngIf="venue.invalid && venue.touched" class="alert alert-danger">This field is required.</div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                  <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*">
-                                    <label class="custom-file-label" for="inputGroupFile01">Upload jpg file</label>
-                                  </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-price">Price<span class="text-danger">*</span></label>
+                                    
+                                    <div class="col-lg-6">
+                                      <input type="text" name="price" #price="ngModel" [(ngModel)]="service.formData.price" class="form-control" placeholder="Price" required>
+                                      <div *ngIf="price.invalid && price.touched" class="alert alert-danger">This field is required.</div>
+                                    </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-quantity">Quantity<span class="text-danger">*</span></label>
+                                    
+                                    <div class="col-lg-6">
+                                      <input type="text" name="quantity" #quantity="ngModel" [(ngModel)]="service.formData.quantity" class="form-control" placeholder="Quantity" required>
+                                      <div *ngIf="quantity.invalid && quantity.touched" class="alert alert-danger">This field is required.</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-soldQuantity">Sold quantity<span class="text-danger">*</span></label>
+                                    
+                                    <div class="col-lg-6">
+                                      <input type="text" name="soldQuantity" #soldQuantity="ngModel" [(ngModel)]="service.formData.soldQuantity" class="form-control" placeholder="Sold quantity" required>
+                                      <div *ngIf="soldQuantity.invalid && soldQuantity.touched" class="alert alert-danger">This field is required.</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-des">Description<span class="text-danger">*</span></label>
+                                            
+                                    <div class="col-lg-6">
+                                      <textarea type="text" name="des" #des="ngModel" [(ngModel)]="service.formData.des" class="form-control" placeholder="short Description here.." required ></textarea> 
+                                      <div *ngIf="des.invalid && des.touched" class="alert alert-danger">This field is required.</div>
+                                    </div> 
+                                </div>
+    
+                                    <div class="form-group row" >
+                                        <div class="col-lg-8 ml-auto" >
+                                          <button type="submit" [disabled]="form.invalid" class="btn btn-primary">SUBMIT</button>
+                                          <a class="btn" (click)="resetForm()" title="Click here to reset form"><i class="fa fa-linode"></i> Reset Form</a>
+                                        </div>  
+                                     </div> 
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--new & edit events form end**********-->
 
+            <!--all events list begin**********-->
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
@@ -112,67 +142,28 @@
                                         <th scope="col">Event</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Time</th>
+                                        <th scope="col">Venue</th>
                                         <th scope="col">Action</th>
-                                        <th scope="col">Done</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Margenta Evening</td>
-                                        <td>Apr 20,2018</td>
-                                        <td>06:30pm</td>
-                                        <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td>
-                                        <td><a href="#" data-toggle="tooltip" data-placement="top" title="Done"><input type="checkbox"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Children Dreams</td>
-                                        <td>May 27,2018</td>
-                                        <td>11:30am</td>
-                                        <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td>
-                                        <td><a href="#" data-toggle="tooltip" data-placement="top" title="Done"><input type="checkbox"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Where is Harry?</td>
-                                        <td>May 18,2018</td>
-                                        <td>11:30am</td>
-                                        <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td>
-                                        <td><a href="#" data-toggle="tooltip" data-placement="top" title="Done"><input type="checkbox"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Day is the day</td>
-                                        <td>Mar 27,2018</td>
-                                        <td>11:30am</td>
-                                        <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td>
-                                        <td><a href="#" data-toggle="tooltip" data-placement="top" title="Done"><input type="checkbox"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Boats</td>
-                                        <td>Jun 28,2018</td>
-                                        <td>11:30am</td>
-                                        <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td>
-                                        <td><a href="#" data-toggle="tooltip" data-placement="top" title="Done"><input type="checkbox"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sunset</td>
-                                        <td>Aug 20,2018</td>
-                                        <td>11:30am</td>
-                                        <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td>
-                                        <td><a href="#" data-toggle="tooltip" data-placement="top" title="Done"><input type="checkbox"></a></td>
-                                    </tr>
+                                    <tr *ngFor="let event of list">
+                                        <td (click)="onEdit(event)">{{event.name}}</td>
+                                        <td (click)="onEdit(event)">{{event.date}}</td>
+                                        <td (click)="onEdit(event)">{{event.time}}</td>
+                                        <td (click)="onEdit(event)">{{event.venue}}</td>
+                                        <td><a class="btn text-danger" (click)="onDelete(event.id)"><i class="fa fa-trash"></i></a></td>
+                                      </tr>                                    
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--all events list end**********-->
 
 
+            <!--all events card begin**********
             <div class="row">
                 <div class="col-12 m-b-30">
                     <div class="row">
@@ -181,52 +172,18 @@
                                 <img class="img-fluid" src="../assets/images/events/fly.jpg" alt="">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
+                                    <p class="author">Speaker(s)</p>
+                                    <h6 class="date&timr">12/01/2020, 11.00am to 02.00pm at Venue</h6>
                                     <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little bit longer.</p>
                                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <!-- End Col -->
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <img class="img-fluid" src="../assets/images/events/ant.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Col -->
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <img class="img-fluid" src="../assets/images/events/power.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Col -->
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <img class="img-fluid" src="../assets/images/events/moon.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Col -->
                     </div>
                 </div>
             </div>
+            ******all events card end**********-->
 
         </div>
       </div>
