@@ -50,6 +50,8 @@ import { RequestVolunteersService } from "./request-volunteers.service";
 import { VehicleManagementService } from "./vehicle-management.service";
 import { AuthorService } from "./author-management-service/author.service";
 import { ContactDriversCardComponent } from "./contact-drivers-card/contact-drivers-card.component";
+import { AddDriversService } from './add-drivers.service';
+import { AddDriversComponent } from './add-drivers/add-drivers.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,8 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
     TodoComponent,
     OngoingComponent,
     DoneComponent,
-    ContactDriversCardComponent
+    ContactDriversCardComponent,
+    AddDriversComponent
   ],
 
   imports: [
@@ -145,7 +148,8 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
       },
       {
         path: "vehicle-management",
-        component: VehicleManagementComponent
+        component: VehicleManagementComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: "vehicle-management/all-vehicles",
@@ -162,11 +166,19 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
       },
       {
         path: "request-volunteers",
-        component: RequestVolunteersComponent
+        component: RequestVolunteersComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: "contact-drivers",
-        component: ContactDriversComponent
+        component: ContactDriversComponent,
+        canActivate: [AuthGuardService]
+      },
+
+      {
+        path: "add-drivers",
+        component: AddDriversComponent,
+        canActivate: [AuthGuardService]
       }
     ]),
     NgbModule,
@@ -184,7 +196,8 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
     ContactDriversService,
     RequestVolunteersService,
     VehicleManagementService,
-    AuthorService
+    AuthorService,
+    AddDriversService
   ],
 
   bootstrap: [AppComponent]
