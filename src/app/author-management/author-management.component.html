@@ -155,7 +155,7 @@
                                 <div class="form-group row" >
                                     <div class="col-lg-8 ml-auto" >
                                       <button type="submit" [disabled]="form.invalid" class="btn btn-primary">SUBMIT</button>
-                                      <a class="btn" (click)="resetForm()" title="Reset Form"><i class="fa fa-linode"></i></a>
+                                      <a class="btn" (click)="resetForm()" title="Click here to reset form"><i class="fa fa-linode"></i> Reset Form</a>
                                     </div>  
                                  </div> 
 
@@ -175,7 +175,7 @@
                         <table class="table table-bordered table-striped verticle-middle">
                             <tbody>
                                 <tr *ngFor="let author of list">
-                                  <td (click)="onEdit(author)" title="Click here to show details">{{author.fname}} {{author.lname}}</td>
+                                  <td (click)="onEdit(author)" title="Click here to show or edit details">{{author.fname}} {{author.lname}}</td>
                                   <td><a class="btn text-danger" (click)="onDelete(author.id)" title="Delete"><i class="fa fa-trash"></i></a></td>
                                 </tr>
                             </tbody>
