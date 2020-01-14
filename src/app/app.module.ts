@@ -39,10 +39,21 @@ import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-v
 import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
 import { ContactDriversComponent } from './contact-drivers/contact-drivers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { TodoComponent } from './todo/todo.component';
+import { OngoingComponent } from './ongoing/ongoing.component';
+import { DoneComponent } from './done/done.component';
+
 import { ContactDriversCardComponent } from './contact-drivers-card/contact-drivers-card.component';
 
 import { ContactDriversService } from './contact-drivers.service';
+
 import { AuthorService } from './author-management-service/author.service';
+
+import { RequestVolunteersService } from './request-volunteers.service';
+import { VehicleManagementService } from './vehicle-management.service';
+
+
 
 
 
@@ -74,7 +85,15 @@ import { AuthorService } from './author-management-service/author.service';
     RequestVolunteersComponent,
     ContactDriversComponent,
     DashboardComponent,
-    ContactDriversCardComponent,
+
+
+    TodoComponent,
+    OngoingComponent,
+    DoneComponent
+
+    ContactDriversCardComponent
+
+
   ],
   
   imports: [
@@ -170,7 +189,11 @@ import { AuthorService } from './author-management-service/author.service';
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, AuthorService],
+
+
+
+  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, RequestVolunteersService, VehicleManagementService,AuthorService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}

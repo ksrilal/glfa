@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {AddVolunteerService} from '../add-volunteer.service';
 import { PasswordValidators } from '../validators/password-validator';
+import { NgForOf } from '@angular/common';
+import { of } from 'rxjs';
+import { element } from 'protractor';
+import { User } from 'firebase';
+
 
 
 @Component({
@@ -11,7 +16,8 @@ import { PasswordValidators } from '../validators/password-validator';
   
 })
 export class AddvolunteerComponent implements OnInit {
-  volunteers: any[];
+ 
+
   form1 = new FormGroup({
     fName:new FormControl('',Validators.required),
     lName:new FormControl('',Validators.required),
@@ -24,15 +30,49 @@ export class AddvolunteerComponent implements OnInit {
     gender:new FormControl('',Validators.required),
   });
  
- constructor(private addVolunteerService:AddVolunteerService) {
-    addVolunteerService.getAll().subscribe(volunteer => {
-      this.volunteers = volunteer;
-    });
-  }
+  users: any[];
 
+ constructor(private addVolunteerService:AddVolunteerService) {
+  // addVolunteerService.getAll().subscribe(users => {
+  // this.users = users;
+   // });
+    console.log("volunteers array" );
+    if(this.addVolunteerService.getAll()==null){
+      console.log("no items");
+    }else{
+    //for(var v of Object.keys(this.addVolunteerService.getAll())){
+    this.addVolunteerService.getAll().forEach(element => {
+      //this.users.push(element);
+      console.log("at addvol components",element);
+    });
+    //console.log("at addvol components",v.fName);
+   // }
+    }
+    
+  }
+ /* constructor(private addVolunteerService:AddVolunteerService) {
+     
+    addVolunteerService.getAll().subscribe(users => {
+     this.users =users;
+      });
+    
+
+      console.log("volunteers array" );
+      if(this.users==null){
+        console.log("no items");
+      }else{
+      //for(var v of Object.keys(this.addVolunteerService.getAll())){
+      this.users.forEach(element => {
+        console.log("at addvol components",element);
+      });
+      //console.log("at addvol components",v.fName);
+     // }
+    }
+    }
+*/
   onSubmit() {
-    // this.addVolunteerService.create(this.form1.value);
-    console.log(this.form1.value);
+    this.addVolunteerService.create(this.form1.value);
+    
     this.form1.reset();
   }
 
@@ -68,9 +108,10 @@ export class AddvolunteerComponent implements OnInit {
     return this.form1.get("dob");
   }
   
-    
+  
   ngOnInit() {
-  }
+    
+   }
 
 
 
