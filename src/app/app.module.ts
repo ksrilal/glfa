@@ -44,6 +44,8 @@ import { ContactDriversCardComponent } from './contact-drivers-card/contact-driv
 import { ContactDriversService } from './contact-drivers.service';
 import { RequestVolunteersService } from './request-volunteers.service';
 import { VehicleManagementService } from './vehicle-management.service';
+import { AddDriversComponent } from './add-drivers/add-drivers.component';
+import { AddDriversService } from './add-drivers.service';
 
 
 
@@ -75,7 +77,8 @@ import { VehicleManagementService } from './vehicle-management.service';
     RequestVolunteersComponent,
     ContactDriversComponent,
     DashboardComponent,
-    ContactDriversCardComponent
+    ContactDriversCardComponent,
+    AddDriversComponent
   ],
   imports: [
     BrowserModule,
@@ -161,6 +164,11 @@ import { VehicleManagementService } from './vehicle-management.service';
         path: "contact-drivers",
         component: ContactDriversComponent
 
+      },
+      {
+        path: "add-drivers",
+        component: AddDriversComponent
+
       }
     ]),
     NgbModule,
@@ -169,7 +177,8 @@ import { VehicleManagementService } from './vehicle-management.service';
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, RequestVolunteersService, VehicleManagementService],
+  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, RequestVolunteersService,
+    VehicleManagementService, AddDriversService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
