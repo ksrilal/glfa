@@ -1,50 +1,40 @@
 
-<app-side-bar></app-side-bar>
-<app-vehicle-management></app-vehicle-management>
-<div class="content-body">
+<!--<app-side-bar></app-side-bar>
+<app-vehicle-management></app-vehicle-management>-->
+<<!--div class="content-body">
 
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body">-->
 
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">
                             <thead>
                                 <tr>
-                                    <th>Num</th>
-                                    <th>Type</th>
-                                    <th>Driver Name</th>
+                                  <th>Driver Name</th>
+                                  <th>Vehicle Type</th>
+                                  <th>Vehicle Number</th>
                                 </tr>
                             </thead>
                             <tbody>
+                              <div *ngFor="let assignedVehicle of assignedVehicles">
                                 <tr>
-                                    <td>1290</td>
-                                    <td>audi A8</td>
-                                    <td>Maheema</td>
+                                    <td>{{assignedVehicle.name}}</td>
+                                    <td>{{assignedVehicle.model}}</td>
+                                    <td>{{assignedVehicle.vehicleNum}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                </tr>
+                              </div>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Num</th>
-                                    <th>Type</th>
-                                    <th>Driver Name</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
 
 
-                </div>
+                <!--</div>
             </div>
         </div>
     </div>
 
-</div>
+</div>-->
 
 

@@ -1,8 +1,9 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
-<div class="content-body">
 
-  <div class="row page-titles mx-0">
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="row page-titles mx-0">
       <div class="col p-md-0">
           <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
@@ -11,13 +12,18 @@
       </div>
   </div>
 
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="card">
-                  <div class="card-body">
-                      <div class="form-validation">
-                          <form name="form" [formGroup]="form" (ngSumbit)="ngSubmit()" class="form-valide" action="#" method="post">
+    <div class="row">
+      <div class="col-lg-4 col-xl-3">
+        <app-user-card></app-user-card>
+      </div>
+      <div class="col-lg-6 col-xl-9">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-validation">
+              <form
+                          [formGroup]="form"
+                          (ngSubmit)="onSubmit()"
+                          class="form-valide">
 
                               <div class="form-group row">
                                   <label class="col-lg-4 col-form-label" for="eventName"
@@ -166,35 +172,78 @@
                                               </div>
                                             </div>
 
-                              <div class="form-group row">
-                                  <div class="col-lg-8 ml-auto">
-                                      <button type="submit" class="btn btn-primary">Request</button>
-                                  </div>
-                              </div>
+                                            <div class="form-group row">
+                                              <div class="col-lg-8 ml-auto">
+                                                <button
+                                                  type="submit"
+                                                  [disabled]="form.invalid"
+                                                  class="btn btn-primary"
+                                                >
+                                                  Request
+                                                </button>
+                                              </div>
+                                            </div>
                           </form>
-                      </div>
-                  </div>
-              </div>
+            </div>
           </div>
-
-          <div class="col-lg-6">
-              <div class="card">
-                  <div class="card-body">
-
-                              <h4 class="card-title">Previously Assigned</h4>
-                              <div class="basic-list-group">
-                                  <ul class="list-group">
-                                      <li class="list-group-item">Cras justo odio</li>
-                                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                                      <li class="list-group-item">Morbi leo risus</li>
-                                      <li class="list-group-item">Porta ac consectetur ac</li>
-                                      <li class="list-group-item">Vestibulum at eros</li>
-                                  </ul>
-                              </div>
-                  </div>
-              </div>
-          </div>
-
+        </div>
       </div>
+    </div>
+      <!--<div class="row">
+        <div *ngFor="let request of requests">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <div class="text-center">
+                  <img
+                    alt=""
+                    class="rounded-circle mt-4"
+                    src="https://picsum.photos/100/100"
+                  />
+                  <h4 class="card-widget__title text-dark mt-3">
+                    {{request.eventName}}
+                  </h4>
+                  <p class="text-muted">{{request.noVol}}</p>
+                  <a
+                    class="btn gradient-4 btn-lg border-0 btn-rounded px-5"
+
+                    >Delete</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+
+      <div>
+        <div class="row">
+          <div *ngFor="let request of requests" >
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <div class="text-center">
+                    <img
+                      alt=""
+                      class="rounded-circle mt-4"
+                      src="https://picsum.photos/100/100"
+                    />
+                    <h4 class="card-widget__title text-dark mt-3">{{request.eventName}}
+                    </h4>
+
+                    <p class="text-muted">{{request.noVol}}</p>
+                    <a
+                      class="btn gradient-4 btn-lg border-0 btn-rounded px-5"
+
+                      >Delete</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </div>
 </div>

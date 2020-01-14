@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactDriversService } from 'src/app/contact-drivers.service';
 
 @Component({
   selector: 'app-contact-drivers',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactDriversComponent implements OnInit {
 
-  constructor() { }
+  drivers: any[];
+
+  constructor(private contactDriversService: ContactDriversService) {
+    contactDriversService.getAll().subscribe(driver=>{
+      this.drivers = driver;
+    })
+
+  }
 
   ngOnInit() {
   }

@@ -39,9 +39,17 @@ import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-v
 import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
 import { ContactDriversComponent } from './contact-drivers/contact-drivers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { TodoComponent } from './todo/todo.component';
 import { OngoingComponent } from './ongoing/ongoing.component';
 import { DoneComponent } from './done/done.component';
+
+import { ContactDriversCardComponent } from './contact-drivers-card/contact-drivers-card.component';
+
+import { ContactDriversService } from './contact-drivers.service';
+import { RequestVolunteersService } from './request-volunteers.service';
+import { VehicleManagementService } from './vehicle-management.service';
+
 
 
 
@@ -73,9 +81,13 @@ import { DoneComponent } from './done/done.component';
     RequestVolunteersComponent,
     ContactDriversComponent,
     DashboardComponent,
+
     TodoComponent,
     OngoingComponent,
     DoneComponent
+
+    ContactDriversCardComponent
+
   ],
   imports: [
     BrowserModule,
@@ -169,7 +181,7 @@ import { DoneComponent } from './done/done.component';
     BrowserAnimationsModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService],
+  providers: [EventService, AuthService, AuthGuardService, ContactDriversService, RequestVolunteersService, VehicleManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

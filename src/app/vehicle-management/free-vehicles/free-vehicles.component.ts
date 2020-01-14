@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VehicleManagementService } from 'src/app/vehicle-management.service';
 
 @Component({
   selector: 'app-free-vehicles',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FreeVehiclesComponent implements OnInit {
 
-  constructor() { }
+  freeVehicles: any[];
+
+  constructor(private vehicleManagementService: VehicleManagementService) {
+    vehicleManagementService.getFree().subscribe(freeVehicle => {
+      this.freeVehicles = freeVehicle;
+    });
+   }
 
   ngOnInit() {
   }
