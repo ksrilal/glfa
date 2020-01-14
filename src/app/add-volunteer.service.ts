@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './auth.service';
-import {Volunteer} from './models/volunteer.model';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -11,7 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class AddVolunteerService {
 
-  constructor(private afs: AngularFirestore, private authService: AuthService) { }
+  constructor(private afs: AngularFirestore, private authService: AuthService) { 
+    console.log("in services",this.getAll());
+  }
 
   create(volunteer) {
 
@@ -52,7 +53,17 @@ export class AddVolunteerService {
 
 
   getAll() {
-    return this.afs.collection('users').valueChanges();
+    if(Object.keys(this.afs.collection('users').valueChanges()).length==0){
+      console.log("in servics getall..null set");
+    }else{
+      console.log("in services, length of getall,",Object.keys(this.afs.collection('users').valueChanges()).length);
+    }
+    try{
+      return this.afs.collection('users').valueChanges();
+    }catch(error){
+      alert(error);
+    }
+    
   }
 
 }
