@@ -39,6 +39,9 @@ import { FreeVehiclesComponent } from './vehicle-management/free-vehicles/free-v
 import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
 import { ContactDriversComponent } from './contact-drivers/contact-drivers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TodoComponent } from './todo/todo.component';
+import { OngoingComponent } from './ongoing/ongoing.component';
+import { DoneComponent } from './done/done.component';
 
 
 
@@ -69,7 +72,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FreeVehiclesComponent,
     RequestVolunteersComponent,
     ContactDriversComponent,
-    DashboardComponent
+    DashboardComponent,
+    TodoComponent,
+    OngoingComponent,
+    DoneComponent
   ],
   imports: [
     BrowserModule,

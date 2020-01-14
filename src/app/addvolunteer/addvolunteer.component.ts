@@ -48,6 +48,7 @@ export class AddvolunteerComponent implements OnInit {
     //console.log("at addvol components",v.fName);
    // }
     }
+    
   }
  /* constructor(private addVolunteerService:AddVolunteerService) {
      
