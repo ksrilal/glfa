@@ -30,7 +30,7 @@ export class AddDriversComponent implements OnInit {
     this.form.reset();
   }
 
-  get driverName() {
+  get name() {
     return this.form.get("name");
   }
 
