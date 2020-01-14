@@ -52,6 +52,7 @@ import { AuthorService } from "./author-management-service/author.service";
 import { ContactDriversCardComponent } from "./contact-drivers-card/contact-drivers-card.component";
 import { AddDriversService } from './add-drivers.service';
 import { AddDriversComponent } from './add-drivers/add-drivers.component';
+import { ViewStaffComponent } from './view-staff/view-staff.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { AddDriversComponent } from './add-drivers/add-drivers.component';
     OngoingComponent,
     DoneComponent,
     ContactDriversCardComponent,
-    AddDriversComponent
+    AddDriversComponent,
+    ViewStaffComponent
   ],
 
   imports: [
@@ -102,6 +104,11 @@ import { AddDriversComponent } from './add-drivers/add-drivers.component';
       {
         path: "staff",
         component: StaffManagementComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "view-staff",
+        component: ViewStaffComponent,
         canActivate: [AuthGuardService]
       },
       {
