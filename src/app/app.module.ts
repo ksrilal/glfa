@@ -52,6 +52,9 @@ import { AuthorService } from "./author-management-service/author.service";
 import { ContactDriversCardComponent } from "./contact-drivers-card/contact-drivers-card.component";
 import { AddDriversService } from './add-drivers.service';
 import { AddDriversComponent } from './add-drivers/add-drivers.component';
+import { AgmCoreModule } from '@agm/core';
+import { AddStaffComponent } from './add-staff/add-staff.component';
+import { TrackAuthorComponent } from './track-author/track-author.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +85,9 @@ import { AddDriversComponent } from './add-drivers/add-drivers.component';
     OngoingComponent,
     DoneComponent,
     ContactDriversCardComponent,
-    AddDriversComponent
+    AddDriversComponent,
+    AddStaffComponent,
+    TrackAuthorComponent,
   ],
 
   imports: [
@@ -179,7 +184,18 @@ import { AddDriversComponent } from './add-drivers/add-drivers.component';
         path: "add-drivers",
         component: AddDriversComponent,
         canActivate: [AuthGuardService]
-      }
+      },
+      {
+        path: "add-staff",
+        component: AddStaffComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "track-author",
+        component: TrackAuthorComponent,
+        canActivate: [AuthGuardService]
+      },
+
     ]),
     NgbModule,
     FormsModule,
@@ -187,7 +203,12 @@ import { AddDriversComponent } from './add-drivers/add-drivers.component';
     BrowserAnimationsModule,
     MatTabsModule,
     Ng2SmartTableModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpVhQiwAllg1RAFaxMWSpQruuGARy0Y1k',
+      libraries: ['places'],
+    }),
+
   ],
   providers: [
     EventService,
@@ -197,7 +218,12 @@ import { AddDriversComponent } from './add-drivers/add-drivers.component';
     RequestVolunteersService,
     VehicleManagementService,
     AuthorService,
-    AddDriversService
+    AddDriversService,
+    
+
+
+
+    
   ],
 
   bootstrap: [AppComponent]

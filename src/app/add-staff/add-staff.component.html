@@ -1,15 +1,15 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
 
+
 <div class="content-body">
 
-  <h1 class="display-4">Author Management</h1>
+  <h1 class="display-4">Staff Management</h1>
 
   <div class="container-fluid">
     <div class="row justify-content-center">
 
-
-      <!--Author add & Edit form begin***********-->
+      <!--staff add & Edit form begin***********-->
       <div class="col-lg-7">
         <div class="card">
           <div class="card-body">
@@ -17,8 +17,9 @@
               <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
 
                 <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+                <input type="hidden" name="accessName" #accessName="ngModel" [(ngModel)]="service.formData.accessName" value="html">
                 <!--hidden input tag for id-->
-
+ 
                 <div class="form-group row">
                   <label class="col-lg-4 col-form-label" for="val-fname">First name <span
                       class="text-danger">*</span></label>
@@ -43,13 +44,30 @@
 
 
                 <div class="form-group row">
-                  <label class="col-lg-4 col-form-label" for="val-username">Username <span
+                  <label class="col-lg-4 col-form-label" for="val-userName">Username <span
                       class="text-danger">*</span></label>
 
                   <div class="col-lg-6">
-                    <input type="text" name="uname" #uname="ngModel" [(ngModel)]="service.formData.uname"
+                    <input type="text" name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName"
                       class="form-control" placeholder="Username" required>
-                    <div *ngIf="uname.invalid && uname.touched" class="alert alert-danger">This field is required.</div>
+                    <div *ngIf="userName.invalid && userName.touched" class="alert alert-danger">This field is required.</div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-roll">Role <span
+                      class="text-danger">*</span></label>
+
+                  <div class="col-lg-6">
+                    <select name="roll" #roll="ngModel" [(ngModel)]="service.formData.roll"
+                    class="form-control" required>
+                      <option value="" disabled selected>Select the role..</option>
+                      <option value="boxOffice">boxOffice</option>
+                      <option value="manager">manager</option>
+                      <option value="transpotation">transpotation</option>
+                      <option value="volunteer">volunteer</option>
+                    </select>
+                    <div *ngIf="roll.invalid && roll.touched" class="alert alert-danger">This field is required.</div>
                   </div>
                 </div>
 
@@ -99,13 +117,13 @@
                 </div>
 
                 <div class="form-group row">
-                  <label class="col-lg-4 col-form-label" for="val-phone">Phone <span
+                  <label class="col-lg-4 col-form-label" for="val-mobile">Phone <span
                       class="text-danger">*</span></label>
 
                   <div class="col-lg-6">
-                    <input type="text" name="phone" #phone="ngModel" [(ngModel)]="service.formData.phone"
+                    <input type="text" name="mobile" #mobile="ngModel" [(ngModel)]="service.formData.mobile"
                       class="form-control" placeholder="Phone" required>
-                    <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger">This field is required.</div>
+                    <div *ngIf="mobile.invalid && mobile.touched" class="alert alert-danger">This field is required.</div>
                   </div>
 
                 </div>
@@ -136,20 +154,20 @@
                 </div>
 
                 <div class="form-group row">
-                  <label class="col-lg-4 col-form-label" for="val-passwd">Password <span
+                  <label class="col-lg-4 col-form-label" for="val-password">Password <span
                       class="text-danger">*</span></label>
                   <div class="col-lg-6">
-                    <input type="text" name="passwd" #passwd="ngModel" [(ngModel)]="service.formData.passwd"
+                    <input type="text" name="password" #password="ngModel" [(ngModel)]="service.formData.password"
                       class="form-control" placeholder="choose safe one.." required>
 
-                    <div *ngIf="passwd.touched">
-                      <div *ngIf="passwd.dirty">
+                    <div *ngIf="password.touched">
+                      <div *ngIf="password.dirty">
                         <div class="validation-error">
                           Password should be at least 8
                           characters.
                         </div>
                       </div>
-                      <div *ngIf="passwd.invalid">
+                      <div *ngIf="password.invalid">
                         <div class="alert alert-danger">
                           Password is required.
                         </div>
@@ -183,20 +201,28 @@
           </div>
         </div>
       </div>
-      <!--Author add form end***********-->
+      <!--staff add form end***********-->
 
-      <!--Author list begin***********-->
-      <div class="col-lg-4">
+      <!--staff list begin***********-->
+      <div class="col-lg-5">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Authors</h4>
+            <h4 class="card-title">Staff</h4>
             <div class="table-responsive">
               <table class="table table-bordered table-striped verticle-middle">
+                <thead>
+                  <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Role</th>
+                      <th scope="col">Action</th>
+                  </tr>
+              </thead>
                 <tbody>
-                  <tr *ngFor="let author of list">
-                    <td (click)="onEdit(author)" title="Click here to show or edit details"><a class="btn">{{author.fname}}
-                      {{author.lname}}</a></td>
-                    <td><a class="btn text-danger" (click)="onDelete(author.id)" title="Delete"><i
+                  <tr *ngFor="let staff of list">
+                    <td (click)="onEdit(staff)" title="Click here to show or edit details"><a class="btn">{{staff.fname}}
+                      {{staff.lname}}</a></td>
+                    <td (click)="onEdit(staff)" title="Click here to show or edit details"><a class="btn">{{staff.roll}}</a></td>
+                    <td><a class="btn text-danger" (click)="onDelete(staff.id)" title="Delete"><i
                           class="fa fa-trash"></i></a></td>
                   </tr>
                 </tbody>
@@ -207,6 +233,6 @@
       </div>
     </div>
 
-    <!--Author list end***********-->
+    <!--staff list end***********-->
   </div>
 </div>

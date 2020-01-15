@@ -1,12 +1,12 @@
 export class Event {
-    id: String;
-    author: String;
-    date: String;
-    venue: String;
-    name: String;
-    price: String;
-    quantity: String;
-    soldQuantity: String;
-    des: String;
-    time: String;
+    id: string;
+    author: string;
+    date: string;
+    venue: string;
+    name: string;
+    price: string;
+    quantity: number;
+    soldQuantity: number;
+    des: string;
+    time: string;
   }
