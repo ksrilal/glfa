@@ -52,9 +52,13 @@ import { AuthorService } from "./author-management-service/author.service";
 import { ContactDriversCardComponent } from "./contact-drivers-card/contact-drivers-card.component";
 import { AddDriversService } from './add-drivers.service';
 import { AddDriversComponent } from './add-drivers/add-drivers.component';
+<<<<<<< src/app/app.module.ts
 import { AgmCoreModule } from '@agm/core';
 import { AddStaffComponent } from './add-staff/add-staff.component';
 import { TrackAuthorComponent } from './track-author/track-author.component';
+
+import { ViewStaffComponent } from './view-staff/view-staff.component';
+
 
 @NgModule({
   declarations: [
@@ -86,8 +90,12 @@ import { TrackAuthorComponent } from './track-author/track-author.component';
     DoneComponent,
     ContactDriversCardComponent,
     AddDriversComponent,
+
     AddStaffComponent,
     TrackAuthorComponent,
+
+    ViewStaffComponent
+
   ],
 
   imports: [
@@ -107,6 +115,11 @@ import { TrackAuthorComponent } from './track-author/track-author.component';
       {
         path: "staff",
         component: StaffManagementComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "view-staff",
+        component: ViewStaffComponent,
         canActivate: [AuthGuardService]
       },
       {
