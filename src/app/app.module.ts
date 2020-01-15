@@ -52,7 +52,13 @@ import { AuthorService } from "./author-management-service/author.service";
 import { ContactDriversCardComponent } from "./contact-drivers-card/contact-drivers-card.component";
 import { AddDriversService } from './add-drivers.service';
 import { AddDriversComponent } from './add-drivers/add-drivers.component';
+<<<<<<< src/app/app.module.ts
+import { AgmCoreModule } from '@agm/core';
+import { AddStaffComponent } from './add-staff/add-staff.component';
+import { TrackAuthorComponent } from './track-author/track-author.component';
+
 import { ViewStaffComponent } from './view-staff/view-staff.component';
+
 
 @NgModule({
   declarations: [
@@ -84,7 +90,12 @@ import { ViewStaffComponent } from './view-staff/view-staff.component';
     DoneComponent,
     ContactDriversCardComponent,
     AddDriversComponent,
+
+    AddStaffComponent,
+    TrackAuthorComponent,
+
     ViewStaffComponent
+
   ],
 
   imports: [
@@ -186,7 +197,18 @@ import { ViewStaffComponent } from './view-staff/view-staff.component';
         path: "add-drivers",
         component: AddDriversComponent,
         canActivate: [AuthGuardService]
-      }
+      },
+      {
+        path: "add-staff",
+        component: AddStaffComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "track-author",
+        component: TrackAuthorComponent,
+        canActivate: [AuthGuardService]
+      },
+
     ]),
     NgbModule,
     FormsModule,
@@ -194,7 +216,12 @@ import { ViewStaffComponent } from './view-staff/view-staff.component';
     BrowserAnimationsModule,
     MatTabsModule,
     Ng2SmartTableModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpVhQiwAllg1RAFaxMWSpQruuGARy0Y1k',
+      libraries: ['places'],
+    }),
+
   ],
   providers: [
     EventService,
@@ -204,7 +231,12 @@ import { ViewStaffComponent } from './view-staff/view-staff.component';
     RequestVolunteersService,
     VehicleManagementService,
     AuthorService,
-    AddDriversService
+    AddDriversService,
+    
+
+
+
+    
   ],
 
   bootstrap: [AppComponent]

@@ -54,8 +54,8 @@ export class EventComponent implements OnInit {
       venue: "",
       name: "",
       price: "",
-      quantity: "",
-      soldQuantity: "",
+      quantity: null,
+      soldQuantity: null,
       des: "",
       time: "",
     }

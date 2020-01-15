@@ -14,6 +14,7 @@ import { Author } from '../author-management-service/author.model';
 export class AuthorManagementComponent implements OnInit {
   list: Author[];
 
+
   constructor(private service: AuthorService,
               private firestore: AngularFirestore,) { }
 
@@ -39,7 +40,6 @@ export class AuthorManagementComponent implements OnInit {
   onDelete(id: String) {
     if(confirm("Are you sure to delete this record?")) {
       this.firestore.doc('authors/'+id).delete();
-      //this.toastr.warning('Deleted Succesfully','Employee Register');
     }
   }
 
@@ -67,11 +67,12 @@ export class AuthorManagementComponent implements OnInit {
     let data = Object.assign({}, form.value) ;
     delete data.id;
     if(form.value.id == null)
-     this.firestore.collection('authors').add(data);
+     this.firestore.collection('authors').doc(form.value.email).set(
+       data,
+     );
     else if(confirm("Are you sure to edit this record?")){
       this.firestore.doc('authors/' + form.value.id).update(data);
       this.resetForm(form);
-      //this.toastr.success('Submitted Successfuly', 'Author Register');
     } 
       
   }

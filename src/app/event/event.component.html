@@ -1,29 +1,10 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
 
-<!--events summury begin***********-->
-<!--<div class="content-body">
-
-  <div class="container-fluid mt-3">
-      <div class="row">
-          <div class="col-4">
-              <div class="card gradient-3">
-                  <div class="card-body">
-                      <h3 class="card-title text-white">Finished Events</h3>
-                      <div class="d-inline-block">
-                          <h2 class="text-white">15</h2>
-                          <p class="text-white mb-0">Jan - March 2019</p>
-                      </div>
-                      <span class="float-right display-5 opacity-5"><i class="fa fa-linode"></i></span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>-->
-
-
   <div class="content-body">
+
+    <h1 class="display-4">Event Management</h1>
+
       <div class="container-fluid">
         <div class="row">
             <!--new & edit events form begin**********-->
@@ -93,7 +74,7 @@
                                     <label class="col-lg-4 col-form-label" for="val-quantity">Quantity<span class="text-danger">*</span></label>
                                     
                                     <div class="col-lg-6">
-                                      <input type="text" name="quantity" #quantity="ngModel" [(ngModel)]="service.formData.quantity" class="form-control" placeholder="Quantity" required>
+                                      <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="service.formData.quantity" class="form-control" placeholder="Quantity" required>
                                       <div *ngIf="quantity.invalid && quantity.touched" class="alert alert-danger">This field is required.</div>
                                     </div>
                                 </div>
@@ -102,7 +83,7 @@
                                     <label class="col-lg-4 col-form-label" for="val-soldQuantity">Sold quantity<span class="text-danger">*</span></label>
                                     
                                     <div class="col-lg-6">
-                                      <input type="text" name="soldQuantity" #soldQuantity="ngModel" [(ngModel)]="service.formData.soldQuantity" class="form-control" placeholder="Sold quantity" required>
+                                      <input type="number" name="soldQuantity" #soldQuantity="ngModel" [(ngModel)]="service.formData.soldQuantity" class="form-control" placeholder="Sold quantity" required>
                                       <div *ngIf="soldQuantity.invalid && soldQuantity.touched" class="alert alert-danger">This field is required.</div>
                                     </div>
                                 </div>
@@ -148,10 +129,10 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let event of list">
-                                        <td (click)="onEdit(event)">{{event.name}}</td>
-                                        <td (click)="onEdit(event)">{{event.date}}</td>
-                                        <td (click)="onEdit(event)">{{event.time}}</td>
-                                        <td (click)="onEdit(event)">{{event.venue}}</td>
+                                        <td (click)="onEdit(event)" title="Click here to show or edit details"><a class="btn">{{event.name}}</a></td>
+                                        <td (click)="onEdit(event)" title="Click here to show or edit details"><a class="btn">{{event.date}}</a></td>
+                                        <td (click)="onEdit(event)" title="Click here to show or edit details"><a class="btn">{{event.time}}</a></td>
+                                        <td (click)="onEdit(event)" title="Click here to show or edit details"><a class="btn">{{event.venue}}</a></td>
                                         <td><a class="btn text-danger" (click)="onDelete(event.id)"><i class="fa fa-trash"></i></a></td>
                                       </tr>                                    
                                 </tbody>
@@ -161,30 +142,6 @@
                 </div>
             </div>
             <!--all events list end**********-->
-
-
-            <!--all events card begin**********
-            <div class="row">
-                <div class="col-12 m-b-30">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <img class="img-fluid" src="../assets/images/events/fly.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="author">Speaker(s)</p>
-                                    <h6 class="date&timr">12/01/2020, 11.00am to 02.00pm at Venue</h6>
-                                    <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            ******all events card end**********-->
-
         </div>
       </div>
   </div>

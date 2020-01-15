@@ -17,7 +17,20 @@
       </li>
 
       <div *ngIf="userRoll == 'manager'">
+
         <li class="nav-label">Management</li>
+        <li>
+          <a
+            class="has-arrow"
+            [routerLink]="['/add-staff']"
+            routerLinkActive="router-link-active"
+            aria-expanded="false"
+          >
+            <i class="icon-grid menu-icon"></i>
+            <span class="nav-text">Staff Management</span>
+          </a>
+        </li>
+
         <li>
           <a
             class="has-arrow"
@@ -39,16 +52,19 @@
           >
             <!-- <i class="icon-globe-alt menu-icon"></i> -->
             <i class="icon-grid menu-icon"></i>
-            <span class="nav-text">Event</span>
+            <span class="nav-text">Event Management</span>
           </a>
         </li>
 
         <li class="nav-label">Other</li>
         <li>
-          <a href="#" aria-expanded="false" class="has-arrow">
+          <a class="has-arrow"
+          [routerLink]="['/track-author']"
+          routerLinkActive="router-link-active"
+          aria-expanded="false">
             <!-- <i class="icon-badge menu-icon"></i> -->
             <i class="icon-grid menu-icon"></i>
-            <span class="nav-text">Track Locations</span>
+            <span class="nav-text">Track Author's Location</span>
           </a>
         </li>
         <!-- <li class="nav-label">Reports</li> -->
