@@ -84,7 +84,7 @@ import { VehicleManagementService } from './vehicle-management.service';
 
     TodoComponent,
     OngoingComponent,
-    DoneComponent
+    DoneComponent,
 
     ContactDriversCardComponent
 
