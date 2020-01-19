@@ -1,0 +1,174 @@
+<app-header></app-header>
+<app-side-bar></app-side-bar>
+
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="row page-titles mx-0">
+      <div class="col p-md-0">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+              <li class="breadcrumb-item active"><a href="javascript:void(0)">Add Drivers</a></li>
+          </ol>
+      </div>
+  </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-xl-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-validation">
+              <form
+                          [formGroup]="form"
+                          (ngSubmit)="onSubmit()"
+                          class="form-valide">
+
+                              <div class="form-group row">
+                                  <label class="col-lg-4 col-form-label" for="name"
+                                    >Driver name <span class="text-danger">*</span>
+                                  </label>
+                                  <div class="col-lg-6">
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="name"
+                                      name="name"
+                                      placeholder="Enter the driver name.."
+                                      formControlName="name"
+                                    />
+                                    <div *ngIf="name.touched && name.invalid">
+                                      <div class="alert alert-danger">
+                                        Driver name cannot be empty
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="phone"
+                                      >Contact Number <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Enter the contact number.."
+                                        formControlName="phone"
+                                      />
+                                      <div *ngIf="phone.touched && phone.invalid">
+                                        <div class="alert alert-danger">
+                                          Contact Number cannot be empty
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label class="col-lg-4 col-form-label" for="vehNum"
+                                        >Vehicle Number <span class="text-danger">*</span>
+                                      </label>
+                                      <div class="col-lg-6">
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          id="vehNum"
+                                          name="vehNum"
+                                          placeholder="Enter the vehicle number.."
+                                          formControlName="noVol"
+                                        />
+                                        <div *ngIf="vehNum.touched && vehNum.invalid">
+                                          <div class="alert alert-danger">
+                                            Vehicle number cannot be empty
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="model"
+                                          >Vehicle Model <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                          <input
+                                            type="text"
+                                            class="form-control"
+                                            id="model"
+                                            name="model"
+                                            placeholder="Enter the vehicle model.."
+                                            formControlName="model"
+                                          />
+                                          <div *ngIf="model.touched && model.invalid">
+                                            <div class="alert alert-danger">
+                                              Vehicle model cannot be empty
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="address"
+                                            >Address <span class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                            <input
+                                              type="text"
+                                              class="form-control"
+                                              id="address"
+                                              name="address"
+                                              placeholder="Enter the address.."
+                                              formControlName="address"
+                                            />
+                                            <div *ngIf="address.touched && address.invalid">
+                                              <div class="alert alert-danger">
+                                                Address cannot be empty
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="bday"
+                                              >Birthday <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                              <input
+                                                type="date"
+                                                class="form-control"
+                                                id="bday"
+                                                name="bday"
+                                                placeholder="Enter the birthday.."
+                                                formControlName="birthday"
+                                              />
+                                              <div *ngIf="birthday.touched && birthday.invalid">
+                                                <div class="alert alert-danger">
+                                                  Birthday cannot be empty
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                              <button
+                                                type="submit"
+                                                [disabled]="form.invalid"
+                                                class="btn btn-primary"
+                                              >
+                                              Add
+
+                                              </button>
+                                            </div>
+                                          </div>
+                          </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-xl-6">
+
+      </div>
+    </div>
+
+  </div>
+</div>

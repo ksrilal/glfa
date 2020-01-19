@@ -12,6 +12,7 @@ import { StaffService } from "../boxoffice.service";
 export class StaffManagementComponent implements OnInit {
   members: any[];
 
+
   form = new FormGroup({
     userName: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
@@ -34,6 +35,7 @@ export class StaffManagementComponent implements OnInit {
   constructor(private staffService: StaffService) {
     staffService.getAll().subscribe(member => {
       this.members = member;
+
     });
   }
 
