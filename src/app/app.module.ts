@@ -52,7 +52,7 @@ import { AuthorService } from "./author-management-service/author.service";
 import { ContactDriversCardComponent } from "./contact-drivers-card/contact-drivers-card.component";
 import { AddDriversService } from './add-drivers.service';
 import { AddDriversComponent } from './add-drivers/add-drivers.component';
-
+<<<<<<< src/app/app.module.ts
 import { AgmCoreModule } from '@agm/core';
 import { AddStaffComponent } from './add-staff/add-staff.component';
 import { TrackAuthorComponent } from './track-author/track-author.component';
@@ -88,11 +88,8 @@ import { ViewStaffComponent } from './view-staff/view-staff.component';
     TodoComponent,
     OngoingComponent,
     DoneComponent,
-
-
     ContactDriversCardComponent,
     AddDriversComponent,
-
 
     AddStaffComponent,
     TrackAuthorComponent,
