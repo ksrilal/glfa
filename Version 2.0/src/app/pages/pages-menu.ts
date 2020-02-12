@@ -112,6 +112,20 @@ export const transportationCoordinator: NbMenuItem[] = [
     title: "Transportation Coordinator",
     group: true
   },
+   {
+    title: "Driver Management",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Add drivers",
+        link: "/pages/driver-management/add-driver"
+      },
+      {
+        title: "Modify drivers",
+        link: "/pages/driver-management/modify-driver"
+      }
+    ]
+  },
   {
     title: "Request Volunteers",
     icon: "shopping-cart-outline",
