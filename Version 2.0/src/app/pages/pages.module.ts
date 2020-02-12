@@ -35,7 +35,8 @@ import { ModifyEventComponent } from "./event-management/modify-event/modify-eve
     TicketManagementComponent,
     FilterSalesComponent,
     VehicleManagementComponent,
-    RequestVolunteersComponent
+    RequestVolunteersComponent,
+
   ]
 })
 export class PagesModule {}
