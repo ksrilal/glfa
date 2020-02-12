@@ -9,6 +9,8 @@ export class AssignTasksComponent implements OnInit {
 
   constructor() { }
 
+  today;
+
   ngOnInit() {
   }
 
