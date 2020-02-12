@@ -22,6 +22,9 @@ import { ModifyEventComponent } from "./event-management/modify-event/modify-eve
 import { FestivalStaffManagementComponent } from './festival-staff-management/festival-staff-management.component';
 import { AddStaffComponent } from './festival-staff-management/add-staff/add-staff.component';
 import { ModifyStaffComponent } from './festival-staff-management/modify-staff/modify-staff.component';
+import { DriverManagementComponent } from './driver-management/driver-management.component';
+import { AddDriversComponent } from './driver-management/add-drivers/add-drivers.component';
+import { ModifyDriversComponent } from './driver-management/modify-drivers/modify-drivers.component';
 
 @NgModule({
   imports: [
@@ -39,6 +42,7 @@ import { ModifyStaffComponent } from './festival-staff-management/modify-staff/m
     FilterSalesComponent,
     VehicleManagementComponent,
     RequestVolunteersComponent,
+
 
   ]
 })

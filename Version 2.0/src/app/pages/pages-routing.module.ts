@@ -70,6 +70,13 @@ const routes: Routes = [
           )
       },
       {
+        path: "driver-management",
+        loadChildren: () =>
+          import("./driver-management/driver-management.module").then(
+            m => m.DriverManagementModule
+          )
+      },
+      {
         path: "task-management",
         loadChildren: () =>
           import("./task-management/task-management.module").then(
