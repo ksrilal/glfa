@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { boxoffice, volunteerCoordinator, manager, transportationCoordinator } from "./pages-menu";
-
+import {
+  boxoffice,
+  volunteerCoordinator,
+  manager,
+  transportationCoordinator,
+  all
+} from "./pages-menu";
 
 @Component({
   selector: "ngx-pages",
@@ -14,19 +19,20 @@ import { boxoffice, volunteerCoordinator, manager, transportationCoordinator } f
   `
 })
 export class PagesComponent {
-
   menu;
 
-  constructor(){
-    var a = true;
-    if (a) {
+  constructor() {
+    var roll = "all";
+    if (roll == "manager") {
       this.menu = manager;
-    } else {
+    } else if (roll == "volunteerCoordinator") {
       this.menu = volunteerCoordinator;
+    } else if (roll == "boxOffice") {
+      this.menu = boxoffice;
+    } else if (roll == "transportationCoordinator") {
+      this.menu = transportationCoordinator;
+    } else if (roll == "all") {
+      this.menu = all;
     }
   }
-
-
-
-
 }
