@@ -56,6 +56,13 @@ const routes: Routes = [
           )
       },
       {
+        path: "festival-staff-management",
+        loadChildren: () =>
+          import(
+            "./festival-staff-management/festival-staff-management.module"
+          ).then(m => m.FestivalStaffManagementModule)
+      },
+      {
         path: "volunteer-management",
         loadChildren: () =>
           import("./volunteer-management/volunteer-management.module").then(
