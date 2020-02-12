@@ -19,6 +19,9 @@ import { ModifyAuthorComponent } from "./author-management/modify-author/modify-
 import { EventManagementComponent } from "./event-management/event-management.component";
 import { AddEventComponent } from "./event-management/add-event/add-event.component";
 import { ModifyEventComponent } from "./event-management/modify-event/modify-event.component";
+import { FestivalStaffManagementComponent } from './festival-staff-management/festival-staff-management.component';
+import { AddStaffComponent } from './festival-staff-management/add-staff/add-staff.component';
+import { ModifyStaffComponent } from './festival-staff-management/modify-staff/modify-staff.component';
 
 @NgModule({
   imports: [
