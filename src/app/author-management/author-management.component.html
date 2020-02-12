@@ -1,58 +1,107 @@
-
 <app-header></app-header>
 <app-side-bar></app-side-bar>
 
 <div class="content-body">
+
+  <h1 class="display-4">Author Management</h1>
+
   <div class="container-fluid">
     <div class="row justify-content-center">
+      <!--Author add & Edit form begin***********-->
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-validation">
+              <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                <input
+                  type="hidden"
+                  name="id"
+                  #id="ngModel"
+                  [(ngModel)]="service.formData.id"
+                /><!--hidden input tag for id-->
 
-        <!--Author add & Edit form begin***********-->
-        <div class="col-lg-7">
-          <div class="card">
-            <div class="card-body">
-                <div class="form-validation">
-                    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-                           
-                        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id"><!--hidden input tag for id-->
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-fname"
+                    >First name <span class="text-danger">*</span></label
+                  >
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label" for="val-fname">First name <span class="text-danger">*</span></label>
-                            
-                            <div class="col-lg-6">
-                              <input type="text" name="fname" #fname="ngModel" [(ngModel)]="service.formData.fname" class="form-control" placeholder="First Name" required>
-                              <div *ngIf="fname.invalid && fname.touched" class="alert alert-danger">This field is required.</div>
-                            </div>
-                        </div>
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      name="fname"
+                      #fname="ngModel"
+                      [(ngModel)]="service.formData.fname"
+                      class="form-control"
+                      placeholder="First Name"
+                      required
+                    />
+                    <div
+                      *ngIf="fname.invalid && fname.touched"
+                      class="alert alert-danger"
+                    >
+                      This field is required.
+                    </div>
+                  </div>
+                </div>
 
-                        <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-lname">Last name <span class="text-danger">*</span></label>
-                                
-                                <div class="col-lg-6">
-                                  <input type="text" name="lname" #lname="ngModel" [(ngModel)]="service.formData.lname" class="form-control" placeholder="Last Name" required>
-                                  <div *ngIf="lname.invalid && lname.touched" class="alert alert-danger">This field is required.</div>
-                                </div>
-                        </div>
-                        
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-lname"
+                    >Last name <span class="text-danger">*</span></label
+                  >
 
-                        <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span></label>
-                                    
-                                <div class="col-lg-6">
-                                  <input type="text" name="uname" #uname="ngModel" [(ngModel)]="service.formData.uname" class="form-control" placeholder="Username" required>
-                                  <div *ngIf="uname.invalid && uname.touched" class="alert alert-danger">This field is required.</div>
-                                </div>
-                        </div>
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      name="lname"
+                      #lname="ngModel"
+                      [(ngModel)]="service.formData.lname"
+                      class="form-control"
+                      placeholder="Last Name"
+                      required
+                    />
+                    <div
+                      *ngIf="lname.invalid && lname.touched"
+                      class="alert alert-danger"
+                    >
+                      This field is required.
+                    </div>
+                  </div>
+                </div>
 
-                        <!--<div class="form-group row">
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-username"
+                    >Username <span class="text-danger">*</span></label
+                  >
+
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      name="uname"
+                      #uname="ngModel"
+                      [(ngModel)]="service.formData.uname"
+                      class="form-control"
+                      placeholder="Username"
+                      required
+                    />
+                    <div
+                      *ngIf="uname.invalid && uname.touched"
+                      class="alert alert-danger"
+                    >
+                      This field is required.
+                    </div>
+                  </div>
+                </div>
+
+                <!--<div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-gender">Gender <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
                                         <div class="custom-control custom-radio" formControlName="gender">
-                                        
+
                                             <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel>
                                             <label class="custom-control-label" for="male">Male</label>
                                         </div>
-                                      
+
                                          <div class="custom-control custom-radio">
                                             <input id="female" type="radio" class="custom-control-input" value="female" name="gender" ngModel>
                                             <label class="custom-control-label" for="female">Female</label>
@@ -65,130 +114,209 @@
                                                 <div class="alert alert-danger">
                                                   Please input your gender
                                                 </div>
-                                              </div> 
+                                              </div>
                                               <div class="custom-control custom-radio">
                                               <input type="radio" formControlName="gender" value="male" > Male
                                               <input type="radio" formControlName="gender" value="female"> Female
                                               <input type="radio" formControlName="gender" value="other"> Other
-                  
+
                                               </div>
-                                              
-                                    </div> 
+
+                                    </div>
                                 </div>-->
 
-                        <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-dob">Date of Birth <span class="text-danger">*</span></label>
-                                        
-                                <div class="col-lg-6">
-                                  <input type="date" name="dob" #dob="ngModel" [(ngModel)]="service.formData.dob" class="form-control" placeholder="Date of Birth" required>
-                                  <div *ngIf="dob.invalid && dob.touched" class="alert alert-danger">This field is required.</div>
-                                </div>                
-                                        
-                        </div>
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-dob"
+                    >Date of Birth <span class="text-danger">*</span></label
+                  >
 
-                        <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-phone">Phone <span class="text-danger">*</span></label>
-                                  
-                                <div class="col-lg-6">
-                                  <input type="text" name="phone" #phone="ngModel" [(ngModel)]="service.formData.phone" class="form-control" placeholder="Phone" required>
-                                  <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger">This field is required.</div>
-                                </div>
-
-                        </div>
-
-                        <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span></label>
-                                          
-                                <div class="col-lg-6">
-                                  <input type="email" name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="email" required>
-
-                                  <div *ngIf="email.touched">
-                                    <div *ngIf="email.dirty">
-                                      <div class="passwd.invalid">
-                                        Enter valide one..
-                                      </div>
-                                    </div>
-                                    <div *ngIf="email.invalid">
-                                      <div class="alert alert-danger">
-                                        Email is required
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>        
-                                
-                        </div>
-
-                        <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-passwd">Password <span class="text-danger">*</span></label>
-                                <div class="col-lg-6">
-                                  <input type="text" name="passwd" #passwd="ngModel" [(ngModel)]="service.formData.passwd" class="form-control" placeholder="choose safe one.." required>
-                                   
-                                                <div *ngIf="passwd.touched">
-                                                  <div *ngIf="passwd.dirty">
-                                                    <div class="validation-error">
-                                                      Password should be at least 8
-                                                      characters.
-                                                    </div>
-                                                  </div>
-                                                  <div *ngIf="passwd.invalid">
-                                                    <div class="alert alert-danger">
-                                                      Password is required.
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                </div> 
-                                             
-                                        
-                        </div>                
-                        
-
-                        <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-des">Description<span class="text-danger">*</span></label>
-                                        
-                                <div class="col-lg-6">
-                                  <textarea type="text" name="des" #des="ngModel" [(ngModel)]="service.formData.des" class="form-control" placeholder="short Description here.." required ></textarea> 
-                                  <div *ngIf="des.invalid && des.touched" class="alert alert-danger">This field is required.</div>
-                                </div> 
-                        </div>
-
-                                <div class="form-group row" >
-                                    <div class="col-lg-8 ml-auto" >
-                                      <button type="submit" [disabled]="form.invalid" class="btn btn-primary">SUBMIT</button>
-                                      <a class="btn" (click)="resetForm()" title="Click here to reset form"><i class="fa fa-linode"></i> Reset Form</a>
-                                    </div>  
-                                 </div> 
-
-                    </form>
+                  <div class="col-lg-6">
+                    <input
+                      type="date"
+                      name="dob"
+                      #dob="ngModel"
+                      [(ngModel)]="service.formData.dob"
+                      class="form-control"
+                      placeholder="Date of Birth"
+                      required
+                    />
+                    <div
+                      *ngIf="dob.invalid && dob.touched"
+                      class="alert alert-danger"
+                    >
+                      This field is required.
+                    </div>
+                  </div>
                 </div>
+
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-phone"
+                    >Phone <span class="text-danger">*</span></label
+                  >
+
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      name="phone"
+                      #phone="ngModel"
+                      [(ngModel)]="service.formData.phone"
+                      class="form-control"
+                      placeholder="Phone"
+                      required
+                    />
+                    <div
+                      *ngIf="phone.invalid && phone.touched"
+                      class="alert alert-danger"
+                    >
+                      This field is required.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-email"
+                    >Email <span class="text-danger">*</span></label
+                  >
+
+                  <div class="col-lg-6">
+                    <input
+                      type="email"
+                      name="email"
+                      #email="ngModel"
+                      [(ngModel)]="service.formData.email"
+                      class="form-control"
+                      placeholder="email"
+                      required
+                    />
+
+                    <div *ngIf="email.touched">
+                      <div *ngIf="email.dirty">
+                        <div class="passwd.invalid">
+                          Enter valide one..
+                        </div>
+                      </div>
+                      <div *ngIf="email.invalid">
+                        <div class="alert alert-danger">
+                          Email is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-passwd"
+                    >Password <span class="text-danger">*</span></label
+                  >
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      name="passwd"
+                      #passwd="ngModel"
+                      [(ngModel)]="service.formData.passwd"
+                      class="form-control"
+                      placeholder="choose safe one.."
+                      required
+                    />
+
+                    <div *ngIf="passwd.touched">
+                      <div *ngIf="passwd.dirty">
+                        <div class="validation-error">
+                          Password should be at least 8 characters.
+                        </div>
+                      </div>
+                      <div *ngIf="passwd.invalid">
+                        <div class="alert alert-danger">
+                          Password is required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-lg-4 col-form-label" for="val-des"
+                    >Description<span class="text-danger">*</span></label
+                  >
+
+                  <div class="col-lg-6">
+                    <textarea
+                      type="text"
+                      name="des"
+                      #des="ngModel"
+                      [(ngModel)]="service.formData.des"
+                      class="form-control"
+                      placeholder="short Description here.."
+                      required
+                    ></textarea>
+                    <div
+                      *ngIf="des.invalid && des.touched"
+                      class="alert alert-danger"
+                    >
+                      This field is required.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-lg-8 ml-auto">
+                    <button
+                      type="submit"
+                      [disabled]="form.invalid"
+                      class="btn btn-primary"
+                    >
+                      SUBMIT
+                    </button>
+                    <a
+                      class="btn"
+                      (click)="resetForm()"
+                      title="Click here to reset form"
+                      ><i class="fa fa-linode"></i> Reset Form</a
+                    >
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        <!--Author add form end***********-->
-
-        <!--Author list begin***********-->
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Authors</h4>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped verticle-middle">
-                            <tbody>
-                                <tr *ngFor="let author of list">
-                                  <td (click)="onEdit(author)" title="Click here to show or edit details">{{author.fname}} {{author.lname}}</td>
-                                  <td><a class="btn text-danger" (click)="onDelete(author.id)" title="Delete"><i class="fa fa-trash"></i></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-          </div>
       </div>
-        </div>
-        
-      <!--Author list end***********-->
+      <!--Author add form end***********-->
 
-      <!--Author card begin***********
+      <!--Author list begin***********-->
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Authors</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped verticle-middle">
+                <tbody>
+                  <tr *ngFor="let author of list">
+                    <td
+                      (click)="onEdit(author)"
+                      title="Click here to show or edit details"
+                    >
+                      {{ author.fname }} {{ author.lname }}
+                    </td>
+                    <td>
+                      <a
+                        class="btn text-danger"
+                        (click)="onDelete(author.id)"
+                        title="Delete"
+                        ><i class="fa fa-trash"></i
+                      ></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Author list end***********-->
+
+    <!--Author card begin***********
 
         <div class="col">
           <div class="row">
@@ -217,15 +345,7 @@
                     </div>
                   </div>
                 </div>
-          </div>
-        </div>
 
       ****Author card end***********-->
-
-    </div>
   </div>
-
-
-
-
-
+</div>

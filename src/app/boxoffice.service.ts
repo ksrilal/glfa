@@ -4,30 +4,42 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class StaffService {
-
-  constructor(private afs: AngularFirestore, private authService: AuthService) { }
+  constructor(
+    private afs: AngularFirestore,
+    private authService: AuthService
+  ) {}
 
   create(staff) {
-
-    try{
-      this.authService.signup(staff.email,staff.password);
+    try {
+      this.authService.signup(staff.email, staff.password);
       // this.auth.auth.createUserWithEmailAndPassword(staff.email,staff.password);
-      this.afs.collection('staff').doc(staff.email).set(staff);
+      this.afs
+        .collection("staff")
+        .doc(staff.email)
+        .set(staff);
       alert("Addedd Successfully");
-
-    }catch(error){
+    } catch (error) {
       alert(error);
     }
-
   }
-
 
   getAll() {
-    return this.afs.collection('staff').valueChanges();
+    return this.afs.collection("staff").valueChanges();
   }
 
-
+  delete(docId) {
+    this.afs
+      .collection("staff")
+      .doc(docId)
+      .delete();
+  }
+  edit(docId, data) {
+    this.afs
+      .collection("staff")
+      .doc(docId)
+      .set(data);
+  }
 }

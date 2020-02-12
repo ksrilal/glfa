@@ -4,10 +4,10 @@
 <div class="content-body">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-4 col-xl-3">
-        <app-user-card></app-user-card>
-      </div>
-      <div class="col-lg-6 col-xl-9">
+      <div class="col-lg-6 col-xl-6">
+        <!-- <app-user-card></app-user-card> -->
+        <!--Author list begin***********-->
+        <!-- <div class="col-lg-4"> -->
         <div class="card">
           <div class="card-body">
             <div class="form-validation">
@@ -164,7 +164,7 @@
 
                 <div class="form-group row">
                   <label class="col-lg-4 col-form-label" for="val-phoneus"
-                    >Phone  <span class="text-danger">*</span>
+                    >Phone <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-6">
                     <input
@@ -233,6 +233,31 @@
             </div>
           </div>
         </div>
+
+        <!-- </div> -->
+      </div>
+      <div class="col-lg-4 col-xl-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Staff</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped verticle-middle">
+                <tbody>
+                  <tr *ngFor="let member of members">
+                    <td title="Click here to show or edit details">
+                      {{ member.userName }} <br />{{ member.email }}
+                    </td>
+                    <td>
+                      <a class="btn text-danger" title="Delete"
+                        ><i class="fa fa-trash"></i
+                      ></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col">
@@ -248,12 +273,10 @@
                     src="https://picsum.photos/100/100"
                   />
                   <h4 class="card-widget__title text-dark mt-3">
-                    {{member.userName}}
+                    {{ member.userName }}
                   </h4>
-                  <p class="text-muted">{{member.email}}</p>
-                  <a
-                    class="btn gradient-4 btn-lg border-0 btn-rounded px-5"
-
+                  <p class="text-muted">{{ member.email }}</p>
+                  <a class="btn gradient-4 btn-lg border-0 btn-rounded px-5"
                     >Delete</a
                   >
                 </div>

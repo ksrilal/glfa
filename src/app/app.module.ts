@@ -50,6 +50,15 @@ import { RequestVolunteersService } from "./request-volunteers.service";
 import { VehicleManagementService } from "./vehicle-management.service";
 import { AuthorService } from "./author-management-service/author.service";
 import { ContactDriversCardComponent } from "./contact-drivers-card/contact-drivers-card.component";
+import { AddDriversService } from './add-drivers.service';
+import { AddDriversComponent } from './add-drivers/add-drivers.component';
+<<<<<<< src/app/app.module.ts
+import { AgmCoreModule } from '@agm/core';
+import { AddStaffComponent } from './add-staff/add-staff.component';
+import { TrackAuthorComponent } from './track-author/track-author.component';
+
+import { ViewStaffComponent } from './view-staff/view-staff.component';
+
 
 @NgModule({
   declarations: [
@@ -79,7 +88,14 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
     TodoComponent,
     OngoingComponent,
     DoneComponent,
-    ContactDriversCardComponent
+    ContactDriversCardComponent,
+    AddDriversComponent,
+
+    AddStaffComponent,
+    TrackAuthorComponent,
+
+    ViewStaffComponent
+
   ],
 
   imports: [
@@ -99,6 +115,11 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
       {
         path: "staff",
         component: StaffManagementComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "view-staff",
+        component: ViewStaffComponent,
         canActivate: [AuthGuardService]
       },
       {
@@ -145,7 +166,8 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
       },
       {
         path: "vehicle-management",
-        component: VehicleManagementComponent
+        component: VehicleManagementComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: "vehicle-management/all-vehicles",
@@ -162,12 +184,31 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
       },
       {
         path: "request-volunteers",
-        component: RequestVolunteersComponent
+        component: RequestVolunteersComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: "contact-drivers",
-        component: ContactDriversComponent
-      }
+        component: ContactDriversComponent,
+        canActivate: [AuthGuardService]
+      },
+
+      {
+        path: "add-drivers",
+        component: AddDriversComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "add-staff",
+        component: AddStaffComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "track-author",
+        component: TrackAuthorComponent,
+        canActivate: [AuthGuardService]
+      },
+
     ]),
     NgbModule,
     FormsModule,
@@ -175,7 +216,12 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
     BrowserAnimationsModule,
     MatTabsModule,
     Ng2SmartTableModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpVhQiwAllg1RAFaxMWSpQruuGARy0Y1k',
+      libraries: ['places'],
+    }),
+
   ],
   providers: [
     EventService,
@@ -184,7 +230,13 @@ import { ContactDriversCardComponent } from "./contact-drivers-card/contact-driv
     ContactDriversService,
     RequestVolunteersService,
     VehicleManagementService,
-    AuthorService
+    AuthorService,
+    AddDriversService,
+    
+
+
+
+    
   ],
 
   bootstrap: [AppComponent]
