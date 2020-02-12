@@ -1,3 +1,99 @@
-<p>
-  add-volunteer works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Add Volunteer</nb-card-header>
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <label for="val-fname" class="label col-sm-3 col-form-label">First Name</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth id="fName" 
+              name="fName" 
+              placeholder="First Name here.."
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="val-lname" class="label col-sm-3 col-form-label">Last Name</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth id="lName" 
+              name="lName" 
+              placeholder="Last Name here.."
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="val-username" class="label col-sm-3 col-form-label">User Name</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth id="userName" 
+              name="userName" 
+              placeholder="Enter a username.."
+              >
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label class="col-sm-3 label">Gender</label>
+            <div class="col-sm-9">
+              <nb-radio-group>
+                <nb-radio>Male</nb-radio>
+                <nb-radio>Female</nb-radio>
+                <nb-radio >Other</nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="val-dob" class="label col-sm-3 col-form-label">Date of Birth</label>
+            <div class="col-sm-9">
+              <input type="date" nbInput fullWidth id="dob" 
+              name="dob" 
+              placeholder=''
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="NIC" class="label col-sm-3 col-form-label">NIC</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth id="NIC" 
+              name="NIC" 
+              placeholder="National ID card Number">
+            </div>
+          </div> 
+          
+          <div class="form-group row">
+            <label for="val-phone" class="label col-sm-3 col-form-label">Mobile</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput fullWidth id="mobile"
+              name="mobile"
+              placeholder="xxxxxxxxxx"
+              >
+            </div>
+          </div> 
+          <div class="form-group row">
+            <label for="val-email" class="label col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" nbInput fullWidth id="email"
+              name="email"
+              placeholder="Your valid email.."
+              >
+            </div>
+          </div> 
+          <div class="form-group row">
+            <label for="passwd" class="label col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth id="passwd"
+              name="val-passwd"
+              placeholder="Choose a safe one.."
+            >
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" nbButton status="primary">Sign in</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>  
+  </div>
+</div>

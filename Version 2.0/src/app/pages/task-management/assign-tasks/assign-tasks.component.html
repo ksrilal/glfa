@@ -1,3 +1,83 @@
-<p>
-  assign-tasks works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Add Task</nb-card-header>
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <label for="task" class="label col-sm-3 col-form-label">Task</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth id="task" 
+              name="task" 
+              placeholder="Enter the task here.."
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="description" class="label col-sm-3 col-form-label">Description</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth id="description" 
+              name="description" 
+              placeholder="Description here.."
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="location" class="label col-sm-3 col-form-label">Location</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth id="location" 
+              name="location" 
+              placeholder="Description here.."
+              
+              >
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label for="user" class="label col-sm-3 col-form-label">Request By</label>
+            <div class="col-sm-9">
+              
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dateFrom" class="label col-sm-3 col-form-label">Time(From)</label>
+            <div class="col-sm-9">
+              <input type="datetime-local" nbInput fullWidth id="dateFrom" 
+              name="dateFrom" 
+              placeholder='{{ today | date }}'>
+            </div>
+          </div> 
+          
+          <div class="form-group row">
+            <label for="dateTo" class="label col-sm-3 col-form-label">Time(To)</label>
+            <div class="col-sm-9">
+              <input type="datetime-local" nbInput fullWidth id="dateTo" 
+              name="dateTo" 
+              placeholder=''
+              >
+            </div>
+          </div> 
+          <div class="form-group row">
+            <label for="noOfVolunteers" class="label col-sm-3 col-form-label">No of Volunteers</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput fullWidth id="noOfVolunteers" 
+              name="noOfVolunteers" 
+              placeholder=""
+              >
+            </div>
+          </div> 
+         
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" nbButton status="primary">Add</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>  
+  </div>
+</div>
