@@ -1,3 +1,167 @@
-<p>
-  req-volunteers works!
-</p>
+
+<div class="row">
+  <div class="col-lg-6">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <nb-card>
+      <nb-card-header>Request Volunteers</nb-card-header>
+      <nb-card-body>
+
+        <input
+              type="text"
+              nbInput
+              fullWidth
+              placeholder="Event Name"
+              formControlName="eventName"
+              [placeholder]="
+                eventName.touched && eventName.invalid
+                  ? 'Event Name Required'
+                  : 'Event name'
+              "
+              [status]="
+                eventName.touched && eventName.invalid ? 'danger' : 'primary'
+              "
+            />
+            <input
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Author Name"
+            formControlName="authorName"
+            [placeholder]="
+              authorName.touched && authorName.invalid
+                ? 'Author Name Required'
+                : 'Author name'
+            "
+            [status]="
+              authorName.touched && authorName.invalid ? 'danger' : 'primary'
+            "
+          />
+          <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Required Number of Volunteers"
+          formControlName="noVol"
+          [placeholder]="
+              noVol.touched && vnoVol.invalid
+              ? 'Required Number of Volunteers Required'
+              : 'Required Number of Volunteers'
+          "
+          [status]="
+              noVol.touched && noVol.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+              type="text"
+              nbInput
+              fullWidth
+              placeholder="Pickup Location"
+              formControlName="pickLoc"
+              [placeholder]="
+                   pickLoc.touched && pickLoc.invalid
+                  ? 'Pickup Location Required'
+                  : 'Pickup Location'
+              "
+              [status]="
+                  pickLoc.touched && pickLoc.invalid ? 'danger' : 'primary'
+              "
+            />
+            <input
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Pickup Time"
+            formControlName="pickTime"
+            [placeholder]="
+                 pickTime.touched && pickTime.invalid
+                ? 'Pickup Time Required'
+                : 'Pickup Time'
+            "
+            [status]="
+                pickTime.touched && pickTime.invalid ? 'danger' : 'primary'
+            "
+          />
+          <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Drop Location"
+          formControlName="dropLoc"
+          [placeholder]="
+              dropLoc.touched && dropLoc.invalid
+              ? 'Drop Location Required'
+              : 'Drop Location'
+          "
+          [status]="
+              dropLoc.touched && dropLoc.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Vehicle Number"
+          formControlName="vehNum"
+          [placeholder]="
+              vehNum.touched && vehNum.invalid
+              ? 'vehicle Number Required'
+              : 'Vehicle Number'
+          "
+          [status]="
+              vehNum.touched && vehNum.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Driver Contact Number"
+          formControlName="driverContact"
+          [placeholder]="
+              driverContact.touched && driverContact.invalid
+              ? 'Driver Contact Number Required'
+              : 'Driver Contact Number'
+          "
+          [status]="
+              driverContact.touched && driverContact.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Description"
+          formControlName="description"
+          [placeholder]="
+              description.touched && description.invalid
+              ? 'Description Required'
+              : 'Description'
+          "
+          [status]="
+              description.touched && description.invalid ? 'danger' : 'primary'
+          "
+        />
+         <button  nbButton status="primary" hero>
+            Request
+          </button>
+      </nb-card-body>
+    </nb-card>
+    </form>
+  </div>
+
+  <div class="col-lg-6">
+
+    <nb-card>
+      <nb-card-header>Select</nb-card-header>
+      <nb-card-body>
+        <nb-select selected="1">
+          <nb-option value="1">Option 1</nb-option>
+          <nb-option value="2">Option 2</nb-option>
+        </nb-select>
+      </nb-card-body>
+    </nb-card>
+
+
+  </div>
+</div>

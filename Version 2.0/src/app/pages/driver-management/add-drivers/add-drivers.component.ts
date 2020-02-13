@@ -70,6 +70,10 @@ export class AddDriversComponent implements OnInit {
     return this.form.get("vehbrand");
   }
 
+  get vehmodel() {
+    return this.form.get("vehmodel");
+  }
+
   get vehnum() {
     return this.form.get("vehnum");
   }
