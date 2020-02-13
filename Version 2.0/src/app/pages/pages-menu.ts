@@ -97,52 +97,56 @@ export const volunteerCoordinator: NbMenuItem[] = [
   }
 ];
 export const transportationCoordinator: NbMenuItem[] = [
-  {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard"
-  },
-  {
-    title: "Transportation Coordinator",
-    group: true
-  },
-  {
-    title: "Driver Management",
-    icon: "people-outline",
-    children: [
-      {
-        title: "Add drivers",
-        link: "/pages/driver-management/add-driver"
-      },
-      {
-        title: "Modify drivers",
-        link: "/pages/driver-management/modify-driver"
-      }
-    ]
-  },
-  {
-    title: "Request Volunteers",
-    icon: "people-outline",
-    children: [
-      {
-        title: "Request Volunteers",
-        link: "/pages/request-volunteers/req-volunteers"
-      }
-    ]
-  },
-
-  {
-    title: "View Drivers",
-    icon: "shopping-cart-outline",
-    link: "/pages/view-drivers"
-  }
-];
+         {
+           title: "E-commerce",
+           icon: "shopping-cart-outline",
+           link: "/pages/dashboard",
+           home: true
+         },
+         {
+           title: "IoT Dashboard",
+           icon: "home-outline",
+           link: "/pages/iot-dashboard"
+         },
+         {
+           title: "Transportation Coordinator",
+           group: true
+         },
+         {
+           title: "Driver Management",
+           icon: "people-outline",
+           children: [
+             {
+               title: "Add drivers",
+               link: "/pages/driver-management/add-driver"
+             },
+             {
+               title: "Modify drivers",
+               link: "/pages/driver-management/modify-driver"
+             }
+           ]
+         },
+         {
+           title: "Request Volunteers",
+           icon: "people-outline",
+           children: [
+             {
+               title: "Request Volunteers",
+               link: "/pages/request-volunteers/req-volunteers"
+             }
+           ]
+         },
+         {
+           title: "View Drivers",
+           icon: "people-outline",
+           children: [
+             {
+               title: "View Drivers",
+               link: "/pages/driver-state/view-drivers"
+             }
+           ]
+         }
+       ];
 
 export const manager: NbMenuItem[] = [
   {
