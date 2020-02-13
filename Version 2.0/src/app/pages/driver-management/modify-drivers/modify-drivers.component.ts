@@ -27,29 +27,29 @@ export class ModifyDriversComponent implements OnInit {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
+      nic: {
+        title: 'NIC',
+        type: 'string',
       },
-      firstName: {
+      fname: {
         title: 'First Name',
         type: 'string',
       },
-      lastName: {
+      lname: {
         title: 'Last Name',
         type: 'string',
       },
-      username: {
-        title: 'Username',
+      vehbrand: {
+        title: 'Vehicle Brand',
         type: 'string',
       },
-      email: {
-        title: 'E-mail',
+      vehmodel: {
+        title: 'Vehicle  Model',
         type: 'string',
       },
-      age: {
-        title: 'Age',
-        type: 'number',
+      vehnum: {
+        title: 'Vehicle Number',
+        type: 'string',
       },
     },
   };
