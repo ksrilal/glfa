@@ -1,8 +1,92 @@
-<div class="row">
-  <div class="col-md-6">
+<div class="steppers-container row">
+  <div class="col-md-12 col-lg-8 col-xxxl-6">
+    <nb-card>
+      <nb-card-body>
+        <nb-stepper #stepper>
+          <nb-step [stepControl]="firstForm" label="First step">
+            <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
+              <div class="input-group">
+                <label for="task" class="label col-sm-3 col-form-label">Task</label>
+                <input type="text" nbInput fullWidth id="task" 
+              name="task" 
+              placeholder="Enter the task here.." class="form-control" formControlName="task" 
+              [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                
+              <input type="text" nbInput fullWidth id="description" 
+              name="description" 
+              placeholder="Description here.." class="form-control" formControlName="description" 
+                [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                
+              <input type="text" nbInput fullWidth id="latitude" 
+              name="latitude" 
+              placeholder=" " class="form-control" formControlName="latitude" 
+                [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+               
+              <input type="text" nbInput fullWidth id="longitude" 
+                name="longitude" 
+                placeholder=" " class="form-control" formControlName="longitude" 
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+               
+              <!-- <input type="datetime-local" nbInput fullWidth id="dateFrom" 
+              name="dateFrom" 
+              placeholder='{{ today | date }}' class="form-control" formControlName="from_date" 
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                  
+              <input type="datetime-local" nbInput fullWidth id="dateTo" 
+              name="dateTo" 
+              placeholder='' class="form-control" formControlName="to_date" 
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                  -->
+              <input type="number" nbInput fullWidth id="noOfVolunteers" 
+              name="noOfVolunteers" 
+              placeholder="" class="form-control" formControlName="noOfVolunteers" 
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                    
+              </div>
+              <button nbButton nbStepperNext>next</button>
+            </form>
+          </nb-step>
+          <nb-step [stepControl]="secondForm" label="Second step">
+            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+              
+              <div class="input-group">
+                <input type="text" placeholder="Enter favorite movie" class="form-control" formControlName="secondCtrl"
+                       [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+                <input type="text" placeholder="Enter favorite movie" class="form-control" formControlName="secondCtrl"
+                       [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+             
+              </div>
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext>next</button>
+            </form>
+          </nb-step>
+          <nb-step [stepControl]="thirdForm" label="Third step">
+            <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
+              <p class="lorem">
+                Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
+              </p>
+              <div class="input-group">
+                <input type="text" placeholder="Enter something" class="form-control" formControlName="thirdCtrl"
+                       [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
+              </div>
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext>Confirm</button>
+            </form>
+          </nb-step>
+          <nb-step [stepControl]="thirdForm" [hidden]="true" label="Third step">
+            <div class="step-container">
+              <h3>Wizard completed!</h3>
+              <button nbButton (click)="stepper.reset()">Try again</button>
+            </div>
+          </nb-step>
+        </nb-stepper>
+      </nb-card-body>
+    </nb-card>
   </div>
 </div>
-<div class="row">
+
+
+<!--div class="row">
   <div class="col-md-6">
     <nb-card>
       <nb-card-header>Add Task</nb-card-header>
@@ -31,7 +115,7 @@
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth id="location" 
               name="location" 
-              placeholder="Description here.."
+              placeholder=" "
               
               >
             </div>
@@ -80,4 +164,4 @@
       </nb-card-body>
     </nb-card>  
   </div>
-</div>
+</div-->
