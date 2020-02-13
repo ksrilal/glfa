@@ -1,36 +1,54 @@
 <div class="row">
   <div class="col-lg-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <nb-card>
       <nb-card-header>Add Event</nb-card-header>
       <nb-card-body>
 
         <div class="form-group">
-        <input type="text" nbInput fullWidth placeholder="Event Name">
+        <input type="text" nbInput fullWidth placeholder="Event Name" formControlName="eventName"
+        [placeholder]="eventName.touched && eventName.invalid ? 'Event Name Required!' : 'Event Name' "
+        [status]="eventName.touched &&  eventName.invalid ? 'danger' : 'primary' ">
         </div>
 
         <div class="form-group">
           <label class="col-sm-3 label">Date</label>
           <input nbInput
                placeholder="Select Date"
-               [nbDatepicker]="formpicker">
+               [nbDatepicker]="formpicker"
+               formControlName="date"
+        [placeholder]="date.touched && date.invalid ? 'Date Required!' : 'Date' "
+        [status]="date.touched &&  date.invalid ? 'danger' : 'primary' ">
         <nb-datepicker #formpicker></nb-datepicker>
           <!-- <input type="date" nbInput fullWidth placeholder="Date"> -->
         </div>
 
         <div class="form-group">
           <label class="col-sm-3 label">Time</label>
-          <input type="time" nbInput fullWidth placeholder="Time">
+          <input type="time" nbInput fullWidth placeholder="Time" formControlName="time" [status]="time.touched &&  time.invalid ? 'danger' : 'primary' ">
+          <div *ngIf="time.touched && time.invalid">Time Required!</div>
         </div>
 
-        <input type="text" nbInput fullWidth placeholder="Venue">
+        <input type="text" nbInput fullWidth placeholder="Venue" formControlName="venue"
+        [placeholder]="venue.touched && venue.invalid ? 'Venue Required!' : 'Venue' "
+        [status]="venue.touched &&  venue.invalid ? 'danger' : 'primary' ">
 
-        <input type="text" nbInput fullWidth placeholder="Guest Name(s)">
+        <input type="text" nbInput fullWidth placeholder="Guest Name(s)" formControlName="guestName"
+        [placeholder]="guestName.touched && guestName.invalid ? 'Guest Name(s) Required!' : 'Guest Name(s)' "
+        [status]="guestName.touched && guestName.invalid ? 'danger' : 'primary' ">
 
-        <input type="text" nbInput fullWidth placeholder="Ticket Price">
+        <input type="text" nbInput fullWidth placeholder="Ticket Price" formControlName="ticketPrice"
+        [placeholder]="ticketPrice.touched && ticketPrice.invalid ? 'Ticket Name Required!' : 'Ticket Price' "
+        [status]="ticketPrice.touched && ticketPrice.invalid ? 'danger' : 'primary' ">
 
-        <input type="text" nbInput fullWidth placeholder="Ticket Quantity">
+        <input type="text" nbInput fullWidth placeholder="Ticket Quantity" formControlName="ticketQuantity"
+        [placeholder]="ticketQuantity.touched && ticketQuantity.invalid ? 'Ticket Quantity Required!' : 'Ticket Quantity' "
+        [status]="ticketQuantity.touched && ticketQuantity.invalid ? 'danger' : 'primary' ">
         
-        <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description"></textarea>
+        <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" 
+        formControlName="description"
+          [placeholder]="description.touched && description.invalid ? 'Description Required!' : 'Description' "
+          [status]="description.touched && description.invalid ? 'danger' : 'primary' "></textarea>
 
 
           <button  nbButton status="primary" hero>
@@ -39,6 +57,7 @@
 
       </nb-card-body>
     </nb-card>
+    </form>
   </div>
 
 </div>
