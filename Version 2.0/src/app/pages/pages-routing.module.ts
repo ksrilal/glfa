@@ -35,10 +35,7 @@ const routes: Routes = [
         path: "filter-sales",
         component: FilterSalesComponent
       },
-      {
-        path: "request-volunteers",
-        component: RequestVolunteersComponent
-      },
+
       {
         path: "view-drivers",
         component: FilterSalesComponent
@@ -67,6 +64,13 @@ const routes: Routes = [
         loadChildren: () =>
           import("./volunteer-management/volunteer-management.module").then(
             m => m.VolunteerManagementModule
+          )
+      },
+      {
+        path: "request-volunteers",
+        loadChildren: () =>
+          import("./request-volunteers/request-volunteers.module").then(
+            m => m.RequestVolunteersModule
           )
       },
       {
