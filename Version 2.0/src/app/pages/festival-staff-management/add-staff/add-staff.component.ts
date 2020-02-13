@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PasswordValidators } from '../../validators/password-validator';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FestivalStaffManagementService } from '../festival-staff-management.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddStaffComponent implements OnInit {
 
-  constructor() { }
+  constructor(private festivalStaffServiece:FestivalStaffManagementService) { }
 
   ngOnInit() {
   }
@@ -35,8 +36,9 @@ export class AddStaffComponent implements OnInit {
 
 
   onSubmit() {
-    // this.staffService.create(this.form.value);
-    this.form.reset();
+    this.festivalStaffServiece.create(this.form.value);
+    console.log(this.form.value)
+    // this.form.reset();
   }
 
   get email() {
