@@ -17,7 +17,7 @@ export class AddStaffComponent implements OnInit {
   }
 
   form = new FormGroup({
-    userName: new FormControl("", Validators.required),
+    //userName: new FormControl("", Validators.required),
     firstName: new FormControl("", Validators.required),
     lastName: new FormControl("", Validators.required),
     role: new FormControl("", Validators.required),
@@ -37,16 +37,16 @@ export class AddStaffComponent implements OnInit {
 
   onSubmit() {
     this.festivalStaffServiece.create(this.form.value);
-    console.log(this.form.value)
-    // this.form.reset();
+    
+    this.form.reset();
   }
 
   get email() {
     return this.form.get("email");
   }
-  get userName() {
-    return this.form.get("userName");
-  }
+  // get userName() {
+  //   return this.form.get("userName");
+  // }
   get firstName() {
     return this.form.get("firstName");
   }

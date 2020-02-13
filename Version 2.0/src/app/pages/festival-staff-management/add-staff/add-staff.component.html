@@ -23,10 +23,10 @@
           >
         </div>
 
-        <input type="text" nbInput fullWidth placeholder="Username" formControlName="userName"
+        <!-- <input type="text" nbInput fullWidth placeholder="Username" formControlName="userName"
         [placeholder]="userName.touched && userName.invalid ? 'Username Required!' : 'Username' "
         [status]="userName.touched && userName.invalid ? 'danger' : 'primary' "
-        >
+        > -->
         <div class="full-name-inputs">
           <input type="email" nbInput fullWidth placeholder="E-mail"
         formControlName="email"
@@ -65,10 +65,10 @@
             <label class="col-sm-3 label">Role</label>
             <div class="col-sm-9">
               <nb-radio-group formControlName="role">
-                <nb-radio>BoxOffice</nb-radio>
-                <nb-radio>Staff Manager</nb-radio>
-                <nb-radio>Transpotation Coordinator</nb-radio>
-                <nb-radio>Volunteer Coordinator</nb-radio>
+                <nb-radio value="boxOffice">BoxOffice</nb-radio>
+                <nb-radio value="manager">Staff Manager</nb-radio>
+                <nb-radio value="transpotation">Transpotation Coordinator</nb-radio>
+                <nb-radio value="volunteer">Volunteer Coordinator</nb-radio>
               </nb-radio-group>
             </div>
           </div>

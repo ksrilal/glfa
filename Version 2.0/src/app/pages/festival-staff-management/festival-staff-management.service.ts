@@ -8,6 +8,6 @@ export class FestivalStaffManagementService {
   constructor() { }
 
    create(msg){
-    console.log(msg);
+    console.log(msg); 
    }
 }
