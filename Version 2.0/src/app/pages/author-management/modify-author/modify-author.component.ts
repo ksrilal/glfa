@@ -27,10 +27,6 @@ export class ModifyAuthorComponent implements OnInit {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
       firstName: {
         title: 'First Name',
         type: 'string',
@@ -47,9 +43,13 @@ export class ModifyAuthorComponent implements OnInit {
         title: 'E-mail',
         type: 'string',
       },
-      age: {
-        title: 'Age',
-        type: 'number',
+      password: {
+        title: 'Password',
+        type: 'String',
+      },
+      description: {
+        title: 'Description',
+        type: 'String',
       },
     },
   };

@@ -23,17 +23,17 @@ import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
     NbCheckboxModule,
     NbRadioModule,
     NbDatepickerModule,
-    FormsRoutingModule,
+    // FormsRoutingModule,
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
   ],
   declarations: [...routedComponents,
-    FormsComponent,
-    ButtonsComponent,
-    FormInputsComponent,
-    FormLayoutsComponent,
-    DatepickerComponent,
+    // FormsComponent,
+    // ButtonsComponent,
+    // FormInputsComponent,
+    // FormLayoutsComponent,
+    // DatepickerComponent,
   ]
 })
 export class EventManagementModule {}
