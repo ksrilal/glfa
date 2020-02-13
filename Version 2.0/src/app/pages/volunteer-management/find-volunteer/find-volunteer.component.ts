@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './find-volunteer.component.html',
   styleUrls: ['./find-volunteer.component.scss']
 })
-export class FindVolunteerComponent implements OnInit {
+export class FindVolunteerComponent {
+  lat = 51.678418;
+  lng = 7.809007;
+ 
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  
 
 }

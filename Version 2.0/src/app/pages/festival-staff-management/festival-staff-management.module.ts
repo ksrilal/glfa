@@ -3,7 +3,7 @@ import { FestivalStaffManagementRoutingModule, routedComponents } from './festiv
 import { ThemeModule } from '../../@theme/theme.module';
 import { NbInputModule, NbCardModule, NbButtonModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbRadioModule, NbDatepickerModule, NbSelectModule, NbIconModule, NbTreeGridModule } from '@nebular/theme';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
-import { FormsModule as ngFormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsComponent } from '../forms/forms.component';
 import { ButtonsComponent } from '../forms/buttons/buttons.component';
 import { FormInputsComponent } from '../forms/form-inputs/form-inputs.component';
@@ -29,7 +29,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     NbIconModule,
     ngFormsModule,
     Ng2SmartTableModule,
-    NbTreeGridModule
+    NbTreeGridModule,
+    ReactiveFormsModule,
+
   ],
   declarations: [
     ...routedComponents,

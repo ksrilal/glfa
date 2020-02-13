@@ -3,7 +3,7 @@ import { AuthorManagementRoutingModule, routedComponents } from './author-manage
 import { ThemeModule } from '../../@theme/theme.module';
 import { NbInputModule, NbCardModule, NbButtonModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbRadioModule, NbDatepickerModule, NbSelectModule, NbIconModule, NbTreeGridModule } from '@nebular/theme';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
-import { FormsModule as ngFormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsComponent } from '../forms/forms.component';
 import { ButtonsComponent } from '../forms/buttons/buttons.component';
 import { FormInputsComponent } from '../forms/form-inputs/form-inputs.component';
@@ -30,7 +30,8 @@ import { FsIconComponent } from '../tables/tree-grid/tree-grid.component';
     NbIconModule,
     ngFormsModule,
     Ng2SmartTableModule,
-    NbTreeGridModule
+    NbTreeGridModule,
+    ReactiveFormsModule,
   ],
   declarations: [...routedComponents,
     // FormsComponent,
