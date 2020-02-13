@@ -26,6 +26,8 @@ import { DriverManagementComponent } from './driver-management/driver-management
 import { AddDriversComponent } from './driver-management/add-drivers/add-drivers.component';
 import { ModifyDriversComponent } from './driver-management/modify-drivers/modify-drivers.component';
 import { ReqVolunteersComponent } from './request-volunteers/req-volunteers/req-volunteers.component';
+import { DriverStateComponent } from './driver-state/driver-state.component';
+import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
 
 @NgModule({
   imports: [
@@ -42,6 +44,7 @@ import { ReqVolunteersComponent } from './request-volunteers/req-volunteers/req-
     TicketManagementComponent,
     FilterSalesComponent,
     VehicleManagementComponent,
+
 
 
 
