@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "ngx-request-volunteers",
+  selector: "ngx-driver-state",
   template: `
     <router-outlet></router-outlet>
   `
 })
-export class RequestVolunteersComponent implements OnInit {
+export class DriverStateComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

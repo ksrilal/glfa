@@ -25,6 +25,9 @@ import { ModifyStaffComponent } from './festival-staff-management/modify-staff/m
 import { DriverManagementComponent } from './driver-management/driver-management.component';
 import { AddDriversComponent } from './driver-management/add-drivers/add-drivers.component';
 import { ModifyDriversComponent } from './driver-management/modify-drivers/modify-drivers.component';
+import { ReqVolunteersComponent } from './request-volunteers/req-volunteers/req-volunteers.component';
+import { DriverStateComponent } from './driver-state/driver-state.component';
+import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
 
 @NgModule({
   imports: [
@@ -41,7 +44,8 @@ import { ModifyDriversComponent } from './driver-management/modify-drivers/modif
     TicketManagementComponent,
     FilterSalesComponent,
     VehicleManagementComponent,
-    RequestVolunteersComponent,
+
+
 
 
   ]

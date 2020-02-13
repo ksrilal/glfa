@@ -8,8 +8,9 @@ import { PasswordValidators } from '../../validators/password-validator';
   styleUrls: ["./add-staff.component.scss"]
 })
 export class AddStaffComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+
+  ngOnInit(){
+
   }
 
 
@@ -18,7 +19,7 @@ export class AddStaffComponent implements OnInit {
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
-      Validators.minLength(8)
+      Validators.minLength(8),
     ]),
     mobile: new FormControl("", [
       Validators.required,

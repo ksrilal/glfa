@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestVolunteersComponent } from './request-volunteers.component';
+import { ViewDriversComponent } from './view-drivers.component';
 
-describe('RequestVolunteersComponent', () => {
-  let component: RequestVolunteersComponent;
-  let fixture: ComponentFixture<RequestVolunteersComponent>;
+describe('ViewDriversComponent', () => {
+  let component: ViewDriversComponent;
+  let fixture: ComponentFixture<ViewDriversComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestVolunteersComponent ]
+      declarations: [ ViewDriversComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestVolunteersComponent);
+    fixture = TestBed.createComponent(ViewDriversComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
