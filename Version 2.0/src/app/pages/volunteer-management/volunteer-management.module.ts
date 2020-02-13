@@ -10,6 +10,10 @@ import { FormLayoutsComponent } from '../forms/form-layouts/form-layouts.compone
 import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { AgmCoreModule } from '@agm/core';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { NgxEchartsModule } from 'ngx-echarts';
+
 
 
 
@@ -24,18 +28,25 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     NbCheckboxModule,
     NbRadioModule,
     NbDatepickerModule,
-    FormsRoutingModule,
+    // FormsRoutingModule,
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
     Ng2SmartTableModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC6O7RUQ9480TWxlRUdJTWPCqTlkMHXZOk',
+      libraries: ['places'],
+    }),
+    LeafletModule.forRoot(),
+    NgxEchartsModule,
   ],
   declarations: [...routedComponents,
-    FormsComponent,
-    ButtonsComponent,
-    FormInputsComponent,
-    FormLayoutsComponent,
-    DatepickerComponent,
+    // FormsComponent,
+    // ButtonsComponent,
+    // FormInputsComponent,
+    // FormLayoutsComponent,
+    // DatepickerComponent,
+    
   ]
 })
 export class VolunteerManagementModule {}
