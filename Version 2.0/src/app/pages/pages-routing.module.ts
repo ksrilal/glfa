@@ -9,6 +9,7 @@ import { RedeemTicketComponent } from './redeem-ticket/redeem-ticket.component';
 import { TicketManagementComponent } from './ticket-management/ticket-management.component';
 import { FilterSalesComponent } from './filter-sales/filter-sales.component';
 import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
+import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
 
 const routes: Routes = [
   {
@@ -36,14 +37,16 @@ const routes: Routes = [
         component: FilterSalesComponent
       },
 
-      {
-        path: "view-drivers",
-        component: FilterSalesComponent
-      },
+
       {
         path: "layout",
         loadChildren: () =>
           import("./layout/layout.module").then(m => m.LayoutModule)
+      },
+      {
+        path: "driver-state",
+        loadChildren: () =>
+          import("./driver-state/driver-state.module").then(m => m.DriverStateManagementModule)
       },
       {
         path: "staff-management",
