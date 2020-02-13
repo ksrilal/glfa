@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ngx-assign-tasks',
@@ -7,13 +7,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./assign-tasks.component.scss']
 })
 export class AssignTasksComponent implements OnInit {
+  tasks: any[];
 
+  form = new FormGroup({
+    task: new FormControl("", Validators.required),
+    description: new FormControl("", Validators.required),
+    latitude: new FormControl("", Validators.required),
+    longitude: new FormControl("", Validators.required),
+    noOfVolunteers: new FormControl("", Validators.required),
+  });
+
+  constructor(private fb: FormBuilder,private addTasksService: AddTasksService) {
+    addTasksService.getAll().subscribe(task => {
+      this.tasks = task;
+    });
+  }
   firstForm: FormGroup;
   secondForm: FormGroup;
   thirdForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-  }
 
   ngOnInit() {
     this.firstForm = this.fb.group({
@@ -28,7 +40,7 @@ export class AssignTasksComponent implements OnInit {
     });
 
     this.secondForm = this.fb.group({
-      secondCtrl: ['', Validators.required],
+      userName: ['', Validators.required],
     });
 
     this.thirdForm = this.fb.group({

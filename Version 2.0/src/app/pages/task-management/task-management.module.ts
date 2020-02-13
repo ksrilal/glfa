@@ -22,6 +22,8 @@ import { ChartModule } from 'angular2-chartjs';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartsRoutingModule } from '../charts/charts-routing.module';
 import { D3AdvancedPieComponent } from '../charts/d3/d3-advanced-pie.component';
+import { TablesRoutingModule } from '../tables/tables-routing.module';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { D3AdvancedPieComponent } from '../charts/d3/d3-advanced-pie.component';
     // ChartsRoutingModule,
     NgxChartsModule,
     // ChartModule,
+    //TablesRoutingModule,
+    //Ng2SmartTableModule,
   ],
 
     declarations: [...routedComponents,

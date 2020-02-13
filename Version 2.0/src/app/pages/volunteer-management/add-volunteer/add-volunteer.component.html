@@ -3,14 +3,22 @@
     <nb-card>
       <nb-card-header>Add Volunteer</nb-card-header>
       <nb-card-body>
-        <form>
+        <div class="form-validation">
+        <form [formGroup]="addForm" (ngSubmit)="onAddSubmit()"  class="form-valide">
           <div class="form-group row">
             <label for="val-fname" class="label col-sm-3 col-form-label">First Name</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth id="fName" 
               name="fName" 
               placeholder="First Name here.."
+              formControlName="fName" 
               >
+              <div *ngIf="fName.touched && fName.invalid">
+                <div class="alert alert-danger">
+                  First name cannot be empty
+                </div>
+              </div>
+
             </div>
           </div>
           <div class="form-group row">
@@ -19,7 +27,12 @@
               <input type="text" nbInput fullWidth id="lName" 
               name="lName" 
               placeholder="Last Name here.."
-              >
+              formControlName="lName">
+              <div *ngIf="lName.touched && lName.invalid">
+                <div class="alert alert-danger">
+                  Last name cannot be empty
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
@@ -28,7 +41,13 @@
               <input type="text" nbInput fullWidth id="userName" 
               name="userName" 
               placeholder="Enter a username.."
+              formControlName="userName" 
               >
+              <div *ngIf="userName.touched && userName.invalid">
+                <div class="alert alert-danger">
+                  UserName cannot be empty
+                </div>
+              </div>
             </div>
           </div>
           
@@ -48,7 +67,13 @@
               <input type="date" nbInput fullWidth id="dob" 
               name="dob" 
               placeholder=''
+              formControlName="dob" 
               >
+              <div *ngIf="dob.touched && dob.invalid">
+                <div class="alert alert-danger">
+                  Date of Birth cannot be empty
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
@@ -56,7 +81,14 @@
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth id="NIC" 
               name="NIC" 
-              placeholder="National ID card Number">
+              placeholder="National ID card Number"
+              formControlName="NIC" 
+              >
+              <div *ngIf="NIC.touched && NIC.invalid">
+                <div class="alert alert-danger">
+                  NIC cannot be empty
+                </div>
+              </div>
             </div>
           </div> 
           
@@ -66,7 +98,13 @@
               <input type="number" nbInput fullWidth id="mobile"
               name="mobile"
               placeholder="xxxxxxxxxx"
+              formControlName="mobile" 
               >
+              <div *ngIf="mobile.touched && mobile.invalid">
+                <div class="alert alert-danger">
+                  Mobile Number cannot be empty
+                </div>
+              </div>
             </div>
           </div> 
           <div class="form-group row">
@@ -75,7 +113,13 @@
               <input type="email" nbInput fullWidth id="email"
               name="email"
               placeholder="Your valid email.."
+              formControlName="email" 
               >
+              <div *ngIf="email.touched && email.invalid">
+                <div class="alert alert-danger">
+                  Email cannot be empty
+                </div>
+              </div>
             </div>
           </div> 
           <div class="form-group row">
@@ -84,7 +128,13 @@
               <input type="password" nbInput fullWidth id="passwd"
               name="val-passwd"
               placeholder="Choose a safe one.."
-            >
+              formControlName="passwd" 
+              >
+              <div *ngIf="passwd.touched && passwd.invalid">
+                <div class="alert alert-danger">
+                  Password cannot be empty
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
@@ -93,6 +143,7 @@
             </div>
           </div>
         </form>
+        </div>
       </nb-card-body>
     </nb-card>  
   </div>
