@@ -1,3 +1,41 @@
-<p>
-  add-drivers works!
-</p>
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Driver Details</nb-card-header>
+      <nb-card-body>
+
+        <div class="full-name-inputs">
+          <input type="text" nbInput fullWidth placeholder="First Name">
+          <input type="text" nbInput fullWidth placeholder="Last Name">
+        </div>
+        <input type="text" nbInput fullWidth placeholder="NIC">
+        <input type="text" nbInput fullWidth placeholder="Contact Number">
+        <input type="text" nbInput fullWidth placeholder="Address">
+        <input type="date" nbInput fullWidth placeholder="Birthday">
+        <input type="text" nbInput fullWidth placeholder="Vehicle Brand">
+        <input type="text" nbInput fullWidth placeholder="Vehicle Model">
+        <input type="text" nbInput fullWidth placeholder="Vehicle Number">
+        <input type="text" nbInput fullWidth placeholder="License Number">
+        <input type="text" nbInput fullWidth placeholder="Disabled input" disabled/>
+         <button  nbButton status="primary" hero>
+            Add Driver
+          </button>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-lg-6">
+
+    <nb-card>
+      <nb-card-header>Select</nb-card-header>
+      <nb-card-body>
+        <nb-select selected="1">
+          <nb-option value="1">Option 1</nb-option>
+          <nb-option value="2">Option 2</nb-option>
+        </nb-select>
+      </nb-card-body>
+    </nb-card>
+
+
+  </div>
+</div>
