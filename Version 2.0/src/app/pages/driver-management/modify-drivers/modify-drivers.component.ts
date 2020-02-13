@@ -8,6 +8,9 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   styleUrls: ['./modify-drivers.component.scss']
 })
 export class ModifyDriversComponent implements OnInit {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
