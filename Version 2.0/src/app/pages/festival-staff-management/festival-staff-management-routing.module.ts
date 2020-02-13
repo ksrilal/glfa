@@ -25,7 +25,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StaffManagementRoutingModule {}
+export class FestivalStaffManagementRoutingModule {}
 
 export const routedComponents = [
   FestivalStaffManagementComponent,

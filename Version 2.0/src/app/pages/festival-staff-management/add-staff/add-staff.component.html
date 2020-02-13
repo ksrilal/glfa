@@ -1,3 +1,51 @@
-<p>
-  add-staff works!
-</p>
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Add Staff</nb-card-header>
+      <nb-card-body>
+
+        <div class="full-name-inputs">
+          <input type="text" nbInput fullWidth placeholder="First Name">
+          <input type="text" nbInput fullWidth placeholder="Last Name">
+        </div>
+
+        <input type="text" nbInput fullWidth placeholder="Username">
+
+        <input type="email" nbInput fullWidth placeholder="E-mail">
+
+        <input type="password" nbInput fullWidth placeholder="Password">
+
+        <input type="text" nbInput fullWidth placeholder="Phone">
+
+        <!-- <select nbInput fullWidth required>
+                      <option value="" disabled selected nbInput fullWidth>Select Role</option>
+                      <option value="boxOffice" nbInput fullWidth>boxOffice</option>
+                      <option value="manager" nbInput fullWidth>manager</option>
+                      <option value="transpotation" nbInput fullWidth>transpotation</option>
+                      <option value="volunteer" nbInput fullWidth>volunteer</option>
+                    </select> -->
+                    
+        <div class="form-group">
+            <label class="col-sm-3 label">Role</label>
+            <div class="col-sm-9">
+              <nb-radio-group>
+                <nb-radio>BoxOffice</nb-radio>
+                <nb-radio>Staff Manager</nb-radio>
+                <nb-radio>Transpotation Coordinator</nb-radio>
+                <nb-radio>Volunteer Coordinator</nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+
+        <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description"></textarea>
+
+
+          <button  nbButton status="primary" hero>
+            Add Staff
+          </button>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+</div>
