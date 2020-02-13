@@ -25,7 +25,7 @@ import { FsIconComponent } from '../tables/tree-grid/tree-grid.component';
     NbCheckboxModule,
     NbRadioModule,
     NbDatepickerModule,
-    FormsRoutingModule,
+    // FormsRoutingModule,
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
@@ -33,12 +33,12 @@ import { FsIconComponent } from '../tables/tree-grid/tree-grid.component';
     NbTreeGridModule
   ],
   declarations: [...routedComponents,
-    FormsComponent,
-    ButtonsComponent,
-    FormInputsComponent,
-    FormLayoutsComponent,
-    DatepickerComponent,
-    FsIconComponent,
+    // FormsComponent,
+    // ButtonsComponent,
+    // FormInputsComponent,
+    // FormLayoutsComponent,
+    // DatepickerComponent,
+    // FsIconComponent,
 
   ]
 })
