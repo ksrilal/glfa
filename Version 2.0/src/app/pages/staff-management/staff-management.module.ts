@@ -17,12 +17,14 @@ import {
   NbIconModule
 } from "@nebular/theme";
 import { FormsRoutingModule } from "../forms/forms-routing.module";
-import { FormsModule as ngFormsModule } from "@angular/forms";
+import { FormsModule as ngFormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FormsComponent } from '../forms/forms.component';
 import { ButtonsComponent } from '../forms/buttons/buttons.component';
 import { FormInputsComponent } from '../forms/form-inputs/form-inputs.component';
 import { FormLayoutsComponent } from '../forms/form-layouts/form-layouts.component';
 import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
+
+
 
 @NgModule({
   imports: [
@@ -39,7 +41,8 @@ import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
     FormsRoutingModule,
     NbSelectModule,
     NbIconModule,
-    ngFormsModule
+    ngFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ...routedComponents,
