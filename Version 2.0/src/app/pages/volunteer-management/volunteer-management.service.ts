@@ -7,14 +7,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class VolunteerManagementService {
 
   
-  constructor(private afs: AngularFirestore, private authService: AuthService) { 
+  constructor(private afs: AngularFirestore, /*private authService: AuthService*/) { 
     console.log("in services",this.getAll());
   }
 
   create(volunteer) {
 
     try{
-       this.authService.signup(volunteer.email,volunteer.passwd);
+      // this.authService.signup(volunteer.email,volunteer.passwd);//leave this only
       // this.auth.auth.createUserWithEmailAndPassword(staff.email,staff.password);
       this.afs.collection('users').doc(volunteer.email).set(volunteer);
       alert("Addedd Successfully");
@@ -43,13 +43,7 @@ export class VolunteerManagementService {
       console.log("in services",volunteerList[0]);
     return volunteerList;
   }*/
-
-
-
-  
-
-
-  getAll() {
+   getAll() {
     if(Object.keys(this.afs.collection('users').valueChanges()).length==0){
       console.log("in servics getall..null set");
     }else{

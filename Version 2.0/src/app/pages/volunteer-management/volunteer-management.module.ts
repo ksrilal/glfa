@@ -40,6 +40,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
     LeafletModule.forRoot(),
     NgxEchartsModule,
     ReactiveFormsModule,
+    
   
   ],
   declarations: [...routedComponents,

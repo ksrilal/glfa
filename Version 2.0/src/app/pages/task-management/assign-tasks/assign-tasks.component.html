@@ -11,11 +11,11 @@
               name="task" 
               placeholder="Enter the task here.." class="form-control" formControlName="task" 
               [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-              <div *ngIf="task.touched && task.invalid">
+              <!--div *ngIf="task.touched && task.invalid">
                 <div class="alert alert-danger">
                   Task cannot be empty
                 </div>
-              </div>
+              </div-->
               <input type="text" nbInput fullWidth id="description" 
               name="description" 
               placeholder="Description here.." class="form-control" formControlName="description" 
@@ -45,42 +45,30 @@
               name="noOfVolunteers" 
               placeholder="" class="form-control" formControlName="noOfVolunteers" 
                   [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                  <div *ngIf="noOfVolunteers.touched && noOfVolunteers.invalid">
+                  <!--div *ngIf="noOfVolunteers.touched && noOfVolunteers.invalid">
                     <div class="alert alert-danger">
                       This field cannot be empty
                     </div>
-                  </div>     
+                  </div-->     
               </div>
               <button nbButton nbStepperNext>next</button>
             </form>
           </nb-step>
+        
           <nb-step [stepControl]="secondForm" label="Second step">
             <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
-              
-              <div class="input-group">
-                <input type="text" placeholder="Enter favorite movie" class="form-control" formControlName="userName"
-                       [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
-               
-             
-              </div>
-              <button nbButton nbStepperPrevious>prev</button>
-              <button nbButton nbStepperNext>next</button>
-            </form>
-          </nb-step>
-          <nb-step [stepControl]="thirdForm" label="Third step">
-            <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
               <p class="lorem">
                 Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
               </p>
               <div class="input-group">
-                <input type="text" placeholder="Enter something" class="form-control" formControlName="thirdCtrl"
-                       [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
+                <input type="text" placeholder="Enter something" class="form-control" formControlName="secondCtrl"
+                       [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
               </div>
               <button nbButton nbStepperPrevious>prev</button>
               <button nbButton nbStepperNext>Confirm</button>
             </form>
           </nb-step>
-          <nb-step [stepControl]="thirdForm" [hidden]="true" label="Third step">
+          <nb-step [stepControl]="secondForm" [hidden]="true" label="Second step">
             <div class="step-container">
               <h3>Wizard completed!</h3>
               <button nbButton (click)="stepper.reset()">Try again</button>
