@@ -32,6 +32,10 @@ export class AddStaffComponent implements OnInit {
       Validators.minLength(10),
       Validators.maxLength(10)
     ]),
+    confirmPassword: new FormControl("", [
+      Validators.required,Validators.minLength(8),
+      PasswordValidators.checkPasswrod
+    ]),
   });
 
 
@@ -62,9 +66,11 @@ export class AddStaffComponent implements OnInit {
   get description() {
     return this.form.get("description");
   }
-
   get role() {
     return this.form.get("description");
+  }
+  get confirmPassword() {
+    return this.form.get("confirmPassword");
   }
 
 }
