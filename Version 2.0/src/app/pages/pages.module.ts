@@ -33,6 +33,8 @@ import { DropzoneDirective } from './dropzone.directive';
 import { RedeemTicketModule } from './redeem-ticket/redeem-ticket.module';
 import { TranspotationChatComponent } from './transpotation-chat/transpotation-chat.component';
 import { TransChatComponent } from './transpotation-chat/trans-chat/trans-chat.component';
+import { FestivalManagerMapComponent } from './festival-manager-map/festival-manager-map.component';
+import { ManagerMapComponent } from './festival-manager-map/manager-map/manager-map.component';
 
 @NgModule({
   imports: [
@@ -51,6 +53,7 @@ import { TransChatComponent } from './transpotation-chat/trans-chat/trans-chat.c
     FilterSalesComponent,
     VehicleManagementComponent,
     DropzoneDirective,
+
 
 
 
