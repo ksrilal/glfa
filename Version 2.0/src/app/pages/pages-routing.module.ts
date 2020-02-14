@@ -70,6 +70,13 @@ const routes: Routes = [
           )
       },
       {
+        path: "transpotation-chat",
+        loadChildren: () =>
+          import("./transpotation-chat/transpotation-chat.module").then(
+            m => m.TranspotationChatModule
+          )
+      },
+      {
         path: "request-volunteers",
         loadChildren: () =>
           import("./request-volunteers/request-volunteers.module").then(

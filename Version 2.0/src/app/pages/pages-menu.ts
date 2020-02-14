@@ -145,6 +145,16 @@ export const transportationCoordinator: NbMenuItem[] = [
                link: "/pages/driver-state/view-drivers"
              }
            ]
+         },
+         {
+           title: "Chat",
+           icon: "people-outline",
+           children: [
+             {
+               title: "Chat",
+               link: "/pages/transpotation-chat/chat"
+             }
+           ]
          }
        ];
 
