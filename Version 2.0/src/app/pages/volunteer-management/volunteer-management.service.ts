@@ -1,34 +1,36 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VolunteerManagementService {
 
-
-  constructor(private afs: AngularFirestore,) {
+  
+  constructor(private afs: AngularFirestore, private auth:AngularFireAuth) { 
     console.log("in services",this.getAll());
   }
 
   create(volunteer) {
 
-  //   try{
-  //      this.authService.signup(volunteer.email,volunteer.passwd);
-  //     // this.auth.auth.createUserWithEmailAndPassword(staff.email,staff.password);
-  //     this.afs.collection('users').doc(volunteer.email).set(volunteer);
-  //     alert("Addedd Successfully");
+    try{
+      // this.authService.signup(volunteer.email,volunteer.passwd);//leave this only
+      // this.auth.auth.createUserWithEmailAndPassword(staff.email,staff.password);
+      this.afs.collection('users').doc(volunteer.email).set(volunteer);
+      
+      alert("Addedd Successfully");
 
-  //   }catch(error){
-  //     alert(error);
-  //   }
+    }catch(error){
+      alert(error);
+    }
 
   }
 
   /*getVolunteers(){
       return new Promise<any>((resolve, reject) => {
         this.afs.collection('/users').snapshotChanges()
-
+        
       })
   }*/
  /*getVolunteers(): Observable<any> {
@@ -54,6 +56,6 @@ export class VolunteerManagementService {
     }catch(error){
       alert(error);
     }
-
+    
   }
 }

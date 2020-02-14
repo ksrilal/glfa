@@ -41,9 +41,17 @@
             <div class="col-sm-9">
               <nb-radio-group>
                 <nb-radio>Male</nb-radio>
+                <input id="male" type="radio" class="custom-control-input" value="male" name="gender"formControlName="gender" ngmodel >
                 <nb-radio>Female</nb-radio>
+                <input id="female" type="radio" class="custom-control-input" value="female" name="gender"formControlName="gender"ngmodel>
                 <nb-radio >Other</nb-radio>
+                <input id="other" type="radio" class="custom-control-input" value="other" name="gender"formControlName="gender"ngmodel>
               </nb-radio-group>
+              <!--div *ngIf="gender.touched && gender.invalid">
+                <div class="alert alert-danger">
+                  Gender cannot be empty
+                </div>
+              </div-->
             </div>
           </div>
           <div class="form-group row">
@@ -124,7 +132,7 @@
           </div>
           <div class="form-group row">
             <div class="offset-sm-3 col-sm-9">
-              <button type="submit" nbButton status="primary">Sign in</button>
+              <button [disabled]="form.invalid" type="submit" nbButton status="primary">Sign in</button>
             </div>
           </div>
         </form>
