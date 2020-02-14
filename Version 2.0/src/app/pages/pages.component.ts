@@ -22,7 +22,7 @@ export class PagesComponent {
   menu;
 
   constructor() {
-    var roll = "volunteerCoordinator";
+    var roll = "manager";
     if (roll == "manager") {
       this.menu = manager;
     } else if (roll == "volunteerCoordinator") {

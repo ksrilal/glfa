@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { AuthorManagementService } from '../author-management.service';
 
 @Component({
   selector: 'ngx-modify-author',
@@ -27,46 +28,55 @@ export class ModifyAuthorComponent implements OnInit {
       confirmDelete: true,
     },
     columns: {
-      firstName: {
+      fname: {
         title: 'First Name',
         type: 'string',
       },
-      lastName: {
+      lname: {
         title: 'Last Name',
-        type: 'string',
-      },
-      username: {
-        title: 'Username',
         type: 'string',
       },
       email: {
         title: 'E-mail',
         type: 'string',
       },
-      password: {
-        title: 'Password',
+      des: {
+        title: 'Description',
         type: 'String',
       },
-      description: {
-        title: 'Description',
+      mobile: {
+        title: 'Mobile',
         type: 'String',
       },
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
+  source;
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private authorManagement: AuthorManagementService) {
+    authorManagement.getAll().subscribe(result=>{
+      this.source=result
+    })
   }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
+  onSaveConfirm(event):void{
+    if (window.confirm('Are you sure you want to edit?')) {
+      // event.confirm.resolve();
+      this.authorManagement.edit(event.data.id,event.newData)
+      //console.log(event.data)
+      // console.log(event.newData)
     } else {
       event.confirm.reject();
     }
   }
 
+  onDeleteConfirm(event): void {
+    if (window.confirm('Are you sure you want to delete?')) {
+      // event.confirm.resolve();
+      this.authorManagement.delete(event.data.id)
+      // console.log(event.data.id)
+    } else {
+      event.confirm.reject();
+    }
+  }
 }
