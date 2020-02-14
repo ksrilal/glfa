@@ -4,7 +4,7 @@
       <nb-card-header>Add Volunteer</nb-card-header>
       <nb-card-body>
         <div class="form-validation">
-        <form [formGroup]="addForm" (ngSubmit)="onAddSubmit()"  class="form-valide">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()"  class="form-valide">
           <div class="form-group row">
             <label for="val-fname" class="label col-sm-3 col-form-label">First Name</label>
             <div class="col-sm-9">
@@ -31,21 +31,6 @@
               <div *ngIf="lName.touched && lName.invalid">
                 <div class="alert alert-danger">
                   Last name cannot be empty
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="val-username" class="label col-sm-3 col-form-label">User Name</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="userName" 
-              name="userName" 
-              placeholder="Enter a username.."
-              formControlName="userName" 
-              >
-              <div *ngIf="userName.touched && userName.invalid">
-                <div class="alert alert-danger">
-                  UserName cannot be empty
                 </div>
               </div>
             </div>

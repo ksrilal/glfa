@@ -27,6 +27,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -51,6 +52,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+
 
   ],
   bootstrap: [AppComponent]

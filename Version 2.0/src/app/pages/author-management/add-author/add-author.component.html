@@ -23,10 +23,11 @@
           >
         </div>
 
-        <input type="text" nbInput fullWidth placeholder="Username" formControlName="userName"
+        <!-- <input type="text" nbInput fullWidth placeholder="Username" formControlName="userName"
         [placeholder]="userName.touched && userName.invalid ? 'Username Required!' : 'Username' "
         [status]="userName.touched && userName.invalid ? 'danger' : 'primary' "
-        >
+        > -->
+
         <div class="full-name-inputs">
           <input type="email" nbInput fullWidth placeholder="E-mail"
         formControlName="email"
@@ -49,17 +50,28 @@
           <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
       </div>
         </div>
+
+        <div class="full-name-inputs">  
+          <input type="password" nbInput fullWidth placeholder="Re-enter Password" formControlName="confirmPassword"
+          [placeholder]="confirmPassword.touched && confirmPassword.invalid ? 'Re-enter Password Required!' : 'Re-enter Password' "
+          [status]="confirmPassword.touched && confirmPassword.invalid ? 'danger' : 'primary'"
+          >
+          <div *ngIf="confirmPassword.touched && confirmPassword.errors">
+            <div *ngIf="confirmPassword.errors.minlength">Password must be at least 8 characters</div>
+            <div *ngIf="confirmPassword.errors.pattern || confirmPassword.invalid">Password not match!</div>
+        </div>
+          </div>
         
-        <div>
-          <input type="text" nbInput fullWidth placeholder="Phone" formControlName="phone"
-        [placeholder]="phone.touched && phone.invalid ? 'Phone Number Required!' : 'Phone' "
-        [status]="phone.touched && phone.invalid ? 'danger' : 'primary' "
-        >
-        <div *ngIf="phone.touched && phone.errors">
-          <div *ngIf="phone.errors.minlength">Phone number must be 10 numbers</div>
-          <div *ngIf="phone.errors.maxlength">Phone number must be 10 numbers</div>
-        </div>
-        </div>
+          <div>
+            <input type="number" nbInput fullWidth placeholder="Phone(XXXXXXXXXX)" formControlName="phone"
+          [placeholder]="phone.touched && phone.invalid ? 'Phone Number(XXXXXXXXXX) Required!' : 'Phone(XXXXXXXXXX)' "
+          [status]="phone.touched && phone.invalid ? 'danger' : 'primary' "
+          >
+          <div *ngIf="phone.touched && phone.errors">
+            <div *ngIf="phone.errors.minlength">Phone number must be 10 numbers</div>
+            <div *ngIf="phone.errors.maxlength">Phone number must be 10 numbers</div>
+          </div>
+          </div>
         
         
         <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="description"

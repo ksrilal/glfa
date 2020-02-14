@@ -8,7 +8,7 @@ import { TaskManagementService } from '../task-management.service';
   styleUrls: ['./assign-tasks.component.scss']
 })
 export class AssignTasksComponent implements OnInit {
-  tasks: any[];
+ // tasks: any[];
 
   form = new FormGroup({
     task: new FormControl("", Validators.required),
@@ -18,14 +18,14 @@ export class AssignTasksComponent implements OnInit {
     noOfVolunteers: new FormControl("", Validators.required),
   });
 
-  constructor(private fb: FormBuilder,private addTasksService: TaskManagementService) {
-    addTasksService.getAll().subscribe(task => {
+  constructor(private fb: FormBuilder,/*private addTasksService: TaskManagementService*/) {
+   /* addTasksService.getAll().subscribe(task => {
       this.tasks = task;
-    });
+    });*/
   }
   firstForm: FormGroup;
   secondForm: FormGroup;
-  thirdForm: FormGroup;
+  //thirdForm: FormGroup;
 
 
   today;
@@ -46,9 +46,9 @@ export class AssignTasksComponent implements OnInit {
       userName: ['', Validators.required],
     });
 
-    this.thirdForm = this.fb.group({
+  /*  this.thirdForm = this.fb.group({
       thirdCtrl: ['', Validators.required],
-    });
+    });*/
   }
 
   onFirstSubmit() {
@@ -59,8 +59,8 @@ export class AssignTasksComponent implements OnInit {
     this.secondForm.markAsDirty();
   }
 
-  onThirdSubmit() {
+ /* onThirdSubmit() {
     this.thirdForm.markAsDirty();
-  }
+  }*/
 }
 

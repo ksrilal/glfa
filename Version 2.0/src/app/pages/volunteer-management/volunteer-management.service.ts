@@ -43,23 +43,17 @@ export class VolunteerManagementService {
       console.log("in services",volunteerList[0]);
     return volunteerList;
   }*/
+   getAll() {
+    if(Object.keys(this.afs.collection('users').valueChanges()).length==0){
+      console.log("in servics getall..null set");
+    }else{
+      console.log("in services, length of getall,",Object.keys(this.afs.collection('users').valueChanges()).length);
+    }
+    try{
+      return this.afs.collection('users').valueChanges();
+    }catch(error){
+      alert(error);
+    }
 
-
-
-
-
-
-  // getAll() {
-  //   if(Object.keys(this.afs.collection('users').valueChanges()).length==0){
-  //     console.log("in servics getall..null set");
-  //   }else{
-  //     console.log("in services, length of getall,",Object.keys(this.afs.collection('users').valueChanges()).length);
-  //   }
-  //   try{
-  //     return this.afs.collection('users').valueChanges();
-  //   }catch(error){
-  //     alert(error);
-  //   }
-
-  // }
+  }
 }
