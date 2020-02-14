@@ -3,31 +3,37 @@ import { PasswordValidators } from '../../validators/password-validator';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FestivalStaffManagementService } from '../festival-staff-management.service';
 
-
+ 
 @Component({
   selector: 'ngx-add-staff',
   templateUrl: './add-staff.component.html',
   styleUrls: ['./add-staff.component.scss']
 })
 export class AddStaffComponent implements OnInit {
+  staff: any[];
 
-  constructor(private festivalStaffServiece:FestivalStaffManagementService) { }
+  constructor(private festivalStaffServiece:FestivalStaffManagementService) {
+    console.log(this.festivalStaffServiece);
+    festivalStaffServiece.getAll().subscribe(staff => {
+      this.staff = staff;
+    });
+  }
 
   ngOnInit() {
   }
 
   form = new FormGroup({
     //userName: new FormControl("", Validators.required),
-    firstName: new FormControl("", Validators.required),
-    lastName: new FormControl("", Validators.required),
+    fname: new FormControl("", Validators.required),
+    lname: new FormControl("", Validators.required),
     role: new FormControl("", Validators.required),
-    description: new FormControl("", Validators.required),
+    des: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
       Validators.minLength(8),
     ]),
-    phone: new FormControl("", [
+    mobile: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(10)
@@ -37,11 +43,10 @@ export class AddStaffComponent implements OnInit {
       PasswordValidators.checkPasswrod
     ]),
   });
-
+ 
 
   onSubmit() {
     this.festivalStaffServiece.create(this.form.value);
-    
     this.form.reset();
   }
 
@@ -51,23 +56,23 @@ export class AddStaffComponent implements OnInit {
   // get userName() {
   //   return this.form.get("userName");
   // }
-  get firstName() {
-    return this.form.get("firstName");
+  get fname() {
+    return this.form.get("fname");
   }
-  get lastName() {
-    return this.form.get("lastName");
+  get lname() {
+    return this.form.get("lname");
   }
   get password() {
     return this.form.get("password");
   }
-  get phone() {
-    return this.form.get("phone");
+  get mobile() {
+    return this.form.get("mobile");
   }
-  get description() {
-    return this.form.get("description");
+  get des() {
+    return this.form.get("des");
   }
   get role() {
-    return this.form.get("description");
+    return this.form.get("des");
   }
   get confirmPassword() {
     return this.form.get("confirmPassword");

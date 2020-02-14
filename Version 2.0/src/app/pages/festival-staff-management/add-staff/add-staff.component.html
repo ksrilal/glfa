@@ -7,19 +7,19 @@
       <nb-card-body>
 
         <div class="full-name-inputs">
-          <input type="text" nbInput fullWidth placeholder="First Name" formControlName="firstName"
+          <input type="text" nbInput fullWidth placeholder="First Name" formControlName="fname"
               [placeholder]="
-                firstName.touched && firstName.invalid
-                  ? 'Firstname Required!'
+                fname.touched && fname.invalid
+                  ? 'First name Required!'
                   : 'First name'
               "
               [status]="
-                firstName.touched && firstName.invalid ? 'danger' : 'primary'
+                fname.touched && fname.invalid ? 'danger' : 'primary'
               ">
 
-          <input type="text" nbInput fullWidth placeholder="Last Name" formControlName="lastName"
-          [placeholder]="lastName.touched && lastName.invalid ? 'Last Name Required!' : 'Last Name' "
-          [status]="firstName.touched && lastName.invalid ? 'danger' : 'primary' "
+          <input type="text" nbInput fullWidth placeholder="Last Name" formControlName="lname"
+          [placeholder]="lname.touched && lname.invalid ? 'Last Name Required!' : 'Last Name' "
+          [status]="lname.touched && lname.invalid ? 'danger' : 'primary' "
           >
         </div>
 
@@ -60,15 +60,15 @@
             <div *ngIf="confirmPassword.errors.pattern || confirmPassword.invalid">Password not match!</div>
         </div>
           </div>
-        
+         
         <div>
-          <input type="number" min="0" max="9999999999" nbInput fullWidth placeholder="Phone(XXXXXXXXXX)" formControlName="phone"
-        [placeholder]="phone.touched && phone.invalid ? 'Phone Number(XXXXXXXXXX) Required!' : 'Phone(XXXXXXXXXX)' "
-        [status]="phone.touched && phone.invalid ? 'danger' : 'primary' "
+          <input type="number" min="0" max="9999999999" nbInput fullWidth placeholder="Mobile(XXXXXXXXXX)" formControlName="mobile"
+        [placeholder]="mobile.touched && mobile.invalid ? 'Mobile Number(XXXXXXXXXX) Required!' : 'Mobile(XXXXXXXXXX)' "
+        [status]="mobile.touched && mobile.invalid ? 'danger' : 'primary' "
         >
-        <div *ngIf="phone.touched && phone.errors">
-          <div *ngIf="phone.errors.minlength">Phone number must be 10 numbers</div>
-          <div *ngIf="phone.errors.maxlength">Phone number must be 10 numbers</div>
+        <div *ngIf="mobile.touched && mobile.errors">
+          <div *ngIf="mobile.errors.minlength">Mobile number must be 10 numbers</div>
+          <div *ngIf="mobile.errors.maxlength">Mobile number must be 10 numbers</div>
         </div>
         </div>
       
@@ -84,9 +84,9 @@
             </div>
           </div>
 
-          <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="description"
-          [placeholder]="description.touched && description.invalid ? 'Description Required!' : 'Description'"
-          [status]="description.touched && description.invalid ? 'danger' : 'primary' "
+          <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="des"
+          [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description'"
+          [status]="des.touched && des.invalid ? 'danger' : 'primary' "
           ></textarea>
           
         <div class="form-group">
