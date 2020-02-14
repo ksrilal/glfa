@@ -48,54 +48,64 @@ export const boxoffice: NbMenuItem[] = [
 ];
 
 export const volunteerCoordinator: NbMenuItem[] = [
-  {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard"
-  },
-  {
-    title: "Volunteer Coordinator",
-    group: true
-  },
-  {
-    title: "Volunteer Management",
-    icon: "people-outline",
-    children: [
-      {
-        title: "Add Volunteer",
-        link: "/pages/volunteer-management/add-volunteer"
-      },
-      {
-        title: "Modify Volunteer",
-        link: "/pages/volunteer-management/modify-volunteer"
-      },
-      {
-        title: "Find Volunteer",
-        link: "/pages/volunteer-management/find-volunteer"
-      }
-    ]
-  },
-  {
-    title: "Task Management",
-    icon: "people-outline",
-    children: [
-      {
-        title: "Assign Tasks",
-        link: "/pages/task-management/assign-tasks"
-      },
-      {
-        title: "Task Status",
-        link: "/pages/task-management/tasks-status"
-      }
-    ]
-  }
-];
+         {
+           title: "E-commerce",
+           icon: "shopping-cart-outline",
+           link: "/pages/dashboard",
+           home: true
+         },
+         {
+           title: "IoT Dashboard",
+           icon: "home-outline",
+           link: "/pages/iot-dashboard"
+         },
+         {
+           title: "Volunteer Coordinator",
+           group: true
+         },
+         {
+           title: "Volunteer Management",
+           icon: "people-outline",
+           children: [
+             {
+               title: "Add Volunteer",
+               link: "/pages/volunteer-management/add-volunteer"
+             },
+             {
+               title: "Modify Volunteer",
+               link: "/pages/volunteer-management/modify-volunteer"
+             },
+             {
+               title: "Find Volunteer",
+               link: "/pages/volunteer-management/find-volunteer"
+             }
+           ]
+         },
+         {
+           title: "Task Management",
+           icon: "people-outline",
+           children: [
+             {
+               title: "Assign Tasks",
+               link: "/pages/task-management/assign-tasks"
+             },
+             {
+               title: "Task Status",
+               link: "/pages/task-management/tasks-status"
+             }
+           ]
+         },
+         {
+           title: "Map",
+           icon: "layout-outline",
+           children: [
+             {
+               title: "Map",
+               link: "/pages/volunteer-map/map"
+             }
+           ]
+         }
+       ];
 export const transportationCoordinator: NbMenuItem[] = [
          {
            title: "E-commerce",
