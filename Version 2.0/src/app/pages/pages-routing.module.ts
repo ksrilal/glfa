@@ -71,6 +71,13 @@ const routes: Routes = [
           ).then(m => m.ManagerMapModule)
       },
       {
+        path: "volunteer-map",
+        loadChildren: () =>
+          import(
+            "./volunteer-map/volunteer-map.module"
+          ).then(m => m.VolunteerMapModule)
+      },
+      {
         path: "volunteer-management",
         loadChildren: () =>
           import("./volunteer-management/volunteer-management.module").then(

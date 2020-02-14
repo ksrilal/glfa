@@ -1,13 +1,21 @@
-import { Component, OnInit, Input, ElementRef, ViewChild, Output, EventEmitter, NgZone } from "@angular/core";
-import { MapsAPILoader } from '@agm/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ElementRef,
+  ViewChild,
+  Output,
+  EventEmitter,
+  NgZone
+} from "@angular/core";
+import { MapsAPILoader } from "@agm/core";
 
 @Component({
-  selector: "ngx-manager-map",
-  templateUrl: "./manager-map.component.html",
-  styleUrls: ["./manager-map.component.scss"]
+  selector: "ngx-map",
+  templateUrl: "./map.component.html",
+  styleUrls: ["./map.component.scss"]
 })
-export class ManagerMapComponent implements OnInit {
-
+export class MapComponent implements OnInit {
   latitude: number;
   longitude: number;
   zoom: number;
@@ -99,4 +107,3 @@ export class ManagerMapComponent implements OnInit {
     );
   }
 }
-
