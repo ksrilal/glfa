@@ -63,7 +63,7 @@
           </div>
         
           <div>
-            <input type="number" min="0" max="9999999999" nbInput fullWidth placeholder="Phone(XXXXXXXXXX)" formControlName="phone"
+            <input type="number" nbInput fullWidth placeholder="Phone(XXXXXXXXXX)" formControlName="phone"
           [placeholder]="phone.touched && phone.invalid ? 'Phone Number(XXXXXXXXXX) Required!' : 'Phone(XXXXXXXXXX)' "
           [status]="phone.touched && phone.invalid ? 'danger' : 'primary' "
           >
