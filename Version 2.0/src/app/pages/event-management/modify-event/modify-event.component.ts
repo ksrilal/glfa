@@ -28,6 +28,7 @@ export class ModifyEventComponent implements OnInit {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -58,8 +59,8 @@ export class ModifyEventComponent implements OnInit {
         title: 'Ticket Price',
         type: 'string',
       },
-      q: {
-        title: 'Time',
+      quantity: {
+        title: 'Ticket Quantity',
         type: 'string',
       },
       des: {
@@ -72,11 +73,15 @@ export class ModifyEventComponent implements OnInit {
   source;
 
   onSaveConfirm(event): void {
-    if (window.confirm('Are you sure you want to edit?')) {
-      this.eventManagement.edit(event.date.id,event.newData)
-    }
-    else{
-      event.confirm.reject();
+    if(event.newData.name !="" && event.newData.date !="" && event.newData.time !="" && event.newData.venue !="" && event.newData.author !="" && event.newData.price !="" && event.newData.quantity !="" && event.newData.des !=""){
+      if (window.confirm('Are you sure you want to edit?')) {
+        this.eventManagement.edit(event.date.id,event.newData)
+      }
+      else{
+        event.confirm.reject();
+      }
+    }else{
+      alert("ERROR!")
     }
   }
 
