@@ -34,6 +34,7 @@ export class ECommerceUserActivityComponent implements OnDestroy {
       .pipe(takeWhile(() => this.alive))
       .subscribe(userActivityData => {
         this.userActivity = userActivityData;
+        console.log(this.userActivity)
       });
   }
 
