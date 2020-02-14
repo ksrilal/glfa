@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { PasswordValidators } from '../../validators/password-validator';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FestivalStaffManagementService } from '../festival-staff-management.service';
+import { Component, OnInit } from "@angular/core";
+import { PasswordValidators } from "../../validators/password-validator";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AngularFireStorage } from "@angular/fire/storage";
 
- 
 @Component({
-  selector: 'ngx-add-staff',
-  templateUrl: './add-staff.component.html',
-  styleUrls: ['./add-staff.component.scss']
+  selector: "ngx-add-staff",
+  templateUrl: "./add-staff.component.html",
+  styleUrls: ["./add-staff.component.scss"]
 })
 export class AddStaffComponent implements OnInit {
-  staff: any[];
+  constructor(private afStorage: AngularFireStorage) {}
 
-  constructor(private festivalStaffServiece:FestivalStaffManagementService) {
-    console.log(this.festivalStaffServiece);
-    festivalStaffServiece.getAll().subscribe(staff => {
-      this.staff = staff;
-    });
-  }
+  ngOnInit() {}
 
-  ngOnInit() {
+  downloadURL;
+  randomId;
+
+  upload(event) {
+    this.randomId = Math.random()
+      .toString(36)
+      .substring(2);
+
+    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
   }
 
   form = new FormGroup({
@@ -31,22 +33,31 @@ export class AddStaffComponent implements OnInit {
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
-      Validators.minLength(8),
+      Validators.minLength(8)
     ]),
     mobile: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
-      Validators.maxLength(10)
+      Validators.maxLength(10),
     ]),
     confirmPassword: new FormControl("", [
       Validators.required,Validators.minLength(8),
       PasswordValidators.checkPasswrod
     ]),
-  });
- 
+  }); 
 
   onSubmit() {
-    this.festivalStaffServiece.create(this.form.value);
+
+    // this.staffService.create(this.form.value);
+    this.downloadURL = this.afStorage
+    .ref("/events/" + this.randomId)
+    .getDownloadURL()
+    .subscribe(a => {
+      this.downloadURL = a;
+
+        console.log(this.downloadURL);
+      });
+
     this.form.reset();
   }
 
@@ -77,5 +88,4 @@ export class AddStaffComponent implements OnInit {
   get confirmPassword() {
     return this.form.get("confirmPassword");
   }
-
 }

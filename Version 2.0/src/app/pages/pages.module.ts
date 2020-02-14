@@ -29,6 +29,7 @@ import { ReqVolunteersComponent } from './request-volunteers/req-volunteers/req-
 import { DriverStateComponent } from './driver-state/driver-state.component';
 import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
 import { FestivalStaffManagementService } from './festival-staff-management/festival-staff-management.service';
+import { DropzoneDirective } from './dropzone.directive';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { FestivalStaffManagementService } from './festival-staff-management/fest
     TicketManagementComponent,
     FilterSalesComponent,
     VehicleManagementComponent,
+    DropzoneDirective,
 
 
 

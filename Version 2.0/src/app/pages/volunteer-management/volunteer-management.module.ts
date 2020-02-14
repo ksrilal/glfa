@@ -8,7 +8,7 @@ import { ButtonsComponent } from '../forms/buttons/buttons.component';
 import { FormInputsComponent } from '../forms/form-inputs/form-inputs.component';
 import { FormLayoutsComponent } from '../forms/form-layouts/form-layouts.component';
 import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
-import { FormsModule as ngFormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AgmCoreModule } from '@agm/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
@@ -39,6 +39,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     }),
     LeafletModule.forRoot(),
     NgxEchartsModule,
+    ReactiveFormsModule,
+  
   ],
   declarations: [...routedComponents,
     // FormsComponent,

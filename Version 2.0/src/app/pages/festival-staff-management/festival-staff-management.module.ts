@@ -11,6 +11,9 @@ import { FormLayoutsComponent } from '../forms/form-layouts/form-layouts.compone
 import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
@@ -31,16 +34,18 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     Ng2SmartTableModule,
     NbTreeGridModule,
     ReactiveFormsModule,
+    HttpClientModule
 
   ],
   declarations: [
     ...routedComponents,
+    UploadTaskComponent,
     // FormsComponent,
     // ButtonsComponent,
     // FormInputsComponent,
     // FormLayoutsComponent,
     // DatepickerComponent,
-   
+
   ]
 })
 export class FestivalStaffManagementModule {}
