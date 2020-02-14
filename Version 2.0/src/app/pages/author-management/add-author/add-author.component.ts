@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidators } from '../../validators/password-validator';
 import { AuthorManagementService } from '../author-management.service';
-
+import { AngularFireStorage } from '@angular/fire/storage';
+ 
 
 @Component({
   selector: 'ngx-add-author',
@@ -11,9 +12,21 @@ import { AuthorManagementService } from '../author-management.service';
 })
 export class AddAuthorComponent implements OnInit {
 
-  constructor(private authorManagement: AuthorManagementService) { }
+  constructor(private afStorage: AngularFireStorage,
+              private authorManagement: AuthorManagementService) { }
 
   ngOnInit() {
+  }
+
+  downloadURL;
+  randomId;
+
+  upload(event) {
+    this.randomId = Math.random()
+      .toString(36)
+      .substring(2);
+
+    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
   }
  
   form = new FormGroup({
@@ -21,6 +34,7 @@ export class AddAuthorComponent implements OnInit {
     fname: new FormControl("", Validators.required),
     lname: new FormControl("", Validators.required),
     des: new FormControl("", Validators.required),
+    pic: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
@@ -46,9 +60,6 @@ export class AddAuthorComponent implements OnInit {
   get email() {
     return this.form.get("email");
   }
-  // get userName() {
-  //   return this.form.get("userName");
-  // }
   get fname() {
     return this.form.get("fname");
   }
@@ -63,6 +74,9 @@ export class AddAuthorComponent implements OnInit {
   }
   get des() {
     return this.form.get("des");
+  }
+  get pic() {
+    return this.form.get("pic");
   }
   get confirmPassword() {
     return this.form.get("confirmPassword");
