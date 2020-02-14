@@ -37,7 +37,6 @@ const routes: Routes = [
         component: FilterSalesComponent
       },
 
-
       {
         path: "layout",
         loadChildren: () =>
@@ -46,7 +45,9 @@ const routes: Routes = [
       {
         path: "driver-state",
         loadChildren: () =>
-          import("./driver-state/driver-state.module").then(m => m.DriverStateManagementModule)
+          import("./driver-state/driver-state.module").then(
+            m => m.DriverStateManagementModule
+          )
       },
       {
         path: "staff-management",
@@ -61,6 +62,13 @@ const routes: Routes = [
           import(
             "./festival-staff-management/festival-staff-management.module"
           ).then(m => m.FestivalStaffManagementModule)
+      },
+      {
+        path: "festival-manager-map",
+        loadChildren: () =>
+          import(
+            "./festival-manager-map/festival-manager-map.module"
+          ).then(m => m.ManagerMapModule)
       },
       {
         path: "volunteer-management",

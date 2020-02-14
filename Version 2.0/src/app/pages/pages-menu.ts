@@ -159,65 +159,75 @@ export const transportationCoordinator: NbMenuItem[] = [
        ];
 
 export const manager: NbMenuItem[] = [
-  {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard"
-  },
+         {
+           title: "E-commerce",
+           icon: "shopping-cart-outline",
+           link: "/pages/dashboard",
+           home: true
+         },
+         {
+           title: "IoT Dashboard",
+           icon: "home-outline",
+           link: "/pages/iot-dashboard"
+         },
 
-  {
-    title: "Festival Manager",
-    group: true
-  },
-  {
-    title: "Author Management",
-    icon: "layout-outline",
-    children: [
-      {
-        title: "Add author",
-        link: "/pages/author-management/add-author"
-      },
-      {
-        title: "Modify author",
-        link: "/pages/author-management/modify-author"
-      }
-    ]
-  },
-  {
-    title: "Staff Management",
-    icon: "layout-outline",
-    children: [
-      {
-        title: "Add staff",
-        link: "/pages/festival-staff-management/add-staff"
-      },
-      {
-        title: "Modify staff",
-        link: "/pages/festival-staff-management/modify-staff"
-      }
-    ]
-  },
-  {
-    title: "Event Management",
-    icon: "layout-outline",
-    children: [
-      {
-        title: "Add Event",
-        link: "/pages/event-management/add-event"
-      },
-      {
-        title: "Modify event",
-        link: "/pages/event-management/modify-event"
-      }
-    ]
-  }
-];
+         {
+           title: "Festival Manager",
+           group: true
+         },
+         {
+           title: "Author Management",
+           icon: "layout-outline",
+           children: [
+             {
+               title: "Add author",
+               link: "/pages/author-management/add-author"
+             },
+             {
+               title: "Modify author",
+               link: "/pages/author-management/modify-author"
+             }
+           ]
+         },
+         {
+           title: "Staff Management",
+           icon: "layout-outline",
+           children: [
+             {
+               title: "Add staff",
+               link: "/pages/festival-staff-management/add-staff"
+             },
+             {
+               title: "Modify staff",
+               link: "/pages/festival-staff-management/modify-staff"
+             }
+           ]
+         },
+         {
+           title: "Event Management",
+           icon: "layout-outline",
+           children: [
+             {
+               title: "Add Event",
+               link: "/pages/event-management/add-event"
+             },
+             {
+               title: "Modify event",
+               link: "/pages/event-management/modify-event"
+             }
+           ]
+         },
+         {
+           title: "Map",
+           icon: "layout-outline",
+           children: [
+             {
+               title: "Map",
+               link: "/pages/festival-manager-map/map"
+             }
+           ]
+         }
+       ];
 
 export const all: NbMenuItem[] = [
   {
