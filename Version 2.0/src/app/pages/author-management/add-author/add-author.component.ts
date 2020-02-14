@@ -16,7 +16,7 @@ export class AddAuthorComponent implements OnInit {
   }
 
   form = new FormGroup({
-    userName: new FormControl("", Validators.required),
+    //userName: new FormControl("", Validators.required),
     firstName: new FormControl("", Validators.required),
     lastName: new FormControl("", Validators.required),
     description: new FormControl("", Validators.required),
@@ -30,6 +30,10 @@ export class AddAuthorComponent implements OnInit {
       Validators.minLength(10),
       Validators.maxLength(10)
     ]),
+    confirmPassword: new FormControl("", [
+      Validators.required,Validators.minLength(8),
+      PasswordValidators.checkPasswrod
+    ]),
   });
 
 
@@ -41,9 +45,9 @@ export class AddAuthorComponent implements OnInit {
   get email() {
     return this.form.get("email");
   }
-  get userName() {
-    return this.form.get("userName");
-  }
+  // get userName() {
+  //   return this.form.get("userName");
+  // }
   get firstName() {
     return this.form.get("firstName");
   }
@@ -58,6 +62,9 @@ export class AddAuthorComponent implements OnInit {
   }
   get description() {
     return this.form.get("description");
+  }
+  get confirmPassword() {
+    return this.form.get("confirmPassword");
   }
 
   

@@ -25,22 +25,26 @@ export class AddStaffComponent implements OnInit {
   }
 
   form = new FormGroup({
-    userName: new FormControl("", Validators.required),
-    firstName: new FormControl("", Validators.required),
-    lastName: new FormControl("", Validators.required),
+    //userName: new FormControl("", Validators.required),
+    fname: new FormControl("", Validators.required),
+    lname: new FormControl("", Validators.required),
     role: new FormControl("", Validators.required),
-    description: new FormControl("", Validators.required),
+    des: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
       Validators.minLength(8)
     ]),
-    phone: new FormControl("", [
+    mobile: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
-      Validators.maxLength(10)
-    ])
-  });
+      Validators.maxLength(10),
+    ]),
+    confirmPassword: new FormControl("", [
+      Validators.required,Validators.minLength(8),
+      PasswordValidators.checkPasswrod
+    ]),
+  }); 
 
   onSubmit() {
 
@@ -60,26 +64,28 @@ export class AddStaffComponent implements OnInit {
   get email() {
     return this.form.get("email");
   }
-  get userName() {
-    return this.form.get("userName");
+  // get userName() {
+  //   return this.form.get("userName");
+  // }
+  get fname() {
+    return this.form.get("fname");
   }
-  get firstName() {
-    return this.form.get("firstName");
-  }
-  get lastName() {
-    return this.form.get("lastName");
+  get lname() {
+    return this.form.get("lname");
   }
   get password() {
     return this.form.get("password");
   }
-  get phone() {
-    return this.form.get("phone");
+  get mobile() {
+    return this.form.get("mobile");
   }
-  get description() {
-    return this.form.get("description");
+  get des() {
+    return this.form.get("des");
   }
-
   get role() {
-    return this.form.get("description");
+    return this.form.get("des");
+  }
+  get confirmPassword() {
+    return this.form.get("confirmPassword");
   }
 }

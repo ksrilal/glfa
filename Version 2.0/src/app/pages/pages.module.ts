@@ -28,6 +28,7 @@ import { ModifyDriversComponent } from './driver-management/modify-drivers/modif
 import { ReqVolunteersComponent } from './request-volunteers/req-volunteers/req-volunteers.component';
 import { DriverStateComponent } from './driver-state/driver-state.component';
 import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
+import { FestivalStaffManagementService } from './festival-staff-management/festival-staff-management.service';
 import { DropzoneDirective } from './dropzone.directive';
 import { RedeemTicketModule } from './redeem-ticket/redeem-ticket.module';
 
@@ -47,7 +48,12 @@ import { RedeemTicketModule } from './redeem-ticket/redeem-ticket.module';
     TicketManagementComponent,
     FilterSalesComponent,
     VehicleManagementComponent,
-    DropzoneDirective
-  ]
+    DropzoneDirective,
+
+
+
+
+  ],
+  providers: [FestivalStaffManagementService]
 })
 export class PagesModule {}

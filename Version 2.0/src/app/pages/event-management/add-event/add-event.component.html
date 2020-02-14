@@ -38,10 +38,10 @@
         [status]="guestName.touched && guestName.invalid ? 'danger' : 'primary' ">
 
         <input type="text" nbInput fullWidth placeholder="Ticket Price" formControlName="ticketPrice"
-        [placeholder]="ticketPrice.touched && ticketPrice.invalid ? 'Ticket Name Required!' : 'Ticket Price' "
+        [placeholder]="ticketPrice.touched && ticketPrice.invalid ? 'Ticket Price Required!' : 'Ticket Price' "
         [status]="ticketPrice.touched && ticketPrice.invalid ? 'danger' : 'primary' ">
 
-        <input type="text" nbInput fullWidth placeholder="Ticket Quantity" formControlName="ticketQuantity"
+        <input type="number" min="1" nbInput fullWidth placeholder="Ticket Quantity" formControlName="ticketQuantity"
         [placeholder]="ticketQuantity.touched && ticketQuantity.invalid ? 'Ticket Quantity Required!' : 'Ticket Quantity' "
         [status]="ticketQuantity.touched && ticketQuantity.invalid ? 'danger' : 'primary' ">
         
