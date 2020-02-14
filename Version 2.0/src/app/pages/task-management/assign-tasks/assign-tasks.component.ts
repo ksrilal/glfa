@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { TaskManagementService } from '../task-management.service';
 
 @Component({
   selector: 'ngx-assign-tasks',
@@ -17,7 +18,7 @@ export class AssignTasksComponent implements OnInit {
     noOfVolunteers: new FormControl("", Validators.required),
   });
 
-  constructor(private fb: FormBuilder,private addTasksService: AddTasksService) {
+  constructor(private fb: FormBuilder,private addTasksService: TaskManagementService) {
     addTasksService.getAll().subscribe(task => {
       this.tasks = task;
     });

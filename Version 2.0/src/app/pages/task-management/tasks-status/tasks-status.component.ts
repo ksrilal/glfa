@@ -11,7 +11,7 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   styleUrls: ['./tasks-status.component.scss']
 })
 export class TasksStatusComponent implements OnDestroy {
-  /*//smart table features
+  //smart table features
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -32,30 +32,30 @@ export class TasksStatusComponent implements OnDestroy {
         title: 'ID',
         type: 'number',
       },
-      firstName: {
-        title: 'First Name',
+      task: {
+        title: 'Task',
         type: 'string',
       },
       lastName: {
-        title: 'Last Name',
+        title: 'Status',
         type: 'string',
       },
       username: {
-        title: 'Username',
+        title: 'Request By',
         type: 'string',
       },
       email: {
-        title: 'E-mail',
+        title: 'Location',
         type: 'string',
       },
       age: {
-        title: 'Age',
+        title: 'Date',
         type: 'number',
       },
     },
   };
   //smart table data source
-  source: LocalDataSource = new LocalDataSource();*/
+  source: LocalDataSource = new LocalDataSource();
   private alive = true;
 
   userActivity: UserActive[] = [];
@@ -74,8 +74,8 @@ export class TasksStatusComponent implements OnDestroy {
 
     this.getUserActivity(this.type);
     //for smart table
-   // const data = this.service.getData();
-   // this.source.load(data);
+    const data = this.service.getData();
+    this.source.load(data);
   }
 
 

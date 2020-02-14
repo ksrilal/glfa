@@ -52,9 +52,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     ngFormsModule,
     // ChartsRoutingModule,
     NgxChartsModule,
-    // ChartModule,
-    //TablesRoutingModule,
-    //Ng2SmartTableModule,
+     ChartModule,
+   // TablesRoutingModule,
+    Ng2SmartTableModule,
   ],
 
     declarations: [...routedComponents,
