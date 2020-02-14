@@ -1,0 +1,95 @@
+<!-- <button (click)="loadItems()">test</button> -->
+<nb-card>
+  <nb-card-header>Scan here</nb-card-header>
+  <nb-card-body>
+    <input
+      type="text"
+      nbInput
+      fullWidth
+      status="info"
+      placeholder="Scan QR"
+      id="code"
+      name="code"
+      (keyup.enter)="scanItem()"
+    />
+    <!-- <div style="padding: 2%;">
+      <button type="submit" (keyup)="scanItem(code)" nbButton status="primary">
+        Search
+      </button>
+    </div> -->
+
+    <!-- <div class="validation-checkboxes">
+        <nb-checkbox status="success">Success Checkbox</nb-checkbox>
+        <nb-checkbox status="danger">Danger Checkbox</nb-checkbox>
+      </div> -->
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-body>
+    <nb-card-header>
+      <h6>{{ deligateName }}</h6>
+      <h6>{{ country }}</h6>
+      <h6>{{ status }}</h6>
+    </nb-card-header>
+
+    <label class="search-label" for="search">Search:</label>
+    <input
+      nbInput
+      [nbFilterInput]="dataSource"
+      id="search"
+      class="search-input"
+    />
+
+    <table
+      [nbTreeGrid]="dataSource"
+      [nbSort]="dataSource"
+      (sort)="updateSort($event)"
+    >
+      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+      <ng-container [nbTreeGridColumnDef]="customColumn">
+        <th
+          nbTreeGridHeaderCell
+          [nbSortHeader]="getSortDirection(customColumn)"
+          *nbTreeGridHeaderCellDef
+        >
+          {{ customColumn }}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          <!-- <ngx-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></ngx-fs-icon> -->
+          {{ row.data[customColumn] }}
+        </td>
+      </ng-container>
+
+      <ng-container
+        *ngFor="let column of defaultColumns; let index = index"
+        [nbTreeGridColumnDef]="column"
+        [showOn]="getShowOn(index)"
+      >
+        <th
+          nbTreeGridHeaderCell
+          [nbSortHeader]="getSortDirection(column)"
+          *nbTreeGridHeaderCellDef
+        >
+          {{ column }}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          {{ row.data[column] || "-" }}
+        </td>
+      </ng-container>
+    </table>
+
+    <div *ngIf="ticketBool && status">
+      <button (click)="redeem()" nbButton status="primary" hero>
+        Redeem
+      </button>
+    </div>
+    <div *ngIf="!ticketBool && status">
+      <button disabled nbButton status="primary" hero>
+        Redeemed
+      </button>
+    </div>
+  </nb-card-body>
+</nb-card>
