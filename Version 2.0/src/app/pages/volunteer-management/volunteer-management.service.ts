@@ -43,13 +43,7 @@ export class VolunteerManagementService {
       console.log("in services",volunteerList[0]);
     return volunteerList;
   }*/
-
-
-
-  
-
-
-  getAll() {
+   getAll() {
     if(Object.keys(this.afs.collection('users').valueChanges()).length==0){
       console.log("in servics getall..null set");
     }else{
