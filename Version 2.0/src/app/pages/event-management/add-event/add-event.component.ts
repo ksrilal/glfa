@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { EventManagementService } from '../event-management.service';
 
 @Component({
   selector: 'ngx-add-event',
@@ -9,30 +10,30 @@ import { SmartTableData } from '../../../@core/data/smart-table';
 })
 export class AddEventComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventMangement: EventManagementService) { }
 
   ngOnInit() {
   }
 
   form = new FormGroup({
-    eventName: new FormControl("", Validators.required),
+    name: new FormControl("", Validators.required),
     date: new FormControl("", Validators.required),
     time: new FormControl("", Validators.required),
     venue: new FormControl("", Validators.required),
-    guestName: new FormControl("", Validators.required),
-    ticketPrice: new FormControl("", Validators.required),
-    ticketQuantity: new FormControl("", Validators.required),
-    description: new FormControl("", Validators.required),
+    author: new FormControl("", Validators.required),
+    price: new FormControl("", Validators.required),
+    quantity: new FormControl("", Validators.required),
+    des: new FormControl("", Validators.required),
   });
 
 
   onSubmit() {
-    // this.staffService.create(this.form.value);
+    this.eventMangement.create(this.form.value);
     this.form.reset();
   }
 
-  get eventName() {
-    return this.form.get("eventName");
+  get name() {
+    return this.form.get("name");
   }
   get date() {
     return this.form.get("date");
@@ -43,18 +44,18 @@ export class AddEventComponent implements OnInit {
   get venue() {
     return this.form.get("venue");
   }
-  get guestName() {
-    return this.form.get("guestName");
+  get author() {
+    return this.form.get("author");
   }
-  get ticketPrice() {
-    return this.form.get("ticketPrice");
+  get price() {
+    return this.form.get("price");
   }
-  get description() {
-    return this.form.get("description");
+  get des() {
+    return this.form.get("des");
   }
 
-  get ticketQuantity() {
-    return this.form.get("ticketQuantity");
+  get quantity() {
+    return this.form.get("quantity");
   }
 
 }

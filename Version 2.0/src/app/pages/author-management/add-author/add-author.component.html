@@ -5,7 +5,7 @@
       <nb-card>
       <nb-card-header>Add Author</nb-card-header>
       <nb-card-body>
-
+ 
         <div class="full-name-inputs">
           <input type="text" nbInput fullWidth placeholder="First Name" formControlName="fname"
               [placeholder]="
@@ -80,8 +80,13 @@
         ></textarea>
 
         <div class="form-group">
+          <div class="full-name-inputs">
           <label>Select profile picture to upload</label>
-          <input type="file" accept="image/*" class="form-control">
+          <!-- <input type="file" accept="image/*"  class="form-control"> -->
+            <input type="file" (change)="upload($event)" class="form-control" formControlName="pic" accept=".png,.jpg">
+            <div *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
+          </div>
+
         </div>
 
 
