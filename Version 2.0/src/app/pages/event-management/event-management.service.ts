@@ -10,7 +10,7 @@ export class EventManagementService {
 
   create(events) {
     try{
-      this.afs.collection('events').doc(events.email).set(events);
+      this.afs.collection('events').add(events);
       alert("Added Successfully");
     }catch(error){
       alert(error);

@@ -9,8 +9,8 @@ import { AuthorManagementService } from '../author-management.service';
   styleUrls: ['./modify-author.component.scss']
 })
 export class ModifyAuthorComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+
+  ngOnInit() {
   }
   settings = {
     add: {

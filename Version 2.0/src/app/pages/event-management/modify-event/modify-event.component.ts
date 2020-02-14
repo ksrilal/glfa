@@ -16,8 +16,10 @@ export class ModifyEventComponent implements OnInit {
     })
    }
 
-  ngOnInit() {
+  ngOnInit(){
+
   }
+
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -75,7 +77,7 @@ export class ModifyEventComponent implements OnInit {
   onSaveConfirm(event): void {
     if(event.newData.name !="" && event.newData.date !="" && event.newData.time !="" && event.newData.venue !="" && event.newData.author !="" && event.newData.price !="" && event.newData.quantity !="" && event.newData.des !=""){
       if (window.confirm('Are you sure you want to edit?')) {
-        this.eventManagement.edit(event.date.id,event.newData)
+        this.eventManagement.edit(event.data.id,event.newData)
       }
       else{
         event.confirm.reject();
