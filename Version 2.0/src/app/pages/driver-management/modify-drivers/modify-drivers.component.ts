@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { DriverManagementService } from '../driver-management.service';
 
 @Component({
   selector: 'ngx-modify-drivers',
@@ -21,6 +22,7 @@ export class ModifyDriversComponent implements OnInit {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave:true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -54,17 +56,34 @@ export class ModifyDriversComponent implements OnInit {
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
+  source;
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private driverManagementService:DriverManagementService) {
+    driverManagementService.getAll().subscribe(result=>{
+      this.source=result
+    })
+  }
+
+  onSaveConfirm(event):void{
+    if (window.confirm('Are you sure you want to edit?')) {
+      // event.confirm.resolve();
+      // this.driverManagementService.delete(event.data.id)
+      this.driverManagementService.edit(event.data.id,event.newData)
+      // console.log(event.data)
+      // console.log(event.newData)
+    } else {
+      event.confirm.reject();
+    }
   }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
+      // event.confirm.resolve();
+      this.driverManagementService.delete(event.data.id)
+      // console.log(event.data.id)
     } else {
       event.confirm.reject();
     }
   }}
+
+

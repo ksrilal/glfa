@@ -23,7 +23,14 @@ export class DriverManagementService {
     }
 
     getAll() {
-      return this.afs.collection('drivers').valueChanges();
+      return this.afs.collection('drivers').valueChanges({idField:"id"});
+    }
+    delete(id){
+      this.afs.collection('drivers').doc(id).delete();
+    }
+
+    edit(id,newData){
+      this.afs.collection('drivers').doc(id).update(newData);
     }
 
    }
