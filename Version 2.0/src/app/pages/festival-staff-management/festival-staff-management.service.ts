@@ -6,21 +6,15 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class FestivalStaffManagementService {
   
-  static getAll() {
-    throw new Error("Method not implemented.");
-  }
 
   constructor(private afs: AngularFirestore,) { }
 
-  //  create(msg){
-  //   console.log(msg); 
-  //  }
-
+ 
   create(staff) {
 
     try{
 
-      this.afs.collection('staff').doc(staff.name).set(staff);
+      this.afs.collection('staff').doc(staff.email).set(staff);
       alert("Addedd Successfully");
 
     }catch(error){
@@ -30,8 +24,16 @@ export class FestivalStaffManagementService {
   }
 
   getAll() {
-    return this.afs.collection('staff').valueChanges();
+    return this.afs.collection('staff').valueChanges({idField:"id"});
   }
+  delete(id){
+    this.afs.collection('staff').doc(id).delete();
+  }
+
+  edit(id,newData){
+    this.afs.collection('staff').doc(id).update(newData);
+  }
+
 
 
  
