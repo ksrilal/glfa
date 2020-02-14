@@ -75,7 +75,7 @@ export class ModifyEventComponent implements OnInit {
   source;
 
   onSaveConfirm(event): void {
-    if(event.newData.name !="" && event.newData.date !="" && event.newData.time !="" && event.newData.venue !="" && event.newData.author !="" && event.newData.price !="" && event.newData.quantity !="" && event.newData.des !=""){
+    if(event.newData.name !="" && event.newData.date !="" && event.newData.time !="" && event.newData.venue !="" && event.newData.author !="" && event.newData.price !="" && event.newData.quantity !="" && event.newData.des !="" && event.newData.email.includes('@') && event.newData.email.includes('.com') && event.newData.mobile.length == 10 && !event.newData.mobile.match(/[a-z]/i)){
       if (window.confirm('Are you sure you want to edit?')) {
         this.eventManagement.edit(event.data.id,event.newData)
       }
