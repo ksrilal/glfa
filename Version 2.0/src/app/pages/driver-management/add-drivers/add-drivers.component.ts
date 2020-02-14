@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-//import { AddDriversService } from "../add-drivers.service";
 import { AngularFirestore } from '@angular/fire/firestore';
+import { DriverManagementService } from '../driver-management.service';
 
 @Component({
   selector: 'ngx-add-drivers',
@@ -25,16 +25,16 @@ export class AddDriversComponent implements OnInit {
 
   });
 
-  // constructor(private addDriversService: AddDriversService, private firestore: AngularFirestore) {
-  //   addDriversService.getAll().subscribe(driver => {
-  //     this.drivers = driver;
-  //   });
-  // }
+  constructor(private driverManagementService: DriverManagementService, private firestore: AngularFirestore) {
+    driverManagementService.getAll().subscribe(driver => {
+      this.drivers = driver;
+    });
+  }
 
-  // onSubmit() {
-  //   this.addDriversService.create(this.form.value);
-  //   this.form.reset();
-  // }
+  onSubmit() {
+    this.driverManagementService.create(this.form.value);
+    this.form.reset();
+  }
 
   // onDelete(nic: String) {
   //   if(confirm("Are you sure to delete this record?")) {

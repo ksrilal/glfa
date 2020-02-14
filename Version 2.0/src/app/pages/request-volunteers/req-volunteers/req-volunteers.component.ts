@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { RequestVolunteersService } from '../request-volunteers.service';
 
 @Component({
   selector: 'ngx-req-volunteers',
@@ -18,19 +20,19 @@ export class ReqVolunteersComponent implements OnInit {
     dropLoc: new FormControl("", Validators.required),
     vehNum: new FormControl("", Validators.required),
     driverContact: new FormControl("", Validators.required),
-    description: new FormControl("", Validators.required)
+    description: new FormControl("", Validators.required),
   });
 
-  // constructor(private requestVolunteersService: RequestVolunteersService) {
-  //   requestVolunteersService.getAll().subscribe(request => {
-  //     this.requests = request;
-  //   });
-  // }
+  constructor(private requestVolunteersService: RequestVolunteersService) {
+    requestVolunteersService.getAll().subscribe(request => {
+      this.requests = request;
+    });
+  }
 
-  // onSubmit() {
-  //   this.requestVolunteersService.create(this.form.value);
-  //   this.form.reset();
-  // }
+  onSubmit() {
+    this.requestVolunteersService.create(this.form.value);
+    this.form.reset();
+  }
 
   get eventName() {
     return this.form.get("eventName");
