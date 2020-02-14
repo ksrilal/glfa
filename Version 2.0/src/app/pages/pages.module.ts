@@ -29,6 +29,7 @@ import { ReqVolunteersComponent } from './request-volunteers/req-volunteers/req-
 import { DriverStateComponent } from './driver-state/driver-state.component';
 import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
 import { DropzoneDirective } from './dropzone.directive';
+import { RedeemTicketModule } from './redeem-ticket/redeem-ticket.module';
 
 @NgModule({
   imports: [
@@ -37,19 +38,16 @@ import { DropzoneDirective } from './dropzone.directive';
     NbMenuModule,
     DashboardModule,
     ECommerceModule,
-    MiscellaneousModule
+    MiscellaneousModule,
+    RedeemTicketModule
   ],
   declarations: [
     PagesComponent,
-    RedeemTicketComponent,
+    // RedeemTicketComponent,
     TicketManagementComponent,
     FilterSalesComponent,
     VehicleManagementComponent,
-    DropzoneDirective,
-
-
-
-
+    DropzoneDirective
   ]
 })
 export class PagesModule {}
