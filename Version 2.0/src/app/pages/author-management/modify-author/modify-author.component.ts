@@ -22,6 +22,7 @@ export class ModifyAuthorComponent implements OnInit {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -54,19 +55,21 @@ export class ModifyAuthorComponent implements OnInit {
   source;
 
   constructor(private authorManagement: AuthorManagementService) {
-    authorManagement.getAll().subscribe(result=>{
-      this.source=result
+    authorManagement.getAll().subscribe(result => {
+      this.source = result
     })
   }
 
-  onSaveConfirm(event):void{
-    if (window.confirm('Are you sure you want to edit?')) {
-      // event.confirm.resolve();
-      this.authorManagement.edit(event.data.id,event.newData)
-      //console.log(event.data)
-      // console.log(event.newData)
-    } else {
-      event.confirm.reject();
+  onSaveConfirm(event): void {
+    if (event.newData.fname != "" && event.newData.lname !="" && event.newData.email !="" && event.newData.des !="" && event.newData.mobile !="") {
+      if (window.confirm('Are you sure you want to edit?')) {
+        // event.confirm.resolve();
+        this.authorManagement.edit(event.data.id, event.newData)
+      } else {
+        event.confirm.reject();
+      }
+    }else{
+      alert("ERROR!")
     }
   }
 
