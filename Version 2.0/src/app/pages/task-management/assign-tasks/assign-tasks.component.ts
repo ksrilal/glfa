@@ -28,6 +28,8 @@ export class AssignTasksComponent implements OnInit {
   //thirdForm: FormGroup;
 
 
+  today;
+
   ngOnInit() {
     this.firstForm = this.fb.group({
       task: ['', Validators.required],

@@ -1,0 +1,182 @@
+<div class="row">
+  <div class="col-lg-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <nb-card>
+      <nb-card-header>Driver Details</nb-card-header>
+      <nb-card-body>
+
+        <div class="full-name-inputs">
+          <input
+              type="text"
+              nbInput
+              fullWidth
+              placeholder="First Name"
+              formControlName="fname"
+              [placeholder]="
+                fname.touched && fname.invalid
+                  ? 'First Name Required'
+                  : 'First name'
+              "
+              [status]="
+                fname.touched && fname.invalid ? 'danger' : 'primary'
+              "
+            />
+            <input
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Last Name"
+            formControlName="lname"
+            [placeholder]="
+              lname.touched && lname.invalid
+                ? 'Last Name Required'
+                : 'Last name'
+            "
+            [status]="
+              lname.touched && lname.invalid ? 'danger' : 'primary'
+            "
+          />
+        </div>
+        <input
+              type="text"
+              nbInput
+              fullWidth
+              placeholder="NIC"
+              formControlName="nic"
+              [placeholder]="
+                nic.touched && nic.invalid
+                  ? 'NIC Required'
+                  : 'NIC'
+              "
+              [status]="
+                nic.touched && nic.invalid ? 'danger' : 'primary'
+              "
+            />
+            <input
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Contact Number"
+            formControlName="contactnum"
+            [placeholder]="
+              contactnum.touched && contactnum.invalid
+                ? 'Contact Number Required'
+                : 'Contact Number'
+            "
+            [status]="
+              contactnum.touched && contactnum.invalid ? 'danger' : 'primary'
+            "
+          />
+          <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Address"
+          formControlName="address"
+          [placeholder]="
+              address.touched && address.invalid
+              ? 'Address Required'
+              : 'Address'
+          "
+          [status]="
+           address.touched && address.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="date"
+          nbInput
+          fullWidth
+          placeholder="Birthday"
+          formControlName="birthday"
+          [placeholder]="
+              birthday.touched && birthday.invalid
+              ? 'Birthday Required'
+              : 'Birthday'
+          "
+          [status]="
+          birthday.touched && birthday.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Vehicle Brand"
+          formControlName="vehbrand"
+          [placeholder]="
+              vehbrand.touched && vehbrand.invalid
+              ? 'Vehicle Brand Required'
+              : 'Vehicle Brand'
+          "
+          [status]="
+          vehbrand.touched && vehbrand.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Vehicle Model"
+          formControlName="vehmodel"
+          [placeholder]="
+              vehmodel.touched && vehmodel.invalid
+              ? 'Vehicle Model Required'
+              : 'Vehicle Model'
+          "
+          [status]="
+          vehmodel.touched && vehmodel.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="Vehicle Number"
+          formControlName="vehnum"
+          [placeholder]="
+              vehnum.touched && vehnum.invalid
+              ? 'Vehicle Num Required'
+              : 'Vehicle Num'
+          "
+          [status]="
+          vehnum.touched && vehnum.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          placeholder="License Number"
+          formControlName="licensenum"
+          [placeholder]="
+              licensenum.touched && licensenum.invalid
+              ? 'License Number Required'
+              : 'License Number'
+          "
+          [status]="
+          licensenum.touched && licensenum.invalid ? 'danger' : 'primary'
+          "
+        />
+         <button  nbButton status="primary" hero>
+            Add Driver
+          </button>
+      </nb-card-body>
+    </nb-card>
+  </form>
+  </div>
+
+  <div class="col-lg-6">
+
+    <nb-card>
+      <nb-card-header>Select</nb-card-header>
+      <nb-card-body>
+        <nb-select selected="1">
+          <nb-option value="1">Option 1</nb-option>
+          <nb-option value="2">Option 2</nb-option>
+        </nb-select>
+      </nb-card-body>
+    </nb-card>
+
+
+  </div>
+</div>

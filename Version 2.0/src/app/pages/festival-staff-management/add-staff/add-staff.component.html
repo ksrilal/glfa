@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-lg-6">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <nb-card>
+      <nb-card-header>Add Staff</nb-card-header>
+      <nb-card-body>
+
+        <div class="full-name-inputs">
+          <input type="text" nbInput fullWidth placeholder="First Name" formControlName="fname"
+              [placeholder]="
+                fname.touched && fname.invalid
+                  ? 'First name Required!'
+                  : 'First name'
+              "
+              [status]="
+                fname.touched && fname.invalid ? 'danger' : 'primary'
+              ">
+
+          <input type="text" nbInput fullWidth placeholder="Last Name" formControlName="lname"
+          [placeholder]="lname.touched && lname.invalid ? 'Last Name Required!' : 'Last Name' "
+          [status]="lname.touched && lname.invalid ? 'danger' : 'primary' "
+          >
+        </div>
+
+        <!-- <input type="text" nbInput fullWidth placeholder="Username" formControlName="userName"
+        [placeholder]="userName.touched && userName.invalid ? 'Username Required!' : 'Username' "
+        [status]="userName.touched && userName.invalid ? 'danger' : 'primary' "
+        > -->
+        <div class="full-name-inputs">
+          <input type="email" nbInput fullWidth placeholder="E-mail"
+        formControlName="email"
+          [placeholder]="email.touched && email.invalid ? 'E-mail Required!' : 'E-mail' "
+          [status]="email.touched && email.invalid ? 'danger' : 'primary' "
+          >
+          <div *ngIf="email.touched && email.errors">
+            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        </div>
+
+        </div>
+
+
+        <div class="full-name-inputs">
+        <input type="password" nbInput fullWidth placeholder="Password" formControlName="password"
+        [placeholder]="password.touched && password.invalid ? 'Password Required!' : 'Password' "
+        [status]="password.touched && password.invalid ? 'danger' : 'primary' "
+        >
+        <div *ngIf="password.touched && password.errors">
+          <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+      </div>
+        </div>
+ 
+        <div class="full-name-inputs">  
+          <input type="password" nbInput fullWidth placeholder="Re-enter Password" formControlName="confirmPassword"
+          [placeholder]="confirmPassword.touched && confirmPassword.invalid ? 'Re-enter Password Required!' : 'Re-enter Password' "
+          [status]="confirmPassword.touched && confirmPassword.invalid ? 'danger' : 'primary'"
+          >
+          <div *ngIf="confirmPassword.touched && confirmPassword.errors">
+            <div *ngIf="confirmPassword.errors.minlength">Password must be at least 8 characters</div>
+            <div *ngIf="confirmPassword.errors.pattern || confirmPassword.invalid">Password not match!</div>
+        </div>
+          </div>
+         
+        <div>
+          <input type="number" min="0" max="9999999999" nbInput fullWidth placeholder="Mobile(XXXXXXXXXX)" formControlName="mobile"
+        [placeholder]="mobile.touched && mobile.invalid ? 'Mobile Number(XXXXXXXXXX) Required!' : 'Mobile(XXXXXXXXXX)' "
+        [status]="mobile.touched && mobile.invalid ? 'danger' : 'primary' "
+        >
+        <div *ngIf="mobile.touched && mobile.errors">
+          <div *ngIf="mobile.errors.minlength">Mobile number must be 10 numbers</div>
+          <div *ngIf="mobile.errors.maxlength">Mobile number must be 10 numbers</div>
+        </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 label">Role</label>
+            <div class="col-sm-9">
+              <nb-radio-group formControlName="role">
+                <nb-radio value="boxOffice">BoxOffice</nb-radio>
+                <nb-radio value="manager">Staff Manager</nb-radio>
+                <nb-radio value="transpotation">Transpotation Coordinator</nb-radio>
+                <nb-radio value="volunteer">Volunteer Coordinator</nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+
+          <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="des"
+          [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description'"
+          [status]="des.touched && des.invalid ? 'danger' : 'primary' "
+          ></textarea>
+
+        <div class="form-group">
+          <label>Select profile picture to upload</label>
+          <!-- <input type="file" accept="image/*"  class="form-control"> -->
+            <input type="file" (change)="upload($event)" class="form-control" accept=".png,.jpg" />
+
+
+        </div>
+
+
+          <button  nbButton status="primary" hero>
+            Add Staff
+          </button>
+
+      </nb-card-body>
+    </nb-card>
+  </form>
+  </div>
+
+</div>

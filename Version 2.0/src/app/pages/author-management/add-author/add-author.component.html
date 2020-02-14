@@ -1,3 +1,102 @@
-<p>
-  add-author works!
-</p>
+<div class="row">
+  <div class="col-lg-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <nb-card>
+      <nb-card-header>Add Author</nb-card-header>
+      <nb-card-body>
+
+        <div class="full-name-inputs">
+          <input type="text" nbInput fullWidth placeholder="First Name" formControlName="firstName"
+              [placeholder]="
+                firstName.touched && firstName.invalid
+                  ? 'Firstname Required!'
+                  : 'First name'
+              "
+              [status]="
+                firstName.touched && firstName.invalid ? 'danger' : 'primary'
+              ">
+
+          <input type="text" nbInput fullWidth placeholder="Last Name" formControlName="lastName"
+          [placeholder]="lastName.touched && lastName.invalid ? 'Last Name Required!' : 'Last Name' "
+          [status]="firstName.touched && lastName.invalid ? 'danger' : 'primary' "
+          >
+        </div>
+
+        <!-- <input type="text" nbInput fullWidth placeholder="Username" formControlName="userName"
+        [placeholder]="userName.touched && userName.invalid ? 'Username Required!' : 'Username' "
+        [status]="userName.touched && userName.invalid ? 'danger' : 'primary' "
+        > -->
+
+        <div class="full-name-inputs">
+          <input type="email" nbInput fullWidth placeholder="E-mail"
+        formControlName="email"
+          [placeholder]="email.touched && email.invalid ? 'E-mail Required!' : 'E-mail' "
+          [status]="email.touched && email.invalid ? 'danger' : 'primary' "
+          >
+          <div *ngIf="email.touched && email.errors">
+            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        </div>
+
+        </div>
+        
+
+        <div class="full-name-inputs">  
+        <input type="password" nbInput fullWidth placeholder="Password" formControlName="password"
+        [placeholder]="password.touched && password.invalid ? 'Password Required!' : 'Password' "
+        [status]="password.touched && password.invalid ? 'danger' : 'primary' "
+        >
+        <div *ngIf="password.touched && password.errors">
+          <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+      </div>
+        </div>
+
+        <div class="full-name-inputs">  
+          <input type="password" nbInput fullWidth placeholder="Re-enter Password" formControlName="confirmPassword"
+          [placeholder]="confirmPassword.touched && confirmPassword.invalid ? 'Re-enter Password Required!' : 'Re-enter Password' "
+          [status]="confirmPassword.touched && confirmPassword.invalid ? 'danger' : 'primary'"
+          >
+          <div *ngIf="confirmPassword.touched && confirmPassword.errors">
+            <div *ngIf="confirmPassword.errors.minlength">Password must be at least 8 characters</div>
+            <div *ngIf="confirmPassword.errors.pattern || confirmPassword.invalid">Password not match!</div>
+        </div>
+          </div>
+        
+          <div>
+            <input type="number" nbInput fullWidth placeholder="Phone(XXXXXXXXXX)" formControlName="phone"
+          [placeholder]="phone.touched && phone.invalid ? 'Phone Number(XXXXXXXXXX) Required!' : 'Phone(XXXXXXXXXX)' "
+          [status]="phone.touched && phone.invalid ? 'danger' : 'primary' "
+          >
+          <div *ngIf="phone.touched && phone.errors">
+            <div *ngIf="phone.errors.minlength">Phone number must be 10 numbers</div>
+            <div *ngIf="phone.errors.maxlength">Phone number must be 10 numbers</div>
+          </div>
+          </div>
+        
+        
+        <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="description"
+        [placeholder]="description.touched && description.invalid ? 'Description Required!' : 'Description'"
+        [status]="description.touched && description.invalid ? 'danger' : 'primary' "
+        ></textarea>
+
+        <div class="form-group">
+          <label>Select profile picture to upload</label>
+          <input type="file" accept="image/*" class="form-control">
+        </div>
+
+
+          <button  nbButton status="primary" hero>
+            Add Author
+          </button>
+
+      </nb-card-body>
+    </nb-card>
+
+    </form>
+    
+  </div>
+
+  <div class="col-lg-6">
+
+  </div>
+</div>
