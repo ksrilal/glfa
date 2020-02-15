@@ -46,7 +46,7 @@ import { SalesComponent } from "./filter-sales/sales/sales.component";
   declarations: [
     PagesComponent,
     // RedeemTicketComponent,
-    TicketManagementComponent,
+
     VehicleManagementComponent,
     DropzoneDirective
   ],

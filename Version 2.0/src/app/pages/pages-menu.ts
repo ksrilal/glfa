@@ -25,7 +25,12 @@ export const boxoffice: NbMenuItem[] = [
   {
     title: "Ticket Management",
     icon: "home-outline",
-    link: "/pages/ticket-management"
+    children: [
+      {
+        title: "Summary",
+        link: "/pages/ticket-management/summary"
+      }
+    ]
   },
   {
     title: "Filter Sales",
