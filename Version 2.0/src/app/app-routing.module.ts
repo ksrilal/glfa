@@ -1,61 +1,72 @@
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { ExtraOptions, RouterModule, Routes } from "@angular/router";
+import { NgModule } from "@angular/core";
 import {
   NbAuthComponent,
   NbLoginComponent,
   NbLogoutComponent,
   NbRegisterComponent,
   NbRequestPasswordComponent,
-  NbResetPasswordComponent,
-} from '@nebular/auth';
+  NbResetPasswordComponent
+} from "@nebular/auth";
+import { LoginComponent } from "./login/login.component";
+import { AuthguardService } from "./authguard.service";
 
 const routes: Routes = [
   {
-    path: 'pages',
-    loadChildren: () => import('app/pages/pages.module')
-      .then(m => m.PagesModule),
+    path: "pages",
+    loadChildren: () =>
+      import("app/pages/pages.module").then(m => m.PagesModule),
+    canActivate: [AuthguardService]
   },
   {
-    path: 'auth',
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "auth",
     component: NbAuthComponent,
     children: [
       {
-        path: '',
-        component: NbLoginComponent,
+        path: "",
+        component: NbLoginComponent
       },
       {
-        path: 'login',
-        component: NbLoginComponent,
+        path: "login",
+        component: NbLoginComponent
       },
       {
-        path: 'register',
-        component: NbRegisterComponent,
+        path: "register",
+        component: NbRegisterComponent
       },
       {
-        path: 'logout',
-        component: NbLogoutComponent,
+        path: "logout",
+        component: NbLogoutComponent
       },
       {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
+        path: "request-password",
+        component: NbRequestPasswordComponent
       },
       {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
-    ],
+        path: "reset-password",
+        component: NbResetPasswordComponent
+      }
+    ]
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  {
+    path: "",
+    redirectTo: "pages",
+    pathMatch: "full",
+    canActivate: [AuthguardService]
+  },
+  { path: "**", redirectTo: "pages", canActivate: [AuthguardService] }
 ];
 
 const config: ExtraOptions = {
-  useHash: false,
+  useHash: false
 };
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

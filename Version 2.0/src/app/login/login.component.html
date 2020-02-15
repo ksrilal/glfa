@@ -1,0 +1,43 @@
+<div class="bg-img">
+  <div class="form-container">
+    <div class="form-container-inner">
+      <form
+        [formGroup]="form"
+        class="container formclass"
+        (ngSubmit)="onSubmit(e_mail.value, password.value)"
+      >
+        <h1>Galle Literary Festival Login</h1>
+        <div>
+          <label for="email"><b>Email</b></label>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            required
+            formControlName="e_mail"
+          />
+          <div *ngIf="e_mail.touched && e_mail.invalid">
+            <p style="color: crimson;">E mail is required</p>
+          </div>
+        </div>
+        <div>
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required
+            formControlName="password"
+          />
+          <div *ngIf="password.touched && password.invalid">
+            <p style="color: crimson;">Password is required</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" [disabled]="!form.valid">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
