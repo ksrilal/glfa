@@ -1,5 +1,25 @@
 <div class="row">
-  <div class="col-6"></div>
+
+  <div class="col-xxxl-3 col-xxl-4 col-lg-6 col-md-3">
+    <!-- <ngx-contacts></ngx-contacts> -->
+    <nb-card size="giant" style="overflow-y: scroll;">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Contacts">
+          <nb-list style="overflow-y: scroll;">
+            <nb-list-item class="contact" *ngFor="let c of contacts">
+              <nb-user
+                (click)="getlocation(c)"
+                [name]="c.fname"
+                size="large"
+              ></nb-user>
+            </nb-list-item>
+          </nb-list>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+
+
   <div class="col-6">
     <nb-card>
       <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">

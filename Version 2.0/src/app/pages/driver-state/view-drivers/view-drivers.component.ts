@@ -8,21 +8,31 @@ import { DriverStateService } from '../driver-state.service';
 })
 export class ViewDriversComponent implements OnInit {
 
-  allVehicles;
-  assignedVehicles;
-  freeVehicles;
+  allVehicles=[]=[];
+  assignedVehicles=[]=[];
+  freeVehicles=[]=[];
 
   constructor(private driverStateService : DriverStateService) {
      this. driverStateService.getAll().subscribe(allVehicle => {
-      this.allVehicles = allVehicle;
+      this.allVehicles=[];
+      this.assignedVehicles=[];
+      this.freeVehicles=[];
+      // console.log(allVehicle)
+      allVehicle.forEach(element => {
+        this.allVehicles.push(element);
+        if(element['availble']==true){
+          this.assignedVehicles.push(element)
+        }else if(element['availble']==false){
+          this.freeVehicles.push(element)
+        }
+      });
+
+      console.log(this.allVehicles);
+      console.log(this.assignedVehicles);
+      console.log(this.freeVehicles);
 
     });
-      this.driverStateService.getFree().subscribe(freeVehicle => {
-      this.freeVehicles = freeVehicle;
-    });
-      this.driverStateService.getAssigned().subscribe(assignedVehicle => {
-      this.assignedVehicles = assignedVehicle;
-    });
+
 
    }
 

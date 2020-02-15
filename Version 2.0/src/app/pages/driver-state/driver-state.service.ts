@@ -7,18 +7,18 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class DriverStateService {
 
   constructor(private afs: AngularFirestore) { }
-  
+
   getAll(){
     return this.afs.collection('drivers').valueChanges();
 
   }
 
-  getFree(){
-    return this.afs.collection('drivers',ref=>ref.where('available','==',true)).valueChanges();
-  }
+  // getFree(){
+  //   return this.afs.collection('drivers',ref=>ref.where('available','==',true)).valueChanges();
+  // }
 
-  getAssigned(){
-    return this.afs.collection('drivers',ref=>ref.where('available','==',false)).valueChanges();
+  // getAssigned(){
+  //   return this.afs.collection('drivers',ref=>ref.where('available','==',false)).valueChanges();
 
-  }
+  // }
 }
