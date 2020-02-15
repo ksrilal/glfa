@@ -9,13 +9,18 @@ import {
   NgZone
 } from "@angular/core";
 import { MapsAPILoader } from "@agm/core";
+import { TranspotationMapService } from '../transpotation-map.service';
 
 @Component({
   selector: "ngx-map",
   templateUrl: "./map.component.html",
   styleUrls: ["./map.component.scss"]
 })
+
+
 export class MapComponent implements OnInit {
+  contacts;
+
   latitude: number;
   longitude: number;
   zoom: number;
@@ -27,7 +32,13 @@ export class MapComponent implements OnInit {
   @Output() lat = new EventEmitter();
   @Output() lon = new EventEmitter();
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
+
+
+  constructor(private transpotationMapService: TranspotationMapService , private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+      transpotationMapService.getAllAuthors().subscribe(contact => {
+     this.contacts = contact;
+  })
+}
 
   ngOnInit() {
     //load Places Autocomplete
@@ -106,4 +117,9 @@ export class MapComponent implements OnInit {
       }
     );
   }
+
+  getlocation(c){
+    
+  }
+
 }

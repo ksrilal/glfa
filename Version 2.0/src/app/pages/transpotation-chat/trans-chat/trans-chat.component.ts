@@ -75,9 +75,9 @@ export class TransChatComponent implements OnInit {
     this.gropChatId = this.getGroupChatId(this.currentUserId, peer.id);
     // this.gropChatId = this.currentUserId + "-" + peerId;
 
-    // this.chatService.loadMessages(this.gropChatId).subscribe(messages => {
-    //   this.messages = messages;
-    // });
+    this.chatService.loadMessages(this.gropChatId).subscribe(messages => {
+      this.messages = messages;
+    });
 
     // tslint:disable-next-line: no-console
     //console.log(this.gropChatId);
@@ -92,25 +92,25 @@ export class TransChatComponent implements OnInit {
     this.chatService.sendMessage(event.message, groupChatId);
 
 
-    // const files = !event.files ? [] : event.files.map((file) => {
-    //   return {
-    //     url: file.src,
-    //     type: file.type,
-    //     icon: 'nb-compose',
-    //   };
-    // });
+    const files = !event.files ? [] : event.files.map((file) => {
+      return {
+        url: file.src,
+        type: file.type,
+        icon: 'nb-compose',
+      };
+    });
 
-    // this.messages.push({
-    //   text: event.message,
-    //   date: new Date(),
-    //   reply: true,
-    //   type: files.length ? 'file' : 'text',
-    //   files: files,
-    //   user: {
-    //     name: 'Jonh Doe',
-    //     avatar: 'https://i.gifer.com/no.gif',
-    //   },
-    // });
+    this.messages.push({
+      text: event.message,
+      date: new Date(),
+      reply: true,
+      type: files.length ? 'file' : 'text',
+      files: files,
+      user: {
+        name: 'Jonh Doe',
+        avatar: 'https://i.gifer.com/no.gif',
+      },
+    });
 
     // const botReply = this.chatService.reply(event.message);
     // if (botReply) {
