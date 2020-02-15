@@ -3,6 +3,10 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
 import { AngularFirestore } from "@angular/fire/firestore";
+import * as firebase from "firebase";
+// import { ToastrService } from 'ngx-toastr';
+
+
 // import { staffType, StaffMem } from "../app/pages/staff/staff.service";
 // import { AngularFirestore} from '@angular/fire/firestore';
 // import { ToastrService } from "ngx-toastr";
@@ -17,9 +21,9 @@ export class LoginService {
   constructor(
     private angularFireAuth: AngularFireAuth,
     private router: Router,
-    private afs: AngularFirestore
-  ) // private toastr: ToastrService
-  {
+    private afs: AngularFirestore ,
+    // private toastr: ToastrService
+  ) {
     this.userData = angularFireAuth.authState;
   }
   isLoggedIn() {
@@ -91,6 +95,15 @@ export class LoginService {
           // );
         }
       });
+  }
+
+  resetPassword(email: string) {
+    const fbAuth = firebase.auth();
+
+    return fbAuth
+      .sendPasswordResetEmail(email)
+      .then(() => console.log("sent Password Reset Email!"))
+      .catch(error => console.log(error));
   }
 
   SignOut() {

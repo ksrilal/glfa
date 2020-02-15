@@ -30,6 +30,8 @@ import { LoginComponent } from './login/login.component';
 
 
 
+
+
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
@@ -54,7 +56,7 @@ import { LoginComponent } from './login/login.component';
     AngularFireAuthModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
-
+    // ToastrModule.forRoot()// ToastrModule added
   ],
   bootstrap: [AppComponent]
 })
