@@ -1,15 +1,15 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from "@angular/core";
 
-import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { RedeemTicketComponent } from './redeem-ticket/redeem-ticket.component';
-import { TicketManagementComponent } from './ticket-management/ticket-management.component';
-import { FilterSalesComponent } from './filter-sales/filter-sales.component';
-import { RequestVolunteersComponent } from './request-volunteers/request-volunteers.component';
-import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
+import { PagesComponent } from "./pages.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { ECommerceComponent } from "./e-commerce/e-commerce.component";
+import { NotFoundComponent } from "./miscellaneous/not-found/not-found.component";
+import { RedeemTicketComponent } from "./redeem-ticket/redeem-ticket.component";
+import { TicketManagementComponent } from "./ticket-management/ticket-management.component";
+import { FilterSalesComponent } from "./filter-sales/filter-sales.component";
+import { RequestVolunteersComponent } from "./request-volunteers/request-volunteers.component";
+import { ViewDriversComponent } from "./driver-state/view-drivers/view-drivers.component";
 
 const routes: Routes = [
   {
@@ -28,15 +28,6 @@ const routes: Routes = [
         path: "redeem",
         component: RedeemTicketComponent
       },
-      {
-        path: "ticket-management",
-        component: TicketManagementComponent
-      },
-      {
-        path: "filter-sales",
-        component: FilterSalesComponent
-      },
-
 
       {
         path: "layout",
@@ -46,7 +37,23 @@ const routes: Routes = [
       {
         path: "driver-state",
         loadChildren: () =>
-          import("./driver-state/driver-state.module").then(m => m.DriverStateManagementModule)
+          import("./driver-state/driver-state.module").then(
+            m => m.DriverStateManagementModule
+          )
+      },
+      {
+        path: "ticket-management",
+        loadChildren: () =>
+          import("./ticket-management/ticket-management.module").then(
+            m => m.StaffManagementModule
+          )
+      },
+      {
+        path: "filter-sales",
+        loadChildren: () =>
+          import("./filter-sales/filter-sales.module").then(
+            m => m.FilterSalesModule
+          )
       },
       {
         path: "staff-management",
@@ -61,6 +68,27 @@ const routes: Routes = [
           import(
             "./festival-staff-management/festival-staff-management.module"
           ).then(m => m.FestivalStaffManagementModule)
+      },
+      {
+        path: "festival-manager-map",
+        loadChildren: () =>
+          import("./festival-manager-map/festival-manager-map.module").then(
+            m => m.ManagerMapModule
+          )
+      },
+      {
+        path: "volunteer-map",
+        loadChildren: () =>
+          import("./volunteer-map/volunteer-map.module").then(
+            m => m.VolunteerMapModule
+          )
+      },
+      {
+        path: "transpotation-map",
+        loadChildren: () =>
+          import("./tranpotation-map/tranpotation-map.module").then(
+            m => m.TranspotationMapModule
+          )
       },
       {
         path: "volunteer-management",
@@ -178,7 +206,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class PagesRoutingModule {
-}
+export class PagesRoutingModule {}

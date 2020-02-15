@@ -8,10 +8,10 @@
           <div class="form-group row">
             <label for="val-fname" class="label col-sm-3 col-form-label">First Name</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="fName" 
-              name="fName" 
+              <input type="text" nbInput fullWidth id="fName"
+              name="fName"
               placeholder="First Name here.."
-              formControlName="fName" 
+              formControlName="fName"
               >
               <div *ngIf="fName.touched && fName.invalid">
                 <div class="alert alert-danger">
@@ -24,8 +24,8 @@
           <div class="form-group row">
             <label for="val-lname" class="label col-sm-3 col-form-label">Last Name</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="lName" 
-              name="lName" 
+              <input type="text" nbInput fullWidth id="lName"
+              name="lName"
               placeholder="Last Name here.."
               formControlName="lName">
               <div *ngIf="lName.touched && lName.invalid">
@@ -35,24 +35,32 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form-group row">
             <label class="col-sm-3 label">Gender</label>
             <div class="col-sm-9">
               <nb-radio-group>
                 <nb-radio>Male</nb-radio>
+                <input id="male" type="radio" class="custom-control-input" value="male" name="gender"formControlName="gender" ngmodel >
                 <nb-radio>Female</nb-radio>
+                <input id="female" type="radio" class="custom-control-input" value="female" name="gender"formControlName="gender"ngmodel>
                 <nb-radio >Other</nb-radio>
+                <input id="other" type="radio" class="custom-control-input" value="other" name="gender"formControlName="gender"ngmodel>
               </nb-radio-group>
+              <!--div *ngIf="gender.touched && gender.invalid">
+                <div class="alert alert-danger">
+                  Gender cannot be empty
+                </div>
+              </div-->
             </div>
           </div>
           <div class="form-group row">
             <label for="val-dob" class="label col-sm-3 col-form-label">Date of Birth</label>
             <div class="col-sm-9">
-              <input type="date" nbInput fullWidth id="dob" 
-              name="dob" 
+              <input type="date" nbInput fullWidth id="dob"
+              name="dob"
               placeholder=''
-              formControlName="dob" 
+              formControlName="dob"
               >
               <div *ngIf="dob.touched && dob.invalid">
                 <div class="alert alert-danger">
@@ -64,10 +72,10 @@
           <div class="form-group row">
             <label for="NIC" class="label col-sm-3 col-form-label">NIC</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="NIC" 
-              name="NIC" 
+              <input type="text" nbInput fullWidth id="NIC"
+              name="NIC"
               placeholder="National ID card Number"
-              formControlName="NIC" 
+              formControlName="NIC"
               >
               <div *ngIf="NIC.touched && NIC.invalid">
                 <div class="alert alert-danger">
@@ -75,15 +83,15 @@
                 </div>
               </div>
             </div>
-          </div> 
-          
+          </div>
+
           <div class="form-group row">
             <label for="val-phone" class="label col-sm-3 col-form-label">Mobile</label>
             <div class="col-sm-9">
               <input type="number" nbInput fullWidth id="mobile"
               name="mobile"
               placeholder="xxxxxxxxxx"
-              formControlName="mobile" 
+              formControlName="mobile"
               >
               <div *ngIf="mobile.touched && mobile.invalid">
                 <div class="alert alert-danger">
@@ -91,14 +99,14 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
           <div class="form-group row">
             <label for="val-email" class="label col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">
               <input type="email" nbInput fullWidth id="email"
               name="email"
               placeholder="Your valid email.."
-              formControlName="email" 
+              formControlName="email"
               >
               <div *ngIf="email.touched && email.invalid">
                 <div class="alert alert-danger">
@@ -106,14 +114,14 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
           <div class="form-group row">
             <label for="passwd" class="label col-sm-3 col-form-label">Password</label>
             <div class="col-sm-9">
               <input type="password" nbInput fullWidth id="passwd"
               name="val-passwd"
               placeholder="Choose a safe one.."
-              formControlName="passwd" 
+              formControlName="passwd"
               >
               <div *ngIf="passwd.touched && passwd.invalid">
                 <div class="alert alert-danger">
@@ -123,13 +131,28 @@
             </div>
           </div>
           <div class="form-group row">
+            <label for="cpasswd" class="label col-sm-3 col-form-label">Confirm Password</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth id="cpasswd"
+              name="val-passwd"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+              >
+              <div *ngIf="confirmPassword.touched && confirmPassword.invalid">
+                <div class="alert alert-danger">
+                  Password cannot be empty
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
             <div class="offset-sm-3 col-sm-9">
-              <button type="submit" nbButton status="primary">Sign in</button>
+              <button [disabled]="form.invalid" type="submit" nbButton status="primary">Sign in</button>
             </div>
           </div>
         </form>
         </div>
       </nb-card-body>
-    </nb-card>  
+    </nb-card>
   </div>
 </div>

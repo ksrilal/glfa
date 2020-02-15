@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidators } from '../../validators/password-validator';
-
+import { AuthorManagementService } from '../author-management.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+ 
 
 @Component({
   selector: 'ngx-add-author',
@@ -10,22 +12,35 @@ import { PasswordValidators } from '../../validators/password-validator';
 })
 export class AddAuthorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afStorage: AngularFireStorage,
+              private authorManagement: AuthorManagementService) { }
 
   ngOnInit() {
   }
 
+  downloadURL;
+  randomId;
+
+  upload(event) {
+    this.randomId = Math.random()
+      .toString(36)
+      .substring(2);
+
+    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
+  }
+ 
   form = new FormGroup({
     //userName: new FormControl("", Validators.required),
-    firstName: new FormControl("", Validators.required),
-    lastName: new FormControl("", Validators.required),
-    description: new FormControl("", Validators.required),
+    fname: new FormControl("", Validators.required),
+    lname: new FormControl("", Validators.required),
+    des: new FormControl("", Validators.required),
+    pic: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
       Validators.minLength(8),
     ]),
-    phone: new FormControl("", [
+    mobile: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(10)
@@ -38,30 +53,30 @@ export class AddAuthorComponent implements OnInit {
 
 
   onSubmit() {
-    // this.staffService.create(this.form.value);
+    this.authorManagement.create(this.form.value);
     this.form.reset();
   }
 
   get email() {
     return this.form.get("email");
   }
-  // get userName() {
-  //   return this.form.get("userName");
-  // }
-  get firstName() {
-    return this.form.get("firstName");
+  get fname() {
+    return this.form.get("fname");
   }
-  get lastName() {
-    return this.form.get("lastName");
+  get lname() {
+    return this.form.get("lname");
   }
   get password() {
     return this.form.get("password");
   }
-  get phone() {
-    return this.form.get("phone");
+  get mobile() {
+    return this.form.get("mobile");
   }
-  get description() {
-    return this.form.get("description");
+  get des() {
+    return this.form.get("des");
+  }
+  get pic() {
+    return this.form.get("pic");
   }
   get confirmPassword() {
     return this.form.get("confirmPassword");

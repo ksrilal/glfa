@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-6">
-
+ 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <nb-card>
       <nb-card-header>Add Staff</nb-card-header>
@@ -83,21 +83,23 @@
             </div>
           </div>
 
-          <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="des"
+          <!-- <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" formControlName="des"
           [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description'"
           [status]="des.touched && des.invalid ? 'danger' : 'primary' "
-          ></textarea>
+          ></textarea> -->
 
         <div class="form-group">
+          <div class="full-name-inputs">
           <label>Select profile picture to upload</label>
           <!-- <input type="file" accept="image/*"  class="form-control"> -->
-            <input type="file" (change)="upload($event)" class="form-control" accept=".png,.jpg" />
-
+            <input type="file" (change)="upload($event)" class="form-control" formControlName="pic" accept=".png,.jpg">
+            <div *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
+          </div>
 
         </div>
 
 
-          <button  nbButton status="primary" hero>
+          <button  nbButton status="primary" hero [disabled]="form.invalid">
             Add Staff
           </button>
 

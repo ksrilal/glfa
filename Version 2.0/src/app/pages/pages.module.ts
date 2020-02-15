@@ -19,20 +19,19 @@ import { ModifyAuthorComponent } from "./author-management/modify-author/modify-
 import { EventManagementComponent } from "./event-management/event-management.component";
 import { AddEventComponent } from "./event-management/add-event/add-event.component";
 import { ModifyEventComponent } from "./event-management/modify-event/modify-event.component";
-import { FestivalStaffManagementComponent } from './festival-staff-management/festival-staff-management.component';
-import { AddStaffComponent } from './festival-staff-management/add-staff/add-staff.component';
-import { ModifyStaffComponent } from './festival-staff-management/modify-staff/modify-staff.component';
-import { DriverManagementComponent } from './driver-management/driver-management.component';
-import { AddDriversComponent } from './driver-management/add-drivers/add-drivers.component';
-import { ModifyDriversComponent } from './driver-management/modify-drivers/modify-drivers.component';
-import { ReqVolunteersComponent } from './request-volunteers/req-volunteers/req-volunteers.component';
-import { DriverStateComponent } from './driver-state/driver-state.component';
-import { ViewDriversComponent } from './driver-state/view-drivers/view-drivers.component';
-import { FestivalStaffManagementService } from './festival-staff-management/festival-staff-management.service';
-import { DropzoneDirective } from './dropzone.directive';
-import { RedeemTicketModule } from './redeem-ticket/redeem-ticket.module';
-import { TranspotationChatComponent } from './transpotation-chat/transpotation-chat.component';
-import { TransChatComponent } from './transpotation-chat/trans-chat/trans-chat.component';
+import { FestivalStaffManagementComponent } from "./festival-staff-management/festival-staff-management.component";
+import { AddStaffComponent } from "./festival-staff-management/add-staff/add-staff.component";
+import { ModifyStaffComponent } from "./festival-staff-management/modify-staff/modify-staff.component";
+import { DriverManagementComponent } from "./driver-management/driver-management.component";
+import { AddDriversComponent } from "./driver-management/add-drivers/add-drivers.component";
+import { ModifyDriversComponent } from "./driver-management/modify-drivers/modify-drivers.component";
+import { ReqVolunteersComponent } from "./request-volunteers/req-volunteers/req-volunteers.component";
+import { DriverStateComponent } from "./driver-state/driver-state.component";
+import { ViewDriversComponent } from "./driver-state/view-drivers/view-drivers.component";
+import { FestivalStaffManagementService } from "./festival-staff-management/festival-staff-management.service";
+import { DropzoneDirective } from "./dropzone.directive";
+import { RedeemTicketModule } from "./redeem-ticket/redeem-ticket.module";
+import { SalesComponent } from "./filter-sales/sales/sales.component";
 
 @NgModule({
   imports: [
@@ -47,15 +46,9 @@ import { TransChatComponent } from './transpotation-chat/trans-chat/trans-chat.c
   declarations: [
     PagesComponent,
     // RedeemTicketComponent,
-    TicketManagementComponent,
-    FilterSalesComponent,
+
     VehicleManagementComponent,
-    DropzoneDirective,
-
-
-
-
-
+    DropzoneDirective
   ],
   providers: [FestivalStaffManagementService]
 })

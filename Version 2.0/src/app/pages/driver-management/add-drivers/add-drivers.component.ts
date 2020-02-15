@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DriverManagementService } from '../driver-management.service';
-
+ 
 @Component({
   selector: 'ngx-add-drivers',
   templateUrl: './add-drivers.component.html',

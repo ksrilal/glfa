@@ -18,12 +18,12 @@ export class AddVolunteerComponent implements OnInit {
   form = new FormGroup({
     fName: new FormControl("", Validators.required),
     lName: new FormControl("", Validators.required),
-    gender: new FormControl("", Validators.required),
+    gender: new FormControl("",Validators.required),
     dob: new FormControl("", Validators.required),
-    NIC: new FormControl("", Validators.required),
-    mobile: new FormControl("", Validators.required),
-    email: new FormControl("", Validators.required),
-    passwd: new FormControl("", Validators.required),
+    NIC: new FormControl("", [Validators.required,Validators.minLength(10)]),
+    mobile: new FormControl("", [Validators.required,Validators.minLength(10)]),
+    email: new FormControl("",[Validators.required,Validators.email]),
+    passwd: new FormControl("", [Validators.required,Validators.minLength(8)]),
 
   });
   ngOnInit() {

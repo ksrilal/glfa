@@ -2,14 +2,20 @@ import { Component, OnInit } from "@angular/core";
 import { PasswordValidators } from "../../validators/password-validator";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AngularFireStorage } from "@angular/fire/storage";
-
+import { FestivalStaffManagementService } from '../festival-staff-management.service';
+import { StaffManagementComponent } from '../../staff-management/staff-management.component';
+ 
 @Component({
   selector: "ngx-add-staff",
   templateUrl: "./add-staff.component.html",
   styleUrls: ["./add-staff.component.scss"]
 })
 export class AddStaffComponent implements OnInit {
-  constructor(private afStorage: AngularFireStorage) {}
+staff: any[];
+
+  constructor(private afStorage: AngularFireStorage,
+              private festivalStaffManagement: FestivalStaffManagementService) {
+              } 
 
   ngOnInit() {}
 
@@ -29,7 +35,8 @@ export class AddStaffComponent implements OnInit {
     fname: new FormControl("", Validators.required),
     lname: new FormControl("", Validators.required),
     role: new FormControl("", Validators.required),
-    des: new FormControl("", Validators.required),
+    //des: new FormControl("", Validators.required),
+    pic: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
@@ -48,7 +55,7 @@ export class AddStaffComponent implements OnInit {
 
   onSubmit() {
 
-    // this.staffService.create(this.form.value);
+    this.festivalStaffManagement.create(this.form.value);
     this.downloadURL = this.afStorage
     .ref("/events/" + this.randomId)
     .getDownloadURL()
@@ -79,13 +86,16 @@ export class AddStaffComponent implements OnInit {
   get mobile() {
     return this.form.get("mobile");
   }
-  get des() {
-    return this.form.get("des");
-  }
+  // get des() {
+  //   return this.form.get("des");
+  // }
   get role() {
     return this.form.get("des");
   }
   get confirmPassword() {
     return this.form.get("confirmPassword");
+  }
+  get pic() {
+    return this.form.get("pic");
   }
 }
