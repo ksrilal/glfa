@@ -81,7 +81,7 @@
 
         <div class="form-group">
           <div class="full-name-inputs">
-          <label>Select Profile picture(You can not change it later!)</label>
+          <label>Select Profile picture</label>
           <!-- <input type="file" accept="image/*"  class="form-control"> -->
             <input type="file" (change)="upload($event)" class="form-control" formControlName="pic" accept=".png,.jpg">
             <div *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
