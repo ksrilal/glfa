@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = "default";
 
-  userMenu = [{ title: "Profile" }, { title: "Log out" }];
+  userMenu = [{ title: "Reset Password" }, { title: "Log out" }];
 
   constructor(
     private sidebarService: NbSidebarService,
@@ -54,10 +54,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   headerFun(title: string) {
     if (title === "Log out") {
       this.lg.SignOut();
-      console.log("sign out bitch");
+
       this.router.navigate(["/login"]);
-    } else {
-      console.log("nothiing");
+      // } else {
+      //   console.log("nothiing");
+    } else if (title === "Reset Password") {
+      // console.log(this.email);
+      this.lg.resetPassword(this.email)
+  // .then(() => this.passReset = true)
     }
   }
   // lgOut() {
