@@ -78,6 +78,13 @@ const routes: Routes = [
           ).then(m => m.VolunteerMapModule)
       },
       {
+        path: "transpotation-map",
+        loadChildren: () =>
+          import(
+            "./tranpotation-map/tranpotation-map.module"
+          ).then(m => m.TranspotationMapModule)
+      },
+      {
         path: "volunteer-management",
         loadChildren: () =>
           import("./volunteer-management/volunteer-management.module").then(

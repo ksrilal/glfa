@@ -165,6 +165,17 @@ export const transportationCoordinator: NbMenuItem[] = [
                link: "/pages/transpotation-chat/chat"
              }
            ]
+         },
+         //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
+         {
+           title: "Map",
+           icon: "layout-outline",
+           children: [
+             {
+               title: "Map",
+               link: "/pages/transpotation-map/map"
+             }
+           ]
          }
        ];
 
