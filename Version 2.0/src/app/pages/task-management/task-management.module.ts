@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { TaskManagementRoutingModule, routedComponents } from './task-management-routing.module';
 import { ThemeModule } from '../../@theme/theme.module';
-import { NbInputModule, NbCardModule, NbButtonModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbRadioModule, NbDatepickerModule, NbSelectModule, NbIconModule, NbAccordionModule, NbListModule, NbStepperModule, NbRouteTabsetModule, NbTabsetModule } from '@nebular/theme';
+import { NbInputModule, NbCardModule, NbButtonModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbRadioModule, NbDatepickerModule, NbSelectModule, NbIconModule, NbAccordionModule, NbListModule, NbStepperModule, NbRouteTabsetModule, NbTabsetModule, NbTreeGridModule } from '@nebular/theme';
 import { FormsRoutingModule } from '../forms/forms-routing.module';
 import { FormsModule as ngFormsModule, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsComponent  } from '../forms/forms.component';
@@ -55,6 +55,10 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
      ChartModule,
    // TablesRoutingModule,
     Ng2SmartTableModule,
+
+    NbTreeGridModule,
+    
+
   ],
 
     declarations: [...routedComponents,
@@ -77,6 +81,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     D3AdvancedPieComponent,
 
     AccordionComponent,],
+
 
     providers: [
       NewsService,

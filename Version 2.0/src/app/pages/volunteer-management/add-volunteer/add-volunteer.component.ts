@@ -18,7 +18,7 @@ export class AddVolunteerComponent implements OnInit {
   form = new FormGroup({
     fName: new FormControl("", Validators.required),
     lName: new FormControl("", Validators.required),
-    gender: new FormControl("",Validators.required),
+    gender: new FormControl("",),
     dob: new FormControl("", Validators.required),
     NIC: new FormControl("", [Validators.required,Validators.minLength(10)]),
     mobile: new FormControl("", [Validators.required,Validators.minLength(10)]),
