@@ -9,7 +9,7 @@
           <nb-list style="overflow-y: scroll;">
             <nb-list-item class="contact" *ngFor="let c of contacts">
               <nb-user
-                
+
                 (click)="getChat(c)"
                 [name]="c.fname"
                 size="large"
@@ -22,7 +22,7 @@
   </div>
   <div
     class="chat-container col-md-6 col-lg-6 col-xxxl-6"
-    style="margin-top: -3.7%;"
+    style="margin-top: -3.7%, padding-top : 10px"
   >
     <nb-chat
       style="width: 100%;"

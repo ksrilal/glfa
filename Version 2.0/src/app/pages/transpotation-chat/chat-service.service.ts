@@ -20,7 +20,7 @@ export class ChatServiceService {
       .valueChanges();
   }
 
-  sednMessage(message: any, gropChatId) {
+  sendMessage(message: any, gropChatId) {
     this.afs
       .collection('messages')
       .doc(gropChatId)
@@ -38,7 +38,7 @@ export class ChatServiceService {
 
   // reply(message: string) {
   //   const botReply: any = this.loadBotReplies().find(
-  //     (reply: any) => message.search(reply.regExp) !== -1);
+  //   (reply: any) => message.search(reply.regExp) !== -1);
 
   //   if (botReply.reply.type === 'quote') {
   //     botReply.reply.quote = message;

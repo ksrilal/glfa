@@ -13,13 +13,11 @@
 
         <div class="form-group">
           <label class="col-sm-3 label">Date</label>
-          <input nbInput
+          <input type="date" nbInput
                placeholder="Select Date"
-               [nbDatepicker]="formpicker"
                formControlName="date"
         [placeholder]="date.touched && date.invalid ? 'Date Required!' : 'Date' "
         [status]="date.touched &&  date.invalid ? 'danger' : 'primary' ">
-        <nb-datepicker #formpicker></nb-datepicker>
           <!-- <input type="date" nbInput fullWidth placeholder="Date"> -->
         </div>
 

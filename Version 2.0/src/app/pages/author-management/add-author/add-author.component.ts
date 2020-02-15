@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidators } from '../../validators/password-validator';
 import { AuthorManagementService } from '../author-management.service';
 import { AngularFireStorage } from '@angular/fire/storage';
- 
+
 
 @Component({
   selector: 'ngx-add-author',
@@ -13,7 +13,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class AddAuthorComponent implements OnInit {
 
   constructor(private afStorage: AngularFireStorage,
-              private authorManagement: AuthorManagementService) { }
+    private authorManagement: AuthorManagementService) { }
 
   ngOnInit() {
   }
@@ -26,9 +26,9 @@ export class AddAuthorComponent implements OnInit {
       .toString(36)
       .substring(2);
 
-    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
+    this.afStorage.upload("/authors/" + this.randomId, event.target.files[0]);
   }
- 
+
   form = new FormGroup({
     //userName: new FormControl("", Validators.required),
     fname: new FormControl("", Validators.required),
@@ -46,15 +46,28 @@ export class AddAuthorComponent implements OnInit {
       Validators.maxLength(10)
     ]),
     confirmPassword: new FormControl("", [
-      Validators.required,Validators.minLength(8),
+      Validators.required, Validators.minLength(8),
       PasswordValidators.checkPasswrod
     ]),
   });
 
 
   onSubmit() {
-    this.authorManagement.create(this.form.value);
+
+    this.downloadURL = this.afStorage
+      .ref("/authors/" + this.randomId)
+      .getDownloadURL()
+      .subscribe(a => {
+        this.downloadURL = a;
+
+        //console.log(this.downloadURL);
+        //console.log(this.form.value);
+        this.form.value.pic = this.downloadURL;
+        this.authorManagement.create(this.form.value);
+        
     this.form.reset();
+      });
+
   }
 
   get email() {
@@ -82,5 +95,5 @@ export class AddAuthorComponent implements OnInit {
     return this.form.get("confirmPassword");
   }
 
-  
+
 }

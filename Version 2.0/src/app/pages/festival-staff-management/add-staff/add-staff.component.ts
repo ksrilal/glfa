@@ -27,7 +27,7 @@ staff: any[];
       .toString(36)
       .substring(2);
 
-    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
+    this.afStorage.upload("/staff/" + this.randomId, event.target.files[0]);
   }
 
   form = new FormGroup({
@@ -55,17 +55,19 @@ staff: any[];
 
   onSubmit() {
 
-    this.festivalStaffManagement.create(this.form.value);
     this.downloadURL = this.afStorage
-    .ref("/events/" + this.randomId)
+    .ref("/staff/" + this.randomId)
     .getDownloadURL()
     .subscribe(a => {
       this.downloadURL = a;
 
-        console.log(this.downloadURL);
+        //console.log(this.downloadURL);
+        this.form.value.pic = this.downloadURL;
+        this.festivalStaffManagement.create(this.form.value);
+        this.form.reset();
+
       });
 
-    this.form.reset();
   }
 
   get email() {

@@ -26,11 +26,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+
+
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -53,7 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireAuthModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
-
+    // ToastrModule.forRoot()// ToastrModule added
   ],
   bootstrap: [AppComponent]
 })

@@ -23,15 +23,20 @@ export class PagesComponent {
 
   constructor() {
 
+
     var roll = "volunteerCoordinator";
+
+
+    console.log(localStorage.getItem("role"));
+    var roll = localStorage.getItem("role");
 
     if (roll == "manager") {
       this.menu = manager;
-    } else if (roll == "volunteerCoordinator") {
+    } else if (roll == "volunteer") {
       this.menu = volunteerCoordinator;
     } else if (roll == "boxOffice") {
       this.menu = boxoffice;
-    } else if (roll == "transportationCoordinator") {
+    } else if (roll == "transpotation") {
       this.menu = transportationCoordinator;
     } else if (roll == "all") {
       this.menu = all;

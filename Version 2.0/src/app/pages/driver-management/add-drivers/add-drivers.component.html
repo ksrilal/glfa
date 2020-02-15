@@ -4,7 +4,7 @@
     <nb-card>
       <nb-card-header>Driver Details</nb-card-header>
       <nb-card-body>
- 
+
         <div class="full-name-inputs">
           <input
               type="text"
@@ -157,6 +157,17 @@
           licensenum.touched && licensenum.invalid ? 'danger' : 'primary'
           "
         />
+
+        <div class="form-group">
+          <div class="full-name-inputs">
+          <label>Select Profile picture</label>
+          <!-- <input type="file" accept="image/*"  class="form-control"> -->
+            <input type="file" (change)="upload($event)" class="form-control" formControlName="pic" accept=".png,.jpg">
+            <div *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
+          </div>
+
+        </div>
+
          <button  nbButton status="primary" hero>
             Add Driver
           </button>
