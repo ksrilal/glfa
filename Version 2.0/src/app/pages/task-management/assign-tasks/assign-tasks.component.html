@@ -1,9 +1,10 @@
-<div class="steppers-container row">
+<!--div class="steppers-container row">
   <div class="col-md-12 col-lg-8 col-xxxl-6">
     <nb-card>
       <nb-card-body>
         <nb-stepper #stepper>
           <nb-step [stepControl]="firstForm" label="First step">
+            <div class="form-group row">
             <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
               <div class="input-group">
                 <label for="task" class="label col-sm-3 col-form-label">Task</label>
@@ -11,11 +12,7 @@
               name="task" 
               placeholder="Enter the task here.." class="form-control" formControlName="task" 
               [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-              <!--div *ngIf="task.touched && task.invalid">
-                <div class="alert alert-danger">
-                  Task cannot be empty
-                </div>
-              </div-->
+              
               <input type="text" nbInput fullWidth id="description" 
               name="description" 
               placeholder="Description here.." class="form-control" formControlName="description" 
@@ -45,14 +42,11 @@
               name="noOfVolunteers" 
               placeholder="Number of Volunteers" class="form-control" formControlName="noOfVolunteers" 
                   [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                  <!--div *ngIf="noOfVolunteers.touched && noOfVolunteers.invalid">
-                    <div class="alert alert-danger">
-                      This field cannot be empty
-                    </div>
-                  </div-->     
+                  
               </div>
-              <button nbButton nbStepperNext>next</button>
+              <button type="submit" (ngSubmit)="onFirstSubmit()"  nbButton nbStepperNext>next</button>
             </form>
+            </div>
           </nb-step>
         
           <nb-step [stepControl]="secondForm" label="Second step">
@@ -78,10 +72,18 @@
       </nb-card-body>
     </nb-card>
   </div>
-</div>
+</div-->
 
 <div class="row">
-
+  <div class="col-lg-6">
+    <nb-card size="medium">
+      <nb-card-header>
+        <span>User Activity</span>
+        <nb-select [selected]="type" (selectedChange)="getUserActivity($event); type = $event">
+          <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
+        </nb-select>
+      </nb-card-header>
+      
   <nb-list class="user-activity-list">
     <nb-list-item *ngFor="let item of userActivity">
 
@@ -110,6 +112,8 @@
       </div>
     </nb-list-item>
   </nb-list>
+</nb-card>
+  </div>
 </div>
 <!--div class="row">
   <div class="col-md-6">
@@ -190,3 +194,122 @@
     </nb-card>  
   </div>
 </div-->
+
+<div class="row">
+  <div class="col-lg-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <nb-card>
+      <nb-card-header>Add Tasks</nb-card-header>
+      <nb-card-body>
+ 
+        <div class="full-name-inputs">
+          <input
+              type="text"
+              nbInput
+              fullWidth
+              placeholder="Task"
+              formControlName="task"
+              [placeholder]="
+                task.touched && task.invalid
+                  ? 'Task Required'
+                  : 'Task'
+              "
+              [status]="
+                task.touched && task.invalid ? 'danger' : 'primary'
+              "
+            />
+            <input
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Description"
+            formControlName="description"
+            [placeholder]="
+              description.touched && description.invalid
+                ? 'Description Required'
+                : 'Description'
+            "
+            [status]="
+              description.touched && description.invalid ? 'danger' : 'primary'
+            "
+          />
+        </div>
+        <input
+        hidden
+        type="date"
+        nbInput
+        fullWidth
+        value="Date.now()"
+        formControlName="dueDate"
+        
+      />
+        <input
+              type="time"
+              nbInput
+              fullWidth
+              placeholder="time"
+              formControlName="time"
+              [placeholder]="
+                time.touched && time.invalid
+                  ? 'Time Required'
+                  : 'Time'
+              "
+              [status]="
+                time.touched && time.invalid ? 'danger' : 'primary'
+              "
+            />
+            <input
+            type="number"
+            nbInput
+            fullWidth
+            placeholder="longitude"
+            formControlName="longitude"
+            [placeholder]="
+              longitude.touched && longitude.invalid
+                ? 'longitude Required'
+                : 'longitude'
+            "
+            [status]="
+              longitude.touched && longitude.invalid ? 'danger' : 'primary'
+            "
+          />
+          <input
+          type="number"
+          nbInput
+          fullWidth
+          placeholder="latitude"
+          formControlName="latitude"
+          [placeholder]="
+              latitude.touched && latitude.invalid
+              ? 'latitude Required'
+              : 'latitude'
+          "
+          [status]="
+           latitude.touched && latitude.invalid ? 'danger' : 'primary'
+          "
+        />
+        <input
+          type="number"
+          nbInput
+          fullWidth
+          placeholder="Number of Volunteers"
+          formControlName="noOfVolunteers"
+          [placeholder]="
+              noOfVolunteers.touched && noOfVolunteers.invalid
+              ? 'Number of Volunteers Required'
+              : 'Number of Volunteers'
+          "
+          [status]="
+          noOfVolunteers.touched && noOfVolunteers.invalid ? 'danger' : 'primary'
+          "
+        />
+        
+         <button  nbButton status="primary" hero>
+            Add Driver
+          </button>
+      </nb-card-body>
+    </nb-card>
+  </form>
+  </div>
+
+</div>

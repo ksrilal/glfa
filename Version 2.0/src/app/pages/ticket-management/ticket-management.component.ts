@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-ticket-management',
-  templateUrl: './ticket-management.component.html',
-  styleUrls: ['./ticket-management.component.scss']
+  selector: "ngx-ticket-management",
+  template: `
+    <router-outlet></router-outlet>
+  `
 })
 export class TicketManagementComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

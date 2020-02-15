@@ -1,3 +1,55 @@
-<p>
-  trans-chat works!
-</p>
+<!-- <nb-card>
+  <nb-card-body> -->
+<div class="row">
+  <div class="col-xxxl-3 col-xxl-4 col-lg-4 col-md-3">
+    <!-- <ngx-contacts></ngx-contacts> -->
+    <nb-card size="giant" style="overflow-y: scroll;">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Contacts">
+          <nb-list style="overflow-y: scroll;">
+            <nb-list-item class="contact" *ngFor="let c of contacts">
+              <nb-user
+
+                (click)="getChat(c)"
+                [name]="c.fname"
+                size="large"
+              ></nb-user>
+            </nb-list-item>
+          </nb-list>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+  <div
+    class="chat-container col-md-6 col-lg-6 col-xxxl-6"
+    style="margin-top: -3.7%, padding-top : 10px"
+  >
+    <nb-chat
+      style="width: 100%;"
+      title="{{ userName }}"
+      size="large"
+      status="primary"
+    >
+      <nb-chat-message
+        *ngFor="let msg of messages"
+        [reply]="msg.idFrom === currentUserId"
+        [message]="msg.content"
+      >
+      </nb-chat-message>
+      <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+      </nb-chat-form>
+    </nb-chat>
+  </div>
+  <div class="chat-container col-md-12 col-lg-6 col-xxxl-6"></div>
+</div>
+<!-- </nb-card-body>
+    </nb-card> -->
+<!-- [type]="msg.type"
+            [reply]="msg.reply"
+            [sender]="msg.user.name"
+            [date]="msg.date"
+            [files]="msg.files"
+            [quote]="msg.quote"
+            [latitude]="msg.latitude"
+            [longitude]="msg.longitude"
+            [avatar]="msg.user.avatar" -->

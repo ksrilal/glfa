@@ -1,3 +1,52 @@
-<p>
-  view-drivers works!
-</p>
+<!-- <div class="row">
+  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+    <ngx-temperature></ngx-temperature>
+  </div>
+
+  <div class="col-xxxl-9 col-xxl-8 col-lg-7 col-md-6">
+    <ngx-electricity></ngx-electricity>
+  </div>
+</div> -->
+
+<div class="lists row">
+  
+  <div class="col-md-12 col-lg-4 col-xxxl-6">
+    <nb-card class="list-card">
+      <nb-card-header>All Vehicles</nb-card-header>
+      <nb-card-body>
+        <nb-list>
+          <nb-list-item *ngFor="let allVehicle of allVehicles">
+            {{allVehicle.fname}}
+          </nb-list-item>
+        </nb-list>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-md-12 col-lg-4 col-xxxl-6">
+    <nb-card class="list-card">
+      <nb-card-header>Free Vehicles</nb-card-header>
+      <nb-card-body>
+        <nb-list>
+          <nb-list-item *ngFor="let freeVehicle of freeVehicles">
+            {{freeVehicle.fname}}
+          </nb-list-item>
+        </nb-list>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-md-12 col-lg-4 col-xxxl-6">
+    <nb-card class="list-card">
+      <nb-card-header>Assigned Vehicles</nb-card-header>
+      <nb-card-body>
+        <nb-list>
+          <nb-list-item *ngFor="let assignedVehicle of assignedVehicles">
+            {{assignedVehicle.fname}}
+          </nb-list-item>
+        </nb-list>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+</div>

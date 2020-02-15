@@ -23,6 +23,7 @@ import { ButtonsComponent } from '../forms/buttons/buttons.component';
 import { FormInputsComponent } from '../forms/form-inputs/form-inputs.component';
 import { FormLayoutsComponent } from '../forms/form-layouts/form-layouts.component';
 import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 
 
@@ -42,7 +43,8 @@ import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SmartTableModule
   ],
   declarations: [
     ...routedComponents,

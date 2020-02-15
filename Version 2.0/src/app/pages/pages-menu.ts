@@ -1,51 +1,63 @@
 import { NbMenuItem } from "@nebular/theme";
 
 export const boxoffice: NbMenuItem[] = [
-  {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard"
-  },
-  {
-    title: "Box Office",
-    group: true
-  },
-  {
-    title: "Redeem Ticket",
-    icon: "layers-outline",
-    link: "/pages/redeem"
-  },
-  {
-    title: "Staff Management",
-    icon: "people-outline",
-    children: [
-      {
-        title: "Add Staff",
-        link: "/pages/staff-management/add-staff"
-      },
-      {
-        title: "Modify Staff",
-        link: "/pages/staff-management/modify-staff"
-      }
-    ]
-  },
-  {
-    title: "Ticket Management",
-    icon: "home-outline",
-    link: "/pages/ticket-management"
-  },
-  {
-    title: "Filter Sales",
-    icon: "home-outline",
-    link: "/pages/filter-sales"
-  }
-];
+         {
+           title: "E-commerce",
+           icon: "shopping-cart-outline",
+           link: "/pages/dashboard",
+           home: true
+         },
+         {
+           title: "IoT Dashboard",
+           icon: "home-outline",
+           link: "/pages/iot-dashboard"
+         },
+         {
+           title: "Box Office",
+           group: true
+         },
+         {
+           title: "Redeem Ticket",
+           icon: "layers-outline",
+           link: "/pages/redeem"
+         },
+         {
+           title: "Staff Management",
+           icon: "home-outline",
+           children: [
+             {
+               title: "Add Staff",
+               link: "/pages/staff-management/add-staff"
+             },
+             {
+               title: "Modify Staff",
+               link: "/pages/staff-management/modify-staff"
+             }
+           ]
+         },
+
+         {
+           title: "Ticket Management",
+           icon: "home-outline",
+           children: [
+             {
+               title: "Summary",
+               link: "/pages/ticket-management/summary"
+             }
+           ]
+         },
+
+         {
+           title: "Filter Sales",
+           icon: "people-outline",
+           children: [
+             {
+               title: "Sales",
+               link: "/pages/filter-sales/sales"
+             }
+           ]
+         }
+       ];
 
 export const volunteerCoordinator: NbMenuItem[] = [
   {
@@ -94,69 +106,90 @@ export const volunteerCoordinator: NbMenuItem[] = [
         link: "/pages/task-management/tasks-status"
       }
     ]
+  },
+  {
+    title: "Map",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Map",
+        link: "/pages/volunteer-map/map"
+      }
+    ]
   }
 ];
 export const transportationCoordinator: NbMenuItem[] = [
-         {
-           title: "E-commerce",
-           icon: "shopping-cart-outline",
-           link: "/pages/dashboard",
-           home: true
-         },
-         {
-           title: "IoT Dashboard",
-           icon: "home-outline",
-           link: "/pages/iot-dashboard"
-         },
-         {
-           title: "Transportation Coordinator",
-           group: true
-         },
-         {
-           title: "Driver Management",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Add drivers",
-               link: "/pages/driver-management/add-driver"
-             },
-             {
-               title: "Modify drivers",
-               link: "/pages/driver-management/modify-driver"
-             }
-           ]
-         },
-         {
-           title: "Request Volunteers",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Request Volunteers",
-               link: "/pages/request-volunteers/req-volunteers"
-             }
-           ]
-         },
-         {
-           title: "View Drivers",
-           icon: "people-outline",
-           children: [
-             {
-               title: "View Drivers",
-               link: "/pages/driver-state/view-drivers"
-             }
-           ]
-         },
-         {
-           title: "Chat",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Chat",
-               link: "/pages/transpotation-chat/chat"
-             }
-           ]
-         }
-       ];
+  {
+    title: "E-commerce",
+    icon: "shopping-cart-outline",
+    link: "/pages/dashboard",
+    home: true
+  },
+  {
+    title: "IoT Dashboard",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard"
+  },
+  {
+    title: "Transportation Coordinator",
+    group: true
+  },
+  {
+    title: "Driver Management",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Add drivers",
+        link: "/pages/driver-management/add-driver"
+      },
+      {
+        title: "Modify drivers",
+        link: "/pages/driver-management/modify-driver"
+      }
+    ]
+  },
+  {
+    title: "Request Volunteers",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Request Volunteers",
+        link: "/pages/request-volunteers/req-volunteers"
+      }
+    ]
+  },
+  {
+    title: "View Drivers",
+    icon: "people-outline",
+    children: [
+      {
+        title: "View Drivers",
+        link: "/pages/driver-state/view-drivers"
+      }
+    ]
+  },
+  {
+    title: "Chat",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Chat",
+        link: "/pages/transpotation-chat/chat"
+      }
+    ]
+  },
+  //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
+  {
+    title: "Map",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Map",
+        link: "/pages/transpotation-map/map"
+      }
+    ]
+  }
+];
 
 export const manager: NbMenuItem[] = [
   {
@@ -214,6 +247,16 @@ export const manager: NbMenuItem[] = [
       {
         title: "Modify event",
         link: "/pages/event-management/modify-event"
+      }
+    ]
+  },
+  {
+    title: "Map",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Map",
+        link: "/pages/festival-manager-map/map"
       }
     ]
   }
