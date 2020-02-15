@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { TaskManagementService } from '../task-management.service';
 import { NbThemeService } from '@nebular/theme';
 import { UserActivityData } from '../../../@core/data/user-activity';
 import { takeWhile } from 'rxjs/operators';
+
 
 @Component({
   selector: 'ngx-assign-tasks',
@@ -16,7 +17,7 @@ export class AssignTasksComponent implements OnInit {
 
   constructor(private fb: FormBuilder,private taskManagementService: TaskManagementService,
     private themeService: NbThemeService,
-              private userActivityService: UserActivityData) {
+    private userActivityService: UserActivityData) {
     taskManagementService.getAll().subscribe(task => {
       this.tasks = task;
     });
@@ -28,8 +29,10 @@ export class AssignTasksComponent implements OnInit {
   });
 
   this.getUserActivity(this.type);
+
   
   }
+
   
   firstForm: FormGroup;
   secondForm: FormGroup;
@@ -71,9 +74,11 @@ export class AssignTasksComponent implements OnInit {
     task: new FormControl("", Validators.required),
     description: new FormControl("", Validators.required),
     time: new FormControl("",[Validators.required]),
+    dueDate:new FormControl(),
     longitude: new FormControl("", Validators.required),
     latitude: new FormControl("", Validators.required),
     noOfVolunteers: new FormControl("", [Validators.required,Validators.min(1)]),
+    requestedBy:new FormControl("",Validators.required),
 
   });
   onSubmit() {
@@ -87,23 +92,48 @@ export class AssignTasksComponent implements OnInit {
 
   userActivity=[] = [];
   type = 'month';
-  types = ['week', 'month', 'year'];
+  types = ['Ongoing', 'Todo', 'Done'];
   currentTheme: string;
-
- 
-
+  staff=["Festival Manager","Volunteer Coordinator","Transportation Manager","Box Office Manager"];
 
 
   getUserActivity(period: string) {
    
-    this.taskManagementService.getAll().subscribe(result=>{
+    this.taskManagementService.getSelected(period).subscribe(result=>{
       this.userActivity=result;
-      console.log(this.userActivity)
+      console.log(period);
+      console.log(result);
     })
   }
 
   ngOnDestroy() {
     this.alive = false;
+  }
+
+  get task() {
+    return this.form.get("task");
+  }
+  get dueDate(){
+    return Date.now();
+  }
+  get description() {
+    return this.form.get("description");
+  }
+  get time() {
+    return this.form.get("time");
+  }
+
+  get longitude() {
+    return this.form.get("longitude");
+  }
+  get latitude() {
+    return this.form.get("latitude");
+  }
+  get noOfVolunteers() {
+    return this.form.get("noOfVolunteers");
+  }
+  get requestedBy(){
+    return this.form.get("requestedBy");
   }
 
 }

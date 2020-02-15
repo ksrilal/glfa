@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { VolunteerManagementService } from '../volunteer-management.service';
+import { PasswordValidators } from '../../validators/password-validator';
 
 @Component({
   selector: 'ngx-add-volunteer',
@@ -18,12 +19,13 @@ export class AddVolunteerComponent implements OnInit {
   form = new FormGroup({
     fName: new FormControl("", Validators.required),
     lName: new FormControl("", Validators.required),
-    gender: new FormControl("",),
+    gender: new FormControl("",Validators.required),
     dob: new FormControl("", Validators.required),
     NIC: new FormControl("", [Validators.required,Validators.minLength(10)]),
     mobile: new FormControl("", [Validators.required,Validators.minLength(10)]),
     email: new FormControl("",[Validators.required,Validators.email]),
     passwd: new FormControl("", [Validators.required,Validators.minLength(8)]),
+    confirmpassword:new FormControl("",[Validators.required,PasswordValidators.checkPasswrod])
 
   });
   ngOnInit() {
@@ -60,6 +62,10 @@ export class AddVolunteerComponent implements OnInit {
 
   get passwd() {
     return this.form.get("passwd");
+  }
+
+  get confirmPassword(){
+    return this.form.get("confirmpassword");
   }
 
 

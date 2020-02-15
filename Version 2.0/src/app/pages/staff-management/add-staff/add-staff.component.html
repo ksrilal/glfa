@@ -2,29 +2,166 @@
   <div class="col-lg-6">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <nb-card>
-        <nb-card-header>Default Inputs</nb-card-header>
+        <nb-card-header>Add Box Office Staff</nb-card-header>
         <nb-card-body>
-          <input type="text" nbInput fullWidth placeholder="Project" />
           <div class="full-name-inputs">
             <input
               type="text"
               nbInput
               fullWidth
-              placeholder="User Name"
-              formControlName="userName"
+              placeholder="First Name"
+              formControlName="firstName"
               [placeholder]="
-                userName.touched && userName.invalid
+                firstName.touched && firstName.invalid
                   ? 'Firstname Required'
-                  : 'User name'
+                  : 'First name'
               "
               [status]="
-                userName.touched && userName.invalid ? 'danger' : 'primary'
+                firstName.touched && firstName.invalid ? 'danger' : 'primary'
               "
             />
 
-            <input type="text" nbInput fullWidth placeholder="Last Name" />
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              placeholder="Last Name"
+              formControlName="lastName"
+              [placeholder]="
+                lastName.touched && lastName.invalid
+                  ? 'lastName Required'
+                  : 'Last name'
+              "
+              [status]="
+                lastName.touched && lastName.invalid ? 'danger' : 'primary'
+              "
+            />
           </div>
-          <input type="password" nbInput fullWidth placeholder="Password" />
+          <input
+            [status]="email.touched && email.invalid ? 'danger' : 'primary'"
+            formControlName="email"
+            name="email"
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Email"
+          />
+          <div *ngIf="email.touched && email.invalid">
+            <div *ngIf="email.errors.email">
+              <div class="alert alert-danger">
+                Invalid Email address
+              </div>
+            </div>
+            <div *ngIf="email.errors.required">
+              <div class="alert alert-danger">
+                Email is required
+              </div>
+            </div>
+          </div>
+          <input
+            [status]="nic.touched && nic.invalid ? 'danger' : 'primary'"
+            formControlName="nic"
+            name="nic"
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="NIC"
+          />
+          <div *ngIf="nic.touched && nic.invalid">
+            <div *ngIf="nic.errors.nic">
+              <div class="alert alert-danger">
+                Invalid NIC address
+              </div>
+            </div>
+            <div *ngIf="nic.errors.required">
+              <div class="alert alert-danger">
+                NIC is required
+              </div>
+            </div>
+          </div>
+          <input
+            [status]="mobile.touched && mobile.invalid ? 'danger' : 'primary'"
+            formControlName="mobile"
+            name="mobile"
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="0771234567"
+          />
+          <div *ngIf="mobile.touched && mobile.invalid">
+            <div *ngIf="mobile.errors.minlength || mobile.errors.maxlength">
+              <div class="alert alert-danger">
+                Invalid format
+              </div>
+            </div>
+            <div *ngIf="mobile.errors.pattern">
+              <div class="alert alert-danger">
+                Numbers Only
+              </div>
+            </div>
+
+            <div *ngIf="mobile.errors.required">
+              <div class="alert alert-danger">
+                Number Required
+              </div>
+            </div>
+          </div>
+          <input
+            type="password"
+            nbInput
+            fullWidth
+            placeholder="Password"
+            [placeholder]="
+              password.touched && password.invalid
+                ? 'Password Required'
+                : 'Password'
+            "
+            [status]="
+              password.touched && password.invalid ? 'danger' : 'primary'
+            "
+            formControlName="password"
+          />
+          <div *ngIf="password.touched && password.invalid">
+            <div *ngIf="password.errors.minlength">
+              <div class="alert alert-danger">
+                Must contains atleast 8 characters
+              </div>
+            </div>
+            <!-- <div *ngIf="mobile.errors.pattern">
+              <div class="alert alert-danger">
+                Numbers Only
+              </div>
+            </div> -->
+
+            <!-- <div *ngIf="mobile.errors.required">
+              <div class="alert alert-danger">
+                Password Required
+              </div>
+            </div> -->
+          </div>
+          <input
+            formControlName="confirmPassword"
+            type="password"
+            nbInput
+            fullWidth
+            placeholder="Confirm Password"
+            [status]="
+              confirmPassword.touched && confirmPassword.invalid
+                ? 'danger'
+                : 'primary'
+            "
+            [placeholder]="
+              confirmPassword.touched && confirmPassword.invalid
+                ? 'Confirm Password Required'
+                : 'Confirm Password'
+            "
+          />
+           <div *ngIf="confirmPassword.invalid">
+              <div class="alert alert-danger">
+                Password dosen't match
+              </div>
+            </div>
+
           <input
             type="text"
             nbInput
@@ -32,7 +169,7 @@
             placeholder="Disabled input"
             disabled
           />
-          <button nbButton status="primary" hero>
+          <button [disabled]="form.invalid" nbButton status="primary" hero>
             Add Box Office Staff
           </button>
         </nb-card-body>

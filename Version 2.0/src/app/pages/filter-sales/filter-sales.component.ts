@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-filter-sales',
-  templateUrl: './filter-sales.component.html',
-  styleUrls: ['./filter-sales.component.scss']
+  selector: "ngx-filter-sales",
+  template: `
+    <router-outlet></router-outlet>
+  `
 })
 export class FilterSalesComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

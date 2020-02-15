@@ -32,16 +32,21 @@ export class TaskManagementService {
     }
     
   }
-  getVolunteers(volunteer?){
+  getVolunteers(task?){
     try{
-       return this.afs.collection('volunteers').valueChanges({idField:"id"});
+       return this.afs.collection('tasks').doc(task).collection('volunteers').valueChanges({idField:"id"});
     }catch(error){
       alert(error);
     }
   }
 
-  getTodo() {
-    return this.afs.collection('tasks').valueChanges();
+  getSelected(period?) {
+    try{
+      return this.afs.collection('tasks',ref=>ref.where('status','==',period)).valueChanges({idField:"id"});
+    }catch(error){
+      alert(error);
+    }
+    
   }
 
   delete(id){

@@ -33,10 +33,6 @@ export class TasksStatusComponent implements OnDestroy {
         title: 'Status',
         type: 'string',
       },
-      location: {
-        title: 'Status',
-        type: 'string',
-      },
       user: {
         title: 'Request By',
         type: 'string',
@@ -45,14 +41,11 @@ export class TasksStatusComponent implements OnDestroy {
         title: 'No Of Volunteers',
         type: 'number',
       },
-      date_from: {
-        title: 'From(Date)',
+      dueDate: {
+        title: 'date',
         type: 'date',
       },
-      date_to: {
-        title: 'To(Date)',
-        type: 'date',
-      },
+      
 
     },
   };

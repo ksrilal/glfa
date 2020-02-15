@@ -11,11 +11,34 @@ import {
   NbRadioModule,
   NbDatepickerModule,
   NbSelectModule,
-  NbIconModule
+  NbIconModule,
+  NbTabsetModule,
+  NbRouteTabsetModule,
+  NbListModule,
+  NbAccordionModule
 } from "@nebular/theme";
-import { FormsModule as ngFormsModule } from "@angular/forms";
+import {
+  FormsModule as ngFormsModule,
+  FormsModule,
+  ReactiveFormsModule
+} from "@angular/forms";
 
-import { DriverStateRoutingModule, routedComponents } from './driver-state-routing.module';
+import {
+  DriverStateRoutingModule,
+  routedComponents
+} from "./driver-state-routing.module";
+import { LayoutRoutingModule } from "../layout/layout-routing.module";
+import { LayoutComponent } from "../layout/layout.component";
+import {
+  TabsComponent,
+  Tab1Component,
+  Tab2Component
+} from "../layout/tabs/tabs.component";
+import { ListComponent } from "../layout/list/list.component";
+import { NewsPostPlaceholderComponent } from "../layout/infinite-list/news-post-placeholder/news-post-placeholder.component";
+import { InfiniteListComponent } from "../layout/infinite-list/infinite-list.component";
+import { NewsPostComponent } from "../layout/infinite-list/news-post/news-post.component";
+import { AccordionComponent } from "../layout/accordion/accordion.component";
 
 @NgModule({
   imports: [
@@ -31,15 +54,15 @@ import { DriverStateRoutingModule, routedComponents } from './driver-state-routi
     NbDatepickerModule,
     NbSelectModule,
     NbIconModule,
-    ngFormsModule
+    ngFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    NbTabsetModule,
+
+    NbListModule
   ],
-  declarations: [
-    ...routedComponents,
-    // FormsComponent,
-    // ButtonsComponent,
-    // FormInputsComponent,
-    // FormLayoutsComponent,
-    // DatepickerComponent
+  declarations: [...routedComponents,
   ]
 })
 export class DriverStateManagementModule {}
