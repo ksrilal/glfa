@@ -1,9 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
-import { takeWhile } from 'rxjs/operators';
-import { UserActivityData, UserActive } from '../../../@core/data/user-activity';
-import { LocalDataSource } from 'ng2-smart-table';
-import { SmartTableData } from '../../../@core/data/smart-table';
 import { TaskManagementService } from '../task-management.service';
 
 @Component({
@@ -12,11 +7,7 @@ import { TaskManagementService } from '../task-management.service';
   styleUrls: ['./tasks-status.component.scss']
 })
 export class TasksStatusComponent implements OnDestroy {
-  //smart table features
- /* ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }*/
-
+//smart table headers and values
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -69,22 +60,14 @@ export class TasksStatusComponent implements OnDestroy {
   source;
   private alive = true;
 
-  userActivity=[] = [];
+  tasks_set=[] = [];
   type = 'month';
   types = ['week', 'month', 'year'];
   currentTheme: string;
+  volunteers:any[];
 
-  constructor(private themeService: NbThemeService,
-              private userActivityService: UserActivityData,
-              private service: SmartTableData,
-              private taskManagementService:TaskManagementService) {
-    this.themeService.getJsTheme()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe(theme => {
-        this.currentTheme = theme.name;
-    });
-
-    this.getUserActivity(this.type);
+  constructor(private taskManagementService:TaskManagementService) {
+    this.getTask(this.type);
     //for smart table
     taskManagementService.getAll().subscribe(result=>{
       this.source=result
@@ -92,18 +75,10 @@ export class TasksStatusComponent implements OnDestroy {
     
   }
 
-
-
-  getUserActivity(period: string) {
-    // this.userActivityService.getUserActivityData(period)
-    //   .pipe(takeWhile(() => this.alive))
-    //   .subscribe(userActivityData => {
-    //     this.userActivity = userActivityData;
-    //     console.log(this.userActivity)
-    //   });
+  getTask(period: string) {    
     this.taskManagementService.getAll().subscribe(result=>{
-      this.userActivity=result;
-      console.log(this.userActivity)
+      this.tasks_set=result;
+      console.log(this.tasks_set)
     })
   }
 
@@ -112,8 +87,6 @@ export class TasksStatusComponent implements OnDestroy {
   }
   onSaveConfirm(event):void{
     if (window.confirm('Are you sure you want to edit?')) {
-      // event.confirm.resolve();
-      // this.driverManagementService.delete(event.data.id)
       this.taskManagementService.edit(event.data.id,event.newData)
       // console.log(event.data)
       // console.log(event.newData)
@@ -130,6 +103,15 @@ export class TasksStatusComponent implements OnDestroy {
     } else {
       event.confirm.reject();
     }
+  }
+
+  selectTask(event){
+    console.log(event);
+    this.taskManagementService.getVolunteers(event).subscribe(volun=>{
+      this.volunteers=volun
+      console.log(this.volunteers)
+
+    })
   }
 
 }

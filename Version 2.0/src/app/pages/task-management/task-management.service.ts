@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root'
 })
 export class TaskManagementService {
-  constructor(private afs: AngularFirestore) { }
+
+  profileData: any[];
+
+  constructor(private fire:AngularFireAuth,private afs: AngularFirestore) { }
   create(task) {
     try {
       this.afs.collection('tasks').doc(task.task).set(task);
+      this.afs.collection('tasks').doc(task.task).collection('volunteers').doc('email').set(task);
       alert("Addedd Successfully");
     }
     catch (error) {
@@ -27,6 +32,14 @@ export class TaskManagementService {
     }
     
   }
+  getVolunteers(volunteer?){
+    try{
+       return this.afs.collection('volunteers').valueChanges({idField:"id"});
+    }catch(error){
+      alert(error);
+    }
+  }
+
   getTodo() {
     return this.afs.collection('tasks').valueChanges();
   }
