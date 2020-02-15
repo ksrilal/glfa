@@ -1,48 +1,63 @@
 import { NbMenuItem } from "@nebular/theme";
 
 export const boxoffice: NbMenuItem[] = [
-  {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
-    icon: "home-outline",
-    link: "/pages/iot-dashboard"
-  },
-  {
-    title: "Box Office",
-    group: true
-  },
-  {
-    title: "Redeem Ticket",
-    icon: "layers-outline",
-    link: "/pages/redeem"
-  },
+         {
+           title: "E-commerce",
+           icon: "shopping-cart-outline",
+           link: "/pages/dashboard",
+           home: true
+         },
+         {
+           title: "IoT Dashboard",
+           icon: "home-outline",
+           link: "/pages/iot-dashboard"
+         },
+         {
+           title: "Box Office",
+           group: true
+         },
+         {
+           title: "Redeem Ticket",
+           icon: "layers-outline",
+           link: "/pages/redeem"
+         },
+         {
+           title: "Staff Management",
+           icon: "home-outline",
+           children: [
+             {
+               title: "Add Staff",
+               link: "/pages/staff-management/add-staff"
+             },
+             {
+               title: "Modify Staff",
+               link: "/pages/staff-management/modify-staff"
+             }
+           ]
+         },
 
-  {
-    title: "Ticket Management",
-    icon: "home-outline",
-    children: [
-      {
-        title: "Summary",
-        link: "/pages/ticket-management/summary"
-      }
-    ]
-  },
-  {
-    title: "Filter Sales",
-    icon: "people-outline",
-    children: [
-      {
-        title: "Sales",
-        link: "/pages/filter-sales/sales"
-      }
-    ]
-  }
-];
+         {
+           title: "Ticket Management",
+           icon: "home-outline",
+           children: [
+             {
+               title: "Summary",
+               link: "/pages/ticket-management/summary"
+             }
+           ]
+         },
+
+         {
+           title: "Filter Sales",
+           icon: "people-outline",
+           children: [
+             {
+               title: "Sales",
+               link: "/pages/filter-sales/sales"
+             }
+           ]
+         }
+       ];
 
 export const volunteerCoordinator: NbMenuItem[] = [
   {
