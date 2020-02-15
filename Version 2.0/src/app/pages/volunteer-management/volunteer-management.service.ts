@@ -17,7 +17,7 @@ export class VolunteerManagementService {
     try{
       // this.authService.signup(volunteer.email,volunteer.passwd);//leave this only
       // this.auth.auth.createUserWithEmailAndPassword(staff.email,staff.password);
-      this.afs.collection('users').doc(volunteer.email).set(volunteer);
+      this.afs.collection('volunteers').doc(volunteer.email).set(volunteer);
       
       alert("Addedd Successfully");
 
@@ -46,16 +46,24 @@ export class VolunteerManagementService {
     return volunteerList;
   }*/
    getAll() {
-    if(Object.keys(this.afs.collection('users').valueChanges()).length==0){
+    if(Object.keys(this.afs.collection('volunteers').valueChanges()).length==0){
       console.log("in servics getall..null set");
     }else{
-      console.log("in services, length of getall,",Object.keys(this.afs.collection('users').valueChanges()).length);
+      console.log("in services, length of getall,",Object.keys(this.afs.collection('volunteers').valueChanges()).length);
     }
     try{
-      return this.afs.collection('users').valueChanges();
+      return this.afs.collection('volunteers').valueChanges({idField:"id"});
     }catch(error){
       alert(error);
     }
     
+  }
+
+  delete(id){
+    this.afs.collection('volunteers').doc(id).delete();
+  }
+
+  edit(id,newData){
+    this.afs.collection('volunteers').doc(id).update(newData);
   }
 }

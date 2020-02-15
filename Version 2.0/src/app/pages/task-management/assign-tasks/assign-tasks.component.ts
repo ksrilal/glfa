@@ -13,15 +13,6 @@ import { takeWhile } from 'rxjs/operators';
 export class AssignTasksComponent implements OnInit {
   tasks: any[];
 
- /* firstform = new FormGroup({
-    task: new FormControl("", Validators.required),
-    description: new FormControl("", Validators.required),
-    latitude: new FormControl("", Validators.required),
-    longitude: new FormControl("", Validators.required),
-    dueDate: new FormControl("", Validators.required),
-    time: new FormControl("", Validators.required),
-    noOfVolunteers: new FormControl("", Validators.required),
-  });*/
 
   constructor(private fb: FormBuilder,private taskManagementService: TaskManagementService,
     private themeService: NbThemeService,
@@ -47,7 +38,7 @@ export class AssignTasksComponent implements OnInit {
   today;
 
   ngOnInit() {
-    this.firstForm = this.fb.group({
+ /*   this.firstForm = this.fb.group({
       task: ['', Validators.required],
       description: ['', Validators.required],
       latitude: ['', Validators.required],
@@ -61,18 +52,34 @@ export class AssignTasksComponent implements OnInit {
     this.secondForm = this.fb.group({
       userName: ['', Validators.required],
     });
-
+*/
   }
 
-  onFirstSubmit() {
+ /* onFirstSubmit() {
     this.firstForm.markAsDirty();
-    this.taskManagementService.create(this.firstForm.value);
-    this.firstForm.reset();
+    // this.taskManagementService.create(this.firstForm.value);
+    // console.log("sdjkhbvfkds")
+    // this.firstForm.reset();
   }
 
   onSecondSubmit() {
     this.secondForm.markAsDirty();
-  }
+    // console.log(this.secondForm.value)
+
+  }*/
+  form = new FormGroup({
+    task: new FormControl("", Validators.required),
+    description: new FormControl("", Validators.required),
+    time: new FormControl("",[Validators.required]),
+    longitude: new FormControl("", Validators.required),
+    latitude: new FormControl("", Validators.required),
+    noOfVolunteers: new FormControl("", [Validators.required,Validators.min(1)]),
+
+  });
+  onSubmit() {
+    this.taskManagementService.create(this.form.value);
+    this.form.reset();
+  } 
 
   //new item starts here
   
@@ -88,12 +95,7 @@ export class AssignTasksComponent implements OnInit {
 
 
   getUserActivity(period: string) {
-    // this.userActivityService.getUserActivityData(period)
-    //   .pipe(takeWhile(() => this.alive))
-    //   .subscribe(userActivityData => {
-    //     this.userActivity = userActivityData;
-    //     console.log(this.userActivity)
-    //   });
+   
     this.taskManagementService.getAll().subscribe(result=>{
       this.userActivity=result;
       console.log(this.userActivity)
