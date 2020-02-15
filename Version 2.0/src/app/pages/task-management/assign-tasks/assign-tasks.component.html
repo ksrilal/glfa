@@ -79,7 +79,7 @@
     <nb-card size="medium">
       <nb-card-header>
         <span>User Activity</span>
-        <nb-select [selected]="type" (selectedChange)="getUserActivity($event); type = $event">
+        <nb-select [selected]="types[0]" (selectedChange)="getUserActivity($event); type = $event">
           <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
         </nb-select>
       </nb-card-header>
@@ -202,12 +202,12 @@
       <nb-card-header>Add Tasks</nb-card-header>
       <nb-card-body>
  
-        <div class="full-name-inputs">
+        
           <input
               type="text"
               nbInput
               fullWidth
-              placeholder="Task"
+              placeholder="task"
               formControlName="task"
               [placeholder]="
                 task.touched && task.invalid
@@ -224,7 +224,7 @@
             fullWidth
             placeholder="Description"
             formControlName="description"
-            [placeholder]="
+           [placeholder]="
               description.touched && description.invalid
                 ? 'Description Required'
                 : 'Description'
@@ -233,13 +233,13 @@
               description.touched && description.invalid ? 'danger' : 'primary'
             "
           />
-        </div>
+        
         <input
         hidden
-        type="date"
+        type="number"
         nbInput
         fullWidth
-        value="Date.now()"
+        value="{{date|date:mediumDate}}"
         formControlName="dueDate"
         
       />
@@ -258,6 +258,7 @@
                 time.touched && time.invalid ? 'danger' : 'primary'
               "
             />
+            <div class="full-name-inputs">
             <input
             type="number"
             nbInput
@@ -288,6 +289,9 @@
            latitude.touched && latitude.invalid ? 'danger' : 'primary'
           "
         />
+            </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-xxxl-6">
         <input
           type="number"
           nbInput
@@ -303,9 +307,19 @@
           noOfVolunteers.touched && noOfVolunteers.invalid ? 'danger' : 'primary'
           "
         />
-        
+        </div>
+        <div class="col-md-6 col-lg-6 col-xxxl-6">
+        <nb-select [selected]="staff[0]" (selectedChange)="event" formControlName="requestedBy" 
+        placeholder="Requested By" [status]="
+        requestedBy.touched && requestedBy.invalid ? 'danger' : 'primary'
+        ">
+          <nb-option *ngFor="let s of staff" [value]="s">{{ s }}</nb-option>
+        </nb-select>
+      </div>
+      </div>
+
          <button  nbButton status="primary" hero>
-            Add Driver
+            Add Task
           </button>
       </nb-card-body>
     </nb-card>
