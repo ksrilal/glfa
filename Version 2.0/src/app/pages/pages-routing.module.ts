@@ -32,10 +32,7 @@ const routes: Routes = [
         path: "ticket-management",
         component: TicketManagementComponent
       },
-      {
-        path: "filter-sales",
-        component: FilterSalesComponent
-      },
+
 
       {
         path: "layout",
@@ -47,6 +44,13 @@ const routes: Routes = [
         loadChildren: () =>
           import("./driver-state/driver-state.module").then(
             m => m.DriverStateManagementModule
+          )
+      },
+      {
+        path: "filter-sales",
+        loadChildren: () =>
+          import("./filter-sales/filter-sales.module").then(
+            m => m.FilterSalesModule
           )
       },
       {
