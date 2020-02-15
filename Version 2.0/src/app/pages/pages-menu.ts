@@ -21,234 +21,231 @@ export const boxoffice: NbMenuItem[] = [
     icon: "layers-outline",
     link: "/pages/redeem"
   },
+
   {
-    title: "Staff Management",
-    icon: "people-outline",
+    title: "Ticket Management",
+    icon: "home-outline",
     children: [
       {
-        title: "Add Staff",
-        link: "/pages/staff-management/add-staff"
-      },
-      {
-        title: "Modify Staff",
-        link: "/pages/staff-management/modify-staff"
+        title: "Summary",
+        link: "/pages/ticket-management/summary"
       }
     ]
   },
   {
-    title: "Ticket Management",
-    icon: "home-outline",
-    link: "/pages/ticket-management"
-  },
-  {
     title: "Filter Sales",
-    icon: "home-outline",
-    link: "/pages/filter-sales"
+    icon: "people-outline",
+    children: [
+      {
+        title: "Sales",
+        link: "/pages/filter-sales/sales"
+      }
+    ]
   }
 ];
 
 export const volunteerCoordinator: NbMenuItem[] = [
-         {
-           title: "E-commerce",
-           icon: "shopping-cart-outline",
-           link: "/pages/dashboard",
-           home: true
-         },
-         {
-           title: "IoT Dashboard",
-           icon: "home-outline",
-           link: "/pages/iot-dashboard"
-         },
-         {
-           title: "Volunteer Coordinator",
-           group: true
-         },
-         {
-           title: "Volunteer Management",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Add Volunteer",
-               link: "/pages/volunteer-management/add-volunteer"
-             },
-             {
-               title: "Modify Volunteer",
-               link: "/pages/volunteer-management/modify-volunteer"
-             },
-             {
-               title: "Find Volunteer",
-               link: "/pages/volunteer-management/find-volunteer"
-             }
-           ]
-         },
-         {
-           title: "Task Management",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Assign Tasks",
-               link: "/pages/task-management/assign-tasks"
-             },
-             {
-               title: "Task Status",
-               link: "/pages/task-management/tasks-status"
-             }
-           ]
-         },
-         {
-           title: "Map",
-           icon: "layout-outline",
-           children: [
-             {
-               title: "Map",
-               link: "/pages/volunteer-map/map"
-             }
-           ]
-         }
-       ];
+  {
+    title: "E-commerce",
+    icon: "shopping-cart-outline",
+    link: "/pages/dashboard",
+    home: true
+  },
+  {
+    title: "IoT Dashboard",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard"
+  },
+  {
+    title: "Volunteer Coordinator",
+    group: true
+  },
+  {
+    title: "Volunteer Management",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Add Volunteer",
+        link: "/pages/volunteer-management/add-volunteer"
+      },
+      {
+        title: "Modify Volunteer",
+        link: "/pages/volunteer-management/modify-volunteer"
+      },
+      {
+        title: "Find Volunteer",
+        link: "/pages/volunteer-management/find-volunteer"
+      }
+    ]
+  },
+  {
+    title: "Task Management",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Assign Tasks",
+        link: "/pages/task-management/assign-tasks"
+      },
+      {
+        title: "Task Status",
+        link: "/pages/task-management/tasks-status"
+      }
+    ]
+  },
+  {
+    title: "Map",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Map",
+        link: "/pages/volunteer-map/map"
+      }
+    ]
+  }
+];
 export const transportationCoordinator: NbMenuItem[] = [
-         {
-           title: "E-commerce",
-           icon: "shopping-cart-outline",
-           link: "/pages/dashboard",
-           home: true
-         },
-         {
-           title: "IoT Dashboard",
-           icon: "home-outline",
-           link: "/pages/iot-dashboard"
-         },
-         {
-           title: "Transportation Coordinator",
-           group: true
-         },
-         {
-           title: "Driver Management",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Add drivers",
-               link: "/pages/driver-management/add-driver"
-             },
-             {
-               title: "Modify drivers",
-               link: "/pages/driver-management/modify-driver"
-             }
-           ]
-         },
-         {
-           title: "Request Volunteers",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Request Volunteers",
-               link: "/pages/request-volunteers/req-volunteers"
-             }
-           ]
-         },
-         {
-           title: "View Drivers",
-           icon: "people-outline",
-           children: [
-             {
-               title: "View Drivers",
-               link: "/pages/driver-state/view-drivers"
-             }
-           ]
-         },
-         {
-           title: "Chat",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Chat",
-               link: "/pages/transpotation-chat/chat"
-             }
-           ]
-         },
-         //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
-         {
-           title: "Map",
-           icon: "layout-outline",
-           children: [
-             {
-               title: "Map",
-               link: "/pages/transpotation-map/map"
-             }
-           ]
-         }
-       ];
+  {
+    title: "E-commerce",
+    icon: "shopping-cart-outline",
+    link: "/pages/dashboard",
+    home: true
+  },
+  {
+    title: "IoT Dashboard",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard"
+  },
+  {
+    title: "Transportation Coordinator",
+    group: true
+  },
+  {
+    title: "Driver Management",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Add drivers",
+        link: "/pages/driver-management/add-driver"
+      },
+      {
+        title: "Modify drivers",
+        link: "/pages/driver-management/modify-driver"
+      }
+    ]
+  },
+  {
+    title: "Request Volunteers",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Request Volunteers",
+        link: "/pages/request-volunteers/req-volunteers"
+      }
+    ]
+  },
+  {
+    title: "View Drivers",
+    icon: "people-outline",
+    children: [
+      {
+        title: "View Drivers",
+        link: "/pages/driver-state/view-drivers"
+      }
+    ]
+  },
+  {
+    title: "Chat",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Chat",
+        link: "/pages/transpotation-chat/chat"
+      }
+    ]
+  },
+  //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
+  {
+    title: "Map",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Map",
+        link: "/pages/transpotation-map/map"
+      }
+    ]
+  }
+];
 
 export const manager: NbMenuItem[] = [
-         {
-           title: "E-commerce",
-           icon: "shopping-cart-outline",
-           link: "/pages/dashboard",
-           home: true
-         },
-         {
-           title: "IoT Dashboard",
-           icon: "home-outline",
-           link: "/pages/iot-dashboard"
-         },
+  {
+    title: "E-commerce",
+    icon: "shopping-cart-outline",
+    link: "/pages/dashboard",
+    home: true
+  },
+  {
+    title: "IoT Dashboard",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard"
+  },
 
-         {
-           title: "Festival Manager",
-           group: true
-         },
-         {
-           title: "Author Management",
-           icon: "layout-outline",
-           children: [
-             {
-               title: "Add author",
-               link: "/pages/author-management/add-author"
-             },
-             {
-               title: "Modify author",
-               link: "/pages/author-management/modify-author"
-             }
-           ]
-         },
-         {
-           title: "Staff Management",
-           icon: "layout-outline",
-           children: [
-             {
-               title: "Add staff",
-               link: "/pages/festival-staff-management/add-staff"
-             },
-             {
-               title: "Modify staff",
-               link: "/pages/festival-staff-management/modify-staff"
-             }
-           ]
-         },
-         {
-           title: "Event Management",
-           icon: "layout-outline",
-           children: [
-             {
-               title: "Add Event",
-               link: "/pages/event-management/add-event"
-             },
-             {
-               title: "Modify event",
-               link: "/pages/event-management/modify-event"
-             }
-           ]
-         },
-         {
-           title: "Map",
-           icon: "layout-outline",
-           children: [
-             {
-               title: "Map",
-               link: "/pages/festival-manager-map/map"
-             }
-           ]
-         }
-       ];
+  {
+    title: "Festival Manager",
+    group: true
+  },
+  {
+    title: "Author Management",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Add author",
+        link: "/pages/author-management/add-author"
+      },
+      {
+        title: "Modify author",
+        link: "/pages/author-management/modify-author"
+      }
+    ]
+  },
+  {
+    title: "Staff Management",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Add staff",
+        link: "/pages/festival-staff-management/add-staff"
+      },
+      {
+        title: "Modify staff",
+        link: "/pages/festival-staff-management/modify-staff"
+      }
+    ]
+  },
+  {
+    title: "Event Management",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Add Event",
+        link: "/pages/event-management/add-event"
+      },
+      {
+        title: "Modify event",
+        link: "/pages/event-management/modify-event"
+      }
+    ]
+  },
+  {
+    title: "Map",
+    icon: "layout-outline",
+    children: [
+      {
+        title: "Map",
+        link: "/pages/festival-manager-map/map"
+      }
+    ]
+  }
+];
 
 export const all: NbMenuItem[] = [
   {

@@ -1,30 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { LocalDataSource } from 'ng2-smart-table';
-import { SmartTableData } from '../../../@core/data/smart-table';
+import { LocalDataSource } from "ng2-smart-table";
+import { SmartTableData } from "../../../@core/data/smart-table";
 
 @Component({
-  selector: "ngx-modify-staff",
-  templateUrl: "./modify-staff.component.html",
-  styleUrls: ["./modify-staff.component.scss"]
+  selector: "ngx-sales",
+  templateUrl: "./sales.component.html",
+  styleUrls: ["./sales.component.scss"]
 })
-export class ModifyStaffComponent implements OnInit {
+export class SalesComponent implements OnInit {
   ngOnInit() {}
-
   settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>'
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>'
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true
-    },
+    actions: false,
     columns: {
       id: {
         title: "ID",

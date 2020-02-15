@@ -31,8 +31,7 @@ import { ViewDriversComponent } from "./driver-state/view-drivers/view-drivers.c
 import { FestivalStaffManagementService } from "./festival-staff-management/festival-staff-management.service";
 import { DropzoneDirective } from "./dropzone.directive";
 import { RedeemTicketModule } from "./redeem-ticket/redeem-ticket.module";
-
-
+import { SalesComponent } from "./filter-sales/sales/sales.component";
 
 @NgModule({
   imports: [
@@ -47,11 +46,9 @@ import { RedeemTicketModule } from "./redeem-ticket/redeem-ticket.module";
   declarations: [
     PagesComponent,
     // RedeemTicketComponent,
-    TicketManagementComponent,
-    FilterSalesComponent,
-    VehicleManagementComponent,
-    DropzoneDirective,
 
+    VehicleManagementComponent,
+    DropzoneDirective
   ],
   providers: [FestivalStaffManagementService]
 })
