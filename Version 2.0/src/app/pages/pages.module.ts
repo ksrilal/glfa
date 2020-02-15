@@ -31,12 +31,8 @@ import { ViewDriversComponent } from "./driver-state/view-drivers/view-drivers.c
 import { FestivalStaffManagementService } from "./festival-staff-management/festival-staff-management.service";
 import { DropzoneDirective } from "./dropzone.directive";
 import { RedeemTicketModule } from "./redeem-ticket/redeem-ticket.module";
-import { TranspotationChatComponent } from "./transpotation-chat/transpotation-chat.component";
-import { TransChatComponent } from "./transpotation-chat/trans-chat/trans-chat.component";
-import { FestivalManagerMapComponent } from "./festival-manager-map/festival-manager-map.component";
-import { ManagerMapComponent } from "./festival-manager-map/manager-map/manager-map.component";
-import { VolunteerMapComponent } from "./volunteer-map/volunteer-map.component";
-import { MapComponent } from "./volunteer-map/map/map.component";
+
+
 
 @NgModule({
   imports: [
@@ -54,7 +50,8 @@ import { MapComponent } from "./volunteer-map/map/map.component";
     TicketManagementComponent,
     FilterSalesComponent,
     VehicleManagementComponent,
-    DropzoneDirective
+    DropzoneDirective,
+
   ],
   providers: [FestivalStaffManagementService]
 })
