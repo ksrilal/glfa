@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AngularFireStorage } from "@angular/fire/storage";
 import { FestivalStaffManagementService } from '../festival-staff-management.service';
 import { StaffManagementComponent } from '../../staff-management/staff-management.component';
-
+ 
 @Component({
   selector: "ngx-add-staff",
   templateUrl: "./add-staff.component.html",

@@ -6,9 +6,9 @@
       <nb-card-body>
 
         <div class="form-group">
-        <input type="text" nbInput fullWidth placeholder="Event Name" formControlName="eventName"
-        [placeholder]="eventName.touched && eventName.invalid ? 'Event Name Required!' : 'Event Name' "
-        [status]="eventName.touched &&  eventName.invalid ? 'danger' : 'primary' ">
+        <input type="text" nbInput fullWidth placeholder="Event Name" formControlName="name"
+        [placeholder]="name.touched && name.invalid ? 'Event Name Required!' : 'Event Name' "
+        [status]="name.touched &&  name.invalid ? 'danger' : 'primary' ">
         </div>
 
         <div class="form-group">
@@ -33,25 +33,25 @@
         [placeholder]="venue.touched && venue.invalid ? 'Venue Required!' : 'Venue' "
         [status]="venue.touched &&  venue.invalid ? 'danger' : 'primary' ">
 
-        <input type="text" nbInput fullWidth placeholder="Guest Name(s)" formControlName="guestName"
-        [placeholder]="guestName.touched && guestName.invalid ? 'Guest Name(s) Required!' : 'Guest Name(s)' "
-        [status]="guestName.touched && guestName.invalid ? 'danger' : 'primary' ">
+        <input type="text" nbInput fullWidth placeholder="Guest Author" formControlName="author"
+        [placeholder]="author.touched && author.invalid ? 'Guest Author Name Required!' : 'Guest Author' "
+        [status]="author.touched && author.invalid ? 'danger' : 'primary' ">
 
-        <input type="text" nbInput fullWidth placeholder="Ticket Price" formControlName="ticketPrice"
-        [placeholder]="ticketPrice.touched && ticketPrice.invalid ? 'Ticket Price Required!' : 'Ticket Price' "
-        [status]="ticketPrice.touched && ticketPrice.invalid ? 'danger' : 'primary' ">
+        <input type="text" nbInput fullWidth placeholder="Ticket Price" formControlName="price"
+        [placeholder]="price.touched && price.invalid ? 'Ticket Price Required!' : 'Ticket Price' "
+        [status]="price.touched && price.invalid ? 'danger' : 'primary' ">
 
-        <input type="number" min="1" nbInput fullWidth placeholder="Ticket Quantity" formControlName="ticketQuantity"
-        [placeholder]="ticketQuantity.touched && ticketQuantity.invalid ? 'Ticket Quantity Required!' : 'Ticket Quantity' "
-        [status]="ticketQuantity.touched && ticketQuantity.invalid ? 'danger' : 'primary' ">
+        <input type="number" min="1" nbInput fullWidth placeholder="Ticket Quantity" formControlName="quantity"
+        [placeholder]="quantity.touched && quantity.invalid ? 'Ticket Quantity Required!' : 'Ticket Quantity' "
+        [status]="quantity.touched && quantity.invalid ? 'danger' : 'primary' ">
         
         <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Description" 
-        formControlName="description"
-          [placeholder]="description.touched && description.invalid ? 'Description Required!' : 'Description' "
-          [status]="description.touched && description.invalid ? 'danger' : 'primary' "></textarea>
+        formControlName="des"
+          [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description' "
+          [status]="des.touched && des.invalid ? 'danger' : 'primary' "></textarea>
 
 
-          <button  nbButton status="primary" hero>
+          <button  nbButton status="primary" hero [disabled]="form.invalid">
             Add Event
           </button>
 

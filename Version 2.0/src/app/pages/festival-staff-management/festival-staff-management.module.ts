@@ -10,8 +10,6 @@ import { FormInputsComponent } from '../forms/form-inputs/form-inputs.component'
 import { FormLayoutsComponent } from '../forms/form-layouts/form-layouts.component';
 import { DatepickerComponent } from '../forms/datepicker/datepicker.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-
-import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -39,7 +37,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   declarations: [
     ...routedComponents,
-    UploadTaskComponent,
     // FormsComponent,
     // ButtonsComponent,
     // FormInputsComponent,

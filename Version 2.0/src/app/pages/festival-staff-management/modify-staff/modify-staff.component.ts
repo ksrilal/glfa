@@ -48,7 +48,7 @@ export class ModifyStaffComponent implements OnInit {
         type: 'string',
       },
       mobile: {
-        title: 'Description',
+        title: 'Mobile',
         type: 'String',
       },
     },
@@ -63,7 +63,8 @@ export class ModifyStaffComponent implements OnInit {
   }
 
   onSaveConfirm(event):void{
-    if (window.confirm('Are you sure you want to edit?')) {
+    if (event.newData.fname !="" && event.newData.lname !="" && event.newData.email !="" && event.newData.role !="" && event.newData.mobile !=""){
+      if (window.confirm('Are you sure you want to edit?')) {
       // event.confirm.resolve();
       this.FestivalStaffManagementService.edit(event.data.id,event.newData)
       //console.log(event.data)
@@ -71,16 +72,22 @@ export class ModifyStaffComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+    }else{
+      alert("ERROR!")
+  }
+
+    
   }
 
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      // event.confirm.resolve();
-      this.FestivalStaffManagementService.delete(event.data.id)
-      // console.log(event.data.id)
-    } else {
-      event.confirm.reject();
+      if (window.confirm('Are you sure you want to delete?')) {
+        // event.confirm.resolve();
+        this.FestivalStaffManagementService.delete(event.data.id)
+        // console.log(event.data.id)
+      } else {
+        event.confirm.reject();
+      }
     }
   }
 
-}
+

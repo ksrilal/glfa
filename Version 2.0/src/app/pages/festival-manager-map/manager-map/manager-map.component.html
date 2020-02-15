@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-6"></div>
+  <div class="col-6">
+    <nb-card>
+      <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+        <agm-marker
+          [latitude]="latitude"
+          [longitude]="longitude"
+          [markerDraggable]="false"
+          (dragEnd)="markerDragEnd($event)"
+        ></agm-marker>
+         <agm-marker
+          [latitude]="56"
+          [longitude]="69"
+          [markerDraggable]="false"
+          (dragEnd)="markerDragEnd($event)"
+        ></agm-marker>
+      </agm-map>
+    </nb-card>
+  </div>
+</div>

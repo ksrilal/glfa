@@ -9,8 +9,8 @@ import { AuthorManagementService } from '../author-management.service';
   styleUrls: ['./modify-author.component.scss']
 })
 export class ModifyAuthorComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+
+  ngOnInit() {
   }
   settings = {
     add: {
@@ -22,6 +22,7 @@ export class ModifyAuthorComponent implements OnInit {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -54,19 +55,22 @@ export class ModifyAuthorComponent implements OnInit {
   source;
 
   constructor(private authorManagement: AuthorManagementService) {
-    authorManagement.getAll().subscribe(result=>{
-      this.source=result
+    authorManagement.getAll().subscribe(result => {
+      this.source = result
     })
   }
+  
 
-  onSaveConfirm(event):void{
-    if (window.confirm('Are you sure you want to edit?')) {
-      // event.confirm.resolve();
-      this.authorManagement.edit(event.data.id,event.newData)
-      //console.log(event.data)
-      // console.log(event.newData)
-    } else {
-      event.confirm.reject();
+  onSaveConfirm(event): void {
+    if (event.newData.fname != "" && event.newData.lname !="" && event.newData.email !="" && event.newData.des !="" && event.newData.mobile !="" && event.newData.email.includes('@') && event.newData.email.includes('.com') && event.newData.mobile.length == 10 && !event.newData.mobile.match(/[a-z]/i)) {
+      if (window.confirm('Are you sure you want to edit?')) {
+        // event.confirm.resolve();
+        this.authorManagement.edit(event.data.id, event.newData)
+      } else {
+        event.confirm.reject();
+      }
+    }else{
+      alert("ERROR!")
     }
   }
 

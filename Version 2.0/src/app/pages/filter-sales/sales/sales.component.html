@@ -1,0 +1,32 @@
+<nb-card>
+  <nb-card-header>
+    Box Office Staff
+
+    <nb-card>
+      <nb-card-header>Pick a day</nb-card-header>
+      <nb-card-body>
+        <nb-select selected="1">
+          <nb-option value="1">Day 1</nb-option>
+          <nb-option value="2">Day 2</nb-option>
+          <nb-option value="3">Day 3</nb-option>
+          <nb-option value="4">Day 4</nb-option>
+          <nb-option value="5">Day 5</nb-option>
+        </nb-select>
+        <!-- <div style="padding-left: 1%;"> -->
+          <button nbButton status="primary" hero>
+            Get Excel
+          </button>
+        <!-- </div> -->
+      </nb-card-body>
+    </nb-card>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

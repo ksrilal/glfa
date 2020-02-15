@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DriverStateService } from '../driver-state.service';
 
 @Component({
   selector: 'ngx-view-drivers',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewDriversComponent implements OnInit {
 
-  constructor() { }
+  allVehicles;
+  assignedVehicles;
+  freeVehicles;
+
+  constructor(private driverStateService : DriverStateService) {
+     this. driverStateService.getAll().subscribe(allVehicle => {
+      this.allVehicles = allVehicle;
+      console.log(this.allVehicles)
+
+    });
+      this.driverStateService.getFree().subscribe(freeVehicle => {
+      this.freeVehicles = freeVehicle;
+    });
+      this.driverStateService.getAssigned().subscribe(assignedVehicle => {
+      this.assignedVehicles = assignedVehicle;
+    });
+
+   }
 
   ngOnInit() {
   }
