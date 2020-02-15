@@ -49,6 +49,22 @@ export class TaskManagementService {
     
   }
 
+  getUnassignedTasks(){
+    try{
+      return this.afs.collection('tasks',ref=>ref.where('status','==',"Todo")).valueChanges({idField:"id"});
+    }catch(error){
+      alert(error);
+    }
+  }
+
+  getAvailableVolunteers(){
+    try{
+      return this.afs.collection('volunteers',ref=>ref.where('availability','==',"true")).valueChanges({idField:"id"});
+    }catch(error){
+      alert(error);
+    }
+  }
+
   delete(id){
     this.afs.collection('tasks').doc(id).delete();
   }
@@ -56,5 +72,9 @@ export class TaskManagementService {
   edit(id,newData){
     this.afs.collection('tasks').doc(id).update(newData);
   }
-}
 
+  assignVolunteer(volun){
+    //this.afs.collection('volunteers',ref=>ref.where())
+  }
+  
+}
