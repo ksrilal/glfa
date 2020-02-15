@@ -15,7 +15,6 @@ export class ViewDriversComponent implements OnInit {
   constructor(private driverStateService : DriverStateService) {
      this. driverStateService.getAll().subscribe(allVehicle => {
       this.allVehicles = allVehicle;
-      console.log(this.allVehicles)
 
     });
       this.driverStateService.getFree().subscribe(freeVehicle => {

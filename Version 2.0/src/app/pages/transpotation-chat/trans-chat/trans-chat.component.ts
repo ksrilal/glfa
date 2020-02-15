@@ -45,7 +45,8 @@ export class TransChatComponent implements OnInit {
   peerId = null;
   selectChat(t) {
     // tslint:disable-next-line: no-console
-    this.userName = t.name;
+    this.userName = t.fname;
+    console.log(this.userName)
     this.peerId = t.id;
     // tslint:disable-next-line: no-console
     console.log(t);
@@ -68,7 +69,8 @@ export class TransChatComponent implements OnInit {
     this.userName = peer.name;
     this.peerId = peer.id;
 
-    // const peerId = peer.id;
+    const peerId = peer.id;
+    this.userName=peer.fname;
 
     this.gropChatId = this.getGroupChatId(this.currentUserId, peer.id);
     // this.gropChatId = this.currentUserId + "-" + peerId;
@@ -78,7 +80,8 @@ export class TransChatComponent implements OnInit {
     // });
 
     // tslint:disable-next-line: no-console
-    console.log(this.gropChatId);
+    //console.log(this.gropChatId);
+    console.log(this.peerId);
   }
 
   sendMessage(event: any) {
@@ -86,7 +89,7 @@ export class TransChatComponent implements OnInit {
     //   "dVT9coOUMmgqXAli2ttX6Ct87S22-y28mYW3xEFY6OSoH9etzvAjBUnJ3";
     const groupChatId = this.getGroupChatId(this.currentUserId, this.peerId);
 
-    // this.chatService.sednMessage(event.message, groupChatId);
+    this.chatService.sendMessage(event.message, groupChatId);
 
 
     // const files = !event.files ? [] : event.files.map((file) => {
