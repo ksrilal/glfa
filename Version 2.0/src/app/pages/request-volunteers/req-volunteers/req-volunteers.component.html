@@ -44,7 +44,7 @@
           placeholder="Required Number of Volunteers"
           formControlName="noVol"
           [placeholder]="
-              noVol.touched && vnoVol.invalid
+              noVol.touched && noVol.invalid
               ? 'Required Number of Volunteers Required'
               : 'Required Number of Volunteers'
           "
@@ -113,20 +113,33 @@
           "
         />
         <input
-          type="text"
-          nbInput
-          fullWidth
-          placeholder="Driver Contact Number"
-          formControlName="driverContact"
-          [placeholder]="
-              driverContact.touched && driverContact.invalid
-              ? 'Driver Contact Number Required'
-              : 'Driver Contact Number'
-          "
-          [status]="
-              driverContact.touched && driverContact.invalid ? 'danger' : 'primary'
-          "
-        />
+            [status]="driverContact.touched && driverContact.invalid ? 'danger' : 'primary'"
+            formControlName="driverContact"
+            name="driverContact"
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="0771234567"
+          />
+          <div *ngIf="driverContact.touched && driverContact.invalid">
+            <div *ngIf="driverContact.errors.minlength || driverContact.errors.maxlength">
+              <div class="alert alert-danger">
+                Invalid format
+              </div>
+            </div>
+            <div *ngIf="driverContact.errors.pattern">
+              <div class="alert alert-danger">
+                Numbers Only
+              </div>
+            </div>
+
+            <div *ngIf="driverContact.errors.required">
+              <div class="alert alert-danger">
+                Number Required
+              </div>
+            </div>
+          </div>
+
         <input
           type="text"
           nbInput
@@ -142,7 +155,14 @@
               description.touched && description.invalid ? 'danger' : 'primary'
           "
         />
-         <button  nbButton status="primary" hero>
+        <input
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Disabled input"
+            disabled
+          />
+          <button [disabled]="form.invalid" nbButton status="primary" hero>
             Request
           </button>
       </nb-card-body>
