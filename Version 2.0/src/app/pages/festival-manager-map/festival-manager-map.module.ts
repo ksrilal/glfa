@@ -13,7 +13,10 @@ import {
   NbRadioModule,
   NbDatepickerModule,
   NbSelectModule,
-  NbIconModule
+  NbIconModule,
+  NbListModule,
+  NbTabsetModule,
+  NbRouteTabsetModule
 } from "@nebular/theme";
 import { NgModule } from "@angular/core";
 import { AgmCoreModule } from '@agm/core';
@@ -28,6 +31,9 @@ import { MapComponent } from '../maps/search-map/map/map.component';
     NbButtonModule,
     NbActionsModule,
     NbUserModule,
+    NbTabsetModule,
+    NbRouteTabsetModule,
+    NbListModule,
     NbCheckboxModule,
     NbRadioModule,
     NbDatepickerModule,
