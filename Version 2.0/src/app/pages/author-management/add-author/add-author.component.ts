@@ -3,7 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidators } from '../../validators/password-validator';
 import { AuthorManagementService } from '../author-management.service';
 import { AngularFireStorage } from '@angular/fire/storage';
-
+import * as firebase from 'firebase/app';
+  import { from } from 'rxjs';
 
 @Component({
   selector: 'ngx-add-author',
@@ -20,6 +21,8 @@ export class AddAuthorComponent implements OnInit {
 
   downloadURL;
   randomId;
+  latitude: number=0;
+  longitude: number=0;
 
   upload(event) {
     this.randomId = Math.random()
@@ -50,8 +53,8 @@ export class AddAuthorComponent implements OnInit {
       PasswordValidators.checkPasswrod
     ]),
     gender: new FormControl("", Validators.required),
-    latitude: new FormControl(""),
-    longitude: new FormControl(""),
+    // latitude: new FormControl(""),
+    // longitude: new FormControl(""),
   });
 
 
@@ -66,9 +69,19 @@ export class AddAuthorComponent implements OnInit {
         //console.log(this.downloadURL);
         //console.log(this.form.value);
         this.form.value.pic = this.downloadURL;
+        // this.form.value.latitude = this.latitude;
+        // this.form.value.longitude = this.longitude;
+
+        const location = new firebase.firestore.GeoPoint(
+          this.latitude,this.longitude
+        )
+        this.form.value['location']=location;
+        
+        this.form.value.pic = this.downloadURL;
+        //console.log(this.form.value);
         this.authorManagement.create(this.form.value);
         
-    this.form.reset();
+     this.form.reset();
       });
 
   }

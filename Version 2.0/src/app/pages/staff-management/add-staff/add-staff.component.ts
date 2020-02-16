@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidators } from '../../validators/password-validator';
+import { BoxOfficeStaffService } from '../box-office-staff.service';
 
 @Component({
   selector: "ngx-add-staff",
@@ -33,10 +34,11 @@ export class AddStaffComponent implements OnInit {
     // accessName: new FormControl("", Validators.required)
   });
 
-  constructor() {}
+  constructor(private boxOfficeStaffService:BoxOfficeStaffService) {}
 
   onSubmit() {
-    // this.staffService.create(this.form.value);
+    this.boxOfficeStaffService.create(this.form.value);
+    // console.log(this.form.value)
     this.form.reset();
   }
 
