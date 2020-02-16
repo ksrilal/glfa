@@ -25,7 +25,8 @@ export class AddVolunteerComponent implements OnInit {
     mobile: new FormControl("", [Validators.required,Validators.minLength(10)]),
     email: new FormControl("",[Validators.required,Validators.email]),
     passwd: new FormControl("", [Validators.required,Validators.minLength(8)]),
-    confirmpassword:new FormControl("",[Validators.required,PasswordValidators.checkPasswrod])
+    confirmpassword:new FormControl("",[Validators.required,PasswordValidators.checkPasswrod]),
+    availability:new FormControl("true"),
 
   });
   ngOnInit() {
@@ -68,6 +69,9 @@ export class AddVolunteerComponent implements OnInit {
     return this.form.get("confirmpassword");
   }
 
+  get availability(){
+    return this.form.get("availability");
+  }
 
 
   onSubmit() {

@@ -16,6 +16,7 @@ import { VolunteerMapService } from '../volunteer-map.service';
   templateUrl: "./map.component.html",
   styleUrls: ["./map.component.scss"]
 })
+
 export class MapComponent implements OnInit {
 
   contacts;
