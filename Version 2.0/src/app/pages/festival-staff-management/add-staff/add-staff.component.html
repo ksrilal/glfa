@@ -23,6 +23,21 @@
           >
         </div>
 
+        <div class="form-group">
+          <label class="col-sm-3 label">Gender</label>
+          <div class="col-sm-9">
+        <nb-radio-group formControlName="gender">
+          <nb-radio value="male">Male</nb-radio>
+          <nb-radio value="female">Female</nb-radio>
+          <nb-radio value="other" >Other</nb-radio>
+          </nb-radio-group>
+        <div *ngIf="gender.touched && gender.invalid">
+          <div class="alert alert-danger">
+            This field is Required!
+          </div>
+        </div>
+          </div></div>
+
         <!-- <input type="text" nbInput fullWidth placeholder="Username" formControlName="userName"
         [placeholder]="userName.touched && userName.invalid ? 'Username Required!' : 'Username' "
         [status]="userName.touched && userName.invalid ? 'danger' : 'primary' "
@@ -34,7 +49,7 @@
           [status]="email.touched && email.invalid ? 'danger' : 'primary' "
           >
           <div *ngIf="email.touched && email.errors">
-            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+            <div class="alert alert-danger" *ngIf="email.errors.email">Email must be a valid email address</div>
         </div>
 
         </div>
@@ -46,7 +61,7 @@
         [status]="password.touched && password.invalid ? 'danger' : 'primary' "
         >
         <div *ngIf="password.touched && password.errors">
-          <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+          <div class="alert alert-danger" *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
       </div>
         </div>
  
@@ -56,8 +71,8 @@
           [status]="confirmPassword.touched && confirmPassword.invalid ? 'danger' : 'primary'"
           >
           <div *ngIf="confirmPassword.touched && confirmPassword.errors">
-            <div *ngIf="confirmPassword.errors.minlength">Password must be at least 8 characters</div>
-            <div *ngIf="confirmPassword.errors.pattern || confirmPassword.invalid">Password not match!</div>
+            <div class="alert alert-danger" *ngIf="confirmPassword.errors.minlength">Password must be at least 8 characters</div>
+            <div class="alert alert-danger" *ngIf="confirmPassword.errors.pattern || confirmPassword.invalid">Password not match!</div>
         </div>
           </div>
          
@@ -67,10 +82,11 @@
         [status]="mobile.touched && mobile.invalid ? 'danger' : 'primary' "
         >
         <div *ngIf="mobile.touched && mobile.errors">
-          <div *ngIf="mobile.errors.minlength">Mobile number must be 10 numbers</div>
-          <div *ngIf="mobile.errors.maxlength">Mobile number must be 10 numbers</div>
+          <div class="alert alert-danger" *ngIf="mobile.errors.minlength">Mobile number must be 10 numbers</div>
+          <div class="alert alert-danger" *ngIf="mobile.errors.maxlength">Mobile number must be 10 numbers</div>
         </div>
         </div>
+
         <div class="form-group">
             <label class="col-sm-3 label">Role</label>
             <div class="col-sm-9">
@@ -80,6 +96,11 @@
                 <nb-radio value="transpotation">Transpotation Coordinator</nb-radio>
                 <nb-radio value="volunteer">Volunteer Coordinator</nb-radio>
               </nb-radio-group>
+              <div *ngIf="role.touched && role.invalid">
+              <div class="alert alert-danger">
+                This field is Required!
+              </div>
+            </div>
             </div>
           </div>
 
@@ -93,7 +114,7 @@
           <label>Select profile picture to upload</label>
           <!-- <input type="file" accept="image/*"  class="form-control"> -->
             <input type="file" (change)="upload($event)" class="form-control" formControlName="pic" accept=".png,.jpg">
-            <div *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
+            <div class="alert alert-danger" *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
           </div>
 
         </div>
