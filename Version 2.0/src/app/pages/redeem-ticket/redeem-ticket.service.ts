@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Injectable } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Injectable({
   providedIn: "root"
@@ -22,7 +22,20 @@ export class RedeemTicketService {
       .valueChanges();
   }
 
-  redeemTicket(QR) {
+  redeemTicket(QR, orderDetails, date) {
+    this.afs
+      .collection("redeem")
+      .doc(date)
+      .set({});
+
+    orderDetails.forEach(element => {
+      this.afs
+        .collection("redeem")
+        .doc(date)
+        .collection("orders")
+        .add(element);
+    });
+
     return this.afs
       .collection("orders")
       .doc(QR)

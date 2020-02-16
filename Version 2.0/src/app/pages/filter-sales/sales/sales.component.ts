@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { LocalDataSource } from "ng2-smart-table";
 import { SmartTableData } from "../../../@core/data/smart-table";
+import { FilterSalesService } from "../filter-sales.service";
 
 @Component({
   selector: "ngx-sales",
@@ -12,24 +13,24 @@ export class SalesComponent implements OnInit {
   settings = {
     actions: false,
     columns: {
-      id: {
-        title: "ID",
-        type: "number"
-      },
-      firstName: {
-        title: "First Name",
+      author: {
+        title: "Author",
         type: "string"
       },
-      lastName: {
-        title: "Last Name",
+      event: {
+        title: "Event",
         type: "string"
       },
-      username: {
-        title: "Username",
+      price: {
+        title: "Ticekt Price",
         type: "string"
       },
-      email: {
-        title: "E-mail",
+      quantity: {
+        title: "Quantity",
+        type: "string"
+      },
+      totalPrice: {
+        title: "Total",
         type: "string"
       },
       age: {
@@ -39,11 +40,16 @@ export class SalesComponent implements OnInit {
     }
   };
 
-  source: LocalDataSource = new LocalDataSource();
+  source;
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  dates = ([] = []);
+
+  constructor(private filterService: FilterSalesService) {
+    filterService.getDates().subscribe(dates => {
+      dates.forEach(element => {
+        this.dates.push(element["day"]);
+      });
+    });
   }
 
   onDeleteConfirm(event): void {
@@ -52,5 +58,12 @@ export class SalesComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+  }
+
+  selectDate(event) {
+    console.log(event);
+    this.filterService.getSales(event).subscribe(result => {
+      this.source = result;
+    });
   }
 }

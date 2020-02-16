@@ -6,6 +6,7 @@ import {
   NbTreeGridDataSourceBuilder
 } from "@nebular/theme";
 import { RedeemTicketService } from "../redeem-ticket.service";
+import { DatePipe } from "@angular/common";
 
 interface TreeNode<T> {
   data: T;
@@ -28,15 +29,20 @@ interface FSEntry {
 export class RedeemTicketPageComponent implements OnInit {
   deligateName;
   country;
-  status ;
+  status;
   ticketBool;
+  finalDate;
   constructor(
     private redeemTicket: RedeemTicketService,
-    private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>
-  ) {}
+    private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>,
+    private datePipe: DatePipe
+  ) {
+    this.finalDate = this.datePipe.transform(Date(), "yyyyMMdd");
+  }
 
   ngOnInit() {}
   QR;
+  orderDetails = ([] = []);
   scanItem() {
     this.QR = (<HTMLInputElement>document.getElementById("code")).value;
     console.log(this.QR);
@@ -50,8 +56,10 @@ export class RedeemTicketPageComponent implements OnInit {
       // });
       this.redeemTicket.getData(this.QR).subscribe(result => {
         console.log(result);
+        this.orderDetails = [];
         result.forEach(a => {
           a["totalPrice"] = a["price"] * a["quantity"];
+          this.orderDetails.push(a);
 
           this.data.push({ data: a });
         });
@@ -64,7 +72,7 @@ export class RedeemTicketPageComponent implements OnInit {
         this.country = result["country"];
         if (result["status"]) {
           this.status = "Redeemed";
-          this.ticketBool=false
+          this.ticketBool = false;
         } else {
           this.status = " Not Redeemed";
           this.ticketBool = true;
@@ -104,8 +112,9 @@ export class RedeemTicketPageComponent implements OnInit {
   }
 
   redeem() {
+    // console.log(this.finalDate);
     if (window.confirm("Are you sure you want to redeem?")) {
-      this.redeemTicket.redeemTicket(this.QR);
+      this.redeemTicket.redeemTicket(this.QR, this.orderDetails,this.finalDate);
     }
   }
 }
