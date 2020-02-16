@@ -4,11 +4,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
-export class TransportationChatService {
+export class ManagerMapService {
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) { }
 
   getAllAuthors(){
     return this.afs.collection('authors').valueChanges();
   }
+
 }

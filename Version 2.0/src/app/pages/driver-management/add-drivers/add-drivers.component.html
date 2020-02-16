@@ -53,20 +53,32 @@
               "
             />
             <input
+            [status]="contactnum.touched && contactnum.invalid ? 'danger' : 'primary'"
+            formControlName="contactnum"
+            name="contactnum"
             type="text"
             nbInput
             fullWidth
-            placeholder="Contact Number"
-            formControlName="contactnum"
-            [placeholder]="
-              contactnum.touched && contactnum.invalid
-                ? 'Contact Number Required'
-                : 'Contact Number'
-            "
-            [status]="
-              contactnum.touched && contactnum.invalid ? 'danger' : 'primary'
-            "
+            placeholder="0771234567"
           />
+          <div *ngIf="contactnum.touched && contactnum.invalid">
+            <div *ngIf="contactnum.errors.minlength || contactnum.errors.maxlength">
+              <div class="alert alert-danger">
+                Invalid format
+              </div>
+            </div>
+            <div *ngIf="contactnum.errors.pattern">
+              <div class="alert alert-danger">
+                Numbers Only
+              </div>
+            </div>
+
+            <div *ngIf="contactnum.errors.required">
+              <div class="alert alert-danger">
+                Contact number Required
+              </div>
+            </div>
+          </div>
           <input
           type="text"
           nbInput
@@ -160,7 +172,7 @@
 
         <div class="form-group">
           <div class="full-name-inputs">
-          <label>Select Profile picture</label>
+          <label>Select a picture</label>
           <!-- <input type="file" accept="image/*"  class="form-control"> -->
             <input type="file" (change)="upload($event)" class="form-control" formControlName="pic" accept=".png,.jpg">
             <div *ngIf="pic.touched && pic.invalid"> This field is Required!</div>

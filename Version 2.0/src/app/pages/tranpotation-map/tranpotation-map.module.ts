@@ -16,7 +16,6 @@ import { AgmCoreModule } from '@agm/core';
     NbUserModule,
     NbTabsetModule,
     NbRouteTabsetModule,
-    NbCardModule,
     NbButtonModule,
     NbListModule,
     NbAccordionModule,

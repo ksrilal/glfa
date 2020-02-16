@@ -133,7 +133,7 @@ const routes: Routes = [
           import("./driver-management/driver-management.module").then(
             m => m.DriverManagementModule
           ),
-        canActivate: [ManagerGuardService]
+        canActivate: [TranspotationGuardService]
       },
       {
         path: "task-management",
