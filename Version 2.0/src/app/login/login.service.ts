@@ -52,7 +52,7 @@ export class LoginService {
 
   SignIn(email: string, password: string) {
     this.afs
-      .collection("staff", ref => ref.where("id", "==", email))
+      .collection("staff", ref => ref.where("email", "==", email))
       .snapshotChanges()
       .subscribe(res => {
         if (res.length > 0) {

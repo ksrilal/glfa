@@ -10,9 +10,12 @@ export class TaskManagementService {
 
   constructor(private fire:AngularFireAuth,private afs: AngularFirestore) { }
   create(task) {
+    const key=task.task+"+"+task.dueDate+"+"+task.time;
+    console.log(key)
     try {
-      this.afs.collection('tasks').doc(task.task).set(task);
-      this.afs.collection('tasks').doc(task.task).collection('volunteers').doc('email').set(task);
+      
+     this.afs.collection('tasks').doc(key).set(task);
+     // this.afs.collection('tasks').doc(task.task).collection('volunteers').doc('email').set(task);
       alert("Addedd Successfully");
     }
     catch (error) {
@@ -74,9 +77,16 @@ export class TaskManagementService {
   }
 
   assignVolunteer(volun,tsk){
+   // const k=volun+"+"+tsk;
+    const key=tsk.task+"+"+tsk.dueDate+"+"+tsk.time;
+    console.log(key)
     try{
-    this.afs.collection('volunteers').doc(volun.email).collection('tasks').doc((tsk.task,tsk.dueDate,tsk.time)).set(tsk);
-    this.afs.collection('tasks').doc((tsk.task,tsk.dueDate,tsk.time)).collection('volunteers').doc(volun.email).set(volun);
+    this.afs.collection('volunteers').doc(volun.email).update(volun);
+    this.afs.collection('tasks').doc(key).update(tsk);
+    this.afs.collection('volunteers').doc(volun.email).collection('tasks').doc(key).set(tsk);
+  //  this.afs.collection('tasks').doc(key).set({});
+   this.afs.collection('tasks').doc(key).collection('volunteers').doc(volun.email).set(volun);
+    //this.afs.collection('tasks',ref=>ref.where('')).doc(key).collection('volunteers').doc(volun.email).set(volun);
     alert("Addedd Successfully");  
     }catch(error){
       alert(error);
