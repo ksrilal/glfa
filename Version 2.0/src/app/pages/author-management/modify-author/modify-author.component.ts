@@ -25,7 +25,7 @@ export class ModifyAuthorComponent implements OnInit {
       confirmDelete: true
     },
     columns: {
-      fname: {
+      name: {
         title: "First Name",
         type: "string"
       },
@@ -62,7 +62,7 @@ export class ModifyAuthorComponent implements OnInit {
 
   onSaveConfirm(event): void {
     if (
-      event.newData.fname != "" &&
+      event.newData.name != "" &&
       event.newData.lname != "" &&
       event.newData.gender != "" &&
       event.newData.email != "" &&

@@ -49,7 +49,7 @@ export class FestivalStaffManagementService {
         });
       console.log(data);
       }
-
+ 
   getAll() {
     return this.afs.collection('staff').valueChanges({idField:"id"});
   }

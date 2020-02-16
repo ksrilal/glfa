@@ -59,6 +59,8 @@
           [placeholder]="des.touched && des.invalid ? 'Description Required!' : 'Description' "
           [status]="des.touched && des.invalid ? 'danger' : 'primary' "></textarea>
 
+          <input type="hidden" formControlName="sold">
+
 
           <button  nbButton status="primary" hero [disabled]="form.invalid">
             Add Event
