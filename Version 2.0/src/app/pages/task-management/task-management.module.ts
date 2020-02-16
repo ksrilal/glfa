@@ -60,7 +60,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ,
 
     NbTreeGridModule,
-    
+
 
   ],
 
@@ -72,18 +72,19 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   //   FormLayoutsComponent,
   //   DatepickerComponent,
     //to here ------
-    LayoutComponent,
-    TabsComponent,
-    Tab1Component,
-    Tab2Component,
-    StepperComponent,
-    ListComponent,
-    NewsPostPlaceholderComponent,
-    InfiniteListComponent,
-    NewsPostComponent,
-    D3AdvancedPieComponent,
+    // LayoutComponent,
+    // TabsComponent,
+    // Tab1Component,
+    // Tab2Component,
+    // StepperComponent,
+    // ListComponent,
+    // NewsPostPlaceholderComponent,
+    // InfiniteListComponent,
+    // NewsPostComponent,
+    // D3AdvancedPieComponent,
 
-    AccordionComponent,],
+    // AccordionComponent,
+  ],
 
 
     providers: [

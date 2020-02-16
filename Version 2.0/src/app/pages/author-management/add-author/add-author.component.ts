@@ -20,6 +20,8 @@ export class AddAuthorComponent implements OnInit {
 
   downloadURL;
   randomId;
+  latitude: number = 0;
+  longitude: number= 0;
 
   upload(event) {
     this.randomId = Math.random()
@@ -66,6 +68,8 @@ export class AddAuthorComponent implements OnInit {
         //console.log(this.downloadURL);
         //console.log(this.form.value);
         this.form.value.pic = this.downloadURL;
+        this.form.value.latitude = this.latitude;
+        this.form.value.longitude = this.longitude;
         this.authorManagement.create(this.form.value);
         
     this.form.reset();
