@@ -24,6 +24,7 @@ import { ChartsRoutingModule } from '../charts/charts-routing.module';
 import { D3AdvancedPieComponent } from '../charts/d3/d3-advanced-pie.component';
 import { TablesRoutingModule } from '../tables/tables-routing.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -55,9 +56,11 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
      ChartModule,
    // TablesRoutingModule,
     Ng2SmartTableModule,
+    Ng2SearchPipeModule
+    ,
 
     NbTreeGridModule,
-    
+
 
   ],
 
@@ -69,18 +72,19 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   //   FormLayoutsComponent,
   //   DatepickerComponent,
     //to here ------
-    LayoutComponent,
-    TabsComponent,
-    Tab1Component,
-    Tab2Component,
-    StepperComponent,
-    ListComponent,
-    NewsPostPlaceholderComponent,
-    InfiniteListComponent,
-    NewsPostComponent,
-    D3AdvancedPieComponent,
+    // LayoutComponent,
+    // TabsComponent,
+    // Tab1Component,
+    // Tab2Component,
+    // StepperComponent,
+    // ListComponent,
+    // NewsPostPlaceholderComponent,
+    // InfiniteListComponent,
+    // NewsPostComponent,
+    // D3AdvancedPieComponent,
 
-    AccordionComponent,],
+    // AccordionComponent,
+  ],
 
 
     providers: [

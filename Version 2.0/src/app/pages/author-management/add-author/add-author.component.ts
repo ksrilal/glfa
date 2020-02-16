@@ -20,6 +20,8 @@ export class AddAuthorComponent implements OnInit {
 
   downloadURL;
   randomId;
+  latitude: number = 0;
+  longitude: number= 0;
 
   upload(event) {
     this.randomId = Math.random()
@@ -49,6 +51,9 @@ export class AddAuthorComponent implements OnInit {
       Validators.required, Validators.minLength(8),
       PasswordValidators.checkPasswrod
     ]),
+    gender: new FormControl("", Validators.required),
+    latitude: new FormControl(""),
+    longitude: new FormControl(""),
   });
 
 
@@ -63,6 +68,8 @@ export class AddAuthorComponent implements OnInit {
         //console.log(this.downloadURL);
         //console.log(this.form.value);
         this.form.value.pic = this.downloadURL;
+        this.form.value.latitude = this.latitude;
+        this.form.value.longitude = this.longitude;
         this.authorManagement.create(this.form.value);
         
     this.form.reset();
@@ -93,6 +100,9 @@ export class AddAuthorComponent implements OnInit {
   }
   get confirmPassword() {
     return this.form.get("confirmPassword");
+  }
+  get gender() {
+    return this.form.get("gender");
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, Output, EventEmitter, NgZone } from "@angular/core";
 import { MapsAPILoader } from '@agm/core';
+import { ManagerMapService } from '../manager-map.service';
 
 @Component({
   selector: "ngx-manager-map",
@@ -7,6 +8,7 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ["./manager-map.component.scss"]
 })
 export class ManagerMapComponent implements OnInit {
+  contacts;
 
   latitude: number;
   longitude: number;
@@ -19,7 +21,11 @@ export class ManagerMapComponent implements OnInit {
   @Output() lat = new EventEmitter();
   @Output() lon = new EventEmitter();
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
+  constructor(private managerMapService: ManagerMapService , private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+    managerMapService.getAllAuthors().subscribe(contact => {
+   this.contacts = contact;
+})
+}
 
   ngOnInit() {
     //load Places Autocomplete
@@ -97,6 +103,10 @@ export class ManagerMapComponent implements OnInit {
         }
       }
     );
+  }
+
+  getlocation(c){
+
   }
 }
 

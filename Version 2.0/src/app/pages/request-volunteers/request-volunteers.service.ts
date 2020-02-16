@@ -8,9 +8,10 @@ export class RequestVolunteersService {
 
   constructor(private afs: AngularFirestore) { }
 
-  create(requestVolunteers){
+  create(tasks){
+    const key = tasks.eventName+"+"+tasks.dueDate+"+"+tasks.time;
     try{
-      this.afs.collection('requestVolunteers').add(requestVolunteers);
+      this.afs.collection('tasks').doc(key).set(tasks);
       alert("Added Successfully");
     }
     catch(error){
@@ -19,7 +20,7 @@ export class RequestVolunteersService {
   }
 
   getAll(){
-    return this.afs.collection('requestVolunteers').valueChanges();
+    return this.afs.collection('tasks').valueChanges();
 
   }
 }

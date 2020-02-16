@@ -1,4 +1,4 @@
-<!--div class="steppers-container row">
+<div class="steppers-container row">
   <div class="col-md-12 col-lg-8 col-xxxl-6">
     <nb-card>
       <nb-card-body>
@@ -8,63 +8,92 @@
             <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
               <div class="input-group">
                 <label for="task" class="label col-sm-3 col-form-label">Task</label>
-                <input type="text" nbInput fullWidth id="task" 
-              name="task" 
-              placeholder="Enter the task here.." class="form-control" formControlName="task" 
+                <input type="text" nbInput fullWidth id="task"
+              name="task"
+              placeholder="Enter the task here.." class="form-control" formControlName="task"
               [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+
+              <input type="text" nbInput fullWidth id="description"
+              name="description"
+              placeholder="Description here.." class="form-control" formControlName="description"
+                [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+
+              <input type="text" nbInput fullWidth id="latitude"
+              name="latitude"
+              placeholder="latitude" class="form-control" formControlName="latitude"
+                [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+
+              <input type="text" nbInput fullWidth id="longitude"
+                name="longitude"
+                placeholder="longitude" class="form-control" formControlName="longitude"
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+
+              <input type="date" nbInput fullWidth id="dueDate"
+              name="dueDate"
+              placeholder='{{ today | date }}' class="form-control" formControlName="dueDate"
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+
+              <input type="time" nbInput fullWidth id="time"
+              name="time"
+              placeholder='' class="form-control" formControlName="time"
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+
+              <input type="number" nbInput fullWidth id="noOfVolunteers"
+              name="noOfVolunteers"
+              placeholder="Number of Volunteers" class="form-control" formControlName="noOfVolunteers"
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
               
-              <input type="text" nbInput fullWidth id="description" 
-              name="description" 
-              placeholder="Description here.." class="form-control" formControlName="description" 
-                [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                
-              <input type="text" nbInput fullWidth id="latitude" 
-              name="latitude" 
-              placeholder="latitude" class="form-control" formControlName="latitude" 
-                [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-               
-              <input type="text" nbInput fullWidth id="longitude" 
-                name="longitude" 
-                placeholder="longitude" class="form-control" formControlName="longitude" 
-                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-               
-              <input type="date" nbInput fullWidth id="dueDate" 
-              name="dueDate" 
-              placeholder='{{ today | date }}' class="form-control" formControlName="dueDate" 
-                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                  
-              <input type="time" nbInput fullWidth id="time" 
-              name="time" 
-              placeholder='' class="form-control" formControlName="time" 
-                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                
-              <input type="number" nbInput fullWidth id="noOfVolunteers" 
-              name="noOfVolunteers" 
-              placeholder="Number of Volunteers" class="form-control" formControlName="noOfVolunteers" 
-                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                  
+              <nb-select [selected]="staff[0]" (selectedChange)="event" formControlName="requestedBy" 
+                  placeholder="Requested By" [status]="
+                  requestedBy.touched && requestedBy.invalid ? 'danger' : 'primary'
+                  ">
+                    <nb-option *ngFor="let s of staff" [value]="s">{{ s }}</nb-option>
+              </nb-select>  
               </div>
-              <button type="submit" (ngSubmit)="onFirstSubmit()"  nbButton nbStepperNext>next</button>
+              <button  nbButton (click)="onFirstSubmit()" nbStepperNext>next</button>
             </form>
             </div>
           </nb-step>
-        
+
           <nb-step [stepControl]="secondForm" label="Second step">
-            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
-              <p class="lorem">
-                Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
-              </p>
-              <div class="input-group">
-                <input type="text" placeholder="Enter something" class="form-control" formControlName="userName"
-                       [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+            <div class="col-md-3">
+              <div style="height: 300px;overflow: scroll;">
+                 <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+                  <nb-card>
+                    <nb-card-header>Select Volunteers</nb-card-header>
+                    <nb-card-body>
+                      <input
+                        nbInput
+                        formControlName="userName"
+                        placeholder="search volunteer"
+                        fullWidth
+                        [(ngModel)]="searchTerm"
+                        name="searchVolunteer"
+                        type="text"
+                        autofocus
+                      />
+                      
+                      <!--nb-list *ngFor="let item of freeVolunteers | filter: searchTerm"-->
+                      <nb-list *ngFor="let volun of freeVolunteers|filter:searchTerm">
+                        <nb-list-item>
+                          {{ volun.fName }}
+                          <div style="align-self: center;">   
+                            <button nbButton (click)="addPeople(volun)">add</button>
+                            <button nbButton nbStepperPrevious>prev</button>
+                            <button nbButton nbStepperNext>Confirm</button>
+                          </div>
+                        </nb-list-item>
+                      </nb-list>
+                    </nb-card-body>
+                  </nb-card>
+                </form>
               </div>
-              <button nbButton nbStepperPrevious>prev</button>
-              <button nbButton nbStepperNext>Confirm</button>
-            </form>
+            </div>
+            
           </nb-step>
           <nb-step [stepControl]="secondForm" [hidden]="true" label="Second step">
             <div class="step-container">
-              <h3>Wizard completed!</h3>
+              <h3>completed!</h3>
               <button nbButton (click)="stepper.reset()">Try again</button>
             </div>
           </nb-step>
@@ -72,23 +101,23 @@
       </nb-card-body>
     </nb-card>
   </div>
-</div-->
+</div>
 
 <div class="row">
   <div class="col-lg-6">
     <nb-card size="medium">
       <nb-card-header>
-        <span>User Activity</span>
-        <nb-select [selected]="types[0]" (selectedChange)="getUserActivity($event); type = $event">
+        <span>Tasks</span>
+        <nb-select [selected]=" " placeholder="Todo" (selectedChange)="getUserActivity($event); type = $event">
           <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
         </nb-select>
       </nb-card-header>
-      
+
   <nb-list class="user-activity-list">
     <nb-list-item *ngFor="let item of userActivity">
 
       <div class="visited-date">
-        {{ item.date }}
+        {{ item.dueDate }}
       </div>
 
       <div class="visited-pages-count">
@@ -97,18 +126,17 @@
       </div>
 
       <div class="visited-percentages">
-        <div class="caption">Location</div>
+        <div class="caption">Number of Volunteers</div>
         <div class="delta value" [class.up]="item.deltaUp" [class.down]="!item.deltaUp">
           <nb-icon [icon]="item.deltaUp ? 'arrow-up' : 'arrow-down'" pack="eva"></nb-icon>
-          {{ item.location }}
+          {{ item.noOfVolunteers}}
         </div>
       </div>
-      <div class="visited-percentages">
-        <div class="caption">Requested by</div>
-        <div class="delta value" [class.up]="item.deltaUp" [class.down]="!item.deltaUp">
-          <nb-icon [icon]="item.deltaUp ? 'arrow-up' : 'arrow-down'" pack="eva"></nb-icon>
-          {{ item.requestedBy }}
-        </div>
+        <div class="visited-percentages">
+          <div class="caption">Requested By</div>
+          <div class="value">
+            {{ item.requestedBy}}
+          </div>
       </div>
     </nb-list-item>
   </nb-list>
@@ -124,8 +152,8 @@
           <div class="form-group row">
             <label for="task" class="label col-sm-3 col-form-label">Task</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="task" 
-              name="task" 
+              <input type="text" nbInput fullWidth id="task"
+              name="task"
               placeholder="Enter the task here.."
               >
             </div>
@@ -133,8 +161,8 @@
           <div class="form-group row">
             <label for="description" class="label col-sm-3 col-form-label">Description</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="description" 
-              name="description" 
+              <input type="text" nbInput fullWidth id="description"
+              name="description"
               placeholder="Description here.."
               >
             </div>
@@ -142,48 +170,48 @@
           <div class="form-group row">
             <label for="location" class="label col-sm-3 col-form-label">Location</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="location" 
-              name="location" 
+              <input type="text" nbInput fullWidth id="location"
+              name="location"
               placeholder=" "
-              
+
               >
             </div>
           </div>
-          
+
           <div class="form-group row">
             <label for="user" class="label col-sm-3 col-form-label">Request By</label>
             <div class="col-sm-9">
-              
+
             </div>
           </div>
           <div class="form-group row">
             <label for="dateFrom" class="label col-sm-3 col-form-label">Time(From)</label>
             <div class="col-sm-9">
-              <input type="datetime-local" nbInput fullWidth id="dateFrom" 
-              name="dateFrom" 
+              <input type="datetime-local" nbInput fullWidth id="dateFrom"
+              name="dateFrom"
               placeholder='{{ today | date }}'>
             </div>
-          </div> 
-          
+          </div>
+
           <div class="form-group row">
             <label for="dateTo" class="label col-sm-3 col-form-label">Time(To)</label>
             <div class="col-sm-9">
-              <input type="datetime-local" nbInput fullWidth id="dateTo" 
-              name="dateTo" 
+              <input type="datetime-local" nbInput fullWidth id="dateTo"
+              name="dateTo"
               placeholder=''
               >
             </div>
-          </div> 
+          </div>
           <div class="form-group row">
             <label for="noOfVolunteers" class="label col-sm-3 col-form-label">No of Volunteers</label>
             <div class="col-sm-9">
-              <input type="number" nbInput fullWidth id="noOfVolunteers" 
-              name="noOfVolunteers" 
+              <input type="number" nbInput fullWidth id="noOfVolunteers"
+              name="noOfVolunteers"
               placeholder=""
               >
             </div>
-          </div> 
-         
+          </div>
+
           <div class="form-group row">
             <div class="offset-sm-3 col-sm-9">
               <button type="submit" nbButton status="primary">Add</button>
@@ -191,10 +219,10 @@
           </div>
         </form>
       </nb-card-body>
-    </nb-card>  
+    </nb-card>
   </div>
 </div-->
-
+<!---form starts here -->
 <div class="row">
   <div class="col-lg-6">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -241,6 +269,15 @@
         fullWidth
         value="{{date|date:mediumDate}}"
         formControlName="dueDate"
+
+      />
+      <input
+        hidden
+        type="text"
+        nbInput
+        fullWidth
+        value="Todo"
+        formControlName="status"
         
       />
         <input
@@ -325,5 +362,48 @@
     </nb-card>
   </form>
   </div>
-
 </div>
+<!--form ends here -->
+<!--add volunteer starts here-->
+<div class="col-md-3">
+  <div style="height: 300px;overflow: scroll;">
+    <form >
+      <nb-card>
+        
+          <nb-card-header>Select Task</nb-card-header>
+          <nb-card-body>
+            <nb-select [selected]=" " (selectedChange)="ev" 
+            >
+              <nb-option *ngFor="let tsk of unAssignedTasks" [value]="tsk">{{ tsk.task }}</nb-option>
+            </nb-select>
+            
+         
+        
+        <!---->
+        Select Volunteers
+       
+          <input
+            nbInput
+            placeholder="search volunteer"
+            fullWidth
+            [(ngModel)]="searchTerm"
+            name="searchVolunteer"
+            type="text"
+            autofocus
+          />
+          
+          <!--nb-list *ngFor="let item of freeVolunteers | filter: searchTerm"-->
+          <nb-list *ngFor="let volun of freeVolunteers|filter:searchTerm">
+            <nb-list-item>
+              {{ volun.fName }}
+              <div style="align-self: center;">   
+                <button  nbButton (click)="addPeople(volun,$ev)">add</button>
+              </div>
+            </nb-list-item>
+          </nb-list>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>
+<!--assign form-->
