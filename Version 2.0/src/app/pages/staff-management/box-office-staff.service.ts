@@ -51,4 +51,16 @@ export class BoxOfficeStaffService {
       });
     console.log(data);
   }
+
+  getAll() {
+    return this.afs
+      .collection("staff", ref => ref.where("role", "==", "boxOffice"))
+      .valueChanges();
+  }
+  edit(id, newData) {
+    this.afs
+      .collection("staff")
+      .doc(id)
+      .update(newData);
+  }
 }
