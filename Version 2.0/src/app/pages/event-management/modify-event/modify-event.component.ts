@@ -42,7 +42,7 @@ export class ModifyEventComponent implements OnInit {
         type: 'string',
       },
       date: {
-        title: 'Date',
+        title: 'Date(as 1,2,3,4 & 5)',
         type: 'string',
       },
       time: {
@@ -72,6 +72,7 @@ export class ModifyEventComponent implements OnInit {
     },
   };
 
+  
   source;
 
   onSaveConfirm(event): void {

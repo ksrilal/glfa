@@ -49,6 +49,9 @@ export class AddAuthorComponent implements OnInit {
       Validators.required, Validators.minLength(8),
       PasswordValidators.checkPasswrod
     ]),
+    gender: new FormControl("", Validators.required),
+    latitude: new FormControl(""),
+    longitude: new FormControl(""),
   });
 
 
@@ -93,6 +96,9 @@ export class AddAuthorComponent implements OnInit {
   }
   get confirmPassword() {
     return this.form.get("confirmPassword");
+  }
+  get gender() {
+    return this.form.get("gender");
   }
 
 
