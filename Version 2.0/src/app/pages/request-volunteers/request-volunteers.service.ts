@@ -6,10 +6,21 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class RequestVolunteersService {
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore) {
 
-  create(tasks){
-    const key = tasks.eventName+"+"+tasks.dueDate+"+"+tasks.time;
+  }
+
+   private dueDate = new Date().getDate();
+   private hours = new Date().getHours();
+   private minutes = new Date().getMinutes();
+   private time = this.hours+":"+this.minutes;
+    // console.log(time);
+
+  createTasks(tasks){
+
+
+    const key = tasks.eventName+"+"+this.dueDate+"+"+this.time;
+    console.log(key);
     try{
       this.afs.collection('tasks').doc(key).set(tasks);
       alert("Added Successfully");
@@ -17,6 +28,17 @@ export class RequestVolunteersService {
     catch(error){
       alert("Error");
     }
+  }
+
+  createRequest(request){
+    try{
+      this.afs.collection('requestVolunteers').add(request);
+      alert("Added Successfully");
+    }
+    catch(error){
+      alert("Error");
+    }
+
   }
 
   getAll(){
