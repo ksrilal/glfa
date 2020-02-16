@@ -53,23 +53,7 @@ export class AssignTasksComponent implements OnInit {
   today;
 
   ngOnInit() {
-      this.firstForm = this.fb.group({
-         task: ['', Validators.required],
-         description: ['', Validators.required],
-         latitude: ['', Validators.required],
-         longitude: ['', Validators.required],
-         dueDate: ['', Validators.required],
-         time: ['', Validators.required],
-         noOfVolunteers: ['', Validators.required],
-         requestedBy:['',Validators.required],
-       });
-
-       
-   
-       this.secondForm = this.fb.group({
-         userName: ['', Validators.required],
-       });
-   
+     
   }
   taskDetails;
    onFirstSubmit() {
@@ -96,10 +80,15 @@ export class AssignTasksComponent implements OnInit {
     this.jobTask=event;
    }
   addPeople(vol) {
+    const count=vol.noOfVolunteers;
     console.log(vol);
     this.volunteer=vol;
     this.volunteer['availability']='false';
-    this.jobTask['status']='Ongoing';
+   // if(this.jobTask['volCount'>'0']){
+   //   this.jobTask['volCount']=this.jobTask['volCount']-1;
+   // }else{
+      this.jobTask['status']='Ongoing';
+   // }
     // console.log(tsk);
     console.log(this.jobTask);
     console.log(this.volunteer);
@@ -116,6 +105,7 @@ export class AssignTasksComponent implements OnInit {
     latitude: new FormControl("", Validators.required),
     noOfVolunteers: new FormControl("", [Validators.required, Validators.min(1)]),
     requestedBy: new FormControl("", Validators.required),
+   // volCount:new FormControl(""),
   })
 
  

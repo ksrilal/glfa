@@ -3,6 +3,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
 import { VolunteerManagementService } from '../volunteer-management.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'ngx-modify-volunteer',
@@ -12,8 +13,12 @@ import { VolunteerManagementService } from '../volunteer-management.service';
 export class ModifyVolunteerComponent implements OnInit {
   ngOnInit() {
   }
+  ageFromDob(dob):number{
+    return moment().diff(dob,'years');
+  }
 
   settings = {
+  
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -47,20 +52,20 @@ export class ModifyVolunteerComponent implements OnInit {
         type: 'string',
       },
      
-    dob: {
-        title: 'Age',
-        type: 'number',
+    availability: {
+        title: 'Availability',
+        type: 'string',
       },
     },
   };
-
+  
   source;
 
   constructor(private volunteerManagementService:VolunteerManagementService) {
     volunteerManagementService.getAll().subscribe(result=>{
       this.source=result})
   }
-
+  
   onSaveConfirm(event):void{
     if (window.confirm('Are you sure you want to edit?')) {
       // event.confirm.resolve();
