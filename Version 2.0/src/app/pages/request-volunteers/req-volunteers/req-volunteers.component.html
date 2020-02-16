@@ -23,6 +23,34 @@
               "
             />
             <input
+              type="text"
+              nbInput
+              hidden
+              fullWidth
+              placeholder=""
+              formControlName="task"
+              value="VolunteersRequesToAuthorAccompany"
+            />
+            <input
+              type="text"
+              nbInput
+              hidden
+              fullWidth
+              placeholder=""
+              formControlName="requestedBy"
+              value="Transpotation Coordinator"
+            />
+            <input
+              type="text"
+              nbInput
+              hidden
+              fullWidth
+              placeholder=""
+              formControlName="status"
+              value="Todo"
+            />
+
+            <input
             type="text"
             nbInput
             fullWidth
@@ -72,14 +100,14 @@
             nbInput
             fullWidth
             placeholder="Pickup Time"
-            formControlName="pickTime"
+            formControlName="time"
             [placeholder]="
-                 pickTime.touched && pickTime.invalid
+                 time.touched && time.invalid
                 ? 'Pickup Time Required'
                 : 'Pickup Time'
             "
             [status]="
-                pickTime.touched && pickTime.invalid ? 'danger' : 'primary'
+                time.touched && time.invalid ? 'danger' : 'primary'
             "
           />
           <input

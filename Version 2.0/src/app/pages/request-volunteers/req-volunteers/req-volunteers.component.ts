@@ -16,7 +16,7 @@ export class ReqVolunteersComponent implements OnInit {
     authorName: new FormControl("", Validators.required),
     noVol: new FormControl("", Validators.required),
     pickLoc: new FormControl("", Validators.required),
-    pickTime: new FormControl("", Validators.required),
+    time: new FormControl("", Validators.required),
     dropLoc: new FormControl("", Validators.required),
     vehNum: new FormControl("", Validators.required),
     driverContact: new FormControl("", [
@@ -26,6 +26,10 @@ export class ReqVolunteersComponent implements OnInit {
       Validators.pattern("^[0-9]*$")
     ]),
     description: new FormControl("", Validators.required),
+    task: new FormControl("volunteersRequestToAuthorAccompany"),
+    requestedBy: new FormControl("Transpotation Coordinator"),
+    status:new FormControl("Todo"),
+
   });
 
   constructor(private requestVolunteersService: RequestVolunteersService) {
@@ -56,8 +60,8 @@ export class ReqVolunteersComponent implements OnInit {
     return this.form.get("pickLoc");
   }
 
-  get pickTime() {
-    return this.form.get("pickTime");
+  get time() {
+    return this.form.get("time");
   }
 
   get dropLoc() {
