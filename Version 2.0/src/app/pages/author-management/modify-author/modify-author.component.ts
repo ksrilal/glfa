@@ -37,6 +37,10 @@ export class ModifyAuthorComponent implements OnInit {
         title: 'Last Name',
         type: 'string',
       },
+      gender: {
+        title: 'Gender',
+        type: 'string',
+      },
       email: {
         title: 'E-mail',
         type: 'string',
@@ -62,7 +66,7 @@ export class ModifyAuthorComponent implements OnInit {
   
 
   onSaveConfirm(event): void {
-    if (event.newData.fname != "" && event.newData.lname !="" && event.newData.email !="" && event.newData.des !="" && event.newData.mobile !="" && event.newData.email.includes('@') && event.newData.email.includes('.com') && event.newData.mobile.length == 10 && !event.newData.mobile.match(/[a-z]/i)) {
+    if (event.newData.fname != "" && event.newData.lname !="" && event.newData.gender != "" && event.newData.email !="" && event.newData.des !="" && event.newData.mobile !="" && event.newData.email.includes('@') && event.newData.email.includes('.com') && event.newData.mobile.length == 10 && !event.newData.mobile.match(/[a-z]/i)) {
       if (window.confirm('Are you sure you want to edit?')) {
         // event.confirm.resolve();
         this.authorManagement.edit(event.data.id, event.newData)

@@ -13,12 +13,23 @@
 
         <div class="form-group">
           <label class="col-sm-3 label">Date</label>
-          <input type="date" nbInput
+          <nb-radio-group formControlName="date">
+            <nb-radio value="1" title="Monday, January 14,2020">First Day</nb-radio>
+            <nb-radio value="2" title="Tuesday, January 15,2020">Second Day</nb-radio>
+            <nb-radio value="3" title="Wednesday, January 16,2020">Third Day</nb-radio>
+            <nb-radio value="4" title="Thursday, January 17,2020">Fourth Day</nb-radio>
+            <nb-radio value="5" title="Friday, January 18,2020">Fifth Day</nb-radio>
+            </nb-radio-group>
+          <div *ngIf="date.touched && date.invalid">
+            <div class="alert alert-danger">
+              This field is Required!
+            </div>
+          </div>
+          <!-- <input type="date" nbInput
                placeholder="Select Date"
                formControlName="date"
         [placeholder]="date.touched && date.invalid ? 'Date Required!' : 'Date' "
-        [status]="date.touched &&  date.invalid ? 'danger' : 'primary' ">
-          <!-- <input type="date" nbInput fullWidth placeholder="Date"> -->
+        [status]="date.touched &&  date.invalid ? 'danger' : 'primary' "> -->
         </div>
 
         <div class="form-group">
