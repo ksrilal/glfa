@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PasswordValidators } from '../../validators/password-validator';
-import { BoxOfficeStaffService } from '../box-office-staff.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { PasswordValidators } from "../../validators/password-validator";
+import { BoxOfficeStaffService } from "../box-office-staff.service";
+import { AngularFireStorage } from "@angular/fire/storage";
 
 @Component({
   selector: "ngx-add-staff",
@@ -31,15 +32,43 @@ export class AddStaffComponent implements OnInit {
       Validators.required,
       PasswordValidators.checkPasswrod
     ]),
-    // accessName: new FormControl("", Validators.required)
+    pic: new FormControl("", Validators.required)
   });
 
-  constructor(private boxOfficeStaffService:BoxOfficeStaffService) {}
+  constructor(
+    private boxOfficeStaffService: BoxOfficeStaffService,
+    private afStorage: AngularFireStorage
+  ) {}
+
+  downloadURL;
 
   onSubmit() {
-    this.boxOfficeStaffService.create(this.form.value);
+    this.downloadURL = this.afStorage
+      .ref("/staff/" + this.randomId)
+      .getDownloadURL()
+      .subscribe(a => {
+        this.downloadURL = a;
+
+        //console.log(this.downloadURL);
+        this.form.value.pic = this.downloadURL;
+        this.form.value["role"] = "boxOffice";
+
+        this.boxOfficeStaffService.create(this.form.value);
+        this.form.reset();
+      });
+
+    // this.form.value["role"] = "boxOffice";
+    // this.boxOfficeStaffService.create(this.form.value);
     // console.log(this.form.value)
-    this.form.reset();
+    // this.form.reset();
+  }
+  randomId;
+  upload(event) {
+    this.randomId = Math.random()
+      .toString(36)
+      .substring(2);
+
+    this.afStorage.upload("/staff/" + this.randomId, event.target.files[0]);
   }
 
   get email() {
@@ -64,7 +93,7 @@ export class AddStaffComponent implements OnInit {
   get confirmPassword() {
     return this.form.get("confirmPassword");
   }
-  // get accessName() {
-  //   return this.form.get("accessName");
-  // }
+  get pic() {
+    return this.form.get("pic");
+  }
 }
