@@ -48,27 +48,12 @@ export class AssignTasksComponent implements OnInit {
   firstForm: FormGroup;
   secondForm: FormGroup;
  
+  public today_date=new Date().getDate();
 
   today;
 
   ngOnInit() {
-      this.firstForm = this.fb.group({
-         task: ['', Validators.required],
-         description: ['', Validators.required],
-         latitude: ['', Validators.required],
-         longitude: ['', Validators.required],
-         dueDate: ['', Validators.required],
-         time: ['', Validators.required],
-         noOfVolunteers: ['', Validators.required],
-         requestedBy:['',Validators.required],
-       });
-
-       
-   
-       this.secondForm = this.fb.group({
-         userName: ['', Validators.required],
-       });
-   
+     
   }
   taskDetails;
    onFirstSubmit() {
@@ -87,19 +72,29 @@ export class AssignTasksComponent implements OnInit {
    }
 
   toAssign: any[];
-   event;
 
-   returnTask(ev){
-     event= ev;
+  jobTask="";
+  volunteer="";
+   selectTsk(event){
+    console.log(event.task);
+    this.jobTask=event;
    }
-
-  addPeople(vol,tsk) {
+  addPeople(vol) {
+    const count=vol.noOfVolunteers;
     console.log(vol);
-    console.log(tsk);
-
-    //this.taskManagementService.assignVolunteer(v);
+    this.volunteer=vol;
+    this.volunteer['availability']='false';
+   // if(this.jobTask['volCount'>'0']){
+   //   this.jobTask['volCount']=this.jobTask['volCount']-1;
+   // }else{
+      this.jobTask['status']='Ongoing';
+   // }
+    // console.log(tsk);
+    console.log(this.jobTask);
+    console.log(this.volunteer);
+    this.taskManagementService.assignVolunteer(this.volunteer,this.jobTask);
   }
-  public today_date=new Date();
+  
   form = new FormGroup({
     task: new FormControl("", Validators.required),
     description: new FormControl("", Validators.required),
@@ -110,6 +105,7 @@ export class AssignTasksComponent implements OnInit {
     latitude: new FormControl("", Validators.required),
     noOfVolunteers: new FormControl("", [Validators.required, Validators.min(1)]),
     requestedBy: new FormControl("", Validators.required),
+   // volCount:new FormControl(""),
   })
 
  
@@ -151,7 +147,7 @@ export class AssignTasksComponent implements OnInit {
     return this.form.get("task");
   }
   get dueDate() {
-    return Date.now();
+    return this.today_date;
   }
   get description() {
     return this.form.get("description");

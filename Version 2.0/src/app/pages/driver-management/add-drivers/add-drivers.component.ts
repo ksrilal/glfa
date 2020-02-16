@@ -11,7 +11,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class AddDriversComponent implements OnInit {
   drivers: any[];
-  
+
   downloadURL;
   randomId;
 
@@ -27,7 +27,12 @@ export class AddDriversComponent implements OnInit {
     fname: new FormControl("", Validators.required),
     lname: new FormControl("", Validators.required),
     nic: new FormControl("", Validators.required),
-    contactnum: new FormControl("", Validators.required),
+    contactnum: new FormControl("", [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+      Validators.pattern("^[0-9]*$")
+    ]),
     address: new FormControl("", Validators.required),
     birthday: new FormControl("", Validators.required),
     vehbrand: new FormControl("", Validators.required),

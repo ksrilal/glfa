@@ -19,7 +19,12 @@ export class ReqVolunteersComponent implements OnInit {
     pickTime: new FormControl("", Validators.required),
     dropLoc: new FormControl("", Validators.required),
     vehNum: new FormControl("", Validators.required),
-    driverContact: new FormControl("", Validators.required),
+    driverContact: new FormControl("", [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+      Validators.pattern("^[0-9]*$")
+    ]),
     description: new FormControl("", Validators.required),
   });
 
@@ -59,11 +64,11 @@ export class ReqVolunteersComponent implements OnInit {
   }
 
   get vehNum() {
-    return this.form.get("dropLoc");
+    return this.form.get("vehNum");
   }
 
   get driverContact() {
-    return this.form.get("dropLoc");
+    return this.form.get("driverContact");
   }
 
   get description() {

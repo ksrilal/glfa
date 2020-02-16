@@ -9,7 +9,7 @@ export class FindVolunteerComponent {
   lat = 51.678418;
   lng = 7.809007;
  
-
+  volunteer_list:any[];
   
 
 }

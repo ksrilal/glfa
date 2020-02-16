@@ -33,7 +33,7 @@ export class TasksStatusComponent implements OnDestroy {
         title: 'Status',
         type: 'string',
       },
-      user: {
+      requestedBy: {
         title: 'Request By',
         type: 'string',
       },
@@ -41,11 +41,6 @@ export class TasksStatusComponent implements OnDestroy {
         title: 'No Of Volunteers',
         type: 'number',
       },
-      dueDate: {
-        title: 'date',
-        type: 'date',
-      },
-      
 
     },
   };

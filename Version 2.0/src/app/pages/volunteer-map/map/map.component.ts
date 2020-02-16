@@ -9,6 +9,7 @@ import {
   NgZone
 } from "@angular/core";
 import { MapsAPILoader } from "@agm/core";
+import { VolunteerMapService } from '../volunteer-map.service';
 
 @Component({
   selector: "ngx-map",
@@ -16,6 +17,9 @@ import { MapsAPILoader } from "@agm/core";
   styleUrls: ["./map.component.scss"]
 })
 export class MapComponent implements OnInit {
+
+  contacts;
+
   latitude: number;
   longitude: number;
   zoom: number;
@@ -27,7 +31,11 @@ export class MapComponent implements OnInit {
   @Output() lat = new EventEmitter();
   @Output() lon = new EventEmitter();
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
+  constructor(private volunteerMapService: VolunteerMapService , private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+    volunteerMapService.getAll().subscribe(contact => {
+   this.contacts = contact;
+})
+}
 
   ngOnInit() {
     //load Places Autocomplete
@@ -105,5 +113,9 @@ export class MapComponent implements OnInit {
         }
       }
     );
+  }
+
+  getlocation(c){
+    
   }
 }
