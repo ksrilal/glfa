@@ -48,6 +48,7 @@ export class AssignTasksComponent implements OnInit {
   firstForm: FormGroup;
   secondForm: FormGroup;
  
+  public today_date=new Date().getDate();
 
   today;
 
@@ -87,19 +88,22 @@ export class AssignTasksComponent implements OnInit {
    }
 
   toAssign: any[];
-   event;
 
-   returnTask(ev){
-     event= ev;
+  jobTask="";
+  volunteer="";
+   selectTsk(event){
+    console.log(event.task);
+    this.jobTask=event;
    }
-
-  addPeople(vol,tsk) {
+  addPeople(vol) {
     console.log(vol);
-    console.log(tsk);
-
-    //this.taskManagementService.assignVolunteer(v);
+    this.volunteer=vol;
+    // console.log(tsk);
+    console.log(this.jobTask);
+    console.log(this.volunteer);
+    this.taskManagementService.assignVolunteer(this.volunteer,this.jobTask);
   }
-  public today_date=new Date();
+  
   form = new FormGroup({
     task: new FormControl("", Validators.required),
     description: new FormControl("", Validators.required),
@@ -151,7 +155,7 @@ export class AssignTasksComponent implements OnInit {
     return this.form.get("task");
   }
   get dueDate() {
-    return Date.now();
+    return this.today_date;
   }
   get description() {
     return this.form.get("description");
