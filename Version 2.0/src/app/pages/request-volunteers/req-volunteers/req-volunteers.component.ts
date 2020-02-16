@@ -35,7 +35,8 @@ export class ReqVolunteersComponent implements OnInit {
   }
 
   onSubmit() {
-    this.requestVolunteersService.create(this.form.value);
+    this.requestVolunteersService.createTasks(this.form.value);
+    this.requestVolunteersService.createRequest(this.form.value);
     this.form.reset();
   }
 
