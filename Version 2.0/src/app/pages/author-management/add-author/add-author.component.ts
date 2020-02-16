@@ -75,7 +75,8 @@ export class AddAuthorComponent implements OnInit {
         const location = new firebase.firestore.GeoPoint(
           this.latitude,this.longitude
         )
-        this.form.value['location']=location;
+        this.form.value['latitude']=this.latitude;
+        this.form.value['longitude']=this.longitude;
         
         this.form.value.pic = this.downloadURL;
         //console.log(this.form.value);
