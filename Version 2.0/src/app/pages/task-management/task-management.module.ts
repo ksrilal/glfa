@@ -57,7 +57,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     Ng2SmartTableModule,
 
     NbTreeGridModule,
-    
+
 
   ],
 
@@ -69,18 +69,19 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   //   FormLayoutsComponent,
   //   DatepickerComponent,
     //to here ------
-    LayoutComponent,
-    TabsComponent,
-    Tab1Component,
-    Tab2Component,
-    StepperComponent,
-    ListComponent,
-    NewsPostPlaceholderComponent,
-    InfiniteListComponent,
-    NewsPostComponent,
-    D3AdvancedPieComponent,
+    // LayoutComponent,
+    // TabsComponent,
+    // Tab1Component,
+    // Tab2Component,
+    // StepperComponent,
+    // ListComponent,
+    // NewsPostPlaceholderComponent,
+    // InfiniteListComponent,
+    // NewsPostComponent,
+    // D3AdvancedPieComponent,
 
-    AccordionComponent,],
+    // AccordionComponent,
+  ],
 
 
     providers: [

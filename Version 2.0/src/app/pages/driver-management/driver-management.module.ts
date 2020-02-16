@@ -26,7 +26,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     NbCheckboxModule,
     NbRadioModule,
     NbDatepickerModule,
-    FormsRoutingModule,
+    // FormsRoutingModule,
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
@@ -39,12 +39,12 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   ],
   declarations: [
     ...routedComponents,
-    FormsComponent,
-    ButtonsComponent,
-    FormInputsComponent,
-    FormLayoutsComponent,
-    DatepickerComponent,
-    FsIconComponent,
+    // FormsComponent,
+    // ButtonsComponent,
+    // FormInputsComponent,
+    // FormLayoutsComponent,
+    // DatepickerComponent,
+    // FsIconComponent,
   ]
 })
 export class DriverManagementModule {}
