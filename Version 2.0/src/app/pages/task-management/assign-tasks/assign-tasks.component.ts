@@ -39,7 +39,7 @@ export class AssignTasksComponent implements OnInit {
         this.currentTheme = theme.name;
       });
 
-    this.getUserActivity(this.type);
+    this.getUserActivity("Todo");
 
   }
 
@@ -98,25 +98,21 @@ export class AssignTasksComponent implements OnInit {
     console.log(tsk);
 
     //this.taskManagementService.assignVolunteer(v);
-
   }
+  public today_date=new Date();
   form = new FormGroup({
     task: new FormControl("", Validators.required),
     description: new FormControl("", Validators.required),
     time: new FormControl("", [Validators.required]),
-    dueDate: new FormControl(),
+    dueDate: new FormControl(this.today_date),
+    status:new FormControl("Todo"),
     longitude: new FormControl("", Validators.required),
     latitude: new FormControl("", Validators.required),
     noOfVolunteers: new FormControl("", [Validators.required, Validators.min(1)]),
     requestedBy: new FormControl("", Validators.required),
+  })
 
-  });
-
-  formAssign=new FormGroup({
-    todo:new FormControl(" "),
-    vol:new FormControl(""),
- });
-
+ 
   onSubmit() {
     this.taskManagementService.create(this.form.value);
     this.form.reset();
@@ -124,8 +120,7 @@ export class AssignTasksComponent implements OnInit {
   }
 
   onAssign(){
-   // this.taskManagementService.assignVolunteer(this.formAssign.value);
-    console.log(this.formAssign.value);
+   
   }
 
   //new item starts here

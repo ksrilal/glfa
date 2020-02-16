@@ -73,8 +73,14 @@ export class TaskManagementService {
     this.afs.collection('tasks').doc(id).update(newData);
   }
 
-  assignVolunteer(volun){
-    //this.afs.collection('volunteers',ref=>ref.where())
+  assignVolunteer(volun,tsk){
+    try{
+    this.afs.collection('volunteers').doc(volun.email).collection('tasks').doc((tsk.task,tsk.dueDate,tsk.time)).set(tsk);
+    this.afs.collection('tasks').doc((tsk.task,tsk.dueDate,tsk.time)).collection('volunteers').doc(volun.email).set(volun);
+    alert("Addedd Successfully");  
+    }catch(error){
+      alert(error);
+    }
   }
   
 }
