@@ -146,7 +146,7 @@
       <div style="height: 400px;overflow: scroll;">
         <form >
           <nb-card size="medium">
-            
+            <div class="row">
               <nb-card-header>Select Task</nb-card-header>
               <nb-card-body>
                 <nb-select [selected]=" " (selectedChange)="selectTsk($event)" 
@@ -154,11 +154,12 @@
                   <nb-option *ngFor="let tsk of unAssignedTasks" [value]="tsk">{{ tsk.task }}</nb-option>
                 </nb-select>
                 
-             
-            
+              </nb-card-body>
+            </div>
             <!---->
-            Select Volunteers
-           
+            <div class="row">
+          
+           <nb-card-body>
               <input
                 nbInput
                 placeholder="search volunteer"
@@ -168,7 +169,7 @@
                 type="text"
                 autofocus
               />
-              
+             
               <!--nb-list *ngFor="let item of freeVolunteers | filter: searchTerm"-->
               <nb-list *ngFor="let volun of freeVolunteers|filter:searchTerm">
                 <nb-list-item>
@@ -179,6 +180,7 @@
                 </nb-list-item>
               </nb-list>
             </nb-card-body>
+            </div>
           </nb-card>
         </form>
       </div>

@@ -81,6 +81,7 @@ export class TaskManagementService {
     const key=tsk.task+"+"+tsk.dueDate+"+"+tsk.time;
     console.log(key)
     try{
+    this.afs.collection('volunteers').doc(volun.email).update(volun);
     this.afs.collection('volunteers').doc(volun.email).collection('tasks').doc(key).set(tsk);
   //  this.afs.collection('tasks').doc(key).set({});
    this.afs.collection('tasks').doc(key).collection('volunteers').doc(volun.email).set(volun);

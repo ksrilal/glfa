@@ -98,6 +98,8 @@ export class AssignTasksComponent implements OnInit {
   addPeople(vol) {
     console.log(vol);
     this.volunteer=vol;
+    this.volunteer['availability']='false';
+    this.jobTask['status']='Ongoing';
     // console.log(tsk);
     console.log(this.jobTask);
     console.log(this.volunteer);
