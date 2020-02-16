@@ -8,39 +8,39 @@
             <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
               <div class="input-group">
                 <label for="task" class="label col-sm-3 col-form-label">Task</label>
-                <input type="text" nbInput fullWidth id="task" 
-              name="task" 
-              placeholder="Enter the task here.." class="form-control" formControlName="task" 
+                <input type="text" nbInput fullWidth id="task"
+              name="task"
+              placeholder="Enter the task here.." class="form-control" formControlName="task"
               [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-              
-              <input type="text" nbInput fullWidth id="description" 
-              name="description" 
-              placeholder="Description here.." class="form-control" formControlName="description" 
+
+              <input type="text" nbInput fullWidth id="description"
+              name="description"
+              placeholder="Description here.." class="form-control" formControlName="description"
                 [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                
-              <input type="text" nbInput fullWidth id="latitude" 
-              name="latitude" 
-              placeholder="latitude" class="form-control" formControlName="latitude" 
+
+              <input type="text" nbInput fullWidth id="latitude"
+              name="latitude"
+              placeholder="latitude" class="form-control" formControlName="latitude"
                 [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-               
-              <input type="text" nbInput fullWidth id="longitude" 
-                name="longitude" 
-                placeholder="longitude" class="form-control" formControlName="longitude" 
+
+              <input type="text" nbInput fullWidth id="longitude"
+                name="longitude"
+                placeholder="longitude" class="form-control" formControlName="longitude"
                   [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-               
-              <input type="date" nbInput fullWidth id="dueDate" 
-              name="dueDate" 
-              placeholder='{{ today | date }}' class="form-control" formControlName="dueDate" 
+
+              <input type="date" nbInput fullWidth id="dueDate"
+              name="dueDate"
+              placeholder='{{ today | date }}' class="form-control" formControlName="dueDate"
                   [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                  
-              <input type="time" nbInput fullWidth id="time" 
-              name="time" 
-              placeholder='' class="form-control" formControlName="time" 
+
+              <input type="time" nbInput fullWidth id="time"
+              name="time"
+              placeholder='' class="form-control" formControlName="time"
                   [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-                
-              <input type="number" nbInput fullWidth id="noOfVolunteers" 
-              name="noOfVolunteers" 
-              placeholder="Number of Volunteers" class="form-control" formControlName="noOfVolunteers" 
+
+              <input type="number" nbInput fullWidth id="noOfVolunteers"
+              name="noOfVolunteers"
+              placeholder="Number of Volunteers" class="form-control" formControlName="noOfVolunteers"
                   [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
               
               <nb-select [selected]="staff[0]" (selectedChange)="event" formControlName="requestedBy" 
@@ -54,7 +54,7 @@
             </form>
             </div>
           </nb-step>
-        
+
           <nb-step [stepControl]="secondForm" label="Second step">
             <div class="col-md-3">
               <div style="height: 300px;overflow: scroll;">
@@ -112,7 +112,7 @@
           <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
         </nb-select>
       </nb-card-header>
-      
+
   <nb-list class="user-activity-list">
     <nb-list-item *ngFor="let item of userActivity">
 
@@ -152,8 +152,8 @@
           <div class="form-group row">
             <label for="task" class="label col-sm-3 col-form-label">Task</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="task" 
-              name="task" 
+              <input type="text" nbInput fullWidth id="task"
+              name="task"
               placeholder="Enter the task here.."
               >
             </div>
@@ -161,8 +161,8 @@
           <div class="form-group row">
             <label for="description" class="label col-sm-3 col-form-label">Description</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="description" 
-              name="description" 
+              <input type="text" nbInput fullWidth id="description"
+              name="description"
               placeholder="Description here.."
               >
             </div>
@@ -170,48 +170,48 @@
           <div class="form-group row">
             <label for="location" class="label col-sm-3 col-form-label">Location</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="location" 
-              name="location" 
+              <input type="text" nbInput fullWidth id="location"
+              name="location"
               placeholder=" "
-              
+
               >
             </div>
           </div>
-          
+
           <div class="form-group row">
             <label for="user" class="label col-sm-3 col-form-label">Request By</label>
             <div class="col-sm-9">
-              
+
             </div>
           </div>
           <div class="form-group row">
             <label for="dateFrom" class="label col-sm-3 col-form-label">Time(From)</label>
             <div class="col-sm-9">
-              <input type="datetime-local" nbInput fullWidth id="dateFrom" 
-              name="dateFrom" 
+              <input type="datetime-local" nbInput fullWidth id="dateFrom"
+              name="dateFrom"
               placeholder='{{ today | date }}'>
             </div>
-          </div> 
-          
+          </div>
+
           <div class="form-group row">
             <label for="dateTo" class="label col-sm-3 col-form-label">Time(To)</label>
             <div class="col-sm-9">
-              <input type="datetime-local" nbInput fullWidth id="dateTo" 
-              name="dateTo" 
+              <input type="datetime-local" nbInput fullWidth id="dateTo"
+              name="dateTo"
               placeholder=''
               >
             </div>
-          </div> 
+          </div>
           <div class="form-group row">
             <label for="noOfVolunteers" class="label col-sm-3 col-form-label">No of Volunteers</label>
             <div class="col-sm-9">
-              <input type="number" nbInput fullWidth id="noOfVolunteers" 
-              name="noOfVolunteers" 
+              <input type="number" nbInput fullWidth id="noOfVolunteers"
+              name="noOfVolunteers"
               placeholder=""
               >
             </div>
-          </div> 
-         
+          </div>
+
           <div class="form-group row">
             <div class="offset-sm-3 col-sm-9">
               <button type="submit" nbButton status="primary">Add</button>
@@ -219,7 +219,7 @@
           </div>
         </form>
       </nb-card-body>
-    </nb-card>  
+    </nb-card>
   </div>
 </div-->
 <!---form starts here -->
@@ -269,7 +269,7 @@
         fullWidth
         value="{{date|date:mediumDate}}"
         formControlName="dueDate"
-        
+
       />
       <input
         hidden
