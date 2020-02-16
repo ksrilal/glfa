@@ -156,19 +156,28 @@
                 : 'Confirm Password'
             "
           />
-           <div *ngIf="confirmPassword.invalid">
-              <div class="alert alert-danger">
-                Password dosen't match
-              </div>
+          <div *ngIf="confirmPassword.invalid">
+            <div class="alert alert-danger">
+              Password dosen't match
             </div>
+          </div>
 
-          <input
+          <!-- <input
             type="text"
             nbInput
             fullWidth
             placeholder="Disabled input"
             disabled
-          />
+          /> -->
+          <div class="form-group">
+          <div class="full-name-inputs">
+          <label>Select profile picture to upload</label>
+          <!-- <input type="file" accept="image/*"  class="form-control"> -->
+            <input type="file" (change)="upload($event)" class="form-control" formControlName="pic" accept=".png,.jpg">
+            <div class="alert alert-danger" *ngIf="pic.touched && pic.invalid"> This field is Required!</div>
+          </div>
+
+        </div>
           <button [disabled]="form.invalid" nbButton status="primary" hero>
             Add Box Office Staff
           </button>
@@ -177,7 +186,7 @@
     </form>
   </div>
 
-  <div class="col-lg-6">
+  <!-- <div class="col-lg-6">
     <nb-card>
       <nb-card-header>Select</nb-card-header>
       <nb-card-body>
@@ -187,5 +196,5 @@
         </nb-select>
       </nb-card-body>
     </nb-card>
-  </div>
+  </div> -->
 </div>
