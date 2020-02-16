@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidators } from '../../validators/password-validator';
 import { AuthorManagementService } from '../author-management.service';
 import { AngularFireStorage } from '@angular/fire/storage';
- 
+
 
 @Component({
   selector: 'ngx-add-author',
@@ -13,22 +13,24 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class AddAuthorComponent implements OnInit {
 
   constructor(private afStorage: AngularFireStorage,
-              private authorManagement: AuthorManagementService) { }
+    private authorManagement: AuthorManagementService) { }
 
   ngOnInit() {
   }
 
   downloadURL;
   randomId;
+  latitude: number = 0;
+  longitude: number= 0;
 
   upload(event) {
     this.randomId = Math.random()
       .toString(36)
       .substring(2);
 
-    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
+    this.afStorage.upload("/authors/" + this.randomId, event.target.files[0]);
   }
- 
+
   form = new FormGroup({
     //userName: new FormControl("", Validators.required),
     fname: new FormControl("", Validators.required),
@@ -46,15 +48,33 @@ export class AddAuthorComponent implements OnInit {
       Validators.maxLength(10)
     ]),
     confirmPassword: new FormControl("", [
-      Validators.required,Validators.minLength(8),
+      Validators.required, Validators.minLength(8),
       PasswordValidators.checkPasswrod
     ]),
+    gender: new FormControl("", Validators.required),
+    latitude: new FormControl(""),
+    longitude: new FormControl(""),
   });
 
 
   onSubmit() {
-    this.authorManagement.create(this.form.value);
+
+    this.downloadURL = this.afStorage
+      .ref("/authors/" + this.randomId)
+      .getDownloadURL()
+      .subscribe(a => {
+        this.downloadURL = a;
+
+        //console.log(this.downloadURL);
+        //console.log(this.form.value);
+        this.form.value.pic = this.downloadURL;
+        this.form.value.latitude = this.latitude;
+        this.form.value.longitude = this.longitude;
+        this.authorManagement.create(this.form.value);
+        
     this.form.reset();
+      });
+
   }
 
   get email() {
@@ -81,6 +101,9 @@ export class AddAuthorComponent implements OnInit {
   get confirmPassword() {
     return this.form.get("confirmPassword");
   }
+  get gender() {
+    return this.form.get("gender");
+  }
 
-  
+
 }

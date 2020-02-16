@@ -27,7 +27,7 @@ staff: any[];
       .toString(36)
       .substring(2);
 
-    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
+    this.afStorage.upload("/staff/" + this.randomId, event.target.files[0]);
   }
 
   form = new FormGroup({
@@ -35,7 +35,7 @@ staff: any[];
     fname: new FormControl("", Validators.required),
     lname: new FormControl("", Validators.required),
     role: new FormControl("", Validators.required),
-    //des: new FormControl("", Validators.required),
+    gender: new FormControl("", Validators.required),
     pic: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
@@ -55,17 +55,19 @@ staff: any[];
 
   onSubmit() {
 
-    this.festivalStaffManagement.create(this.form.value);
     this.downloadURL = this.afStorage
-    .ref("/events/" + this.randomId)
+    .ref("/staff/" + this.randomId)
     .getDownloadURL()
     .subscribe(a => {
       this.downloadURL = a;
 
-        console.log(this.downloadURL);
+        //console.log(this.downloadURL);
+        this.form.value.pic = this.downloadURL;
+        this.festivalStaffManagement.create(this.form.value);
+        this.form.reset();
+
       });
 
-    this.form.reset();
   }
 
   get email() {
@@ -86,11 +88,11 @@ staff: any[];
   get mobile() {
     return this.form.get("mobile");
   }
-  // get des() {
-  //   return this.form.get("des");
-  // }
+  get gender() {
+    return this.form.get("gender");
+  }
   get role() {
-    return this.form.get("des");
+    return this.form.get("role");
   }
   get confirmPassword() {
     return this.form.get("confirmPassword");

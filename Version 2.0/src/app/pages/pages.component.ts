@@ -22,9 +22,14 @@ export class PagesComponent {
   menu;
 
   constructor() {
-    console.log("PAKAYA");
+
+
+    var roll = "volunteerCoordinator";
+
+
     console.log(localStorage.getItem("role"));
     var roll = localStorage.getItem("role");
+
     if (roll == "manager") {
       this.menu = manager;
     } else if (roll == "volunteer") {

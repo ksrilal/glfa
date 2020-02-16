@@ -32,16 +32,37 @@ export class TaskManagementService {
     }
     
   }
-  getVolunteers(volunteer?){
+  getVolunteers(task?){
     try{
-       return this.afs.collection('volunteers').valueChanges({idField:"id"});
+       return this.afs.collection('tasks').doc(task).collection('volunteers').valueChanges({idField:"id"});
     }catch(error){
       alert(error);
     }
   }
 
-  getTodo() {
-    return this.afs.collection('tasks').valueChanges();
+  getSelected(period?) {
+    try{
+      return this.afs.collection('tasks',ref=>ref.where('status','==',period)).valueChanges({idField:"id"});
+    }catch(error){
+      alert(error);
+    }
+    
+  }
+
+  getUnassignedTasks(){
+    try{
+      return this.afs.collection('tasks',ref=>ref.where('status','==',"Todo")).valueChanges({idField:"id"});
+    }catch(error){
+      alert(error);
+    }
+  }
+
+  getAvailableVolunteers(){
+    try{
+      return this.afs.collection('volunteers',ref=>ref.where('availability','==',"true")).valueChanges({idField:"id"});
+    }catch(error){
+      alert(error);
+    }
   }
 
   delete(id){
@@ -51,5 +72,15 @@ export class TaskManagementService {
   edit(id,newData){
     this.afs.collection('tasks').doc(id).update(newData);
   }
-}
 
+  assignVolunteer(volun,tsk){
+    try{
+    this.afs.collection('volunteers').doc(volun.email).collection('tasks').doc((tsk.task,tsk.dueDate,tsk.time)).set(tsk);
+    this.afs.collection('tasks').doc((tsk.task,tsk.dueDate,tsk.time)).collection('volunteers').doc(volun.email).set(volun);
+    alert("Addedd Successfully");  
+    }catch(error){
+      alert(error);
+    }
+  }
+  
+}

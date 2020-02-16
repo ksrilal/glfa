@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { TaskManagementService } from '../task-management.service';
 import { NbThemeService } from '@nebular/theme';
 import { UserActivityData } from '../../../@core/data/user-activity';
 import { takeWhile } from 'rxjs/operators';
+
 
 @Component({
   selector: 'ngx-assign-tasks',
@@ -13,97 +14,163 @@ import { takeWhile } from 'rxjs/operators';
 export class AssignTasksComponent implements OnInit {
   tasks: any[];
 
+  searchTerm;
 
-  constructor(private fb: FormBuilder,private taskManagementService: TaskManagementService,
+
+  constructor(private fb: FormBuilder, private taskManagementService: TaskManagementService,
     private themeService: NbThemeService,
-              private userActivityService: UserActivityData) {
+    private userActivityService: UserActivityData) {
     taskManagementService.getAll().subscribe(task => {
       this.tasks = task;
     });
+    
+    taskManagementService.getAvailableVolunteers().subscribe(a => {
+      this.freeVolunteers=a;
+    });
+
+    taskManagementService.getUnassignedTasks().subscribe(t=>{
+      this.unAssignedTasks=t;
+    });
+
     ///new
     this.themeService.getJsTheme()
-    .pipe(takeWhile(() => this.alive))
-    .subscribe(theme => {
-      this.currentTheme = theme.name;
-  });
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(theme => {
+        this.currentTheme = theme.name;
+      });
 
-  this.getUserActivity(this.type);
-  
+    this.getUserActivity("Todo");
+
   }
-  
+
+  freeVolunteers: any[];
+  unAssignedTasks:any[];
   firstForm: FormGroup;
   secondForm: FormGroup;
-
+ 
 
   today;
 
   ngOnInit() {
- /*   this.firstForm = this.fb.group({
-      task: ['', Validators.required],
-      description: ['', Validators.required],
-      latitude: ['', Validators.required],
-      longitude: ['', Validators.required],
-      dueDate: ['', Validators.required],
-      time: ['', Validators.required],
-      noOfVolunteers: ['', Validators.required],
+      this.firstForm = this.fb.group({
+         task: ['', Validators.required],
+         description: ['', Validators.required],
+         latitude: ['', Validators.required],
+         longitude: ['', Validators.required],
+         dueDate: ['', Validators.required],
+         time: ['', Validators.required],
+         noOfVolunteers: ['', Validators.required],
+         requestedBy:['',Validators.required],
+       });
+
+       
+   
+       this.secondForm = this.fb.group({
+         userName: ['', Validators.required],
+       });
+   
+  }
+  taskDetails;
+   onFirstSubmit() {
+     this.firstForm.markAsDirty();
+     // this.taskManagementService.create(this.firstForm.value);
+     this.taskDetails=(this.firstForm.value);
+      console.log(this.taskDetails);
       
-    });
+     // this.firstForm.reset();
+   }
+ 
+   onSecondSubmit() {
+     this.secondForm.markAsDirty();
+     console.log(this.secondForm.value)
+ 
+   }
 
-    this.secondForm = this.fb.group({
-      userName: ['', Validators.required],
-    });
-*/
+  toAssign: any[];
+   event;
+
+   returnTask(ev){
+     event= ev;
+   }
+
+  addPeople(vol,tsk) {
+    console.log(vol);
+    console.log(tsk);
+
+    //this.taskManagementService.assignVolunteer(v);
   }
-
- /* onFirstSubmit() {
-    this.firstForm.markAsDirty();
-    // this.taskManagementService.create(this.firstForm.value);
-    // console.log("sdjkhbvfkds")
-    // this.firstForm.reset();
-  }
-
-  onSecondSubmit() {
-    this.secondForm.markAsDirty();
-    // console.log(this.secondForm.value)
-
-  }*/
+  public today_date=new Date();
   form = new FormGroup({
     task: new FormControl("", Validators.required),
     description: new FormControl("", Validators.required),
-    time: new FormControl("",[Validators.required]),
+    time: new FormControl("", [Validators.required]),
+    dueDate: new FormControl(this.today_date),
+    status:new FormControl("Todo"),
     longitude: new FormControl("", Validators.required),
     latitude: new FormControl("", Validators.required),
-    noOfVolunteers: new FormControl("", [Validators.required,Validators.min(1)]),
+    noOfVolunteers: new FormControl("", [Validators.required, Validators.min(1)]),
+    requestedBy: new FormControl("", Validators.required),
+  })
 
-  });
+ 
   onSubmit() {
     this.taskManagementService.create(this.form.value);
     this.form.reset();
-  } 
+
+  }
+
+  onAssign(){
+   
+  }
 
   //new item starts here
-  
+
   private alive = true;
 
-  userActivity=[] = [];
+  userActivity = [] = [];
   type = 'month';
-  types = ['week', 'month', 'year'];
+  types = ['Ongoing', 'Todo', 'Done'];
   currentTheme: string;
-
- 
-
+  staff = ["Festival Manager", "Volunteer Coordinator", "Transportation Manager", "Box Office Manager"];
 
 
   getUserActivity(period: string) {
-   
-    this.taskManagementService.getAll().subscribe(result=>{
-      this.userActivity=result;
-      console.log(this.userActivity)
+
+    this.taskManagementService.getSelected(period).subscribe(result => {
+      this.userActivity = result;
+      console.log(period);
+      console.log(result);
     })
   }
 
   ngOnDestroy() {
     this.alive = false;
+  }
+
+  get task() {
+    return this.form.get("task");
+  }
+  get dueDate() {
+    return Date.now();
+  }
+  get description() {
+    return this.form.get("description");
+  }
+  get time() {
+    return this.form.get("time");
+  }
+
+  get longitude() {
+    return this.form.get("longitude");
+  }
+  get latitude() {
+    return this.form.get("latitude");
+  }
+  get noOfVolunteers() {
+    return this.form.get("noOfVolunteers");
+  }
+  get requestedBy() {
+    return this.form.get("requestedBy");
   }
 
 }
