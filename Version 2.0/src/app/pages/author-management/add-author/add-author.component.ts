@@ -34,7 +34,7 @@ export class AddAuthorComponent implements OnInit {
 
   form = new FormGroup({
     //userName: new FormControl("", Validators.required),
-    fname: new FormControl("", Validators.required),
+    name: new FormControl("", Validators.required),
     lname: new FormControl("", Validators.required),
     des: new FormControl("", Validators.required),
     pic: new FormControl("", Validators.required),
@@ -89,8 +89,8 @@ export class AddAuthorComponent implements OnInit {
   get email() {
     return this.form.get("email");
   }
-  get fname() {
-    return this.form.get("fname");
+  get name() {
+    return this.form.get("name");
   }
   get lname() {
     return this.form.get("lname");

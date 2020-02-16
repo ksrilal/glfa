@@ -45,6 +45,10 @@ create(data) {
           .collection("authors")
           .doc(firebaseUser.user.email)
           .set(data);
+          this.afs
+          .collection("users")
+          .doc(firebaseUser.user.email)
+          .set(data);
         secondaryApp.auth().signOut();
       })
      
@@ -57,7 +61,7 @@ create(data) {
         //   }
         // });
       });
-    console.log(data);
+    //console.log(data);
     }
 
 getAll() {

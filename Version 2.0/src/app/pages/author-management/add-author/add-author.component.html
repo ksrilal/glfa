@@ -7,14 +7,14 @@
       <nb-card-body>
  
         <div class="full-name-inputs">
-          <input type="text" nbInput fullWidth placeholder="First Name" formControlName="fname"
+          <input type="text" nbInput fullWidth placeholder="First Name" formControlName="name"
               [placeholder]="
-                fname.touched && fname.invalid
+                name.touched && name.invalid
                   ? 'First Name Required!'
                   : 'First Name'
               "
               [status]="
-                fname.touched && fname.invalid ? 'danger' : 'primary'
+                name.touched && name.invalid ? 'danger' : 'primary'
               ">
 
           <input type="text" nbInput fullWidth placeholder="Last Name" formControlName="lname"
