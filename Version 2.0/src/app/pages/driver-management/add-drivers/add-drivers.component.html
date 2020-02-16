@@ -180,8 +180,16 @@
 
         </div>
 
-         <button  nbButton status="primary" hero>
-            Add Driver
+        <input
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="Disabled input"
+            disabled
+          />
+
+          <button [disabled]="form.invalid" nbButton status="primary" hero>
+            Add
           </button>
       </nb-card-body>
     </nb-card>

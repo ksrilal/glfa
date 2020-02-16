@@ -9,8 +9,9 @@ export class RequestVolunteersService {
   constructor(private afs: AngularFirestore) { }
 
   create(tasks){
+    const key = tasks.eventName+"+"+tasks.dueDate+"+"+tasks.time;
     try{
-      this.afs.collection('tasks').add(tasks);
+      this.afs.collection('tasks').doc(key).set(tasks);
       alert("Added Successfully");
     }
     catch(error){
