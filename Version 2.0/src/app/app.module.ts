@@ -27,6 +27,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 
@@ -57,6 +59,7 @@ import { LoginComponent } from './login/login.component';
     AngularFireStorageModule,
     ReactiveFormsModule,
     // ToastrModule.forRoot()// ToastrModule added
+    Ng2SearchPipeModule
   ],
   bootstrap: [AppComponent]
 })

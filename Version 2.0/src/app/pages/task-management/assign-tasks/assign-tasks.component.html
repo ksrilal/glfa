@@ -5,8 +5,8 @@
         <nb-card>
           <nb-card-header>Add Tasks</nb-card-header>
           <nb-card-body>
-     
-            
+
+
               <input
                   type="text"
                   nbInput
@@ -37,7 +37,7 @@
                   description.touched && description.invalid ? 'danger' : 'primary'
                 "
               />
-            
+
             <input
             hidden
             type="date"
@@ -45,7 +45,7 @@
             fullWidth
             value="{{date|date:mediumDate}}"
             formControlName="dueDate"
-            
+
           />
           <input
             hidden
@@ -54,7 +54,7 @@
             fullWidth
             value="Todo"
             formControlName="status"
-            
+
           />
             <input
                   type="time"
@@ -122,7 +122,7 @@
             />
             </div>
             <div class="col-md-6 col-lg-6 col-xxxl-6">
-            <nb-select [selected]="staff[0]" (selectedChange)="event" formControlName="requestedBy" 
+            <nb-select [selected]="staff[0]" (selectedChange)="event" formControlName="requestedBy"
             placeholder="Requested By" [status]="
             requestedBy.touched && requestedBy.invalid ? 'danger' : 'primary'
             ">
@@ -130,14 +130,14 @@
             </nb-select>
           </div>
           </div>
-    
+
              <button  nbButton status="primary" hero>
                 Add Task
               </button>
           </nb-card-body>
         </nb-card>
       </form>
-      
+
     </div>
   </div>
     <!--form ends here -->
@@ -149,16 +149,16 @@
             <div class="row">
               <nb-card-header>Select Task</nb-card-header>
               <nb-card-body>
-                <nb-select [selected]=" " (selectedChange)="selectTsk($event)" 
+                <nb-select [selected]=" " (selectedChange)="selectTsk($event)"
                 >
                   <nb-option *ngFor="let tsk of unAssignedTasks" [value]="tsk">{{ tsk.task }}</nb-option>
                 </nb-select>
-                
+
               </nb-card-body>
             </div>
             <!---->
             <div class="row">
-          
+
            <nb-card-body>
               <input
                 nbInput
@@ -169,12 +169,12 @@
                 type="text"
                 autofocus
               />
-             
+
               <!--nb-list *ngFor="let item of freeVolunteers | filter: searchTerm"-->
               <nb-list *ngFor="let volun of freeVolunteers|filter:searchTerm">
                 <nb-list-item>
                   {{ volun.fName }}
-                  <div style="align-self: center;">   
+                  <div style="align-self: center;">
                     <button  nbButton (click)="addPeople(volun)">add</button>
                   </div>
                 </nb-list-item>
@@ -188,7 +188,7 @@
 </div>
     <!--assign form-->
 
-   
+
     <nb-card size="medium">
       <nb-card-header>
         <span>Tasks</span>
@@ -199,7 +199,7 @@
 
   <nb-list class="user-activity-list">
     <nb-list-item *ngFor="let item of userActivity">
-      
+
       <div class="visited-date">
         {{ item.time }}
       </div>
