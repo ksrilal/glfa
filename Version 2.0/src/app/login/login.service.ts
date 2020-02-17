@@ -6,7 +6,6 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import * as firebase from "firebase";
 // import { ToastrService } from 'ngx-toastr';
 
-
 // import { staffType, StaffMem } from "../app/pages/staff/staff.service";
 // import { AngularFirestore} from '@angular/fire/firestore';
 // import { ToastrService } from "ngx-toastr";
@@ -21,9 +20,9 @@ export class LoginService {
   constructor(
     private angularFireAuth: AngularFireAuth,
     private router: Router,
-    private afs: AngularFirestore ,
-    // private toastr: ToastrService
-  ) {
+    private afs: AngularFirestore
+  ) // private toastr: ToastrService
+  {
     this.userData = angularFireAuth.authState;
   }
   isLoggedIn() {
@@ -81,7 +80,7 @@ export class LoginService {
               localStorage.setItem("userId", res.user.uid);
               console.log(res.user.uid);
 
-              this.router.navigate(["/pages"]);
+              this.router.navigate(["/pages/iot-dashboard"]);
             })
             .catch(err => {
               // tslint:disable-next-line: no-console
