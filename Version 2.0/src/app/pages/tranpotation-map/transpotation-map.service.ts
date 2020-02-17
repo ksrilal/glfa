@@ -11,4 +11,9 @@ export class TranspotationMapService {
   getAllAuthors(){
     return this.afs.collection('authors').valueChanges();
   }
+
+  getLocation(email){
+    return this.afs.collection('authors',ref=>ref.where('email','==',email)).valueChanges();
+  }
 }
+
