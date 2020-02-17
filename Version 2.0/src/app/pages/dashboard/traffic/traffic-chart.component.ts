@@ -19,8 +19,8 @@ export class TrafficChartComponent implements AfterViewInit, OnDestroy {
 
   @Input() points: number[];
 
-  type = 'month';
-  types = ['week', 'month', 'year'];
+  type = 'DAY';
+  types = ['Day 1', 'Day 2', 'Day 3' , 'Day 3' , 'Day 4' , 'Day 5'];
   option: any = {};
   echartsIntance: any;
 
