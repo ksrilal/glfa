@@ -119,7 +119,14 @@ export class MapComponent implements OnInit {
   }
 
   getlocation(c){
-    
-  }
+    this.transpotationMapService.getLocation(c.email).subscribe(result=>{
+      this.latitude=result[0]['location'].latitude
+      this.longitude=result[0]['location'].longitude
+      // console.log(result[0]['location'].latitude)
+
+
+
+    })
+}
 
 }

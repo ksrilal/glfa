@@ -19,7 +19,7 @@ export class RequestVolunteersService {
   createTasks(tasks){
 
 
-    const key = tasks.eventName+"+"+this.dueDate+"+"+this.time;
+    const key = tasks.task+"+"+this.dueDate+"+"+this.time;
     console.log(key);
     try{
       this.afs.collection('tasks').doc(key).set(tasks);

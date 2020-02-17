@@ -16,7 +16,7 @@
       <nb-card-body>
         <nb-list>
           <nb-list-item *ngFor="let allVehicle of allVehicles">
-            {{allVehicle.fname}}
+            {{allVehicle.fname}} {{allVehicle.lname}}
           </nb-list-item>
         </nb-list>
       </nb-card-body>
@@ -29,7 +29,7 @@
       <nb-card-body>
         <nb-list>
           <nb-list-item *ngFor="let freeVehicle of freeVehicles">
-            {{freeVehicle.fname}}
+            {{freeVehicle.fname}} {{freeVehicle.lname}}
           </nb-list-item>
         </nb-list>
       </nb-card-body>
@@ -42,7 +42,7 @@
       <nb-card-body>
         <nb-list>
           <nb-list-item *ngFor="let assignedVehicle of assignedVehicles">
-            {{assignedVehicle.fname}}
+            {{assignedVehicle.fname}} {{assignedVehicle.lname}}
           </nb-list-item>
         </nb-list>
       </nb-card-body>

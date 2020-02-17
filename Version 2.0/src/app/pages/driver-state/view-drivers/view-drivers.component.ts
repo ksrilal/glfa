@@ -20,9 +20,9 @@ export class ViewDriversComponent implements OnInit {
       // console.log(allVehicle)
       allVehicle.forEach(element => {
         this.allVehicles.push(element);
-        if(element['availble']==true){
+        if(element['availble']==false){
           this.assignedVehicles.push(element)
-        }else if(element['availble']==false){
+        }else if(element['availble']==true){
           this.freeVehicles.push(element)
         }
       });
