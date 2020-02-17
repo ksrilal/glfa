@@ -26,8 +26,8 @@ export class TrafficComponent implements OnDestroy {
   private alive = true;
 
   trafficChartPoints: number[];
-  type = 'month';
-  types = ['week', 'month', 'year'];
+  type = 'day';
+  types = ['Day 1', 'Day 2', 'Day 3' , 'Day 4' , 'Day 5'];
   currentTheme: string;
 
   constructor(private themeService: NbThemeService,
