@@ -27,6 +27,8 @@ export class AddVolunteerComponent implements OnInit {
     passwd: new FormControl("", [Validators.required,Validators.minLength(8)]),
     confirmpassword:new FormControl("",[Validators.required,PasswordValidators.checkPasswrod]),
     availability:new FormControl("true"),
+    longitude:new FormControl("0"),
+    latitude:new FormControl("0"),
 
   });
   ngOnInit() {
@@ -73,6 +75,12 @@ export class AddVolunteerComponent implements OnInit {
     return this.form.get("availability");
   }
 
+  get longitude(){
+    return this.form.get("longitude");
+  }
+  get latitude(){
+    return this.form.get("latitude");
+  }
 
   onSubmit() {
     this.volunteerManagementService.create(this.form.value);

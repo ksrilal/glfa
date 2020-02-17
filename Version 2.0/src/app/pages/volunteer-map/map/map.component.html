@@ -16,8 +16,8 @@
         </nb-tab>
       </nb-tabset>
     </nb-card>
-  </div>
-
+  </div> 
+  
   <div class="col-6">
     <nb-card>
       <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
@@ -27,12 +27,12 @@
           [markerDraggable]="false"
           (dragEnd)="markerDragEnd($event)"
         ></agm-marker>
-         <agm-marker
+         <!-- <agm-marker
           [latitude]="56"
           [longitude]="69"
           [markerDraggable]="false"
           (dragEnd)="markerDragEnd($event)"
-        ></agm-marker>
+        ></agm-marker> -->
       </agm-map>
     </nb-card>
   </div>
