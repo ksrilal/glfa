@@ -14,7 +14,7 @@ export class ReqVolunteersComponent implements OnInit {
   form = new FormGroup({
     eventName: new FormControl("", Validators.required),
     authorName: new FormControl("", Validators.required),
-    noVol: new FormControl("", Validators.required),
+    noOfVolunteers: new FormControl("", Validators.required),
     pickLoc: new FormControl("", Validators.required),
     time: new FormControl("", Validators.required),
     dropLoc: new FormControl("", Validators.required),
@@ -52,8 +52,8 @@ export class ReqVolunteersComponent implements OnInit {
     return this.form.get("authorName");
   }
 
-  get noVol() {
-    return this.form.get("noVol");
+  get noOfVolunteers() {
+    return this.form.get("noOfVolunteers");
   }
 
   get pickLoc() {
