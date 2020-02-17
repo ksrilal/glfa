@@ -77,7 +77,8 @@ export class AddAuthorComponent implements OnInit {
         )
         this.form.value['latitude']=this.latitude;
         this.form.value['longitude']=this.longitude;
-        
+        this.form.value['role']='author';
+        this.form.value['orderId']='0';   
         this.form.value.pic = this.downloadURL;
         //console.log(this.form.value);
         this.authorManagement.create(this.form.value);

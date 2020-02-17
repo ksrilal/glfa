@@ -19,12 +19,12 @@ export const boxoffice: NbMenuItem[] = [
   },
   {
     title: "Redeem Ticket",
-    icon: "layers-outline",
+    icon: "pricetags-outline",
     link: "/pages/redeem"
   },
   {
     title: "Staff Management",
-    icon: "home-outline",
+    icon: "briefcase-outline",
     children: [
       {
         title: "Add Staff",
@@ -39,7 +39,7 @@ export const boxoffice: NbMenuItem[] = [
 
   {
     title: "Ticket Management",
-    icon: "home-outline",
+    icon: "briefcase-outline",
     children: [
       {
         title: "Summary",
@@ -97,7 +97,7 @@ export const volunteerCoordinator: NbMenuItem[] = [
   },
   {
     title: "Task Management",
-    icon: "people-outline",
+    icon: "briefcase-outline",
     children: [
       {
         title: "Assign Tasks",
@@ -111,7 +111,7 @@ export const volunteerCoordinator: NbMenuItem[] = [
   },
   {
     title: "Map",
-    icon: "layout-outline",
+    icon: "map-outline",
     children: [
       {
         title: "Map",
@@ -184,7 +184,7 @@ export const transportationCoordinator: NbMenuItem[] = [
   //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
   {
     title: "Map",
-    icon: "layout-outline",
+    icon: "map-outline",
     children: [
       {
         title: "Map",
@@ -214,7 +214,7 @@ export const manager: NbMenuItem[] = [
   },
   {
     title: "Author Management",
-    icon: "layout-outline",
+    icon: "people-outline",
     children: [
       {
         title: "Add author",
@@ -228,7 +228,7 @@ export const manager: NbMenuItem[] = [
   },
   {
     title: "Staff Management",
-    icon: "layout-outline",
+    icon: "people-outline",
     children: [
       {
         title: "Add staff",
@@ -242,7 +242,7 @@ export const manager: NbMenuItem[] = [
   },
   {
     title: "Event Management",
-    icon: "layout-outline",
+    icon: "briefcase-outline",
     children: [
       {
         title: "Add Event",
@@ -256,7 +256,7 @@ export const manager: NbMenuItem[] = [
   },
   {
     title: "Map",
-    icon: "layout-outline",
+    icon: "map-outline",
     children: [
       {
         title: "Map",
