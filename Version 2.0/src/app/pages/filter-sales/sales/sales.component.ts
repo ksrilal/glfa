@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { LocalDataSource } from "ng2-smart-table";
 import { SmartTableData } from "../../../@core/data/smart-table";
 import { FilterSalesService } from "../filter-sales.service";
+import { ExportToCsv } from "export-to-csv";
 
 @Component({
   selector: "ngx-sales",
@@ -32,11 +33,11 @@ export class SalesComponent implements OnInit {
       totalPrice: {
         title: "Total",
         type: "string"
-      },
-      age: {
-        title: "Age",
-        type: "number"
       }
+      // age: {
+      //   title: "Age",
+      //   type: "number"
+      // }
     }
   };
 
@@ -65,5 +66,27 @@ export class SalesComponent implements OnInit {
     this.filterService.getSales(event).subscribe(result => {
       this.source = result;
     });
+  }
+  options = {
+    fieldSeparator: ",",
+    filename: "Galle Literary Festival",
+    quoteStrings: '"',
+    decimalSeparator: ".",
+    showLabels: true,
+    showTitle: true,
+    title: "Summary ",
+    useTextFile: false,
+    useBom: true,
+    useKeysAsHeaders: true
+    // headers: ['Column 1', 'Column 2', etc...] <-- Won't work with useKeysAsHeaders present!
+    // header: ["Country", "Name"]
+  };
+
+  csvExporter = new ExportToCsv(this.options);
+
+  generate() {
+    var data = this.source;
+
+    this.csvExporter.generateCsv(data);
   }
 }
