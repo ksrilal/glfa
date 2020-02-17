@@ -1,9 +1,6 @@
 <!-- <nb-card>
   <nb-card-body> -->
 <div class="row">
-
-
-
   <div class="col-xxxl-3 col-xxl-4 col-lg-4 col-md-3">
     <!-- <ngx-contacts></ngx-contacts> -->
     <nb-card size="giant" style="overflow-y: scroll;">
@@ -12,7 +9,6 @@
           <nb-list style="overflow-y: scroll;">
             <nb-list-item class="contact" *ngFor="let c of contacts">
               <nb-user
-
                 (click)="getChat(c)"
                 [name]="c.fname"
                 size="large"
@@ -25,7 +21,7 @@
   </div>
   <div
     class="chat-container col-md-6 col-lg-6 col-xxxl-6"
-    style="margin-top: -3.7%, padding-top : 10px"
+    style="margin-top: -3.7%;padding-top: 1-px;"
   >
     <nb-chat
       style="width: 100%;"
