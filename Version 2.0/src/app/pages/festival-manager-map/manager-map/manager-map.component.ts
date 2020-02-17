@@ -106,9 +106,11 @@ export class ManagerMapComponent implements OnInit {
   }
 
   getlocation(c){
+    console.log(c)
       this.managerMapService.getLocation(c.email).subscribe(result=>{
-        this.latitude=result[0]['location'].latitude
-        this.longitude=result[0]['location'].longitude
+        this.latitude=result[0]['latitude']
+        this.longitude=result[0]['longitude']   
+        console.log(this.latitude)
         // console.log(result[0]['location'].latitude)
         
 
