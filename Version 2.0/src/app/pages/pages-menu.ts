@@ -1,75 +1,77 @@
 import { NbMenuItem } from "@nebular/theme";
 
 export const boxoffice: NbMenuItem[] = [
-         {
-           title: "E-commerce",
-           icon: "shopping-cart-outline",
-           link: "/pages/dashboard",
-           home: true
-         },
-         {
-           title: "IoT Dashboard",
-           icon: "home-outline",
-           link: "/pages/iot-dashboard"
-         },
-         {
-           title: "Box Office",
-           group: true
-         },
-         {
-           title: "Redeem Ticket",
-           icon: "layers-outline",
-           link: "/pages/redeem"
-         },
-         {
-           title: "Staff Management",
-           icon: "home-outline",
-           children: [
-             {
-               title: "Add Staff",
-               link: "/pages/staff-management/add-staff"
-             },
-             {
-               title: "Modify Staff",
-               link: "/pages/staff-management/modify-staff"
-             }
-           ]
-         },
-
-         {
-           title: "Ticket Management",
-           icon: "home-outline",
-           children: [
-             {
-               title: "Summary",
-               link: "/pages/ticket-management/summary"
-             }
-           ]
-         },
-
-         {
-           title: "Filter Sales",
-           icon: "people-outline",
-           children: [
-             {
-               title: "Sales",
-               link: "/pages/filter-sales/sales"
-             }
-           ]
-         }
-       ];
-
-export const volunteerCoordinator: NbMenuItem[] = [
+  //  {
+  //    title: "E-commerce",
+  //    icon: "shopping-cart-outline",
+  //    link: "/pages/dashboard",
+  //    home: true
+  //  },
   {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
+    title: "Dashboard",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard",
     home: true
   },
   {
-    title: "IoT Dashboard",
+    title: "Box Office",
+    group: true
+  },
+  {
+    title: "Redeem Ticket",
+    icon: "layers-outline",
+    link: "/pages/redeem"
+  },
+  {
+    title: "Staff Management",
     icon: "home-outline",
-    link: "/pages/iot-dashboard"
+    children: [
+      {
+        title: "Add Staff",
+        link: "/pages/staff-management/add-staff"
+      },
+      {
+        title: "Modify Staff",
+        link: "/pages/staff-management/modify-staff"
+      }
+    ]
+  },
+
+  {
+    title: "Ticket Management",
+    icon: "home-outline",
+    children: [
+      {
+        title: "Summary",
+        link: "/pages/ticket-management/summary"
+      }
+    ]
+  },
+
+  {
+    title: "Filter Sales",
+    icon: "people-outline",
+    children: [
+      {
+        title: "Sales",
+        link: "/pages/filter-sales/sales"
+      }
+    ]
+  }
+];
+
+export const volunteerCoordinator: NbMenuItem[] = [
+  //  {
+  //    title: "E-commerce",
+  //    icon: "shopping-cart-outline",
+  //    link: "/pages/dashboard",
+  //    home: true
+  //  },
+  {
+    title: "Dashboard",
+    icon: "home-outline",
+    link: "/pages/iot-dashboard",
+    home: true
   },
   {
     title: "Volunteer Coordinator",
@@ -119,16 +121,17 @@ export const volunteerCoordinator: NbMenuItem[] = [
   }
 ];
 export const transportationCoordinator: NbMenuItem[] = [
+  //  {
+  //    title: "E-commerce",
+  //    icon: "shopping-cart-outline",
+  //    link: "/pages/dashboard",
+  //    home: true
+  //  },
   {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
+    title: "Dashboard",
     icon: "home-outline",
-    link: "/pages/iot-dashboard"
+    link: "/pages/iot-dashboard",
+    home: true
   },
   {
     title: "Transportation Coordinator",
@@ -192,16 +195,17 @@ export const transportationCoordinator: NbMenuItem[] = [
 ];
 
 export const manager: NbMenuItem[] = [
+  //  {
+  //    title: "E-commerce",
+  //    icon: "shopping-cart-outline",
+  //    link: "/pages/dashboard",
+  //    home: true
+  //  },
   {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
+    title: "Dashboard",
     icon: "home-outline",
-    link: "/pages/iot-dashboard"
+    link: "/pages/iot-dashboard",
+    home: true
   },
 
   {
@@ -263,16 +267,17 @@ export const manager: NbMenuItem[] = [
 ];
 
 export const all: NbMenuItem[] = [
+  //  {
+  //    title: "E-commerce",
+  //    icon: "shopping-cart-outline",
+  //    link: "/pages/dashboard",
+  //    home: true
+  //  },
   {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    home: true
-  },
-  {
-    title: "IoT Dashboard",
+    title: "Dashboard",
     icon: "home-outline",
-    link: "/pages/iot-dashboard"
+    link: "/pages/iot-dashboard",
+    home: true
   },
   {
     title: "Forms",
