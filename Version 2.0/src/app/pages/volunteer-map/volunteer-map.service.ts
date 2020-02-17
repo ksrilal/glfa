@@ -11,4 +11,8 @@ export class VolunteerMapService {
   getAll(){
     return this.afs.collection('volunteers').valueChanges();
   }
+  getLocation(email){
+    return this.afs.collection('volunteers',ref=>ref.where('email','==',email)).valueChanges();
+  }
+
 }
