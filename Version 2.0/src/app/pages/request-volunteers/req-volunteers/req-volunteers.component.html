@@ -70,14 +70,14 @@
           nbInput
           fullWidth
           placeholder="Required Number of Volunteers"
-          formControlName="noVol"
+          formControlName="noOfVolunteers"
           [placeholder]="
-              noVol.touched && noVol.invalid
+              noOfVolunteers.touched && noOfVolunteers.invalid
               ? 'Required Number of Volunteers Required'
               : 'Required Number of Volunteers'
           "
           [status]="
-              noVol.touched && noVol.invalid ? 'danger' : 'primary'
+              noOfVolunteers.touched && noOfVolunteers.invalid ? 'danger' : 'primary'
           "
         />
         <input
