@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DriverManagementService } from '../driver-management.service';
 import { AngularFireStorage } from '@angular/fire/storage';
+import * as firebase from 'firebase/app';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'ngx-add-drivers',
@@ -10,7 +12,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
   styleUrls: ['./add-drivers.component.scss']
 })
 export class AddDriversComponent implements OnInit {
-  drivers: any[];
+  drivers;
 
   downloadURL;
   randomId;
@@ -20,13 +22,19 @@ export class AddDriversComponent implements OnInit {
       .toString(36)
       .substring(2);
 
-    this.afStorage.upload("/events/" + this.randomId, event.target.files[0]);
+    this.afStorage.upload("/drivers/" + this.randomId, event.target.files[0]);
   }
 
   form = new FormGroup({
     fname: new FormControl("", Validators.required),
     lname: new FormControl("", Validators.required),
-    nic: new FormControl("", Validators.required),
+    availble: new FormControl("true"),
+    nic: new FormControl("",[
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+      Validators.pattern("^[0-9]{9}[vV]*$")
+    ]),
     contactnum: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
@@ -50,9 +58,24 @@ export class AddDriversComponent implements OnInit {
   }
 
   onSubmit() {
+    this.downloadURL = this.afStorage
+      .ref("/drivers/" + this.randomId)
+      .getDownloadURL()
+      .subscribe(a => {
+        this.downloadURL = a;
+
+        //console.log(this.downloadURL);
+        //console.log(this.form.value);
+        this.form.value.pic = this.downloadURL;
+
+
+        //this.form.value['role']='driver';
+        //this.form.value['orderId']='0';
+        this.form.value.pic = this.downloadURL;
     this.driverManagementService.create(this.form.value);
     this.form.reset();
-  }
+  });
+}
 
   // onDelete(nic: String) {
   //   if(confirm("Are you sure to delete this record?")) {

@@ -37,21 +37,45 @@
             "
           />
         </div>
+
         <input
               type="text"
               nbInput
+              hidden
               fullWidth
-              placeholder="NIC"
-              formControlName="nic"
-              [placeholder]="
-                nic.touched && nic.invalid
-                  ? 'NIC Required'
-                  : 'NIC'
-              "
-              [status]="
-                nic.touched && nic.invalid ? 'danger' : 'primary'
-              "
+              placeholder=""
+              formControlName="availble"
+              value="true"
             />
+
+        <input
+            [status]="nic.touched && nic.invalid ? 'danger' : 'primary'"
+            formControlName="nic"
+            name="nic"
+            type="text"
+            nbInput
+            fullWidth
+            placeholder="NIC"
+          />
+          <div *ngIf="nic.touched && nic.invalid">
+            <div *ngIf="nic.errors.minlength || nic.errors.maxlength">
+              <div class="alert alert-danger">
+                Invalid format
+              </div>
+            </div>
+            <div *ngIf="nic.errors.pattern">
+              <div class="alert alert-danger">
+                Pattern doesnt match
+              </div>
+            </div>
+
+            <div *ngIf="nic.errors.required">
+              <div class="alert alert-danger">
+                NIC Required
+              </div>
+            </div>
+          </div>
+
             <input
             [status]="contactnum.touched && contactnum.invalid ? 'danger' : 'primary'"
             formControlName="contactnum"
@@ -59,7 +83,7 @@
             type="text"
             nbInput
             fullWidth
-            placeholder="0771234567"
+            placeholder="Contact Number"
           />
           <div *ngIf="contactnum.touched && contactnum.invalid">
             <div *ngIf="contactnum.errors.minlength || contactnum.errors.maxlength">
@@ -94,11 +118,13 @@
            address.touched && address.invalid ? 'danger' : 'primary'
           "
         />
+
         <input
+
           type="date"
           nbInput
           fullWidth
-          placeholder="Birthday"
+          placeholder="Date"
           formControlName="birthday"
           [placeholder]="
               birthday.touched && birthday.invalid

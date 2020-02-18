@@ -10,10 +10,13 @@ import { RequestVolunteersService } from '../request-volunteers.service';
 })
 export class ReqVolunteersComponent implements OnInit {
   requests: any[];
+  events: any[];
+  authors: any[];
+  drivers: any[];
 
   form = new FormGroup({
-    eventName: new FormControl("", Validators.required),
-    authorName: new FormControl("", Validators.required),
+    eventName: new FormControl(""),      //not required
+    authorName: new FormControl(""),     //not required
     noOfVolunteers: new FormControl("", Validators.required),
     pickLoc: new FormControl("", Validators.required),
     time: new FormControl("", Validators.required),
@@ -26,7 +29,7 @@ export class ReqVolunteersComponent implements OnInit {
       Validators.pattern("^[0-9]*$")
     ]),
     description: new FormControl("", Validators.required),
-    task: new FormControl("volunteersRequestToAuthorAccompany"),
+    task: new FormControl("volunteersRequest"),
     requestedBy: new FormControl("Transpotation Coordinator"),
     status:new FormControl("Todo"),
 
@@ -36,6 +39,34 @@ export class ReqVolunteersComponent implements OnInit {
     requestVolunteersService.getAll().subscribe(request => {
       this.requests = request;
     });
+
+  }
+
+  dropdownEvents(){
+    this.requestVolunteersService.getAllEvents().subscribe(events =>{
+      this.events = events;
+      this.events.push();
+
+    });
+
+  }
+
+  dropdownAuthors(){
+    this.requestVolunteersService.getAllAuthors().subscribe(authors =>{
+      this.authors = authors;
+      this.authors.push();
+
+    });
+
+  }
+
+  dropdownFreeDrivers(){
+    this.requestVolunteersService.getFreeDrivers().subscribe(drivers =>{
+      this.drivers = drivers;
+      this.authors.push();
+
+    });
+
   }
 
   onSubmit() {
@@ -81,6 +112,10 @@ export class ReqVolunteersComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.dropdownEvents();
+    this.dropdownAuthors();
+    this.dropdownFreeDrivers();
 
   }
 

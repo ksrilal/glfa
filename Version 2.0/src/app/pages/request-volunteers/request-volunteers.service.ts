@@ -45,4 +45,16 @@ export class RequestVolunteersService {
     return this.afs.collection('tasks').valueChanges();
 
   }
+
+  getAllEvents(){
+    return this.afs.collection('events').valueChanges();
+  }
+
+  getAllAuthors(){
+    return this.afs.collection('authors').valueChanges();
+  }
+
+  getFreeDrivers(){
+    return this.afs.collection('drivers',ref=>ref.where('availble','==',true)).valueChanges();
+  }
 }
