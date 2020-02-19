@@ -58,7 +58,10 @@ export class RedeemTicketPageComponent implements OnInit {
         console.log(result);
         this.orderDetails = [];
         result.forEach(a => {
-          a["totalPrice"] = a["price"] * a["quantity"];
+          a["totalPrice"] = a['ticket']["price"] * a["quantity"];
+          a['price']=a['ticket']["price"];
+          a["author"] = a["ticket"]["author"];
+          a["event"] = a["ticket"]["name"];
           this.orderDetails.push(a);
 
           this.data.push({ data: a });
