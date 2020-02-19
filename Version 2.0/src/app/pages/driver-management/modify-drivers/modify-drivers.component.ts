@@ -27,16 +27,16 @@ export class ModifyDriversComponent implements OnInit {
       confirmDelete: true
     },
     columns: {
-      nic: {
-        title: "NIC",
-        type: "string"
-      },
       fname: {
         title: "First Name",
         type: "string"
       },
       lname: {
         title: "Last Name",
+        type: "string"
+      },
+      contactnum: {
+        title: "Contact Num",
         type: "string"
       },
       vehbrand: {

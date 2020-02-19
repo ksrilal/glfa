@@ -7,7 +7,7 @@
       <nb-card-header>Request Volunteers</nb-card-header>
       <nb-card-body>
 
-        <input
+        <!-- <input
               type="text"
               nbInput
               fullWidth
@@ -21,7 +21,32 @@
               [status]="
                 eventName.touched && eventName.invalid ? 'danger' : 'primary'
               "
-            />
+            /> -->
+            <label>
+              Event Name
+            </label>
+            <select required type="text"
+            class = "form-control"
+            name = "eventName"
+            formControlName="eventName"
+            placeholder="Event Name"
+
+             >
+             <option *ngFor="let events of events" >
+               {{events.name}}
+
+             </option>
+
+            </select>
+
+
+            <!-- <div *ngIf="eventName.errors.required">
+              <div class="alert alert-danger">
+                Event Name Required
+              </div>
+            </div> -->
+
+
             <input
               type="text"
               nbInput
@@ -31,6 +56,7 @@
               formControlName="task"
               value="VolunteersRequesToAuthorAccompany"
             />
+
             <input
               type="text"
               nbInput
@@ -40,6 +66,7 @@
               formControlName="requestedBy"
               value="Transpotation Coordinator"
             />
+
             <input
               type="text"
               nbInput
@@ -50,7 +77,7 @@
               value="Todo"
             />
 
-            <input
+            <!-- <input
             type="text"
             nbInput
             fullWidth
@@ -64,7 +91,25 @@
             [status]="
               authorName.touched && authorName.invalid ? 'danger' : 'primary'
             "
-          />
+          /> -->
+          <label>
+            Author Name
+          </label>
+
+          <select required type="text"
+            class = "form-control"
+            name = "authorName"
+            formControlName="authorName"
+            placeholder="Author Name"
+
+             >
+             <option *ngFor="let authors of authors" >
+               {{authors.name}} {{authors.lname}}
+
+             </option>
+
+            </select>
+
           <input
           type="text"
           nbInput
@@ -99,12 +144,12 @@
             type="text"
             nbInput
             fullWidth
-            placeholder="Pickup Time"
+            placeholder="Pickup Time in 24 Hour Clock"
             formControlName="time"
             [placeholder]="
                  time.touched && time.invalid
                 ? 'Pickup Time Required'
-                : 'Pickup Time'
+                : 'Pickup Time in 24 Hour Clock'
             "
             [status]="
                 time.touched && time.invalid ? 'danger' : 'primary'
@@ -125,7 +170,7 @@
               dropLoc.touched && dropLoc.invalid ? 'danger' : 'primary'
           "
         />
-        <input
+        <!-- <input
           type="text"
           nbInput
           fullWidth
@@ -139,7 +184,26 @@
           [status]="
               vehNum.touched && vehNum.invalid ? 'danger' : 'primary'
           "
-        />
+        /> -->
+
+        <label>
+          Vehicle Number
+        </label>
+
+        <select required type="text"
+          class = "form-control"
+          name = "vehNum"
+          formControlName="vehNum"
+          placeholder="Vehicle Number"
+
+           >
+           <option *ngFor="let drivers of drivers" >
+             {{drivers.vehnum}} {{drivers.vehbrand}} {{drivers.vehmodel}}
+
+           </option>
+
+          </select>
+
         <input
             [status]="driverContact.touched && driverContact.invalid ? 'danger' : 'primary'"
             formControlName="driverContact"
@@ -167,6 +231,7 @@
               </div>
             </div>
           </div>
+
 
         <input
           type="text"
@@ -197,6 +262,19 @@
       </nb-card-body>
     </nb-card>
     </form>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <nb-card class="list-card">
+      <nb-card-header>Previously Assigned Events</nb-card-header>
+      <nb-card-body>
+        <nb-list>
+          <nb-list-item *ngFor="let requests of requests">
+            {{requests.eventName}}
+          </nb-list-item>
+        </nb-list>
+      </nb-card-body>
+    </nb-card>
   </div>
 
 

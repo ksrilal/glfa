@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { create } from 'domain';
- 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +33,8 @@ export class DriverManagementService {
     edit(id,newData){
       this.afs.collection('drivers').doc(id).update(newData);
     }
+
+  
 
    }
 
